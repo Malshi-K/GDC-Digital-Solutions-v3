@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   FaTrafficLight,
   FaUserCheck,
@@ -9,9 +9,33 @@ import {
   FaMoneyBillWave,
   FaArrowUp,
 } from "react-icons/fa";
-import { motion } from "framer-motion";
 
 const ObjectivesSection = () => {
+  const [isInView, setIsInView] = useState(false);
+  const sectionRef = useRef(null);
+
+  // Detect when section is in viewport
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   const objectives = [
     {
       icon: <FaTrafficLight size={40} className="text-customGray" />,
@@ -67,81 +91,52 @@ const ObjectivesSection = () => {
     },
   ];
 
-  // Animation variants for Framer Motion
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0 },
-  };
-
-  const textVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
-  };
-
   return (
-    <section className="py-12 px-4 md:px-20 bg-gray-100">
-      <motion.div
-        className="max-w-7xl mx-auto text-center"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.2 }}
-        variants={containerVariants}
-      >
+    <section className="py-12 px-4 md:px-20 bg-gray-100" ref={sectionRef}>
+      <div className="max-w-7xl mx-auto text-center">
         {/* Section Title */}
-        <motion.h2
-          className="text-customYellow text-3xl md:text-4xl font-bold text-center mb-10 flex flex-wrap justify-center"
-          variants={textVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false }}
-        >
+        <h2 className="text-customYellow text-3xl md:text-4xl font-bold text-center mb-10 flex flex-wrap justify-center">
           {"OBJECTIVES".split("").map((letter, index) => (
-            <motion.span
+            <span
               key={index}
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0 },
+              className="inline-block transition-all duration-300 ease-out"
+              style={{
+                opacity: isInView ? 1 : 0,
+                transform: isInView ? 'translateY(0)' : 'translateY(20px)',
+                transitionDelay: `${index * 100}ms`
               }}
-              transition={{ duration: 0.1, delay: index * 0.1 }}
             >
               {letter}
-            </motion.span>
+            </span>
           ))}
-        </motion.h2>
+        </h2>
 
         {/* Introduction Paragraph */}
-        <motion.p
-          className="text-gray-700 mb-10 leading-relaxed max-w-4xl mx-auto"
-          variants={textVariants}
-          transition={{ duration: 0.6, delay: 0.2 }}
+        <p
+          className={`text-gray-700 mb-10 leading-relaxed max-w-4xl mx-auto transition-all duration-600 ease-out ${
+            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+          style={{ transitionDelay: "0.2s" }}
         >
           GDC Consultants aimed to expand its reach by attracting more potential
           clients to its website through both organic search results and
           targeted Google Ads campaigns. In the fast-paced engineering
           consultancy space, clients often need quick solutions, whether for
           architectural design, civil engineering, or project management.
-        </motion.p>
+        </p>
 
         {/* Objectives Grid */}
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10"
-          variants={containerVariants}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
           {objectives.map((objective, index) => (
-            <motion.div
+            <div
               key={index}
               className={`flex flex-col items-center p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 ${objective.bgColor}`}
-              variants={itemVariants}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
+              style={{
+                opacity: isInView ? 1 : 0,
+                transform: isInView ? 'translateY(0)' : 'translateY(50px)',
+                transition: 'opacity 0.6s ease-out, transform 0.6s ease-out',
+                transitionDelay: `${0.4 + index * 0.2}s`
+              }}
             >
               <div className="bg-white p-4 rounded-full mb-4">
                 {objective.icon}
@@ -164,40 +159,43 @@ const ObjectivesSection = () => {
               >
                 {objective.description}
               </p>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Primary Goal */}
-        <motion.p
-          className="text-gray-700 mb-8 leading-relaxed max-w-4xl mx-auto"
-          variants={textVariants}
-          transition={{ duration: 0.6, delay: 0.2 }}
+        <p
+          className={`text-gray-700 mb-8 leading-relaxed max-w-4xl mx-auto transition-all duration-600 ease-out ${
+            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+          style={{ transitionDelay: "1.2s" }}
         >
           The primary goal of GDC Consultant&apos;s Google Ads campaigns was to
           increase website traffic, improve lead generation through search and
           display ads, and ensure that every advertising dollar spent resulted
           in meaningful customer interactions.
-        </motion.p>
+        </p>
 
         {/* Key Objectives Grid */}
-        <motion.h2
-          className="text-3xl font-bold text-customGray mb-6"
-          variants={textVariants}
-          transition={{ duration: 0.6 }}
+        <h2
+          className={`text-3xl font-bold text-customGray mb-6 transition-all duration-600 ease-out ${
+            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+          style={{ transitionDelay: "1.4s" }}
         >
           Key Objectives
-        </motion.h2>
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10"
-          variants={containerVariants}
-        >
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
           {keyObjectives.map((keyObj, index) => (
-            <motion.div
+            <div
               key={index}
               className={`flex flex-col items-center p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 ${keyObj.bgColor}`}
-              variants={itemVariants}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
+              style={{
+                opacity: isInView ? 1 : 0,
+                transform: isInView ? 'translateY(0)' : 'translateY(50px)',
+                transition: 'opacity 0.6s ease-out, transform 0.6s ease-out',
+                transitionDelay: `${1.6 + index * 0.2}s`
+              }}
             >
               <div className="bg-white p-4 rounded-full mb-4">
                 {keyObj.icon}
@@ -220,10 +218,10 @@ const ObjectivesSection = () => {
               >
                 {keyObj.description}
               </p>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   );
 };

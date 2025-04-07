@@ -1,9 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
 import {
   FaSearch,
-  FaSitemap,
   FaPencilAlt,
   FaLaptopCode,
   FaBug,
@@ -13,6 +12,29 @@ import {
 } from "react-icons/fa";
 
 export default function AppProcessFlow() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  // Set up intersection observer to detect when the section is in view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.2 } // 20% of the element must be visible
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   // Steps array for the website-building process
   const steps = [
     {
@@ -54,14 +76,13 @@ export default function AppProcessFlow() {
   ];
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-gray-50" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}
-        <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+        <div
+          className={`text-center mb-12 transition-opacity duration-1000 ${
+            isVisible ? "opacity-100" : "opacity-0"
+          }`}
         >
           <h2 className="text-3xl font-bold text-customGray">
             A Snapshot of the Process We Use for Building Websites
@@ -69,19 +90,20 @@ export default function AppProcessFlow() {
           <p className="text-gray-600 mt-4">
             We follow a structured approach to deliver high-quality websites.
           </p>
-        </motion.div>
+        </div>
 
         {/* Process Flow */}
-        <div className="flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0 md:space-x-8 relative">
+        <div className="flex flex-wrap md:flex-row justify-between items-start space-y-8 md:space-y-0 md:space-x-4 relative">
           {steps.map((step, index) => (
             <div key={index} className="flex items-center space-x-4">
-              {/* Step Animation */}
-              <motion.div
-                className="flex flex-col items-center text-center max-w-xs"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.2 }}
-                transition={{ delay: index * 0.5, duration: 0.8 }}
+              {/* Step with Animation */}
+              <div
+                className={`flex flex-col items-center text-center max-w-xs transition-all transform duration-800 ${
+                  isVisible 
+                    ? "opacity-100 translate-y-0" 
+                    : "opacity-0 translate-y-12"
+                }`}
+                style={{ transitionDelay: `${index * 500}ms` }}
               >
                 {/* Icon */}
                 {step.icon}
@@ -93,19 +115,18 @@ export default function AppProcessFlow() {
 
                 {/* Step Description */}
                 <p className="text-gray-600">{step.description}</p>
-              </motion.div>
+              </div>
 
               {/* Arrow Between Steps */}
               {index < steps.length - 1 && (
-                <motion.div
-                  className="hidden md:flex items-center justify-center"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: false, amount: 0.2 }}
-                  transition={{ delay: index * 0.5 + 0.5, duration: 0.5 }}
+                <div
+                  className={`hidden md:flex items-center justify-center transition-opacity duration-500 ${
+                    isVisible ? "opacity-100" : "opacity-0"
+                  }`}
+                  style={{ transitionDelay: `${index * 500 + 500}ms` }}
                 >
                   <FaArrowRight className="text-gray-400 text-3xl" />
-                </motion.div>
+                </div>
               )}
             </div>
           ))}

@@ -2,7 +2,6 @@
 "use client";
 import React from "react";
 import Slider from "react-slick";
-import { motion } from "framer-motion"; // Importing Framer Motion for animations
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
@@ -57,31 +56,27 @@ export default function RecentProjects() {
 
 function ProjectCard({ project }) {
   return (
-    <motion.div
-      className="relative group overflow-hidden rounded-lg shadow-lg m-2 h-[380px]" // Same size for all cards
-      whileHover={{ scale: 1.05 }} // Add a subtle scaling effect on hover
-    >
+    <div className="relative group overflow-hidden rounded-lg shadow-lg m-2 h-[380px] transition-transform duration-300 ease-out hover:scale-105">
       {/* Background Image */}
       <Image
         src={project.image}
         alt={project.title}
-        layout="fill" // This ensures the image fills the container
-        objectFit="cover" // Similar to 'object-cover' in CSS
-        className="rounded-lg" // Keep your rounded class here
+        layout="fill"
+        objectFit="cover"
+        className="rounded-lg"
       />
+      
       {/* Overlay Content - Appears on Hover */}
-      <motion.div
-        className="absolute bottom-4 left-4 right-4 p-4 bg-gradient-to-r from-customYellow to-customLightYellow text-white 
-        rounded-tl-[20px] rounded-br-[20px] shadow-lg w-lg h-[200px]" // Same overlay size for all cards
-        initial={{ y: 50, opacity: 0 }} // Start below and hidden
-        whileHover={{ y: 0, opacity: 1 }} // Animate to visible on hover
-        transition={{ duration: 0.4, ease: "easeOut" }} // Smooth transition effect
-      >
+      <div className="absolute bottom-4 left-4 right-4 p-4 bg-gradient-to-r from-customYellow to-customLightYellow text-white 
+        rounded-tl-[20px] rounded-br-[20px] shadow-lg w-lg h-[200px] 
+        transform translate-y-8 opacity-0 
+        transition-all duration-400 ease-out 
+        group-hover:translate-y-0 group-hover:opacity-100">
         <div className="absolute bottom-4 right-4 text-right">
           <h4 className="text-xl font-semibold">{project.title}</h4>
           <p className="text-base">{project.description}</p>
         </div>
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 }

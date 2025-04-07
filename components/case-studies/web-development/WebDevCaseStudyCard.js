@@ -1,5 +1,4 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 
@@ -12,37 +11,61 @@ const WebDevCaseStudyCard = ({
   caseStudyPath,
 }) => {
   const router = useRouter();
+  const [isVisible, setIsVisible] = useState(false);
+  const cardRef = useRef(null);
+
+  useEffect(() => {
+    // Set initial animation on mount
+    setIsVisible(true);
+
+    // Setup intersection observer for when scrolling into view
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => {
+      if (cardRef.current) {
+        observer.unobserve(cardRef.current);
+      }
+    };
+  }, []);
 
   const handleButtonClick = () => {
-    router.push(caseStudyPath); // This path can be different for each service case study
+    router.push(caseStudyPath);
   };
 
   return (
-    <motion.div
-      className="py-16 flex justify-center items-center"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
+    <div 
+      ref={cardRef}
+      className={`py-16 flex justify-center items-center transition-opacity duration-1000 ${
+        isVisible ? "opacity-100" : "opacity-0"
+      }`}
     >
-      <motion.div
-        className="container max-w-6xl mx-auto border border-customYellow rounded-xl shadow-xl p-10 flex flex-col md:flex-row items-center md:gap-x-10 relative"
+      <div
+        className="container max-w-6xl mx-auto border border-customYellow rounded-xl shadow-xl p-10 flex flex-col md:flex-row items-center md:gap-x-10 relative transition-all duration-500 hover:scale-105 hover:shadow-2xl"
         style={{
           backgroundImage: "url(/assets/images/google-ads-bg.webp)",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
-        whileHover={{
-          scale: 1.05,
-          boxShadow: "0px 8px 20px rgba(0, 0, 0, 0.15)",
-        }}
-        transition={{ duration: 0.5 }}
       >
         {/* Left Content with Width Adjustment */}
-        <motion.div
-          className="flex-1 md:pr-8 mb-6 md:mb-0 z-10 max-w-md" // Set max width here
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
+        <div
+          className={`flex-1 md:pr-8 mb-6 md:mb-0 z-10 max-w-md transform transition-all duration-800 ${
+            isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"
+          }`}
+          style={{ transitionDelay: "200ms" }}
         >
           <h2 className="text-3xl font-bold text-gray-800 mb-2">{heading}</h2>
           <p className="text-7xl font-extrabold text-customYellow mb-4">
@@ -51,32 +74,31 @@ const WebDevCaseStudyCard = ({
           <p className="text-lg font-medium text-gray-700 mb-6">
             {description}
           </p>
-          <motion.button
-            className="text-customYellow hover:text-white border border-customYellow hover:bg-customGray hover:border-none rounded-full px-8 py-3 font-semibold transition duration-300"
-            whileHover={{ scale: 1.1 }}
+          <button
+            className="text-customYellow hover:text-white border border-customYellow hover:bg-customGray hover:border-none rounded-full px-8 py-3 font-semibold transition-all duration-300 hover:scale-110 transform"
             onClick={handleButtonClick}
           >
             {buttonLabel}
-          </motion.button>
-        </motion.div>
+          </button>
+        </div>
 
         {/* Right Image Section */}
-        <motion.div
-          className="flex-1"
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
+        <div
+          className={`flex-1 transform transition-all duration-800 ${
+            isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12"
+          }`}
+          style={{ transitionDelay: "400ms" }}
         >
           <Image
             src={imagePath}
-            // alt={${heading} Success Screenshot}
+            alt={`${heading} Success Screenshot`}
             width={400}
             height={400}
-            className="w-full max-w-[400px] mx-auto transform hover:scale-105 transition duration-300"
+            className="w-full max-w-[400px] mx-auto transform transition-transform duration-300 hover:scale-105"
           />
-        </motion.div>
-      </motion.div>
-    </motion.div>
+        </div>
+      </div>
+    </div>
   );
 };
 

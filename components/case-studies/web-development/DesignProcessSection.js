@@ -1,6 +1,5 @@
 "use client";
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState, useEffect, useRef } from "react";
 import { 
   FaSearch, 
   FaSitemap, 
@@ -33,30 +32,57 @@ const DesignProcessSection = ({ data }) => {
   if (!data || !data.steps || data.steps.length === 0) {
     return null;
   }
+  
+  const [isHeaderVisible, setIsHeaderVisible] = useState(false);
+  const [isContentVisible, setIsContentVisible] = useState(false);
+  const headerRef = useRef(null);
+  const contentRef = useRef(null);
 
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.2,
+  useEffect(() => {
+    const headerObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsHeaderVisible(true);
+        }
       },
-    },
-  };
+      { threshold: 0.2 }
+    );
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0 },
-  };
+    const contentObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsContentVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (headerRef.current) {
+      headerObserver.observe(headerRef.current);
+    }
+
+    if (contentRef.current) {
+      contentObserver.observe(contentRef.current);
+    }
+
+    return () => {
+      if (headerRef.current) {
+        headerObserver.unobserve(headerRef.current);
+      }
+      if (contentRef.current) {
+        contentObserver.unobserve(contentRef.current);
+      }
+    };
+  }, []);
 
   return (
     <section className="py-20 px-4 md:px-8 bg-gray-50">
       <div className="container mx-auto">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: false, amount: 0.2 }}
+        <div 
+          ref={headerRef}
+          className={`text-center mb-16 transform transition-all duration-500 ${
+            isHeaderVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+          }`}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-customYellow mb-6">
             Our Design Process
@@ -66,25 +92,25 @@ const DesignProcessSection = ({ data }) => {
               {data.introduction}
             </p>
           )}
-        </motion.div>
+        </div>
 
-        <motion.div
+        <div
+          ref={contentRef}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.1 }}
         >
           {data.steps.map((step, index) => {
             // Get the icon component or default to FaLightbulb
             const IconComponent = iconComponents[step.icon] || FaLightbulb;
             
             return (
-              <motion.div
+              <div
                 key={index}
-                className="bg-white rounded-lg shadow-md p-8 flex flex-col items-start hover:shadow-lg transition-shadow duration-300"
-                variants={itemVariants}
-                transition={{ duration: 0.5 }}
+                className={`bg-white rounded-lg shadow-md p-8 flex flex-col items-start hover:shadow-lg transition-all duration-500 transform ${
+                  isContentVisible 
+                    ? "opacity-100 translate-y-0" 
+                    : "opacity-0 translate-y-8"
+                }`}
+                style={{ transitionDelay: `${index * 200}ms` }}
               >
                 <div className="flex items-center justify-between w-full mb-4">
                   <span className="text-4xl font-bold text-customYellow opacity-30">
@@ -100,10 +126,10 @@ const DesignProcessSection = ({ data }) => {
                 <p className="text-gray-600 text-sm">
                   {step.description}
                 </p>
-              </motion.div>
+              </div>
             );
           })}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

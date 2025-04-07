@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
 import {
   FaSearch,
   FaPencilAlt,
@@ -15,7 +15,65 @@ import {
 } from "react-icons/fa"; // Icons for each step
 
 export default function GoogleAdsProcessFlow() {
-  // Steps array for the website-building process
+  // State to track visible elements
+  const [titleVisible, setTitleVisible] = useState(false);
+  const [visibleSteps, setVisibleSteps] = useState(new Set());
+  const sectionRef = useRef(null);
+  const stepsRef = useRef([]);
+
+  // Setup intersection observer for the title
+  useEffect(() => {
+    const titleObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTitleVisible(true);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    const titleElement = document.getElementById('process-title');
+    if (titleElement) {
+      titleObserver.observe(titleElement);
+    }
+
+    return () => {
+      if (titleElement) {
+        titleObserver.unobserve(titleElement);
+      }
+    };
+  }, []);
+
+  // Setup intersection observer for each step
+  useEffect(() => {
+    const stepObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const stepIndex = parseInt(entry.target.dataset.step);
+            setVisibleSteps(prev => new Set([...prev, stepIndex]));
+          }
+        });
+      },
+      { threshold: 0.2, rootMargin: "0px 0px -10% 0px" }
+    );
+
+    stepsRef.current.forEach(step => {
+      if (step) {
+        stepObserver.observe(step);
+      }
+    });
+
+    return () => {
+      stepsRef.current.forEach(step => {
+        if (step) {
+          stepObserver.unobserve(step);
+        }
+      });
+    };
+  }, []);
+
+  // Steps array for the Google Ads process
   const steps = [
     {
       icon: <FaSearch className="text-customYellow text-4xl mb-4" />,
@@ -74,14 +132,14 @@ export default function GoogleAdsProcessFlow() {
   ];
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-gray-50" ref={sectionRef}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}
-        <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+        <div
+          id="process-title"
+          className={`text-center mb-12 transition-opacity duration-1000 ease-out ${
+            titleVisible ? "opacity-100" : "opacity-0"
+          }`}
         >
           <h2 className="text-3xl font-bold text-customGray">
             A Snapshot of the Process We Use for Creating Google Ads
@@ -89,18 +147,19 @@ export default function GoogleAdsProcessFlow() {
           <p className="text-gray-600 mt-4">
             We follow a structured approach to deliver high-quality campaigns.
           </p>
-        </motion.div>
+        </div>
 
         {/* Process Flow Vertical Layout */}
         <div className="flex flex-col space-y-12 relative">
           {steps.map((step, index) => (
-            <motion.div
+            <div
               key={index}
-              className="flex flex-col items-center text-center max-w-md mx-auto"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ delay: index * 0.3, duration: 0.8 }}
+              ref={el => stepsRef.current[index] = el}
+              data-step={index}
+              className={`flex flex-col items-center text-center max-w-md mx-auto transform transition-all duration-800 ease-out ${
+                visibleSteps.has(index) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+              }`}
+              style={{ transitionDelay: `${index * 300}ms` }}
             >
               {/* Icon */}
               {step.icon}
@@ -112,19 +171,19 @@ export default function GoogleAdsProcessFlow() {
 
               {/* Step Description */}
               <p className="text-gray-600">{step.description}</p>
+
               {/* Arrow Between Steps */}
               {index < steps.length - 1 && (
-                <motion.div
-                  className="hidden md:flex items-center justify-center"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: false, amount: 0.2 }}
-                  transition={{ delay: index * 0.5 + 0.5, duration: 0.5 }}
+                <div
+                  className={`hidden md:block mt-8 transition-opacity duration-500 ease-out ${
+                    visibleSteps.has(index) ? "opacity-100" : "opacity-0"
+                  }`}
+                  style={{ transitionDelay: `${index * 500 + 500}ms` }}
                 >
                   <FaArrowDown className="text-gray-400 text-3xl" />
-                </motion.div>
+                </div>
               )}
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

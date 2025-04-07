@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   FaUsers,
   FaGlobe,
@@ -13,7 +13,6 @@ import {
   FaCompass,
   FaImage,
 } from "react-icons/fa";
-import { motion } from "framer-motion";
 import { SiNextdotjs, SiHubspot, SiGithub, SiNetlify } from "react-icons/si";
 
 // Icon mapping for dynamic rendering
@@ -36,96 +35,95 @@ const iconMap = {
 };
 
 const OurApproachSection = ({ data }) => {
-  // Animation variants for Framer Motion
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.2,
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
       },
-    },
-  };
+      { threshold: 0.2 }
+    );
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0 },
-  };
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
 
-  const textVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
-  };
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   return (
-    <section className="py-12 px-4 md:px-20 bg-gray-100">
-      <motion.div
-        className="max-w-7xl mx-auto text-center"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.2 }}
-        variants={containerVariants}
-      >
-        <motion.h2
-          className="text-customYellow text-3xl md:text-4xl font-bold text-center mb-10 flex flex-wrap justify-center"
-          variants={textVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.2 }}
-        >
-          <span className="ml-2 text-customGray">OUR&nbsp;</span>
+    <section className="py-12 px-4 md:px-20 bg-gray-100" ref={sectionRef}>
+      <div className="max-w-7xl mx-auto text-center">
+        <h2 className="text-customYellow text-3xl md:text-4xl font-bold text-center mb-10 flex flex-wrap justify-center">
+          <span 
+            className={`ml-2 text-customGray transition-opacity duration-500 ${
+              isVisible ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            OUR&nbsp;
+          </span>
           {"APPROACH".split("").map((letter, index) => (
-            <motion.span
+            <span
               key={`approach-${index}`}
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              transition={{ duration: 0.1, delay: index * 0.1 }}
+              className={`transform transition-all duration-300 ${
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-5"
+              }`}
+              style={{ transitionDelay: `${index * 100}ms` }}
             >
               {letter}
-            </motion.span>
+            </span>
           ))}
-          <motion.span
-            className="mx-1"
-            variants={{
-              hidden: { opacity: 0 },
-              visible: { opacity: 1 },
-            }}
-            transition={{ duration: 0.1, delay: "APPROACH".length * 0.1 }}
+          <span
+            className={`mx-1 transition-opacity duration-300 ${
+              isVisible ? "opacity-100" : "opacity-0"
+            }`}
+            style={{ transitionDelay: `${8 * 100}ms` }}
           >
             &nbsp;
-          </motion.span>
-        </motion.h2>
+          </span>
+        </h2>
 
         {/* Introduction Paragraph */}
-        <motion.p
-          className="text-gray-700 mb-10 leading-relaxed max-w-4xl mx-auto"
-          variants={textVariants}
-          transition={{ duration: 0.6, delay: 0.2 }}
+        <p
+          className={`text-gray-700 mb-10 leading-relaxed max-w-4xl mx-auto transition-all duration-500 ${
+            isVisible ? "opacity-100" : "opacity-0"
+          }`}
+          style={{ transitionDelay: "200ms" }}
         >
           {data.introduction}
-        </motion.p>
+        </p>
 
         {/* Technical Overview Grid */}
-        <motion.h2
-          className="text-3xl font-bold text-customGray mb-6"
-          variants={textVariants}
-          transition={{ duration: 0.6 }}
+        <h2
+          className={`text-3xl font-bold text-customGray mb-6 transition-all duration-500 ${
+            isVisible ? "opacity-100" : "opacity-0"
+          }`}
+          style={{ transitionDelay: "300ms" }}
         >
           Technical Overview
-        </motion.h2>
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10"
-          variants={containerVariants}
-        >
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
           {data.technicalObjectives.map((objective, index) => {
             const IconComponent = iconMap[objective.icon];
             return (
-              <motion.div
+              <div
                 key={index}
-                className={`flex flex-col items-center p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 ${objective.bgColor}`}
-                variants={itemVariants}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+                className={`flex flex-col items-center p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500 transform ${objective.bgColor} ${
+                  isVisible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-12"
+                }`}
+                style={{ transitionDelay: `${400 + index * 200}ms` }}
               >
                 <div className="bg-white p-4 rounded-full mb-4">
                   {IconComponent && (
@@ -157,31 +155,34 @@ const OurApproachSection = ({ data }) => {
                 >
                   {objective.description}
                 </p>
-              </motion.div>
+              </div>
             );
           })}
-        </motion.div>
+        </div>
 
         {/* Design Overview Grid */}
-        <motion.h2
-          className="text-3xl font-bold text-customGray mb-6"
-          variants={textVariants}
-          transition={{ duration: 0.6 }}
+        <h2
+          className={`text-3xl font-bold text-customGray mb-6 transition-all duration-500 ${
+            isVisible ? "opacity-100" : "opacity-0"
+          }`}
+          style={{ transitionDelay: `${400 + data.technicalObjectives.length * 200 + 100}ms` }}
         >
           Design Overview
-        </motion.h2>
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10"
-          variants={containerVariants}
-        >
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
           {data.designObjectives.map((keyObj, index) => {
             const IconComponent = iconMap[keyObj.icon];
             return (
-              <motion.div
+              <div
                 key={index}
-                className={`flex flex-col items-center p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 ${keyObj.bgColor}`}
-                variants={itemVariants}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+                className={`flex flex-col items-center p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500 transform ${keyObj.bgColor} ${
+                  isVisible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-12"
+                }`}
+                style={{ 
+                  transitionDelay: `${400 + data.technicalObjectives.length * 200 + 200 + index * 200}ms` 
+                }}
               >
                 <div className="bg-white p-4 rounded-full mb-4">
                   {IconComponent && (
@@ -213,11 +214,11 @@ const OurApproachSection = ({ data }) => {
                 >
                   {keyObj.description}
                 </p>
-              </motion.div>
+              </div>
             );
           })}
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   );
 };

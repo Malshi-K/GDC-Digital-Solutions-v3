@@ -1,11 +1,11 @@
+"use client";
+import { useRef, useState, useEffect } from "react";
 import {
   FaUserCog,
   FaBullseye,
   FaChartLine,
   FaStore,
 } from "react-icons/fa"; // Importing relevant icons
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 
 // Data for the Facebook Ads benefits
 const benefitsData = [
@@ -36,48 +36,78 @@ const benefitsData = [
 ];
 
 export default function FacebookAdsBenefits() {
-  const [ref, inView] = useInView({
-    triggerOnce: false, // Animation will be activated every time the section is viewed
-    threshold: 0.2, // Animation will trigger when 20% of the element is visible
-  });
+  // State to track if section is in view
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  // Setup intersection observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        } else {
+          setIsVisible(false);
+        }
+      },
+      {
+        threshold: 0.2, // Animation will trigger when 20% of the element is visible
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
+  // Split "Facebook Ads" for letter animation
+  const titleText = "Facebook Ads";
+  const titleLetters = titleText.split("");
 
   return (
-    <section className="py-12" ref={ref}>
-      <motion.h2
-        className="text-3xl font-bold text-center text-customGray mb-10"
-        initial={{ opacity: 0 }}
-        animate={inView ? { opacity: 1 } : {}}
-        transition={{ duration: 1 }}
+    <section className="py-12" ref={sectionRef}>
+      <h2
+        className={`text-3xl font-bold text-center text-customGray mb-10 transition-opacity duration-1000 ${
+          isVisible ? "opacity-100" : "opacity-0"
+        }`}
       >
         {"Why Choose Our "}
-        {[..."Facebook Ads".split('')].map((letter, index) => ( letter === ' ' ? <span key={index} className="inline-block w-2" /> :
-          <motion.span
-            key={index}
-            className="text-customYellow inline-block"
-            initial={{ opacity: 0, y: -20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.05, delay: index * 0.05 }}
-          >
-            {letter}
-          </motion.span>
+        {titleLetters.map((letter, index) => (
+          letter === " " ? 
+            <span key={index} className="inline-block w-2" /> : 
+            <span
+              key={index}
+              className={`text-customYellow inline-block transform transition-all duration-500 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-5"
+              }`}
+              style={{ transitionDelay: `${index * 50}ms` }}
+            >
+              {letter}
+            </span>
         ))}
         {" Services"}
-      </motion.h2>
+      </h2>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Dynamically render the benefits */}
           {benefitsData.map((benefit, index) => (
-            <motion.div
+            <div
               key={index}
-              className="text-center text-customGray"
-              initial={{ opacity: 0, y: 50 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}} // Animate when in view
-              transition={{ duration: 0.6, delay: index * 0.2 }} // Stagger animations
+              className={`text-center text-customGray transform transition-all duration-600 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+              }`}
+              style={{ transitionDelay: `${index * 200}ms` }}
             >
               {benefit.icon}
               <h3 className="text-2xl font-bold mb-2">{benefit.title}</h3>
               <p className="text-gray-600">{benefit.description}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

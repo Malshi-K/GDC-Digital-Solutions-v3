@@ -1,9 +1,39 @@
 import { FaGlobe, FaChartLine, FaCode, FaLaptop } from "react-icons/fa"; // Importing the necessary icons
 import { Button } from "@/components/ui/button"; // Assuming you're using shadcn Button
 import { GiCheckMark } from "react-icons/gi";
-import { motion } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
 
 export default function Packages() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    // Initial animation on component mount
+    setIsVisible(true);
+
+    // Set up intersection observer for scroll animations
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      {
+        threshold: 0.2, // Trigger when 20% of the element is visible
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   // Package data array
   const packages = [
     {
@@ -75,14 +105,13 @@ export default function Packages() {
   ];
 
   return (
-    <section className="py-16">
+    <section className="py-16" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}
-        <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+        <div
+          className={`text-center mb-12 transition-opacity duration-1000 ease-out ${
+            isVisible ? "opacity-100" : "opacity-0"
+          }`}
         >
           <h2 className="text-3xl font-bold text-customGray">
             Find the{" "}
@@ -93,28 +122,21 @@ export default function Packages() {
             Join the thousands of businesses who trust our website development
             services to grow their online presence.
           </p>
-        </motion.div>
+        </div>
 
         {/* Packages Grid */}
-        <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: false, amount: 0.2 }}
-          transition={{ duration: 1, staggerChildren: 0.3 }}
+        <div
+          className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 transition-opacity duration-1000 ease-out ${
+            isVisible ? "opacity-100" : "opacity-0"
+          }`}
         >
           {packages.map((pkg, index) => (
-            <motion.div
+            <div
               key={index}
-              className="bg-white rounded-lg shadow-lg flex flex-col justify-between items-center cursor-pointer"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
-              whileHover={{
-                scale: 1.05,
-                boxShadow: "0px 8px 20px rgba(0, 0, 0, 0.15)",
-              }}
+              className={`bg-white rounded-lg shadow-lg flex flex-col justify-between items-center cursor-pointer
+                        transform transition-all duration-800 ease-out hover:scale-105 hover:shadow-xl
+                        ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
+              style={{ transitionDelay: `${index * 200}ms` }}
             >
               {/* Top Color Line */}
               <div className={`w-full h-2 ${pkg.lineColor} rounded-t-lg`} />
@@ -149,9 +171,9 @@ export default function Packages() {
                   {pkg.buttonText}
                 </Button>
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

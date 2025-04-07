@@ -1,8 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import {
   MapPinIcon,
@@ -17,12 +15,38 @@ import {
 } from "@heroicons/react/24/outline";
 
 const LocalBusinessTargeting = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: false,
-    threshold: 0.1,
-  });
-
   const [activeIndustry, setActiveIndustry] = useState("real-estate");
+  const [isVisible, setIsVisible] = useState(false);
+  const [tabsVisible, setTabsVisible] = useState(false);
+  const sectionRef = useRef(null);
+  
+  // Setup intersection observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          // Delay the tabs animation start
+          setTimeout(() => {
+            setTabsVisible(true);
+          }, 600);
+        }
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   // Industry-specific data
   const industries = [
@@ -70,50 +94,27 @@ const LocalBusinessTargeting = () => {
     }
   ];
 
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { 
-      opacity: 1,
-      transition: { 
-        staggerChildren: 0.2,
-        delayChildren: 0.3
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: { 
-      y: 0, 
-      opacity: 1,
-      transition: { duration: 0.5 }
-    }
-  };
-
   return (
-    <section className="py-16 bg-gray-50" ref={ref}>
+    <section className="py-16 bg-gray-50" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Header */}
-        <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: -20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+        <div 
+          className={`text-center mb-16 transform transition-all duration-600 ease-out ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-5"
+          }`}
         >
           <h2 className="text-3xl font-bold text-gray-900 mb-6 relative inline-block">
             Local Business Targeting in New Zealand
             <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 h-1 w-24 bg-customYellow"></span>
           </h2>
-        </motion.div>
+        </div>
 
         {/* Main Content - Introduction */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
-          <motion.div 
-            className="lg:col-span-7"
-            initial={{ opacity: 0, x: -30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7 }}
+          <div 
+            className={`lg:col-span-7 transform transition-all duration-700 ease-out ${
+              isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
+            }`}
           >
             <p className="text-gray-700 text-lg mb-6">
               We understand the needs of NZ entrepreneurs and local businesses, which is why we offer local business ads NZ designed to build relationships within your community. Whether you are a restaurant in Auckland or a real estate agent in Wellington, we create social media ads for businesses in NZ that deliver results.
@@ -144,13 +145,13 @@ const LocalBusinessTargeting = () => {
                 </li>
               </ul>
             </div>
-          </motion.div>
+          </div>
           
-          <motion.div 
-            className="lg:col-span-5"
-            initial={{ opacity: 0, x: 30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.2 }}
+          <div 
+            className={`lg:col-span-5 transform transition-all duration-700 ease-out ${
+              isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
+            }`}
+            style={{ transitionDelay: "200ms" }}
           >
             <div className="relative rounded-xl overflow-hidden shadow-lg h-full min-h-[320px]">
               <Image
@@ -168,34 +169,35 @@ const LocalBusinessTargeting = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Industry-Specific Section */}
-        <motion.div
-          className="mb-16"
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          variants={containerVariants}
-        >
-          <motion.h3 
-            className="text-2xl font-bold text-center text-gray-900 mb-10"
-            variants={itemVariants}
+        <div className="mb-16">
+          <h3 
+            className={`text-2xl font-bold text-center text-gray-900 mb-10 transition-all duration-500 ease-out transform ${
+              tabsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+            }`}
+            style={{ transitionDelay: "300ms" }}
           >
             Industry-Specific Facebook Ads
-          </motion.h3>
+          </h3>
           
-          <motion.p 
-            className="text-center text-gray-700 max-w-3xl mx-auto mb-12"
-            variants={itemVariants}
+          <p 
+            className={`text-center text-gray-700 max-w-3xl mx-auto mb-12 transition-all duration-500 ease-out transform ${
+              tabsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+            }`}
+            style={{ transitionDelay: "500ms" }}
           >
             We have experience working with businesses across a range of industries in New Zealand, offering tailored Facebook Ads NZ strategies that meet the unique needs of each sector.
-          </motion.p>
+          </p>
 
           {/* Industry Tabs */}
-          <motion.div 
-            className="flex flex-wrap justify-center gap-3 mb-10"
-            variants={itemVariants}
+          <div 
+            className={`flex flex-wrap justify-center gap-3 mb-10 transition-all duration-500 ease-out ${
+              tabsVisible ? "opacity-100" : "opacity-0"
+            }`}
+            style={{ transitionDelay: "700ms" }}
           >
             {industries.map((industry) => (
               <button
@@ -210,10 +212,15 @@ const LocalBusinessTargeting = () => {
                 {industry.title.split(" ")[0]}
               </button>
             ))}
-          </motion.div>
+          </div>
 
           {/* Industry Content */}
-          <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+          <div 
+            className={`bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-500 ease-out transform ${
+              tabsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
+            style={{ transitionDelay: "900ms" }}
+          >
             {industries.map((industry) => (
               <div
                 key={industry.id}
@@ -271,7 +278,7 @@ const LocalBusinessTargeting = () => {
               </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

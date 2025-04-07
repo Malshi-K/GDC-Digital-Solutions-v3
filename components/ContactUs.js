@@ -109,10 +109,7 @@ const ContactUs = () => {
   };
 
   return (
-    <section
-      className="flex justify-center items-center min-h-screen p-6 relative bg-cover bg-center"
-      style={{ backgroundImage: "url('/assets/images/contact-bg.webp')" }}
-    >
+    <section className="flex justify-center items-center min-h-screen p-6 relative">
       <div id="move-down" className="py-20 w-full">
         <div className="bg-opacity-90 backdrop-blur-md rounded-lg shadow-xl p-8 w-full max-w-5xl mx-auto flex flex-col md:flex-row relative overflow-hidden">
           {/* Contact Info Section */}

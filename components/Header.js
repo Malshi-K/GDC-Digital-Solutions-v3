@@ -8,7 +8,6 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@heroicons/react/24/solid";
-import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
 const Header = () => {
@@ -113,7 +112,6 @@ const Header = () => {
         },
       ],
     },
-
     {
       name: "Case Studies",
       href: "/case-studies",
@@ -162,139 +160,125 @@ const Header = () => {
       </header>
 
       {/* Overlay when sidebar is open */}
-      <AnimatePresence>
-        {isSidebarOpen && (
-          <motion.div
-            className="fixed inset-0 bg-black bg-opacity-50 z-40"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-          />
-        )}
-      </AnimatePresence>
+      <div
+        className={`fixed inset-0 bg-black transition-opacity duration-300 z-40 ${
+          isSidebarOpen
+            ? "opacity-50 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
+        }`}
+      />
 
       {/* Sidebar */}
-      <AnimatePresence>
-        {isSidebarOpen && (
-          <motion.div
-            ref={sidebarRef}
-            className="fixed top-0 right-0 h-full w-[85%] sm:w-80 bg-customGray z-50 overflow-y-auto shadow-xl"
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ type: "tween", duration: 0.3 }}
+      <div
+        ref={sidebarRef}
+        className={`fixed top-0 right-0 h-full w-[85%] sm:w-80 bg-customGray z-50 overflow-y-auto shadow-xl transition-transform duration-300 ease-in-out ${
+          isSidebarOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="flex justify-between items-center p-4 sm:p-6 border-b border-customGray">
+          <button
+            onClick={toggleSidebar}
+            className="text-white hover:text-customYellow focus:outline-none"
+            aria-label="Close menu"
           >
-            <div className="flex justify-between items-center p-4 sm:p-6 border-b border-customGray">
-              <button
-                onClick={toggleSidebar}
-                className="text-white hover:text-customYellow focus:outline-none"
-                aria-label="Close menu"
-              >
-                <XMarkIcon className="w-5 h-5 sm:w-6 sm:h-6" />
-              </button>
-            </div>
+            <XMarkIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+          </button>
+        </div>
 
-            <nav className="p-4 sm:p-6">
-              <ul className="space-y-4 sm:space-y-6">
-                {navItems.map((item, index) => (
-                  <li key={item.name} className="py-1">
-                    {item.hasDropdown ? (
-                      <div className="space-y-2 sm:space-y-3">
-                        <div className="flex items-center justify-between">
-                          <button
-                            onClick={() => toggleDropdown(index)}
-                            className={`text-left text-base sm:text-lg ${
-                              pathname === item.href ||
-                              pathname.startsWith(item.href + "/")
-                                ? "text-customYellow font-medium"
-                                : "text-white"
-                            } hover:text-customYellow transition-colors`}
-                          >
-                            {item.name}
-                          </button>
-                          <button
-                            onClick={() => toggleDropdown(index)}
-                            className="text-white hover:text-customYellow focus:outline-none transition-transform duration-200"
-                            aria-expanded={expandedItems[index]}
-                          >
-                            {expandedItems[index] ? (
-                              <ChevronDownIcon className="w-4 h-4 sm:w-5 sm:h-5" />
-                            ) : (
-                              <ChevronRightIcon className="w-4 h-4 sm:w-5 sm:h-5" />
-                            )}
-                          </button>
-                        </div>
-
-                        <AnimatePresence>
-                          {expandedItems[index] && (
-                            <motion.div
-                              initial={{ height: 0, opacity: 0 }}
-                              animate={{ height: "auto", opacity: 1 }}
-                              exit={{ height: 0, opacity: 0 }}
-                              transition={{ duration: 0.2 }}
-                              className="overflow-hidden"
-                            >
-                              <ul className="pl-3 sm:pl-4 pt-1 sm:pt-2 space-y-2 sm:space-y-3 border-l border-gray-700">
-                                {item.dropdownItems.map((dropdownItem) => (
-                                  <li key={dropdownItem.name}>
-                                    <Link
-                                      href={dropdownItem.href}
-                                      className={`block text-xs sm:text-sm ${
-                                        pathname === dropdownItem.href
-                                          ? "text-customYellow font-medium"
-                                          : "text-gray-300"
-                                      } hover:text-customYellow transition-colors`}
-                                    >
-                                      {dropdownItem.name}
-                                    </Link>
-                                  </li>
-                                ))}
-                              </ul>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </div>
-                    ) : (
-                      <Link
-                        href={item.href}
-                        className={`text-base sm:text-lg ${
-                          pathname === item.href
+        <nav className="p-4 sm:p-6">
+          <ul className="space-y-4 sm:space-y-6">
+            {navItems.map((item, index) => (
+              <li key={item.name} className="py-1">
+                {item.hasDropdown ? (
+                  <div className="space-y-2 sm:space-y-3">
+                    <div className="flex items-center justify-between">
+                      <button
+                        onClick={() => toggleDropdown(index)}
+                        className={`text-left text-base sm:text-lg ${
+                          pathname === item.href ||
+                          pathname.startsWith(item.href + "/")
                             ? "text-customYellow font-medium"
                             : "text-white"
                         } hover:text-customYellow transition-colors`}
                       >
                         {item.name}
-                      </Link>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </nav>
+                      </button>
+                      <button
+                        onClick={() => toggleDropdown(index)}
+                        className="text-white hover:text-customYellow focus:outline-none transition-transform duration-200"
+                        aria-expanded={expandedItems[index]}
+                      >
+                        {expandedItems[index] ? (
+                          <ChevronDownIcon className="w-4 h-4 sm:w-5 sm:h-5" />
+                        ) : (
+                          <ChevronRightIcon className="w-4 h-4 sm:w-5 sm:h-5" />
+                        )}
+                      </button>
+                    </div>
 
-            {/* Social Links or Additional Info */}
-            <div className="p-4 sm:p-6 border-t border-gray-700 mt-4 sm:mt-6">
-              <div className="mb-4">
-                <p className="text-gray-400 text-base sm:text-lg mb-1 sm:mb-2 font-normal">
-                  Contact Us
-                </p>
-                <a
-                  href="mailto:digital@gdcgroup.co.nz"
-                  className="block text-white text-base sm:text-lg font-normal hover:text-customYellow transition-colors mb-1"
-                >
-                  digital@gdcgroup.co.nz
-                </a>
-                <a
-                  href="tel:+64212463988"
-                  className="block text-white text-base sm:text-lg font-normal hover:text-customYellow transition-colors"
-                >
-                  (+64) 21 246 3988
-                </a>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+                    <div
+                      className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                        expandedItems[index]
+                          ? "max-h-96 opacity-100"
+                          : "max-h-0 opacity-0"
+                      }`}
+                    >
+                      <ul className="pl-3 sm:pl-4 pt-1 sm:pt-2 space-y-2 sm:space-y-3 border-l border-gray-700">
+                        {item.dropdownItems.map((dropdownItem) => (
+                          <li key={dropdownItem.name}>
+                            <Link
+                              href={dropdownItem.href}
+                              className={`block text-xs sm:text-sm ${
+                                pathname === dropdownItem.href
+                                  ? "text-customYellow font-medium"
+                                  : "text-gray-300"
+                              } hover:text-customYellow transition-colors`}
+                            >
+                              {dropdownItem.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                ) : (
+                  <Link
+                    href={item.href}
+                    className={`text-base sm:text-lg ${
+                      pathname === item.href
+                        ? "text-customYellow font-medium"
+                        : "text-white"
+                    } hover:text-customYellow transition-colors`}
+                  >
+                    {item.name}
+                  </Link>
+                )}
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        {/* Social Links or Additional Info */}
+        <div className="p-4 sm:p-6 border-t border-gray-700 mt-4 sm:mt-6">
+          <div className="mb-4">
+            <p className="text-gray-400 text-base sm:text-lg mb-1 sm:mb-2 font-normal">
+              Contact Us
+            </p>
+            <a
+              href="mailto:digital@gdcgroup.co.nz"
+              className="block text-white text-base sm:text-lg font-normal hover:text-customYellow transition-colors mb-1"
+            >
+              digital@gdcgroup.co.nz
+            </a>
+            <a
+              href="tel:+64212463988"
+              className="block text-white text-base sm:text-lg font-normal hover:text-customYellow transition-colors"
+            >
+              (+64) 21 246 3988
+            </a>
+          </div>
+        </div>
+      </div>
     </>
   );
 };

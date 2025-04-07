@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
 import {
   FaLightbulb,
   FaUserFriends,
@@ -15,6 +15,41 @@ import {
 } from "react-icons/fa"; // Icons for each Facebook advertising service
 
 export default function FacebookAdsProcessFlow() {
+  // State to track which elements are in view
+  const [visibleItems, setVisibleItems] = useState(new Set());
+  const sectionRef = useRef(null);
+
+  // Function to check if elements are in viewport
+  const useElementOnScreen = (ref, threshold = 0.2) => {
+    useEffect(() => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              setVisibleItems(prev => new Set([...prev, entry.target.dataset.index]));
+            }
+          });
+        },
+        { threshold }
+      );
+
+      // Find all the elements with data-index attribute
+      const elements = sectionRef.current?.querySelectorAll('[data-index]');
+      if (elements) {
+        elements.forEach(el => observer.observe(el));
+      }
+
+      return () => {
+        if (elements) {
+          elements.forEach(el => observer.unobserve(el));
+        }
+      };
+    }, [threshold]);
+  };
+
+  // Apply the hook
+  useElementOnScreen(sectionRef);
+
   // Steps array for the Facebook advertising services
   const services = [
     {
@@ -70,14 +105,14 @@ export default function FacebookAdsProcessFlow() {
   ];
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-gray-50" ref={sectionRef}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}
-        <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+        <div
+          data-index="title"
+          className={`text-center mb-12 transition-opacity duration-1000 ease-out ${
+            visibleItems.has("title") ? "opacity-100" : "opacity-0"
+          }`}
         >
           <h2 className="text-3xl font-bold text-customGray">
             Our Facebook Advertising Services
@@ -85,18 +120,20 @@ export default function FacebookAdsProcessFlow() {
           <p className="text-gray-600 mt-4">
             Comprehensive solutions to boost your brand&apos;s presence on Facebook
           </p>
-        </motion.div>
+        </div>
 
         {/* Process Flow Vertical Layout */}
         <div className="flex flex-col space-y-16 relative">
           {services.map((service, index) => (
-            <motion.div
+            <div
               key={index}
-              className="flex flex-col items-center text-center max-w-md mx-auto"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ delay: index * 0.3, duration: 0.8 }}
+              data-index={`service-${index}`}
+              className={`flex flex-col items-center text-center max-w-md mx-auto transform transition-all duration-800 ease-out ${
+                visibleItems.has(`service-${index}`) 
+                  ? "opacity-100 translate-y-0" 
+                  : "opacity-0 translate-y-12"
+              }`}
+              style={{ transitionDelay: `${index * 300}ms` }}
             >
               {/* Icon */}
               {service.icon}
@@ -123,17 +160,17 @@ export default function FacebookAdsProcessFlow() {
               
               {/* Arrow Between Services */}
               {index < services.length - 1 && (
-                <motion.div
-                  className="mt-8"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: false, amount: 0.2 }}
-                  transition={{ delay: index * 0.5 + 0.5, duration: 0.5 }}
+                <div
+                  data-index={`arrow-${index}`}
+                  className={`mt-8 transition-opacity duration-500 ease-out ${
+                    visibleItems.has(`arrow-${index}`) ? "opacity-100" : "opacity-0"
+                  }`}
+                  style={{ transitionDelay: `${index * 500 + 500}ms` }}
                 >
                   <FaArrowDown className="text-gray-400 text-3xl" />
-                </motion.div>
+                </div>
               )}
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

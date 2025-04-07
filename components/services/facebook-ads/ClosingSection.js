@@ -1,16 +1,39 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+"use client";
+import { useRef, useState, useEffect } from 'react';
 import { ArrowRightIcon } from '@heroicons/react/24/solid';
 import TrackedPhoneLink from '@/components/TrackedPhoneLink';
 
 export default function FBClosingSection() {
-  const [ref, inView] = useInView({
-    triggerOnce: false,
-    threshold: 0.2,
-  });
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        } else {
+          setIsVisible(false);
+        }
+      },
+      {
+        threshold: 0.2,
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   return (
-    <section ref={ref} className="relative py-16 md:py-24 overflow-hidden">
+    <section ref={sectionRef} className="relative py-16 md:py-24 overflow-hidden">
       {/* Background with gradient */}
       <div className="absolute inset-0 bg-gradient-to-r from-gray-600 to-black"></div>
       
@@ -24,11 +47,10 @@ export default function FBClosingSection() {
         <div className="bg-gray-900/50 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-2xl">
           <div className="flex flex-col md:flex-row md:items-center">
             {/* Left content */}
-            <motion.div 
-              className="md:w-2/3 md:pr-8"
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7 }}
+            <div 
+              className={`md:w-2/3 md:pr-8 transform ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              } transition-all duration-700 ease-out`}
             >
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
                 Get Started with <span className="text-customYellow">GDC Digital Solutions Today!</span>
@@ -39,14 +61,14 @@ export default function FBClosingSection() {
               <p className="text-gray-300 text-lg leading-relaxed md:mb-0 mb-8">
                 Contact Us today to grow your business with expert Facebook advertising in NZ!
               </p>
-            </motion.div>
+            </div>
             
             {/* Right content with CTA */}
-            <motion.div 
-              className="md:w-1/3 flex justify-center md:justify-end"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={inView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.7, delay: 0.3 }}
+            <div 
+              className={`md:w-1/3 flex justify-center md:justify-end transform ${
+                isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+              } transition-all duration-700 ease-out`}
+              style={{ transitionDelay: '300ms' }}
             >
               <div className="bg-gray-800/70 rounded-xl p-6 backdrop-blur-sm border border-gray-700 shadow-lg">
                 <h3 className="text-xl font-semibold text-white mb-4">Ready for more leads?</h3>
@@ -68,7 +90,7 @@ export default function FBClosingSection() {
                   </TrackedPhoneLink>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>

@@ -1,10 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 export default function FacebookAdsIntroductionSection() {
   const [scrollY, setScrollY] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
 
   // Parallax effect on background when scrolling
   useEffect(() => {
@@ -16,6 +16,11 @@ export default function FacebookAdsIntroductionSection() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Trigger animation on component mount
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
   return (
     <div className="relative flex items-stretch w-full py-12">
       {/* Left yellow accent bar */}
@@ -25,10 +30,10 @@ export default function FacebookAdsIntroductionSection() {
       <div className="flex flex-col md:flex-row w-full">
         {/* Content section - takes 2/3 on desktop */}
         <div className="w-full md:w-2/3 p-6 md:p-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+          <div
+            className={`transform transition-all duration-800 ease-out ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+            }`}
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-gray-900">
               Boost Your Business with Expert Facebook Ads Management
@@ -43,7 +48,7 @@ export default function FacebookAdsIntroductionSection() {
                 results.
               </p>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Image section - takes 1/3 on desktop */}
@@ -53,6 +58,10 @@ export default function FacebookAdsIntroductionSection() {
               src="/assets/images/services/Facebook Ads.jpg"
               alt="Facebook Ads Management"
               className="w-full h-full object-cover"
+              style={{
+                transform: `translateY(${scrollY * 0.1}px)`, // Simple parallax effect
+                transition: "transform 0.1s ease-out",
+              }}
             />
           </div>
         </div>

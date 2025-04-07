@@ -1,5 +1,4 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import { useEffect, useState, useRef } from 'react';
 import { FaRocket, FaUserCheck, FaChartLine, FaMobileAlt, FaLock, FaSyncAlt } from 'react-icons/fa';
 
 // Data for the web development benefits
@@ -43,48 +42,73 @@ const benefitsData = [
 ];
 
 export default function AppDevelopmentBenefits() {
-  const [ref, inView] = useInView({
-    triggerOnce: false, // Animation will be activated every time the section is viewed
-    threshold: 0.2, // Animation will trigger when 20% of the element is visible
-  });
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // Update state when section becomes visible
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        } else {
+          setIsVisible(false); // Reset when out of view for re-animation
+        }
+      },
+      { threshold: 0.2 } // Trigger when 20% visible
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   return (
-    <section className="py-12" ref={ref}>
-      <motion.h2
-        className="text-3xl font-bold text-center text-customGray mb-10"
-        initial={{ opacity: 0 }}
-        animate={inView ? { opacity: 1 } : {}}
-        transition={{ duration: 1 }}
-      >
+    <section className="py-12" ref={sectionRef}>
+      <h2 className={`text-3xl font-bold text-center text-customGray mb-10 transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
         {"Why Choose Our "}
-        {[..."App Development".split('')].map((letter, index) => ( letter === ' ' ? <span key={index} className="inline-block w-2" /> :
-          <motion.span
-            key={index}
-            className="text-customYellow inline-block"
-            initial={{ opacity: 0, y: -20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.05, delay: index * 0.05 }}
-          >
-            {letter}
-          </motion.span>
+        {[..."App Development".split('')].map((letter, index) => (
+          letter === ' ' ? (
+            <span key={index} className="inline-block w-2" />
+          ) : (
+            <span
+              key={index}
+              className={`text-customYellow inline-block transition-all duration-300 ${
+                isVisible 
+                  ? 'opacity-100 transform-none' 
+                  : 'opacity-0 -translate-y-5'
+              }`}
+              style={{ transitionDelay: `${index * 50}ms` }}
+            >
+              {letter}
+            </span>
+          )
         ))}
         {" Service"}
-      </motion.h2>
+      </h2>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Dynamically render the benefits */}
           {benefitsData.map((benefit, index) => (
-            <motion.div
+            <div
               key={index}
-              className="text-center text-customGray"
-              initial={{ opacity: 0, y: 50 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}} // Animate when in view
-              transition={{ duration: 0.6, delay: index * 0.2 }} // Stagger animations
+              className={`text-center text-customGray transition-all duration-600 transform ${
+                isVisible 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-12'
+              }`}
+              style={{ transitionDelay: `${index * 200}ms` }}
             >
               {benefit.icon}
               <h3 className="text-2xl font-bold mb-2">{benefit.title}</h3>
               <p className="text-gray-600">{benefit.description}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

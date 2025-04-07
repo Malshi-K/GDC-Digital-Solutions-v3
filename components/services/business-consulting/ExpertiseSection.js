@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+"use client";
+import { useRef, useState, useEffect } from "react";
 import {
   ArrowPathIcon,
   UserGroupIcon,
@@ -10,6 +10,36 @@ import {
 import Link from "next/link";
 
 export default function ExpertiseSection() {
+  // State to track visibility
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  // Setup intersection observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        } else {
+          setIsVisible(false);
+        }
+      },
+      {
+        threshold: 0.2, // Animation will trigger when 20% of the element is visible
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   // Array of expertise items with icons and descriptions
   const expertiseItems = [
     {
@@ -44,13 +74,8 @@ export default function ExpertiseSection() {
     },
   ];
 
-  const [ref, inView] = useInView({
-    triggerOnce: false, // Animation will be activated every time the section is viewed
-    threshold: 0.2, // Animation will trigger when 20% of the element is visible
-  });
-
   return (
-    <section className="relative bg-black py-12 text-white" ref={ref}>
+    <section className="relative bg-black py-12 text-white" ref={sectionRef}>
       {/* Background Image with Overlay */}
       <div
         className="absolute inset-0 bg-cover bg-center"
@@ -65,11 +90,10 @@ export default function ExpertiseSection() {
       {/* Content Wrapper */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Section Header */}
-        <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: -30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+        <div
+          className={`text-center mb-12 transform ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-8"
+          } transition-all duration-800 ease-out`}
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
             <span className="text-customYellow">Our Expertise</span> Includes
@@ -79,17 +103,22 @@ export default function ExpertiseSection() {
             business with a mature strategy, develop your business so that it
             grows rapidly.
           </p>
-        </motion.div>
+        </div>
 
         {/* Expertise Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {expertiseItems.map((item, index) => (
-            <motion.div
+            <div
               key={index}
-              className="bg-gray-900 bg-opacity-60 rounded-xl p-6 hover:bg-opacity-80 transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
-              initial={{ opacity: 0, y: 50 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className={`bg-gray-900 bg-opacity-60 rounded-xl p-6 hover:bg-opacity-80 transition-all duration-300 transform hover:scale-105 hover:shadow-xl ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+              }`}
+              style={{ 
+                transitionDuration: "600ms", 
+                transitionTimingFunction: "ease-out",
+                transitionDelay: `${index * 100}ms`,
+                transitionProperty: "all"
+              }}
             >
               <div className="flex flex-col h-full">
                 <div className="mb-4">
@@ -100,23 +129,23 @@ export default function ExpertiseSection() {
                 </h3>
                 <p className="text-gray-300 flex-grow">{item.description}</p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Optional Call to Action */}
-        <motion.div
-          className="text-center mt-12"
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.6 }}
+        <div
+          className={`text-center mt-12 transform ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          } transition-all duration-800 ease-out`}
+          style={{ transitionDelay: "600ms" }}
         >
           <Link href="/about">
             <button className="bg-customYellow text-black font-bold py-3 px-8 rounded-full hover:bg-yellow-400 transition duration-300">
               Find More About Our Expertise
             </button>
           </Link>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

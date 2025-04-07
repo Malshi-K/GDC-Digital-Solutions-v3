@@ -1,5 +1,4 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import { useState, useEffect, useRef } from "react";
 
 export default function CustomCodedWebsites() {
   // Array of hexagon points
@@ -12,13 +11,36 @@ export default function CustomCodedWebsites() {
     "Total Control & Ownership",
   ];
 
-  const [ref, inView] = useInView({
-    triggerOnce: false, // Animation will be activated every time the section is viewed
-    threshold: 0.2, // Animation will trigger when 20% of the element is visible
-  });
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        } else {
+          setIsVisible(false);
+        }
+      },
+      {
+        threshold: 0.2, // Trigger when 20% of the element is visible
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   return (
-    <section className="relative bg-black py-12 text-white" ref={ref}>
+    <section className="relative bg-black py-12 text-white" ref={sectionRef}>
       {/* Background Image with Overlay */}
       <div
         className="absolute inset-0 bg-cover bg-center"
@@ -33,11 +55,10 @@ export default function CustomCodedWebsites() {
       {/* Content Wrapper */}
       <div className="relative z-10 max-w-7xl mx-auto px-8 py-16 flex flex-col md:flex-row items-center justify-between">
         {/* Left Side: Text Content */}
-        <motion.div
-          className="md:w-1/2"
-          initial={{ opacity: 0, x: -50 }}
-          animate={inView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.8 }}
+        <div 
+          className={`md:w-1/2 transform transition-all duration-800 ease-out ${
+            isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"
+          }`}
         >
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
             <span className="text-customYellow">Custom-coded websites: </span>
@@ -47,32 +68,36 @@ export default function CustomCodedWebsites() {
             Manage your business with a mature marketing strategy, develop your
             business so that it grows rapidly.
           </p>
-        </motion.div>
+        </div>
 
         {/* Right Side: Hexagon Grid */}
-        <motion.div
-          className="mt-8 md:mt-0 grid grid-cols-2 sm:grid-cols-3 gap-6"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={inView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.8, delay: 0.4 }}
+        <div
+          className={`mt-8 md:mt-0 grid grid-cols-2 sm:grid-cols-3 gap-6 transition-all duration-800 ease-out ${
+            isVisible ? "opacity-100 scale-100" : "opacity-0 scale-80"
+          }`}
+          style={{ 
+            transitionDelay: "400ms" 
+          }}
         >
           {/* Dynamically render hexagons */}
           {hexagonPoints.map((point, index) => (
-            <motion.div
+            <div
               key={index}
-              className="hexagon-container flex items-center justify-center"
-              initial={{ opacity: 0, y: 50 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
+              className={`hexagon-container flex items-center justify-center transition-all duration-600 ease-out transform ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+              }`}
+              style={{ 
+                transitionDelay: `${400 + (index * 200)}ms` 
+              }}
             >
               <div className="hexagon-content text-center">
                 <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">
                   {point}
                 </p>
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

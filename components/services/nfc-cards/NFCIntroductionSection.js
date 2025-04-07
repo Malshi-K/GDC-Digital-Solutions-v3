@@ -1,60 +1,80 @@
 "use client";
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
-import { useInView } from "react-intersection-observer";
 
 const NFCIntroductionSection = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: false, // Animation will be activated every time the section is viewed
-    threshold: 0.2, // Animation will trigger when 20% of the element is visible
-  });
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        } else {
+          setIsVisible(false);
+        }
+      },
+      {
+        threshold: 0.2, // Animation will trigger when 20% of the element is visible
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   return (
-    <section className="py-12 px-4 md:px-20 bg-gray-100" ref={ref}>
+    <section className="py-12 px-4 md:px-20 bg-gray-100" ref={sectionRef}>
       <div className="container mx-auto flex flex-col md:flex-row items-center">
         {/* Left Content */}
         <div className="w-full md:w-1/2">
           {/* Section Title */}
-          <motion.h2
-            className="text-customYellow text-xl md:text-3xl font-bold text-left mb-6"
-            initial={{ opacity: 0, x: -30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}} // Animate when in view
-            transition={{ duration: 0.8 }}
+          <h2
+            className={`text-customYellow text-xl md:text-3xl font-bold text-left mb-6 transform transition-all duration-800 ease-out ${
+              isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
+            }`}
           >
             SEAMLESS CONNECTIVITY WITH NFC CARDS
-          </motion.h2>
+          </h2>
 
           {/* Description */}
-          <motion.p
-            className="text-gray-800 leading-relaxed mb-8 max-w-3xl"
-            initial={{ opacity: 0, x: -30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.3 }}
+          <p
+            className={`text-gray-800 leading-relaxed mb-8 max-w-3xl transform transition-all duration-800 ease-out ${
+              isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
+            }`}
+            style={{ transitionDelay: "300ms" }}
           >
             As NFC (Near Field Communication) technology gains momentum in New
             Zealand, GDC Digital Solutions is at the forefront of this exciting
             innovation. NFC cards are transforming the way businesses and
             individuals interact, offering a seamless and secure way to share
             information and conduct transactions with just a tap.
-          </motion.p>
+          </p>
 
           {/* Subheading */}
-          <motion.h3
-            className="text-2xl font-semibold text-customGray mb-4"
-            initial={{ opacity: 0, x: -30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.5 }}
+          <h3
+            className={`text-2xl font-semibold text-customGray mb-4 transform transition-all duration-800 ease-out ${
+              isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
+            }`}
+            style={{ transitionDelay: "500ms" }}
           >
             What are NFC Cards?
-          </motion.h3>
+          </h3>
 
           {/* NFC Card Description */}
-          <motion.p
-            className="text-gray-800 leading-relaxed mb-8 max-w-3xl"
-            initial={{ opacity: 0, x: -30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.5 }}
+          <p
+            className={`text-gray-800 leading-relaxed mb-8 max-w-3xl transform transition-all duration-800 ease-out ${
+              isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
+            }`}
+            style={{ transitionDelay: "500ms" }}
           >
             NFC cards utilise cutting-edge technology to enable quick,
             contactless communication between devices. They are ideal for a
@@ -62,15 +82,15 @@ const NFCIntroductionSection = () => {
             ticketing, digital business cards, and more. With the rise of NFC
             technology in New Zealand, businesses have the opportunity to
             enhance customer experiences and streamline operations.
-          </motion.p>
+          </p>
         </div>
 
         {/* Right Image */}
         <div className="w-full md:w-1/2 flex justify-center md:justify-end mt-8 md:mt-0">
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8 }}
+          <div
+            className={`transform transition-all duration-800 ease-out ${
+              isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12"
+            }`}
           >
             <Image
               src="/assets/images/nfc/nfc-bg.webp" // Replace with the actual image path
@@ -79,7 +99,7 @@ const NFCIntroductionSection = () => {
               height={400} // Adjust height as needed
               className="w-full h-auto object-contain"
             />
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

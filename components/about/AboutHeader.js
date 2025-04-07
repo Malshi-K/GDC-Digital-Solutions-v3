@@ -1,10 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 export default function AgencyHeader() {
   const [scrollY, setScrollY] = useState(0);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   // Parallax effect on background when scrolling
   useEffect(() => {
@@ -16,6 +16,11 @@ export default function AgencyHeader() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Set loaded state after component mounts to trigger animations
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
   return (
     <div className="relative flex items-stretch w-full py-12">
       {/* Left yellow accent bar */}
@@ -25,10 +30,8 @@ export default function AgencyHeader() {
       <div className="flex flex-col md:flex-row w-full">
         {/* Content section - takes 2/3 on desktop */}
         <div className="w-full md:w-2/3 p-6 md:p-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+          <div 
+            className={`fade-in-up ${isLoaded ? 'is-visible' : ''}`}
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-gray-900">
               We are the experts in driving digital growth through innovative
@@ -58,7 +61,7 @@ export default function AgencyHeader() {
                 step of the journey.
               </p>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Image section - takes 1/3 on desktop */}
@@ -78,6 +81,20 @@ export default function AgencyHeader() {
         <div className="bg-gray-400 w-16 h-16 absolute right-0 top-0"></div>
         <div className="bg-customYellow w-16 h-16 absolute right-0 top-16"></div>
       </div>
+
+      {/* CSS for animations */}
+      <style jsx>{`
+        .fade-in-up {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in-up.is-visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      `}</style>
     </div>
   );
 }

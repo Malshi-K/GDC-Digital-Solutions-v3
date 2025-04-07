@@ -1,6 +1,5 @@
 "use client";
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import caseStudiesData from "@/data/homeCaseStudiesData"; // Import the data array
@@ -8,42 +7,56 @@ import caseStudiesData from "@/data/homeCaseStudiesData"; // Import the data arr
 const CaseStudies = () => {
   const router = useRouter();
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [isChanging, setIsChanging] = useState(false);
   const activeCase = caseStudiesData[activeIndex];
+
+  // Set initial animations after component mounts
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
 
   const handleButtonClick = (path) => {
     router.push(path);
   };
 
   const handleNextCase = () => {
-    setActiveIndex((prevIndex) =>
-      prevIndex === caseStudiesData.length - 1 ? 0 : prevIndex + 1
-    );
+    setIsChanging(true);
+    setTimeout(() => {
+      setActiveIndex((prevIndex) =>
+        prevIndex === caseStudiesData.length - 1 ? 0 : prevIndex + 1
+      );
+      setIsChanging(false);
+    }, 300); // Match this with the exit animation duration
   };
 
   const handlePrevCase = () => {
-    setActiveIndex((prevIndex) =>
-      prevIndex === 0 ? caseStudiesData.length - 1 : prevIndex - 1
-    );
+    setIsChanging(true);
+    setTimeout(() => {
+      setActiveIndex((prevIndex) =>
+        prevIndex === 0 ? caseStudiesData.length - 1 : prevIndex - 1
+      );
+      setIsChanging(false);
+    }, 300); // Match this with the exit animation duration
   };
 
   return (
     <section className="py-16">
       {/* Centered Title with customYellow color */}
-      <motion.h2 
-        className="text-6xl font-bold text-customYellow text-center mb-8"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+      <h2 
+        className={`text-6xl font-bold text-customYellow text-center mb-8 transform transition-all duration-800 ${
+          isLoaded ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-5"
+        }`}
       >
         Our Success Stories
-      </motion.h2>
+      </h2>
       
       {/* Case Study Container with External Navigation */}
       <div className="relative max-w-6xl mx-auto px-8">
         {/* Navigation Controls OUTSIDE the card */}
         <button
           onClick={handlePrevCase}
-          className="absolute left-0 top-1/2 transform -translate-y-1/2 z-20 bg-white bg-opacity-70 hover:bg-opacity-90 p-3 rounded-full shadow-md border border-gray-200"
+          className="absolute left-0 top-1/2 transform -translate-y-1/2 z-20 bg-white bg-opacity-70 hover:bg-opacity-90 p-3 rounded-full shadow-md border border-gray-200 transition-all duration-300"
           aria-label="Previous case study"
         >
           <svg
@@ -63,7 +76,7 @@ const CaseStudies = () => {
 
         <button
           onClick={handleNextCase}
-          className="absolute right-0 top-1/2 transform -translate-y-1/2 z-20 bg-white bg-opacity-70 hover:bg-opacity-90 p-3 rounded-full shadow-md border border-gray-200"
+          className="absolute right-0 top-1/2 transform -translate-y-1/2 z-20 bg-white bg-opacity-70 hover:bg-opacity-90 p-3 rounded-full shadow-md border border-gray-200 transition-all duration-300"
           aria-label="Next case study"
         >
           <svg
@@ -81,31 +94,24 @@ const CaseStudies = () => {
           </svg>
         </button>
 
-        <motion.div
-          className="flex justify-center items-center"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+        <div
+          className={`flex justify-center items-center transition-opacity duration-1000 ${
+            isLoaded ? "opacity-100" : "opacity-0"
+          }`}
         >
-          <motion.div
-            className="container mx-auto border border-customYellow rounded-xl shadow-xl p-10 flex flex-col md:flex-row items-center md:gap-x-10 relative"
+          <div
+            className="container mx-auto border border-customYellow rounded-xl shadow-xl p-10 flex flex-col md:flex-row items-center md:gap-x-10 relative hover:scale-102 hover:shadow-2xl transition-all duration-500"
             style={{
               backgroundImage: "url(/assets/images/google-ads-bg.webp)",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
-            whileHover={{
-              scale: 1.02,
-              boxShadow: "0px 8px 20px rgba(0, 0, 0, 0.15)",
-            }}
-            transition={{ duration: 0.5 }}
           >
             {/* Left Content with Width Adjustment */}
-            <motion.div
-              className="flex-1 md:pr-8 mb-6 md:mb-0 z-10 max-w-md" // Set max width here
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
+            <div
+              className={`flex-1 md:pr-8 mb-6 md:mb-0 z-10 max-w-md transition-all duration-300 ${
+                isChanging ? "opacity-0 -translate-x-12" : "opacity-100 translate-x-0"
+              }`}
               key={`content-${activeIndex}`}
             >
               <h2 className="text-3xl font-bold text-gray-800 mb-2">
@@ -117,21 +123,19 @@ const CaseStudies = () => {
               <p className="text-md font-medium text-gray-700 mb-6">
                 {activeCase.description}
               </p>
-              <motion.button
-                className="text-customYellow hover:text-white border border-customYellow hover:bg-customGray hover:border-none rounded-full px-8 py-3 font-semibold transition duration-300"
-                whileHover={{ scale: 1.1 }}
+              <button
+                className="text-customYellow hover:text-white border border-customYellow hover:bg-customGray hover:border-none rounded-full px-8 py-3 font-semibold transition-all duration-300 hover:scale-110 transform"
                 onClick={() => handleButtonClick(activeCase.caseStudyPath)}
               >
                 {activeCase.buttonLabel}
-              </motion.button>
-            </motion.div>
+              </button>
+            </div>
 
             {/* Right Image Section */}
-            <motion.div
-              className="flex-1"
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
+            <div
+              className={`flex-1 transition-all duration-300 ${
+                isChanging ? "opacity-0 translate-x-12" : "opacity-100 translate-x-0"
+              }`}
               key={`image-${activeIndex}`}
             >
               <Image
@@ -141,23 +145,31 @@ const CaseStudies = () => {
                 height={400}
                 className="w-full max-w-[400px] mx-auto transform hover:scale-105 transition duration-300"
               />
-            </motion.div>
+            </div>
 
             {/* Case Study Indicators */}
             <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
               {caseStudiesData.map((_, index) => (
                 <button
                   key={index}
-                  onClick={() => setActiveIndex(index)}
-                  className={`h-2 w-2 rounded-full ${
+                  onClick={() => {
+                    if (index !== activeIndex) {
+                      setIsChanging(true);
+                      setTimeout(() => {
+                        setActiveIndex(index);
+                        setIsChanging(false);
+                      }, 300);
+                    }
+                  }}
+                  className={`h-2 w-2 rounded-full transition-colors duration-300 ${
                     index === activeIndex ? "bg-customYellow" : "bg-gray-300"
                   }`}
                   aria-label={`Go to case study ${index + 1}`}
                 />
               ))}
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -1,87 +1,79 @@
 "use client";
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState, useEffect, useRef } from "react";
 
 const ChallengesSection = ({ data }) => {
-  // Animation variants for Framer Motion
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.3,
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
       },
-    },
-  };
+      { threshold: 0.2 }
+    );
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0 },
-  };
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
 
-  const textVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
-  };
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   return (
-    <section className="py-12 px-6 md:px-16">
-      <motion.div
-        className="max-w-6xl mx-auto p-4 md:p-8"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.2 }}
-      >
+    <section className="py-12 px-6 md:px-16" ref={sectionRef}>
+      <div className="max-w-6xl mx-auto p-4 md:p-8">
         {/* Section Title */}
-        <motion.h2
-          className="text-customYellow text-3xl md:text-4xl font-bold text-center mb-10 flex flex-wrap justify-center"
-          variants={textVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false }}
-        >
+        <h2 className="text-customYellow text-3xl md:text-4xl font-bold text-center mb-10 flex flex-wrap justify-center">
           {"CHALLENGES".split("").map((letter, index) => (
-            <motion.span
+            <span
               key={index}
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              transition={{ duration: 0.1, delay: index * 0.1 }}
+              className={`transition-all duration-300 transform ${
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-5"
+              }`}
+              style={{ transitionDelay: `${index * 100}ms` }}
             >
               {letter}
-            </motion.span>
+            </span>
           ))}
-        </motion.h2>
+        </h2>
 
         {/* Challenge Description */}
-        <motion.p
-          className="text-gray-700 leading-relaxed text-center text-base md:text-lg mb-8"
-          variants={itemVariants}
-          transition={{ duration: 0.6, delay: 0.2 }}
+        <p
+          className={`text-gray-700 leading-relaxed text-center text-base md:text-lg mb-8 transition-all duration-500 transform ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+          }`}
+          style={{ transitionDelay: "200ms" }}
         >
           {data.introduction}
-        </motion.p>
+        </p>
 
         {/* Key Challenges */}
-        <motion.ul
-          className="text-justify list-disc list-inside text-gray-700 text-base md:text-lg leading-relaxed space-y-4 pl-6 md:pl-12"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.2 }}
-        >
+        <ul className="text-justify list-disc list-inside text-gray-700 text-base md:text-lg leading-relaxed space-y-4 pl-6 md:pl-12">
           {data.items.map((challenge, index) => (
-            <motion.li 
-              key={index} 
-              variants={itemVariants} 
-              transition={{ duration: 0.6 }}
+            <li
+              key={index}
+              className={`transition-all duration-500 transform ${
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-12"
+              }`}
+              style={{ transitionDelay: `${300 + index * 150}ms` }}
             >
-              <span className="font-semibold">{challenge.title}:</span> {challenge.description}
-            </motion.li>
+              <span className="font-semibold">{challenge.title}:</span>{" "}
+              {challenge.description}
+            </li>
           ))}
-        </motion.ul>
-      </motion.div>
+        </ul>
+      </div>
     </section>
   );
 };

@@ -1,9 +1,33 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import CountUp from "react-countup";
-import { motion } from "framer-motion";
 
 const KeyAchievements = () => {
+  const [isInView, setIsInView] = useState(false);
+  const sectionRef = useRef(null);
+
+  // Detect when section is in viewport
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   const achievements = [
     {
       value: 21.5,
@@ -42,66 +66,39 @@ const KeyAchievements = () => {
     },
   ];
 
-  // Animation variants for Framer Motion
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.3,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0 },
-  };
-
-  const textVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
-  };
-
   return (
-    <section className="py-10 bg-customYellow">
+    <section className="py-10 bg-customYellow" ref={sectionRef}>
       <div className="container mx-auto px-4 text-center">
         {/* Section Title */}
-        <motion.h2
-          className="text-3xl text-white md:text-4xl font-bold text-center mb-5"
-          variants={itemVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.2 }}
+        <h2
+          className={`text-3xl text-white md:text-4xl font-bold text-center mb-5 transition-all duration-700 ease-out ${
+            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+          }`}
         >
           KEY ACHIEVEMENTS
-        </motion.h2>
+        </h2>
 
-        <motion.p
-          className="text-customGray mb-6 max-w-2xl mx-auto text-base md:text-lg"
-          variants={itemVariants}
-          initial="hidden"
-          whileInView="visible"
-          transition={{ delay: 0.2 }}
-          viewport={{ once: false, amount: 0.2 }}
+        <p
+          className={`text-customGray mb-6 max-w-2xl mx-auto text-base md:text-lg transition-all duration-700 ease-out ${
+            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+          }`}
+          style={{ transitionDelay: "0.2s" }}
         >
           Discover our key performance metrics that highlight the success of our
           strategic campaigns.
-        </motion.p>
+        </p>
 
         {/* Achievements */}
-        <motion.div
-          className="flex flex-col md:flex-row justify-center gap-8 mt-10"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.2 }}
-        >
+        <div className="flex flex-col md:flex-row justify-center gap-8 mt-10">
           {achievements.map((achievement, index) => (
-            <motion.div
+            <div
               key={index}
-              className="flex-1 p-6 text-center"
-              variants={itemVariants}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
+              className="flex-1 p-6 text-center transition-all duration-700 ease-out"
+              style={{
+                opacity: isInView ? 1 : 0,
+                transform: isInView ? "translateY(0)" : "translateY(50px)",
+                transitionDelay: `${0.3 + index * 0.2}s`,
+              }}
             >
               <h3 className="text-4xl md:text-5xl font-extrabold text-white mb-2">
                 {/* CountUp Animation */}
@@ -121,9 +118,9 @@ const KeyAchievements = () => {
               <p className="text-customGray text-sm md:text-base">
                 {achievement.description}
               </p>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

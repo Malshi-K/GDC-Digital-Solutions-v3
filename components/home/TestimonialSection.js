@@ -1,7 +1,6 @@
 "use client";
-import { motion } from "framer-motion"; // Importing framer-motion for animations
-import { useInView } from "react-intersection-observer"; // Importing useInView for viewport detection
-import Image from "next/image"; // Importing Next.js Image component
+import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 
 export default function TestimonialSection() {
   const services = [
@@ -19,68 +18,68 @@ export default function TestimonialSection() {
     },
   ];
 
-  const { ref, inView } = useInView({
-    triggerOnce: false, // Allows the animation to re-trigger every time it comes into view
-    threshold: 0.2, // Defines how much of the section needs to be visible before triggering the animation
-  });
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
 
-  // Define animations for the service cards
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3, // Stagger the children animations
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        } else {
+          setIsVisible(false);
+        }
       },
-    },
-  };
+      { threshold: 0.2 }
+    );
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 },
-    },
-  };
+    const currentRef = sectionRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, []);
 
   return (
-    <section className="py-10 bg-white" ref={ref}>
-      {/* Attach ref here */}
+    <section className="py-10 bg-white" ref={sectionRef}>
       <div className="container mx-auto px-4 text-center">
-        <motion.h1
-          className="text-5xl font-semibold mb-8"
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : { opacity: 0 }} // Animate on inView
-          transition={{ duration: 1 }}
+        <h1
+          className={`text-5xl font-semibold mb-8 transition-opacity duration-1000 ${
+            isVisible ? "opacity-100" : "opacity-0"
+          }`}
         >
           Our clients say <span className="text-customYellow">we rock</span>
-        </motion.h1>
+        </h1>
 
-        <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"} // Animate on inView
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => (
             <ServiceCard
               key={index}
               description={service.description}
-              variants={cardVariants} // Pass the animation variants
+              isVisible={isVisible}
+              delay={index * 0.3}
             />
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
 }
 
-function ServiceCard({ title, description, variants }) {
+function ServiceCard({ title, description, isVisible, delay }) {
   return (
-    <motion.div
-      className="relative group w-full h-64 rounded-lg overflow-hidden shadow-lg bg-gray-50"
-      variants={variants}
+    <div
+      className={`relative group w-full h-64 rounded-lg overflow-hidden shadow-lg bg-gray-50 transform transition-all duration-600 ease-out ${
+        isVisible
+          ? "opacity-100 translate-y-0"
+          : "opacity-0 translate-y-12"
+      }`}
+      style={{ transitionDelay: `${delay}s` }}
     >
       {/* Hidden Content - Appears on Hover */}
       <div
@@ -91,21 +90,21 @@ function ServiceCard({ title, description, variants }) {
         <h4 className="text-lg font-semibold">{title}</h4>
         <p className="text-sm">{description}</p>
       </div>
+      
       {/* Visible Content - Hidden on Hover */}
       <div
         className="absolute inset-0 flex justify-center items-center bg-white transition-transform 
-  duration-500 ease-in-out transform group-hover:-translate-y-full"
+        duration-500 ease-in-out transform group-hover:-translate-y-full"
       >
         <Image
-          src="/assets/images/feedback.webp" // Ensure the image path is correct and high-quality
-          alt={title}
-          width={120} // Set width for the image
-          height={120} // Set height for the image
-          quality={95} // Adjust quality to 95 for better clarity without excessive size
-          layout="intrinsic" // Use 'intrinsic' layout to ensure the image scales appropriately
-          className="object-contain max-w-[150px] h-auto" // Removed w-full to avoid stretching
+          src="/assets/images/feedback.webp"
+          alt={title || "Testimonial"}
+          width={120}
+          height={120}
+          quality={95}
+          className="object-contain max-w-[150px] h-auto"
         />
       </div>
-    </motion.div>
+    </div>
   );
 }

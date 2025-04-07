@@ -1,36 +1,56 @@
 "use client";
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
-import { useInView } from "react-intersection-observer";
 
 const ConsultingIntroductionSection = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: false, // Animation will be activated every time the section is viewed
-    threshold: 0.2, // Animation will trigger when 20% of the element is visible
-  });
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        } else {
+          setIsVisible(false);
+        }
+      },
+      {
+        threshold: 0.2, // Animation will trigger when 20% of the element is visible
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   return (
-    <section className="py-12 px-4 md:px-20 bg-gray-100" ref={ref}>
+    <section className="py-12 px-4 md:px-20 bg-gray-100" ref={sectionRef}>
       <div className="container mx-auto flex flex-col md:flex-row items-center">
         {/* Left Content */}
         <div className="w-full md:w-1/2">
           {/* Section Title */}
-          <motion.h2
-            className="text-customYellow text-xl md:text-3xl font-bold text-left mb-6"
-            initial={{ opacity: 0, x: -30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}} // Animate when in view
-            transition={{ duration: 0.8 }}
+          <h2
+            className={`text-customYellow text-xl md:text-3xl font-bold text-left mb-6 transform ${
+              isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
+            } transition-all duration-800 ease-out`}
           >
             GDC Digital Solutions - Business Analysis Expertise
-          </motion.h2>
+          </h2>
 
           {/* Description */}
-          <motion.p
-            className="text-gray-800 leading-relaxed mb-8 max-w-3xl"
-            initial={{ opacity: 0, x: -30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.3 }}
+          <p
+            className={`text-gray-800 leading-relaxed mb-8 max-w-3xl transform ${
+              isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
+            } transition-all duration-800 ease-out delay-300`}
+            style={{ transitionDelay: "300ms" }}
           >
             At GDC Digital Solutions, we recognise that effective business
             analysis is key to achieving successful transformation. Our team of
@@ -40,14 +60,14 @@ const ConsultingIntroductionSection = () => {
             technology and business needs, we ensure that every project we
             support not only meets but exceeds expectations, creating lasting
             value for your business.
-          </motion.p>
+          </p>
 
           {/* Description */}
-          <motion.p
-            className="text-gray-800 leading-relaxed mb-8 max-w-3xl"
-            initial={{ opacity: 0, x: -30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.3 }}
+          <p
+            className={`text-gray-800 leading-relaxed mb-8 max-w-3xl transform ${
+              isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
+            } transition-all duration-800 ease-out delay-300`}
+            style={{ transitionDelay: "300ms" }}
           >
             Our experts bring extensive experience across a variety of
             industries, including finance, healthcare, retail, and more. We
@@ -57,15 +77,15 @@ const ConsultingIntroductionSection = () => {
             undergoing a digital transformation, enhancing operational
             processes, or aligning your IT strategy with business goals, we are
             here to guide you through every phase of your journey.
-          </motion.p>
+          </p>
         </div>
 
         {/* Right Image */}
         <div className="w-full md:w-1/2 flex justify-center md:justify-end mt-8 md:mt-0">
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8 }}
+          <div
+            className={`transform ${
+              isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
+            } transition-all duration-800 ease-out`}
           >
             <Image
               src="/assets/images/business-analysis/business-bg.png" // Replace with the actual image path
@@ -74,7 +94,7 @@ const ConsultingIntroductionSection = () => {
               height={400} // Adjust height as needed
               className="w-full h-auto object-contain"
             />
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

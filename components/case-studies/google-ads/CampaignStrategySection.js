@@ -1,12 +1,36 @@
 "use client";
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState, useEffect, useRef } from "react";
 import Slider from "react-slick";
 import { FaSearch, FaUsers, FaAd, FaDollarSign, FaGlobe } from "react-icons/fa";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const CampaignStrategySection = () => {
+  const [isInView, setIsInView] = useState(false);
+  const sectionRef = useRef(null);
+
+  // Detect when section is in viewport
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   // Carousel settings
   const carouselSettings = {
     dots: false, // Hide dots
@@ -36,7 +60,7 @@ const CampaignStrategySection = () => {
       icon: <FaAd className="text-5xl text-customYellow mb-4" />,
       title: "Improved Ad Extensions",
       description:
-        "Ad extensions were utilised to enhance the visibility of GDC’s contact information, special offers, and service highlights.",
+        "Ad extensions were utilised to enhance the visibility of GDC's contact information, special offers, and service highlights.",
     },
     {
       icon: <FaDollarSign className="text-5xl text-customYellow mb-4" />,
@@ -52,79 +76,73 @@ const CampaignStrategySection = () => {
     },
   ];
 
-  // Animation variants for the title
-  const titleVariants = {
-    hidden: { opacity: 0, y: -20 },
-    visible: { opacity: 1, y: 0 },
-  };
-
-  // Animation variants for the left content
-  const leftContentVariants = {
-    hidden: { opacity: 0, x: -30 },
-    visible: { opacity: 1, x: 0 },
-  };
-
   return (
-    <section className="py-12 px-4 md:px-16 bg-white">
+    <section className="py-12 px-4 md:px-16 bg-white" ref={sectionRef}>
       <div className="container mx-auto flex flex-col md:flex-row items-center">
         {/* Left Content */}
-        <motion.div
-          className="w-full md:w-1/2 pr-8 text-center"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.2 }}
-          variants={leftContentVariants}
-          transition={{ duration: 0.8 }}
+        <div
+          className={`w-full md:w-1/2 pr-8 text-center transition-all duration-800 ease-out ${
+            isInView 
+              ? "opacity-100 translate-x-0" 
+              : "opacity-0 -translate-x-8"
+          }`}
         >
-          <motion.h2
-            className="text-customYellow text-3xl md:text-4xl font-bold mb-4 flex flex-wrap justify-center"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false }}
-          >
-             {"CAMPAIGN".split("").map((letter, index) => (
-            <motion.span
-              key={`campaign-${index}`}
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              transition={{ duration: 0.1, delay: index * 0.1 }}
-            >
-              {letter}
-            </motion.span>
-          ))}
-          <motion.span
-            className="mx-1"
-            variants={{
-              hidden: { opacity: 0 },
-              visible: { opacity: 1 },
-            }}
-            transition={{ duration: 0.1, delay: "DISPLAY".length * 0.1 }}
-          >
-            &nbsp;
-          </motion.span>
-          {"STRATEGY".split("").map((letter, index) => (
-            <motion.span
-              key={`strategy-${index}`}
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              transition={{
-                duration: 0.1,
-                delay: ("DISPLAY".length + index) * 0.1,
+          <h2 className="text-customYellow text-3xl md:text-4xl font-bold mb-4 flex flex-wrap justify-center">
+            {/* Split letters with animation delay */}
+            {"CAMPAIGN".split("").map((letter, index) => (
+              <span
+                key={`campaign-${index}`}
+                className={`transition-all duration-300 ease-out ${
+                  isInView
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-5"
+                }`}
+                style={{ 
+                  transitionDelay: `${index * 100}ms`,
+                  display: 'inline-block'
+                }}
+              >
+                {letter}
+              </span>
+            ))}
+            <span
+              className={`mx-1 transition-all duration-300 ${
+                isInView ? "opacity-100" : "opacity-0"
+              }`}
+              style={{ 
+                transitionDelay: `${8 * 100}ms`,
+                display: 'inline-block'
               }}
             >
-              {letter}
-            </motion.span>
-          ))}
-          </motion.h2>
-          <p className="text-gray-700 leading-relaxed">
+              &nbsp;
+            </span>
+            {"STRATEGY".split("").map((letter, index) => (
+              <span
+                key={`strategy-${index}`}
+                className={`transition-all duration-300 ease-out ${
+                  isInView
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-5"
+                }`}
+                style={{ 
+                  transitionDelay: `${(9 + index) * 100}ms`,
+                  display: 'inline-block'
+                }}
+              >
+                {letter}
+              </span>
+            ))}
+          </h2>
+          <p 
+            className={`text-gray-700 leading-relaxed transition-opacity duration-500 ${
+              isInView ? "opacity-100" : "opacity-0"
+            }`}
+            style={{ transitionDelay: '1.7s' }}
+          >
             Based on an in-depth analysis of the market, GDC Digital Solutions
             implemented the following strategies:
           </p>
-        </motion.div>
+        </div>
 
         {/* Right Content - Carousel */}
         <div className="w-full md:w-1/2 mt-8 md:mt-0">
@@ -147,6 +165,20 @@ const CampaignStrategySection = () => {
           </Slider>
         </div>
       </div>
+
+      {/* Add custom CSS for transitions that are difficult with just Tailwind */}
+      <style jsx>{`
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </section>
   );
 };
