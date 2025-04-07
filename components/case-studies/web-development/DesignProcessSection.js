@@ -28,17 +28,18 @@ const iconComponents = {
 };
 
 const DesignProcessSection = ({ data }) => {
-  // If no design process data is available, don't render the component
-  if (!data || !data.steps || data.steps.length === 0) {
-    return null;
-  }
-  
+  // Always declare hooks at the top level, before any conditional logic
   const [isHeaderVisible, setIsHeaderVisible] = useState(false);
   const [isContentVisible, setIsContentVisible] = useState(false);
   const headerRef = useRef(null);
   const contentRef = useRef(null);
 
   useEffect(() => {
+    // Only run the observer logic if we have data to display
+    if (!data || !data.steps || data.steps.length === 0) {
+      return;
+    }
+
     const headerObserver = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -73,7 +74,12 @@ const DesignProcessSection = ({ data }) => {
         contentObserver.unobserve(contentRef.current);
       }
     };
-  }, []);
+  }, [data]);
+
+  // If no design process data is available, return early
+  if (!data || !data.steps || data.steps.length === 0) {
+    return null;
+  }
 
   return (
     <section className="py-20 px-4 md:px-8 bg-gray-50">
