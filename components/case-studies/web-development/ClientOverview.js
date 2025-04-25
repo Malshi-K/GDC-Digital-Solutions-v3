@@ -13,6 +13,12 @@ import {
   FaHammer,
   FaSink,
   FaTree,
+  FaShieldAlt,
+  FaStore,
+  FaBell,
+  FaLock,
+  FaVideo,
+  FaComments,
 } from "react-icons/fa";
 import Link from "next/link";
 
@@ -30,6 +36,12 @@ const iconMap = {
   FaHammer: FaHammer,
   FaSink: FaSink,
   FaTree: FaTree,
+  FaShieldAlt: FaShieldAlt,
+  FaStore: FaStore,
+  FaBell: FaBell,
+  FaLock: FaLock,
+  FaVideo: FaVideo,
+  FaComments: FaComments,
 };
 
 const ClientOverview = ({ data }) => {
@@ -58,7 +70,7 @@ const ClientOverview = ({ data }) => {
   }, []);
 
   return (
-    <section 
+    <section
       className="flex flex-col md:flex-row items-start justify-center py-16 px-6 md:px-20"
       ref={sectionRef}
     >
@@ -94,9 +106,7 @@ const ClientOverview = ({ data }) => {
       {/* Right Side - Overview Details */}
       <div
         className={`w-full md:w-1/2 p-4 md:p-8 flex flex-col items-start space-y-4 mt-8 md:mt-0 transition-all duration-700 transform ${
-          isVisible
-            ? "opacity-100 translate-x-0"
-            : "opacity-0 translate-x-8"
+          isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
         }`}
         style={{ transitionDelay: "300ms" }}
       >

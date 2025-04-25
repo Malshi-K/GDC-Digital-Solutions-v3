@@ -12,6 +12,13 @@ import {
   FaMobile,
   FaCompass,
   FaImage,
+  FaWordpress,
+  FaPuzzlePiece,
+  FaWpforms,
+  FaPaperPlane,
+  FaBuilding,
+  FaShieldAlt,
+  FaUserCheck,
 } from "react-icons/fa";
 import { SiNextdotjs, SiHubspot, SiGithub, SiNetlify } from "react-icons/si";
 
@@ -32,6 +39,13 @@ const iconMap = {
   SiHubspot: SiHubspot,
   SiGithub: SiGithub,
   SiNetlify: SiNetlify,
+  FaWordpress: FaWordpress,
+  FaPuzzlePiece: FaPuzzlePiece,
+  FaWpforms: FaWpforms,
+  FaPaperPlane: FaPaperPlane,
+  FaBuilding: FaBuilding,
+  FaShieldAlt: FaShieldAlt,
+  FaUserCheck: FaUserCheck,
 };
 
 const OurApproachSection = ({ data }) => {
@@ -63,7 +77,7 @@ const OurApproachSection = ({ data }) => {
     <section className="py-12 px-4 md:px-20 bg-gray-100" ref={sectionRef}>
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-customYellow text-3xl md:text-4xl font-bold text-center mb-10 flex flex-wrap justify-center">
-          <span 
+          <span
             className={`ml-2 text-customGray transition-opacity duration-500 ${
               isVisible ? "opacity-100" : "opacity-0"
             }`}
@@ -118,7 +132,9 @@ const OurApproachSection = ({ data }) => {
             return (
               <div
                 key={index}
-                className={`flex flex-col items-center p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500 transform ${objective.bgColor} ${
+                className={`flex flex-col items-center p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500 transform ${
+                  objective.bgColor
+                } ${
                   isVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-12"
@@ -165,7 +181,11 @@ const OurApproachSection = ({ data }) => {
           className={`text-3xl font-bold text-customGray mb-6 transition-all duration-500 ${
             isVisible ? "opacity-100" : "opacity-0"
           }`}
-          style={{ transitionDelay: `${400 + data.technicalObjectives.length * 200 + 100}ms` }}
+          style={{
+            transitionDelay: `${
+              400 + data.technicalObjectives.length * 200 + 100
+            }ms`,
+          }}
         >
           Design Overview
         </h2>
@@ -175,13 +195,20 @@ const OurApproachSection = ({ data }) => {
             return (
               <div
                 key={index}
-                className={`flex flex-col items-center p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500 transform ${keyObj.bgColor} ${
+                className={`flex flex-col items-center p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500 transform ${
+                  keyObj.bgColor
+                } ${
                   isVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-12"
                 }`}
-                style={{ 
-                  transitionDelay: `${400 + data.technicalObjectives.length * 200 + 200 + index * 200}ms` 
+                style={{
+                  transitionDelay: `${
+                    400 +
+                    data.technicalObjectives.length * 200 +
+                    200 +
+                    index * 200
+                  }ms`,
                 }}
               >
                 <div className="bg-white p-4 rounded-full mb-4">

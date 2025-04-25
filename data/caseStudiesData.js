@@ -442,6 +442,248 @@ export const caseStudiesData = {
       ],
     },
   },
+  "mantrac-security": {
+    id: "mantrac-security",
+    hero: {
+      subtitle: "Security Services and Solutions",
+      title: "Mantrac Security Case Study",
+      description:
+        "Mantrac Security, a leading provider of residential and commercial security solutions in New Zealand, required a modern website to improve their digital presence and generate more service inquiries.  ",
+      ctaText: "Schedule a Consultation",
+      ctaLink: "/schedule-consultation",
+      imageSrc:
+        "/assets/images/website-dev/mantrac-security/mantrac-security.png",
+      imageAlt: "Mantrac Security Website Preview",
+    },
+    clientOverview: {
+      services: [
+        {
+          icon: "FaShieldAlt",
+          label: "Home Security",
+        },
+        {
+          icon: "FaStore",
+          label: "Business Protection",
+        },
+        {
+          icon: "FaBell",
+          label: "Alarm Monitoring",
+        },
+        {
+          icon: "FaLock",
+          label: "Access Control",
+        },
+        {
+          icon: "FaVideo",
+          label: "CCTV Solutions",
+        },
+        {
+          icon: "FaComments",
+          label: "Free Consultation",
+        },
+      ],
+      companyName: "Mantrac Security Systems",
+      industry: "Security Services and Solutions",
+      website: "https://mantracsecurity.co.nz",
+      description:
+        "The previous design had a solid foundation but offered several opportunities for improvement. For instance, the headline could be made stronger to grab attention immediately, and the value proposition could be clarified to communicate the offering better. The background image didn’t fully capture the theme of security, and some areas had more whitespace than necessary, which affected visual balance. Additionally, there was some inconsistency in font sizes and styles, and the content overall could benefit from being more detailed and engaging. ",
+    },
+    challenges: {
+      introduction: "",
+      items: [
+        {
+          title: "Information Clarity",
+          description:
+            "Ensuring complex security service descriptions remained digestible and user-friendly. ",
+        },
+        {
+          title: "Balancing Technical and Trust Elements",
+          description:
+            "While technical features are important, trust is paramount in the security industry. We had to balance showcasing technology with building emotional trust through testimonials, certifications, and visual cues like badges and warranties. ",
+        },
+        {
+          title: "Mobile Performance",
+          description:
+            "Many users search for security services via mobile. The challenge was to ensure ultra-fast load times, intuitive mobile navigation, and clear CTAs on smaller screens.",
+        },
+        {
+          title: "Visual Consistency",
+          description:
+            "Maintaining a cohesive look across all pages while using custom icons, security imagery, and branded colors to establish credibility and brand recall.",
+        },
+      ],
+    },
+    approach: {
+      technicalObjectives: [
+        {
+          icon: "FaWordpress",
+          title: "WordPress CMS",
+          description:
+            "Built on the latest WordPress version, providing a stable foundation with regular security updates and feature enhancements ",
+          bgColor: "bg-customYellow",
+        },
+        {
+          icon: "FaPuzzlePiece",
+          title: "Elementor Page Builder",
+          description:
+            "Utilized for drag-and-drop visual design, enabling efficient creation of custom layouts without requiring extensive coding knowledge ",
+          bgColor: "bg-white",
+        },
+        {
+          icon: "FaWpforms",
+          title: "WP Forms",
+          description: " Implemented for creating user-friendly contact forms",
+          bgColor: "bg-customYellow",
+        },
+        {
+          icon: "FaPaperPlane",
+          title: "WP Mail SMTP",
+          description:
+            "Configured to ensure reliable email delivery from the WordPress site to users and administrators ",
+          bgColor: "bg-white",
+        },
+      ],
+      designObjectives: [
+        {
+          icon: "FaBuilding",
+          title: "Professional Identity",
+          description:
+            "Reflect the reliability and expertise of Mantrac Security.",
+          bgColor: "bg-customYellow",
+        },
+        {
+          icon: "FaShieldAlt",
+          title: "Service Clarity",
+          description:
+            " Clearly communicate the full spectrum of security services provided. ",
+          bgColor: "bg-white",
+        },
+        {
+          icon: "FaCompass",
+          title: "User-Friendly Navigation",
+          description:
+            " Ensure smooth user experience with intuitive site structure. ",
+          bgColor: "bg-customYellow",
+        },
+        {
+          icon: "FaUserCheck",
+          title: "Lead Generation",
+          description:
+            "Drive conversions through strategic calls to action and inquiry forms. ",
+          bgColor: "bg-white",
+        },
+      ],
+    },
+    gallery: {
+      images: [
+        {
+          src: "/assets/images/website-dev/mantrac-security/1.png",
+          alt: "Twilson Builders Responsive Design1",
+        },
+        {
+          src: "/assets/images/website-dev/mantrac-security/2.png",
+          alt: "Twilson Builders Responsive Design2",
+        },
+        {
+          src: "/assets/images/website-dev/mantrac-security/3.png",
+          alt: "Twilson Builders Responsive Design3",
+        },
+        {
+          src: "/assets/images/website-dev/mantrac-security/4.png",
+          alt: "Twilson Builders Responsive Design4",
+        },
+        {
+          src: "/assets/images/website-dev/mantrac-security/5.png",
+          alt: "Twilson Builders Responsive Design5",
+        },
+        {
+          src: "/assets/images/website-dev/mantrac-security/6.png",
+          alt: "Twilson Builders Responsive Design6",
+        }
+      ],
+    },
+    achievements: {
+      introduction:
+        "The website redesign for Mantrac successfully achieved all the initial objectives, delivering a professional online presence that effectively showcases their security services and expertise.",
+      items: [
+        {
+          title: "Improved Online Presence",
+          description:
+            "A polished and professional website that builds trust at first glance.",
+        },
+        {
+          title: "Higher Engagement",
+          description:
+            "More time spent on service pages and a lower bounce rate due to user-friendly navigation.",
+        },
+        {
+          title: "Brand Authority",
+          description:
+            "Stronger brand positioning in the competitive New Zealand security industry.",
+        },
+        {
+          title: "Lead Generation",
+          description:
+            "Improved contact form usage, generating more inquiries for Mantrac.",
+        },
+      ],
+    },
+    designProcess: {
+      introduction:
+        "Our design process for Mantrac followed a structured approach that focused on their specific needs as a security services company. We aimed to create a website that would effectively showcase their security solutions while providing an intuitive user experience for homeowners, small businesses, and commercial clients.",
+      steps: [
+        {
+          number: "01",
+          title: "Research and Discovery",
+          description:
+            "We conducted thorough research to understand the target audience: homeowners, small businesses, and commercial clients looking for security system installation, CCTV, and monitoring services. We also ensured the design would align with Mantrac Security's core values of safety, trust, and technological excellence.",
+          icon: "FaSearch",
+        },
+        {
+          number: "02",
+          title: "Visual Aesthetics",
+          description:
+            "We implemented sleek, modern design using dark tones and bold contrasts to evoke a sense of safety and professionalism. Custom iconography and imagery related to security systems and surveillance were incorporated for visual context.",
+          icon: "FaPalette",
+        },
+        {
+          number: "03",
+          title: "Responsive Design",
+          description:
+            "The website was fully optimized for mobile, tablet, and desktop, ensuring a consistent and accessible experience across all devices, allowing clients to access security information wherever they are.",
+          icon: "FaMobile",
+        },
+        {
+          number: "04",
+          title: "Navigation Structure",
+          description:
+            "We implemented clean, top-level navigation with clear labels (Home, Contact) to ensure visitors can easily find the information they need about security services and solutions.",
+          icon: "FaCompass",
+        },
+        {
+          number: "05",
+          title: "Interactive Elements",
+          description:
+            "We included buttons like 'Customer Monitoring Portal' and easy-to-use contact forms to ensure trust and make it easier for users to engage with Mantrac's security services. Strategic call-to-action elements guide visitors through the site.",
+          icon: "FaMousePointer",
+        },
+        {
+          number: "06",
+          title: "Feature Implementation",
+          description:
+            "We created specialized sections including FAQ and testimonial sections to address common concerns and build credibility. A detailed Services section clearly outlines what Mantrac provides for both residential and commercial security needs.",
+          icon: "FaCogs",
+        },
+        {
+          number: "07",
+          title: "Technical Development",
+          description:
+            "We built the site with modern web technologies focused on security and reliability, ensuring fast loading times and protection for sensitive information that potential security clients might submit through the website.",
+          icon: "FaCode",
+        },
+      ],
+    },
+  },
 };
 
 // Function to get a specific case study by ID

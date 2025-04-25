@@ -31,6 +31,17 @@ const homeCaseStudiesData = [
       "/assets/images/website-dev/twilson-builders/twilson-builders.png",
     caseStudyPath: "/case-studies/web-development/twilson-builders",
   },
+  {
+    id: 4,
+    heading: "Mantrac Security",
+    statistic: "Increase in Engagement",
+    description:
+      "Mantrac Security, a leading provider of residential and commercial security solutions in New Zealand, required a modern website to improve their digital presence and generate more service inquiries.  ",
+    buttonLabel: "View Success Story",
+    imagePath:
+      "/assets/images/website-dev/mantrac-security/mantrac-security.png",
+    caseStudyPath: "/case-studies/web-development/mantrac-security",
+  },
 ];
 
 export default homeCaseStudiesData;
