@@ -16,12 +16,6 @@ const teamMembers = [
     linkedinUrl: "https://www.linkedin.com/in/danyon-fernando-2b7563149", // Replace with actual LinkedIn URL
   },
   {
-    image: "/assets/images/team/Vazin-Shareef.webp",
-    name: "Vazin Shareef",
-    position: "Chief Information Officer",
-    linkedinUrl: "https://www.linkedin.com/in/vazin-shareef-99639a282", // Replace with actual LinkedIn URL
-  },
-  {
     image: "/assets/images/team/Ruwani.webp",
     name: "Ruwani Kokawala",
     position: "Google Ads Specialist/ SEO",
