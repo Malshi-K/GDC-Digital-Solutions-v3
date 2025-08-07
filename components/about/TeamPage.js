@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { FaLinkedin } from "react-icons/fa"; // Import LinkedIn icon
 import TeamTitleBar from "./TeamTitleBar";
 
@@ -12,8 +11,8 @@ const teamMembers = [
   {
     image: "/assets/images/team/Danyon-Fernando.webp",
     name: "Danyon Fernando",
-    position: "Business Analyst",
-    linkedinUrl: "https://www.linkedin.com/in/danyon-fernando-2b7563149", // Replace with actual LinkedIn URL
+    position: "Director of Operations",
+    linkedinUrl: "https://www.linkedin.com/in/danyon-fernando-2b7563149", 
   },
   {
     image: "/assets/images/team/Ruwani.webp",
@@ -25,7 +24,7 @@ const teamMembers = [
     image: "/assets/images/team/Malshi.webp",
     name: "Malshi Kulasinghe",
     position: "Web Developer/ App Development",
-    linkedinUrl: "https://www.linkedin.com/in/malshii", // Replace with actual LinkedIn URL
+    linkedinUrl: "https://www.linkedin.com/in/malshii",
   },
 ];
 
