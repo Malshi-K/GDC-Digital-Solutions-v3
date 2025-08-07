@@ -271,7 +271,7 @@ const RequestQuoteForm = () => {
             <form onSubmit={handleSubmit} className="space-y-6 bg-gray-50 p-8 md:p-10 rounded-r-lg">
               {/* Services Selection - NEW FIELD */}
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-3">
+                <label className="block text-md font-bold text-gray mb-3">
                   What services are you looking for? (Select all that apply)
                 </label>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
@@ -298,7 +298,7 @@ const RequestQuoteForm = () => {
 
               {/* Business Type Selection - NEW FIELD */}
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label className="block text-md font-bold text-gray mb-3">
                   What is your business type? (Select one) *
                 </label>
                 <div className="space-y-2">
@@ -332,7 +332,7 @@ const RequestQuoteForm = () => {
 
               {/* New Business Question */}
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label className="block text-md font-bold text-gray mb-3">
                   Are you starting a new business?
                 </label>
                 <select
@@ -350,7 +350,7 @@ const RequestQuoteForm = () => {
 
               {/* Business Name */}
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label className="block text-md font-bold text-gray mb-3">
                   Business Name
                 </label>
                 <input
@@ -365,7 +365,7 @@ const RequestQuoteForm = () => {
 
               {/* Contact Person Name */}
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label className="block text-md font-bold text-gray mb-3">
                   Contact Person Name
                 </label>
                 <input
@@ -381,8 +381,8 @@ const RequestQuoteForm = () => {
 
               {/* Email */}
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                  Email Address *
+                <label className="block text-md font-bold text-gray mb-3">
+                  Email Address
                 </label>
                 <input
                   type="email"
@@ -397,7 +397,7 @@ const RequestQuoteForm = () => {
 
               {/* Phone Number */}
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label className="block text-md font-bold text-gray mb-3">
                   Phone Number
                 </label>
                 <div className="flex">
@@ -422,7 +422,7 @@ const RequestQuoteForm = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label className="block text-md font-bold text-gray mb-3">
                   Message
                 </label>
                 <textarea
