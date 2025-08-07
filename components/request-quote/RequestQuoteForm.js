@@ -69,6 +69,7 @@ const RequestQuoteForm = () => {
   // Updated handleSubmit function with better debugging and validation
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setFormStatus("submitting"); // Add loading state
 
     // Debug: Log form data before submission
     console.log("Form data being submitted:", formData);
@@ -93,7 +94,7 @@ const RequestQuoteForm = () => {
     // Prepare fields for submission - ensure business_type is included
     const submissionFields = [
       { name: "services", value: formData.services.join(";") },
-      { name: "business_type", value: formData.business_type }, // Make sure this is always included
+      { name: "business_type", value: formData.business_type },
       { name: "is_new_business", value: formData.is_new_business },
       { name: "business_name", value: formData.business_name },
       { name: "firstname", value: formData.firstname },
@@ -101,7 +102,6 @@ const RequestQuoteForm = () => {
       { name: "phone", value: formData.phone },
       { name: "message", value: formData.message },
     ].filter((field) => {
-      // Don't filter out business_type even if it's empty (but we validated above)
       if (field.name === "business_type" || field.name === "services") {
         return field.value !== null && field.value !== "";
       }
@@ -111,12 +111,6 @@ const RequestQuoteForm = () => {
     });
 
     console.log("Fields being sent to HubSpot:", submissionFields);
-
-    // Double-check business_type is in the submission
-    const businessTypeField = submissionFields.find(
-      (field) => field.name === "business_type"
-    );
-    console.log("Business type field:", businessTypeField);
 
     try {
       const response = await fetch(endpoint, {
@@ -134,7 +128,29 @@ const RequestQuoteForm = () => {
       console.log("Response body:", responseText);
 
       if (response.ok) {
-        router.push("/success");
+        // Success: Show success message and reset form
+        setFormStatus("success");
+        setFormMessage(
+          "Thank you! Your quote request has been submitted successfully. Our team will get back to you within 24 hours."
+        );
+
+        // Reset form fields
+        setFormData({
+          services: [],
+          business_type: "",
+          is_new_business: "",
+          business_name: "",
+          firstname: "",
+          email: "",
+          phone: "",
+          message: "",
+        });
+
+        // Auto-hide success message after 10 seconds
+        setTimeout(() => {
+          setFormStatus("idle");
+          setFormMessage("");
+        }, 10000);
       } else {
         setFormStatus("error");
         setFormMessage(
@@ -268,7 +284,10 @@ const RequestQuoteForm = () => {
               Please fill out the form below to help us understand your needs.
               Our team will get back to you promptly with a customized solution.
             </p>
-            <form onSubmit={handleSubmit} className="space-y-6 bg-gray-50 p-8 md:p-10 rounded-r-lg">
+            <form
+              onSubmit={handleSubmit}
+              className="space-y-6 bg-gray-50 p-8 md:p-10 rounded-r-lg"
+            >
               {/* Services Selection - NEW FIELD */}
               <div>
                 <label className="block text-md font-bold text-gray mb-3">
@@ -437,16 +456,29 @@ const RequestQuoteForm = () => {
 
               <button
                 type="submit"
-                className="w-full py-3 bg-customYellow text-white rounded-lg font-semibold hover:bg-customGray transition duration-300"
+                disabled={formStatus === "submitting"}
+                className={`w-full py-3 rounded-lg font-semibold transition duration-300 ${
+                  formStatus === "submitting"
+                    ? "bg-gray-400 text-gray-600 cursor-not-allowed"
+                    : "bg-customYellow text-white hover:bg-customGray"
+                }`}
               >
-                Submit
+                {formStatus === "submitting" ? "Submitting..." : "Submit"}
               </button>
             </form>
 
             {formStatus === "error" && (
-              <p className="mt-4 font-semibold text-center text-red-600">
-                {formMessage}
-              </p>
+              <div className="mt-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+                <p className="font-semibold text-center">{formMessage}</p>
+              </div>
+            )}
+            {formStatus === "success" && (
+              <div className="mt-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
+                <div className="text-center">
+                  <h3 className="font-bold text-lg mb-2">Success!</h3>
+                  <p className="font-semibold">{formMessage}</p>
+                </div>
+              </div>
             )}
           </div>
         </div>
