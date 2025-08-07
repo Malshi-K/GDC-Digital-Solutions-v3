@@ -6,7 +6,6 @@ import {
   FaEnvelope,
   FaFacebookF,
 } from "react-icons/fa";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
