@@ -19,6 +19,11 @@ import {
   FaLock,
   FaVideo,
   FaComments,
+  FaProjectDiagram,
+  FaPencilRuler,
+  FaFileContract,
+  FaSearchPlus,
+  FaHardHat
 } from "react-icons/fa";
 import Link from "next/link";
 
@@ -42,6 +47,11 @@ const iconMap = {
   FaLock: FaLock,
   FaVideo: FaVideo,
   FaComments: FaComments,
+  FaProjectDiagram: FaProjectDiagram,
+  FaPencilRuler: FaPencilRuler,
+  FaFileContract: FaFileContract,
+  FaSearchPlus: FaSearchPlus,
+  FaHardHat: FaHardHat
 };
 
 const ClientOverview = ({ data }) => {

@@ -599,7 +599,7 @@ export const caseStudiesData = {
         {
           src: "/assets/images/website-dev/mantrac-security/6.png",
           alt: "Twilson Builders Responsive Design6",
-        }
+        },
       ],
     },
     achievements: {
@@ -680,6 +680,240 @@ export const caseStudiesData = {
           description:
             "We built the site with modern web technologies focused on security and reliability, ensuring fast loading times and protection for sensitive information that potential security clients might submit through the website.",
           icon: "FaCode",
+        },
+      ],
+    },
+  },
+  "peak-project-management": {
+    id: "peak-project-management",
+    hero: {
+      subtitle: "Project Management Consultancy",
+      title: "Website Design for Peak Project Management",
+      description:
+        "Peak Project Management is a specialist project management consultancy providing end to end solutions for councils, developers, and asset owners across the Waikato region of New Zealand.",
+      ctaText: "Schedule a Consultation",
+      ctaLink: "/schedule-consultation",
+      imageSrc:
+        "/assets/images/website-dev/peak-pm/1.png",
+      imageAlt: "Peak PM Website Preview",
+    },
+    clientOverview: {
+      services: [
+        {
+          icon: "FaProjectDiagram", // or "FaClipboardList" or "FaTasks"
+          label: "Project Planning & Programming",
+        },
+        {
+          icon: "FaPencilRuler", // or "FaPencilRuler" or "FaDrawPolygon"
+          label: "Design & Consenting Management",
+        },
+        {
+          icon: "FaFileContract", // or "FaHandshake" or "FaCalculator"
+          label: "Contract Management & Estimating",
+        },
+        {
+          icon: "FaSearchPlus", // or "FaEye" or "FaClipboardCheck"
+          label: "MSQA",
+        },
+        {
+          icon: "FaHardHat", // or "FaBuilding" or "FaTools"
+          label: "Construction Supervision & Management",
+        },
+      ],
+      companyName: "Peak Project Management",
+      industry: "Project Management Consultancy",
+      website: "https://peakpro.co.nz",
+      description:
+        "Peak Project Management is a specialist project management consultancy providing end to end solutions for councils, developers, and asset owners across the Waikato region of New Zealand. They required a professional and modern website that reflects their expertise in project delivery, stakeholder management, and asset development. The goal was to design a platform that communicates their credibility, showcases their portfolio of successful projects, and makes it easy for clients to engage with their services. To further strengthen their online presence, Basic SEO Optimization was also implemented to help them improve visibility, attract qualified traffic, and connect with potential clients more effectively.",
+    },
+    challenges: {
+      introduction: "",
+      items: [
+        {
+          title: "Content Structuring",
+          description:
+            "Presenting a variety of services without overwhelming the user and communicating technical project management expertise in a simple, client-friendly format.",
+        },
+        {
+          title: " Portfolio Balance",
+          description:
+            "Balancing professionalism with visual engagement to make case studies accessible.",
+        },
+      ],
+    },
+    approach: {
+      technicalObjectives: [
+        {
+          icon: "FaWordpress", // Keep this - perfect for WordPress
+          title: "WordPress CMS",
+          description:
+            "This industry leading Content Management System (CMS) is employed to develop a flexible, scalable, and SEO optimized website, providing an extensive plugin ecosystem for enhanced functionality.",
+          bgColor: "bg-customYellow",
+        },
+        {
+          icon: "FaPuzzlePiece", // Keep this - good for page builder
+          title: "Elementor Page Builder",
+          description:
+            "Utilized for drag-and-drop visual design, enabling efficient creation of custom layouts without requiring extensive coding knowledge",
+          bgColor: "bg-white",
+        },
+        {
+          icon: "FaWpforms", // Keep this - perfect for WP Forms
+          title: "WP Forms",
+          description: "Implemented for creating user-friendly contact forms",
+          bgColor: "bg-customYellow",
+        },
+        {
+          icon: "FaEnvelope", // Better than FaPaperPlane for email/SMTP
+          title: "WP Mail SMTP",
+          description:
+            "Configured to ensure reliable email delivery from the WordPress site to users and administrators",
+          bgColor: "bg-white",
+        },
+        {
+          icon: "FaServer", // Perfect for hosting services
+          title: "Hostinger",
+          description:
+            "Serving as the hosting provider, Hostinger offers reliable and high-performance hosting services with optimized WordPress infrastructure, ensuring fast loading speeds, 99.9% uptime guarantee, and comprehensive technical support with LiteSpeed web servers and built-in caching.",
+          bgColor: "bg-customYellow",
+        },
+        {
+          icon: "FaLock", // Classic icon for SSL/security
+          title: "SSL Certificate",
+          description:
+            "Integrated free SSL encryption ensures secure data transmission between users and the website, providing enhanced security and improved SEO rankings.",
+          bgColor: "bg-white",
+        },
+        {
+          icon: "FaGlobe", // Perfect for global CDN network
+          title: "Content Delivery Network (CDN)",
+          description:
+            "Leveraging Hostinger's global CDN infrastructure to deliver website content faster to users worldwide, reducing load times and improving user experience.",
+          bgColor: "bg-customYellow",
+        },
+      ],
+      designObjectives: [],
+    },
+    gallery: {
+      images: [
+        {
+          src: "/assets/images/website-dev/peak-pm/2.png",
+          alt: "Twilson Builders Responsive Design2",
+        },
+        {
+          src: "/assets/images/website-dev/peak-pm/3.png",
+          alt: "Twilson Builders Responsive Design3",
+        },
+        {
+          src: "/assets/images/website-dev/peak-pm/4.png",
+          alt: "Twilson Builders Responsive Design4",
+        },
+        {
+          src: "/assets/images/website-dev/peak-pm/5.png",
+          alt: "Twilson Builders Responsive Design5",
+        },
+        {
+          src: "/assets/images/website-dev/peak-pm/6.png",
+          alt: "Twilson Builders Responsive Design6",
+        },
+        {
+          src: "/assets/images/website-dev/peak-pm/7.png",
+          alt: "Twilson Builders Responsive Design7",
+        },
+        {
+          src: "/assets/images/website-dev/peak-pm/8.png",
+          alt: "Twilson Builders Responsive Design8",
+        },
+        {
+          src: "/assets/images/website-dev/peak-pm/9.png",
+          alt: "Twilson Builders Responsive Design9",
+        },
+        {
+          src: "/assets/images/website-dev/peak-pm/10.png",
+          alt: "Twilson Builders Responsive Design10",
+        },
+        {
+          src: "/assets/images/website-dev/peak-pm/11.png",
+          alt: "Twilson Builders Responsive Design11",
+        },
+      ],
+    },
+    achievements: {
+      introduction:
+        "The website redesign for Peak Project Management successfully achieved all the initial objectives, delivering a professional online presence that effectively showcases their security services and expertise.",
+      items: [
+        {
+          title: "Enhanced Professional Presence",
+          description:
+            "A website that positions Peak Project Management as a trusted project management consultancy for councils, developers, and asset owners.",
+        },
+        {
+          title: "Improved User Experience",
+          description:
+            "Stakeholders can quickly access information about services, projects, and contact details",
+        },
+        {
+          title: "Increased Engagement",
+          description:
+            "Higher interest in services due to clear CTAs and project showcases.",
+        },
+        {
+          title: "Stronger Lead Generation",
+          description:
+            "The site encourages inquiries from new developers and council contacts across Waikato.",
+        },
+        {
+          title: "Better Online Visibility through Basic SEO Optimization",
+          description:
+            "Optimized titles, descriptions, and on-page elements help Peak Project Management rank higher on search engines, ensuring that potential clients can easily find their services",
+        },
+      ],
+    },
+    designProcess: {
+      introduction:
+        "Our design process for Peak Project Management followed a structured approach that focused on their specific needs as a security services company. We aimed to create a website that would effectively showcase their security solutions while providing an intuitive user experience for homeowners, small businesses, and commercial clients.",
+      steps: [
+        {
+          number: "01",
+          title: "Research and Discovery",
+          description:
+            "Peak Project Management targets local councils, property developers, infrastructure managers, and asset owners seeking reliable project management expertise. The website needed to reflect Peak Project Management's values of precision, trust, collaboration, and professional delivery to effectively communicate their credibility and showcase their portfolio of successful projects to this specialized audience.",
+          icon: "FaSearch",
+        },
+        {
+          number: "02",
+          title: "Visual Aesthetics",
+          description:
+            "The visual aesthetics focus on a clean and corporate design with a modern, minimal aesthetic, incorporating the use of professional project imagery and regionally relevant visuals to create a cohesive and professional appearance that resonates with the local market.",
+          icon: "FaPalette",
+        },
+        {
+          number: "03",
+          title: "Responsive Design",
+          description:
+            "Fully optimized for desktops, tablets, and smartphones to ensure a seamless experience for all users.",
+          icon: "FaMobile",
+        },
+        {
+          number: "04",
+          title: "Navigation Structure",
+          description:
+            "Simple, intuitive structure with clear menu categories for About, Services, Projects and Contact.",
+          icon: "FaCompass",
+        },
+        {
+          number: "05",
+          title: "Interactive Elements",
+          description:
+            "Integrated links to contact form throughout the site. And project gallery featuring case studies of work with councils and developers",
+          icon: "FaMousePointer",
+        },
+        {
+          number: "06",
+          title: "Features and Functionality",
+          description:
+            "The website features a comprehensive portfolio section that serves as a project showcase highlighting successful deliveries and demonstrating expertise, with clear descriptions of project management services tailored to councils, developers, and asset owners from planning to supervision. A user-friendly contact form is integrated with instant email notifications, complemented by an interactive location map with an embedded Google Map on the contact page to help customers easily find Peak Project Management's office and service areas. Additionally, a well-crafted about section reinforces Peak Project Management's brand identity, highlighting their years of experience, core values, team expertise, project approach, and commitment to quality.",
+          icon: "FaCogs",
         },
       ],
     },

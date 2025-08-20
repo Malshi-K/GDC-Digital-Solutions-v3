@@ -19,6 +19,7 @@ import {
   FaBuilding,
   FaShieldAlt,
   FaUserCheck,
+  FaLock,
 } from "react-icons/fa";
 import { SiNextdotjs, SiHubspot, SiGithub, SiNetlify } from "react-icons/si";
 
@@ -46,11 +47,15 @@ const iconMap = {
   FaBuilding: FaBuilding,
   FaShieldAlt: FaShieldAlt,
   FaUserCheck: FaUserCheck,
+  FaLock: FaLock
 };
 
 const OurApproachSection = ({ data }) => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
+
+  // Check if design objectives exist and have data
+  const hasDesignObjectives = data.designObjectives && data.designObjectives.length > 0;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -176,75 +181,79 @@ const OurApproachSection = ({ data }) => {
           })}
         </div>
 
-        {/* Design Overview Grid */}
-        <h2
-          className={`text-3xl font-bold text-customGray mb-6 transition-all duration-500 ${
-            isVisible ? "opacity-100" : "opacity-0"
-          }`}
-          style={{
-            transitionDelay: `${
-              400 + data.technicalObjectives.length * 200 + 100
-            }ms`,
-          }}
-        >
-          Design Overview
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
-          {data.designObjectives.map((keyObj, index) => {
-            const IconComponent = iconMap[keyObj.icon];
-            return (
-              <div
-                key={index}
-                className={`flex flex-col items-center p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500 transform ${
-                  keyObj.bgColor
-                } ${
-                  isVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-12"
-                }`}
-                style={{
-                  transitionDelay: `${
-                    400 +
-                    data.technicalObjectives.length * 200 +
-                    200 +
-                    index * 200
-                  }ms`,
-                }}
-              >
-                <div className="bg-white p-4 rounded-full mb-4">
-                  {IconComponent && (
-                    <IconComponent
-                      size={40}
-                      className={
+        {/* Design Overview Grid - Only render if data exists */}
+        {hasDesignObjectives && (
+          <>
+            <h2
+              className={`text-3xl font-bold text-customGray mb-6 transition-all duration-500 ${
+                isVisible ? "opacity-100" : "opacity-0"
+              }`}
+              style={{
+                transitionDelay: `${
+                  400 + data.technicalObjectives.length * 200 + 100
+                }ms`,
+              }}
+            >
+              Design Overview
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+              {data.designObjectives.map((keyObj, index) => {
+                const IconComponent = iconMap[keyObj.icon];
+                return (
+                  <div
+                    key={index}
+                    className={`flex flex-col items-center p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500 transform ${
+                      keyObj.bgColor
+                    } ${
+                      isVisible
+                        ? "opacity-100 translate-y-0"
+                        : "opacity-0 translate-y-12"
+                    }`}
+                    style={{
+                      transitionDelay: `${
+                        400 +
+                        data.technicalObjectives.length * 200 +
+                        200 +
+                        index * 200
+                      }ms`,
+                    }}
+                  >
+                    <div className="bg-white p-4 rounded-full mb-4">
+                      {IconComponent && (
+                        <IconComponent
+                          size={40}
+                          className={
+                            keyObj.bgColor === "bg-customYellow"
+                              ? "text-customGray"
+                              : "text-customYellow"
+                          }
+                        />
+                      )}
+                    </div>
+                    <h3
+                      className={`text-xl font-semibold mb-2 ${
                         keyObj.bgColor === "bg-customYellow"
-                          ? "text-customGray"
-                          : "text-customYellow"
-                      }
-                    />
-                  )}
-                </div>
-                <h3
-                  className={`text-xl font-semibold mb-2 ${
-                    keyObj.bgColor === "bg-customYellow"
-                      ? "text-white"
-                      : "text-customGray"
-                  }`}
-                >
-                  {keyObj.title}
-                </h3>
-                <p
-                  className={`text-center ${
-                    keyObj.bgColor === "bg-customYellow"
-                      ? "text-white"
-                      : "text-customGray"
-                  }`}
-                >
-                  {keyObj.description}
-                </p>
-              </div>
-            );
-          })}
-        </div>
+                          ? "text-white"
+                          : "text-customGray"
+                      }`}
+                    >
+                      {keyObj.title}
+                    </h3>
+                    <p
+                      className={`text-center ${
+                        keyObj.bgColor === "bg-customYellow"
+                          ? "text-white"
+                          : "text-customGray"
+                      }`}
+                    >
+                      {keyObj.description}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          </>
+        )}
       </div>
     </section>
   );

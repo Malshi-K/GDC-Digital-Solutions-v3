@@ -42,6 +42,17 @@ const homeCaseStudiesData = [
       "/assets/images/website-dev/mantrac-security/mantrac-security.png",
     caseStudyPath: "/case-studies/web-development/mantrac-security",
   },
+  {
+    id: 5,
+    heading: "Peak Project Management",
+    statistic: "Increase in Engagement",
+    description:
+      "Peak Project Management is a specialist project management consultancy providing end to end solutions for councils, developers, and asset owners across the Waikato region of New Zealand.",
+    buttonLabel: "View Success Story",
+    imagePath:
+      "/assets/images/website-dev/peak-pm/1.png",
+    caseStudyPath: "/case-studies/web-development/peak-project-management",
+  },
 ];
 
 export default homeCaseStudiesData;
