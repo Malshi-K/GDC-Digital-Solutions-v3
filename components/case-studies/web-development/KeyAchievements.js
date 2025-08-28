@@ -39,7 +39,7 @@ const KeyAchievements = ({ data }) => {
         </h2>
 
         <p
-          className={`text-customGray mb-6 max-w-2xl mx-auto text-base md:text-lg transform transition-all duration-500 ${
+          className={`text-white mb-6 max-w-2xl mx-auto text-base md:text-lg transform transition-all duration-500 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
           }`}
           style={{ transitionDelay: "200ms" }}
@@ -62,7 +62,7 @@ const KeyAchievements = ({ data }) => {
               <h4 className="text-lg md:text-xl text-white font-semibold mb-4">
                 {achievement.title}
               </h4>
-              <p className="text-gray-700 text-sm md:text-base">
+              <p className="text-white text-sm md:text-base">
                 {achievement.description}
               </p>
             </div>

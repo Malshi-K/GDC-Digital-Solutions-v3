@@ -16,7 +16,7 @@ const OnePageWebsite = () => {
   }, []);
 
   return (
-    <section className="relative flex flex-col md:flex-row items-center py-5 sm:py-10 lg:py-15 rounded-lg overflow-hidden">
+    <section className="relative flex flex-col md:flex-row items-center rounded-lg overflow-hidden">
       {/* Left Content Section */}
       <div
         className={`flex-1 px-20 z-10 transform transition-all duration-800 ease-out ${

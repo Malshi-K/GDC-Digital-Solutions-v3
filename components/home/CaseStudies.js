@@ -38,12 +38,8 @@ const CaseStudies = () => {
           {caseStudiesData.map((caseStudy, index) => (
             <div
               key={index}
-              className="border border-customYellow rounded-xl shadow-lg overflow-hidden hover:shadow-2xl hover:scale-102 transition-all duration-500 flex flex-col h-full"
-              style={{
-                backgroundImage: "url(/assets/images/google-ads-bg.webp)",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
+              className="rounded-xl shadow-xl overflow-hidden hover:shadow-2xl hover:scale-102 transition-all duration-500 flex flex-col h-full"
+              
             >
               {/* Case Study Image - Consistent height */}
               <div className="pt-6 px-6 flex justify-center">
@@ -83,7 +79,7 @@ const CaseStudies = () => {
                 {/* Button - Always at the bottom */}
                 <div className="mt-auto">
                   <button
-                    className="w-full text-center text-customYellow hover:text-white border border-customYellow hover:bg-customGray hover:border-none rounded-full px-6 py-2 font-semibold transition-all duration-300 hover:scale-105 transform"
+                    className="w-full text-center text-customYellow hover:text-white border border-customYellow hover:bg-customYellow hover:border-none rounded-full px-6 py-2 font-semibold transition-all duration-300 hover:scale-105 transform"
                     onClick={() => handleButtonClick(caseStudy.caseStudyPath)}
                   >
                     View Success Story

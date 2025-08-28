@@ -87,10 +87,10 @@ const TeamPage = () => {
                     ${activeIndex === index ? "bg-customYellow h-auto" : "bg-transparent h-0"}`}
                 >
                   <div className="p-4 text-center">
-                    <h3 className="text-xl font-semibold text-black">
+                    <h3 className="text-xl font-semibold text-white">
                       {member.name}
                     </h3>
-                    <h6 className="text-black mb-4">{member.position}</h6>
+                    <h6 className="text-white mb-4">{member.position}</h6>
                     
                     {/* LinkedIn Icon */}
                     <a 
@@ -100,7 +100,7 @@ const TeamPage = () => {
                       onClick={handleLinkedInClick}
                       className="inline-block"
                     >
-                      <FaLinkedin className="text-black text-3xl hover:text-customGray transition-colors duration-300" />
+                      <FaLinkedin className="text-white text-3xl hover:text-white transition-colors duration-300" />
                     </a>
                   </div>
                 </div>

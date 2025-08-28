@@ -71,7 +71,7 @@ const ServicesBar = () => {
         }
         
         .service-item {
-          color: #333333;
+          color: #ffffff;
           font-weight: bold;
           padding: 0 20px;
         }

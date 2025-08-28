@@ -121,7 +121,7 @@ const Banner = ({ isServicesOpen, isAboutOpen }) => {
 
         .scroll-container {
           position: relative;
-          background-color: #ffbf00;
+          background-color: #7407c8;
           border-radius: 9999px;
           overflow: hidden;
           width: 90%;
@@ -141,7 +141,7 @@ const Banner = ({ isServicesOpen, isAboutOpen }) => {
         }
 
         .scroll-word {
-          color: #333333;
+          color: #ffffff;
           font-weight: 500;
           padding: 0 24px;
           display: inline-flex;
@@ -212,7 +212,7 @@ const Banner = ({ isServicesOpen, isAboutOpen }) => {
           transform: translate(-50%, -50%);
           width: 70px;
           height: 70px;
-          background-color: #ffb500;
+          background-color: #7407c8;
           border-radius: 50%;
           display: flex;
           align-items: center;
@@ -331,7 +331,7 @@ const Banner = ({ isServicesOpen, isAboutOpen }) => {
                       height="26"
                       viewBox="0 0 24 24"
                       fill="none"
-                      stroke="#000000"
+                      stroke="#ffffff"
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"

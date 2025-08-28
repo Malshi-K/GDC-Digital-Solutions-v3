@@ -204,7 +204,7 @@ const LocalBusinessTargeting = () => {
                 key={industry.id}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                   activeIndustry === industry.id
-                    ? "bg-customYellow text-black shadow-md"
+                    ? "bg-customYellow text-white shadow-md"
                     : "bg-gray-200 text-gray-800 hover:bg-gray-300"
                 }`}
                 onClick={() => setActiveIndustry(industry.id)}
@@ -260,7 +260,7 @@ const LocalBusinessTargeting = () => {
                     
                     <a 
                       href="/contact-us" 
-                      className="inline-flex items-center mt-8 px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-black bg-customYellow hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-customYellow transition-all duration-300"
+                      className="inline-flex items-center mt-8 px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-customYellow hover:bg-customLightYellow focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-customYellow transition-all duration-300"
                     >
                       Get Industry-Specific Strategy
                     </a>

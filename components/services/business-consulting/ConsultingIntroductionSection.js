@@ -35,10 +35,10 @@ const ConsultingIntroductionSection = () => {
     <section className="py-12 px-4 md:px-20 bg-gray-100" ref={sectionRef}>
       <div className="container mx-auto flex flex-col md:flex-row items-center">
         {/* Left Content */}
-        <div className="w-full md:w-1/2">
+        <div className="w-full">
           {/* Section Title */}
           <h2
-            className={`text-customYellow text-xl md:text-3xl font-bold text-left mb-6 transform ${
+            className={`text-customYellow text-center text-xl md:text-3xl font-bold text-left mb-6 transform ${
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
             } transition-all duration-800 ease-out`}
           >
@@ -47,7 +47,7 @@ const ConsultingIntroductionSection = () => {
 
           {/* Description */}
           <p
-            className={`text-gray-800 leading-relaxed mb-8 max-w-3xl transform ${
+            className={`text-center text-gray-800 leading-relaxed mb-8 transform ${
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
             } transition-all duration-800 ease-out delay-300`}
             style={{ transitionDelay: "300ms" }}
@@ -64,7 +64,7 @@ const ConsultingIntroductionSection = () => {
 
           {/* Description */}
           <p
-            className={`text-gray-800 leading-relaxed mb-8 max-w-3xl transform ${
+            className={`text-center fitext-gray-800 leading-relaxed mb-8 transform ${
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
             } transition-all duration-800 ease-out delay-300`}
             style={{ transitionDelay: "300ms" }}
@@ -78,23 +78,6 @@ const ConsultingIntroductionSection = () => {
             processes, or aligning your IT strategy with business goals, we are
             here to guide you through every phase of your journey.
           </p>
-        </div>
-
-        {/* Right Image */}
-        <div className="w-full md:w-1/2 flex justify-center md:justify-end mt-8 md:mt-0">
-          <div
-            className={`transform ${
-              isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
-            } transition-all duration-800 ease-out`}
-          >
-            <Image
-              src="/assets/images/business-analysis/business-bg.png" // Replace with the actual image path
-              alt="NFC Card Illustration"
-              width={500} // Adjust width as needed
-              height={400} // Adjust height as needed
-              className="w-full h-auto object-contain"
-            />
-          </div>
         </div>
       </div>
     </section>

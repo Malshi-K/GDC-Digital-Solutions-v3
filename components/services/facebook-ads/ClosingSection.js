@@ -75,7 +75,7 @@ export default function FBClosingSection() {
                 <p className="text-gray-300 mb-6">Our Facebook Ads experts are ready to help your business reach its full potential.</p>
                 <a 
                   href="/contact-us" 
-                  className="group inline-flex items-center justify-center gap-2 bg-customYellow hover:bg-yellow-500 text-black font-semibold py-3 px-6 rounded-lg w-full transition-all duration-300 transform hover:scale-105"
+                  className="group inline-flex items-center justify-center gap-2 bg-customYellow hover:bg-customLightYellow text-white font-semibold py-3 px-6 rounded-lg w-full transition-all duration-300 transform hover:scale-105"
                 >
                   Start Your Campaign Now
                   <ArrowRightIcon className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />

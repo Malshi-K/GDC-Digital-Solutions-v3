@@ -87,7 +87,7 @@
   width: 120px;
   height: 120px;
   position: relative;
-  background-color: #ffb500;
+  background-color: #7407c8;
   clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
   text-align: center;
   transition: all 0.3s ease;
@@ -165,7 +165,7 @@
     background-position: 0px 0px, 0px 0px, 0px 0px;
   }
   50% {
-    background-color: #ffde59;
+    background-color: #7407c8;
   }
   100% {
     background-position: 500px 1000px, 400px 400px, 300px 300px;
@@ -177,7 +177,7 @@
     background-position: 0px 0px, 0px 0px, 0px 0px;
   }
   50% {
-    background-color: #ffde59;
+    background-color: #7407c8;
   }
   100% {
     background-position: 500px 1000px, 400px 400px, 300px 300px;
@@ -189,7 +189,7 @@
     background-position: 0px 0px, 0px 0px, 0px 0px;
   }
   50% {
-    background-color: #ffde59;
+    background-color: #7407c8;
   }
   100% {
     background-position: 500px 1000px, 400px 400px, 300px 300px;
@@ -201,7 +201,7 @@
     background-position: 0px 0px, 0px 0px, 0px 0px;
   }
   50% {
-    background-color: #ffde59;
+    background-color: #7407c8;
   }
   100% {
     background-position: 500px 1000px, 400px 400px, 300px 300px;

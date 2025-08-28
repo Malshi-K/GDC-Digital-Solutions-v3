@@ -141,7 +141,7 @@ export default function ExpertiseSection() {
           style={{ transitionDelay: "600ms" }}
         >
           <Link href="/about">
-            <button className="bg-customYellow text-black font-bold py-3 px-8 rounded-full hover:bg-yellow-400 transition duration-300">
+            <button className="bg-customYellow text-black font-bold py-3 px-8 rounded-full hover:bg-customLightYellow transition duration-300">
               Find More About Our Expertise
             </button>
           </Link>

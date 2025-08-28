@@ -1,13 +1,12 @@
 "use client";
 import React, { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 
 // Check icon component with outlined design
 const CheckIcon = ({ className }) => (
-  <div className="flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 rounded-sm border-2 border-amber-400 mr-2">
+  <div className="flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 rounded-sm border-2 border-customLightYellow mr-2">
     <svg
-      className={`h-3 w-3 sm:h-4 sm:w-4 text-amber-400 ${className}`}
+      className={`h-3 w-3 sm:h-4 sm:w-4 text-customLightYellow ${className}`}
       width="20"
       height="20"
       viewBox="0 0 20 20"
@@ -28,7 +27,7 @@ const ServiceCard = ({ title, items, iconSrc }) => {
   return (
     <div
       className={`relative rounded-xl p-4 sm:p-6 transition-all duration-300 h-full shadow-md ${
-        isHovered ? "bg-customGray text-white" : "bg-white text-gray-800"
+        isHovered ? "bg-customYellow text-white" : "bg-white text-gray-800"
       }`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -52,7 +51,7 @@ const ServiceCard = ({ title, items, iconSrc }) => {
               className="flex items-start hover:opacity-80 transition-opacity group"
             >
               <CheckIcon
-                className={isHovered ? "text-amber-400" : "text-amber-400"}
+                className={isHovered ? "text-white" : "text-customYellow"}
               />
               <span className={`text-xs sm:text-sm group-hover:underline ${isHovered ? "text-white" : "text-gray-800"}`}>
                 {item.text}
@@ -63,7 +62,7 @@ const ServiceCard = ({ title, items, iconSrc }) => {
       </ul>
 
       {/* Decorative corner element */}
-      <div className="absolute bottom-0 right-0 w-6 h-6 sm:w-8 sm:h-8 bg-amber-400 rounded-tl-lg"></div>
+      <div className="absolute bottom-0 right-0 w-6 h-6 sm:w-8 sm:h-8 bg-customYellow rounded-tl-lg"></div>
     </div>
   );
 };

@@ -20,7 +20,7 @@ export default function Footer() {
               <div className="mt-4 sm:mt-6">
                 <Link
                   href="/schedule-consultation"
-                  className="inline-block bg-customYellow hover:bg-yellow-500 text-dark-blue font-semibold py-2 sm:py-3 px-6 sm:px-8 rounded-md transition-colors duration-300 text-sm sm:text-base"
+                  className="inline-block bg-customYellow hover:bg-customLightYellow text-white font-semibold py-2 sm:py-3 px-6 sm:px-8 rounded-md transition-colors duration-300 text-sm sm:text-base"
                 >
                   Schedule a Consultation
                 </Link>
@@ -85,7 +85,7 @@ export default function Footer() {
                 </div>
                 <button
                   type="submit"
-                  className="bg-customYellow hover:bg-yellow-500 text-dark-blue font-semibold py-2 sm:py-3 px-6 sm:px-8 rounded-md transition-colors duration-300 text-sm sm:text-base"
+                  className="bg-customYellow hover:bg-customLightYellow text-white font-semibold py-2 sm:py-3 px-6 sm:px-8 rounded-md transition-colors duration-300 text-sm sm:text-base"
                 >
                   Subscribe Now
                 </button>

@@ -136,7 +136,7 @@ const Header = () => {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
-              src="/assets/images/Digital Solution Logo.webp"
+              src="/assets/images/Digital Solution Logo.png"
               alt="GDC Digital Solutions Logo"
               width={240}
               height={60}
@@ -171,14 +171,14 @@ const Header = () => {
       {/* Sidebar */}
       <div
         ref={sidebarRef}
-        className={`fixed top-0 right-0 h-full w-[85%] sm:w-80 bg-customGray z-50 overflow-y-auto shadow-xl transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 right-0 h-full w-[85%] sm:w-80 bg-white z-50 overflow-y-auto shadow-xl transition-transform duration-300 ease-in-out ${
           isSidebarOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex justify-between items-center p-4 sm:p-6 border-b border-customGray">
+        <div className="flex justify-between items-center p-4 sm:p-6">
           <button
             onClick={toggleSidebar}
-            className="text-white hover:text-customYellow focus:outline-none"
+            className="text-customYellow hover:text-customYellow focus:outline-none"
             aria-label="Close menu"
           >
             <XMarkIcon className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -197,15 +197,15 @@ const Header = () => {
                         className={`text-left text-base sm:text-lg ${
                           pathname === item.href ||
                           pathname.startsWith(item.href + "/")
-                            ? "text-customYellow font-medium"
-                            : "text-white"
+                            ? "text-customLightYellow font-medium"
+                            : "text-customYellow"
                         } hover:text-customYellow transition-colors`}
                       >
                         {item.name}
                       </button>
                       <button
                         onClick={() => toggleDropdown(index)}
-                        className="text-white hover:text-customYellow focus:outline-none transition-transform duration-200"
+                        className="text-customYellow hover:text-customYellow focus:outline-none transition-transform duration-200"
                         aria-expanded={expandedItems[index]}
                       >
                         {expandedItems[index] ? (
@@ -230,8 +230,8 @@ const Header = () => {
                               href={dropdownItem.href}
                               className={`block text-xs sm:text-sm ${
                                 pathname === dropdownItem.href
-                                  ? "text-customYellow font-medium"
-                                  : "text-gray-300"
+                                  ? "text-customLightYellow font-medium"
+                                  : "text-customGray"
                               } hover:text-customYellow transition-colors`}
                             >
                               {dropdownItem.name}
@@ -246,8 +246,8 @@ const Header = () => {
                     href={item.href}
                     className={`text-base sm:text-lg ${
                       pathname === item.href
-                        ? "text-customYellow font-medium"
-                        : "text-white"
+                        ? "text-customLightYellow font-medium"
+                        : "text-customYellow"
                     } hover:text-customYellow transition-colors`}
                   >
                     {item.name}
@@ -259,20 +259,20 @@ const Header = () => {
         </nav>
 
         {/* Social Links or Additional Info */}
-        <div className="p-4 sm:p-6 border-t border-gray-700 mt-4 sm:mt-6">
+        <div className="p-4 sm:p-6 border-t border-customYellow mt-4 sm:mt-6">
           <div className="mb-4">
-            <p className="text-gray-400 text-base sm:text-lg mb-1 sm:mb-2 font-normal">
+            <p className="text-customYellow text-base sm:text-lg mb-1 sm:mb-2 font-normal">
               Contact Us
             </p>
             <a
               href="mailto:digital@gdcgroup.co.nz"
-              className="block text-white text-base sm:text-lg font-normal hover:text-customYellow transition-colors mb-1"
+              className="block text-customYellow text-base sm:text-lg font-normal hover:text-customYellow transition-colors mb-1"
             >
               digital@gdcgroup.co.nz
             </a>
             <a
               href="tel:+64212463988"
-              className="block text-white text-base sm:text-lg font-normal hover:text-customYellow transition-colors"
+              className="block text-customYellow text-base sm:text-lg font-normal hover:text-customYellow transition-colors"
             >
               (+64) 21 246 3988
             </a>

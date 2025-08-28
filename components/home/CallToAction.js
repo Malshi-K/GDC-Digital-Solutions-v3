@@ -29,7 +29,7 @@ const ConsultationCTA = () => {
 
           {/* CTA Button */}
           <Link href="/schedule-consultation">
-            <span className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-amber-500 text-white text-sm sm:text-base font-medium rounded-full hover:bg-amber-600 transition-colors duration-300">
+            <span className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-customYellow text-white text-sm sm:text-base font-medium rounded-full hover:bg-customLightYellow transition-colors duration-300">
               Book Free Consultation
               <ArrowRightIcon className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
             </span>

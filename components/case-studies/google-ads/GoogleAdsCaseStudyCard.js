@@ -33,12 +33,7 @@ const GoogleAdsCaseStudyCard = ({
       <div
         className={`container max-w-6xl mx-auto border border-customYellow rounded-xl shadow-xl p-10 flex flex-col md:flex-row items-center md:gap-x-10 relative transition-all duration-500 ease-out ${
           isHovered ? "scale-105 shadow-2xl" : ""
-        }`}
-        style={{
-          backgroundImage: "url(/assets/images/google-ads-bg.webp)",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
+        }`}        
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >

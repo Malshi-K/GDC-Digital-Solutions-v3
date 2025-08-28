@@ -23,7 +23,7 @@ const CaseStudiesList = () => {
               className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-300 flex flex-col h-full"
             >
               {/* Image Section with yellow background */}
-              <div className="relative bg-amber-100 p-6 h-52 flex items-center justify-center">
+              <div className="relative p-6 h-52 flex items-center justify-center">
                 <Image
                   src={caseStudy.hero.imageSrc}
                   alt={caseStudy.hero.title}
