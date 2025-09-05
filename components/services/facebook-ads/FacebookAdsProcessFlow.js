@@ -53,51 +53,51 @@ export default function FacebookAdsProcessFlow() {
   // Steps array for the Facebook advertising services
   const services = [
     {
-      icon: <FaLightbulb className="text-customYellow text-4xl mb-4" />,
+      icon: <FaLightbulb className="text-customPurple text-4xl mb-4" />,
       title: "Facebook Ad Strategy & Campaign Setup",
       description:
         "We create a customised Facebook Ads strategy based on your business goals, ensuring high engagement and lead generation.",
     },
     {
-      icon: <FaUserFriends className="text-customYellow text-4xl mb-4" />,
+      icon: <FaUserFriends className="text-customPurple text-4xl mb-4" />,
       title: "Audience Targeting & Retargeting",
       description:
         "We help you reach the right people, including:",
       subItems: [
         {
-          icon: <FaBuilding className="text-customYellow text-xl inline-block mr-2" />,
+          icon: <FaBuilding className="text-customPurple text-xl inline-block mr-2" />,
           text: "Local Business Ads NZ – Target customers based on location, demographics, and behaviour."
         },
         {
-          icon: <FaUsers className="text-customYellow text-xl inline-block mr-2" />,
+          icon: <FaUsers className="text-customPurple text-xl inline-block mr-2" />,
           text: "Lookalike Audiences – Expand your reach by targeting users similar to your best customers."
         }
       ]
     },
     {
-      icon: <FaPencilAlt className="text-customYellow text-4xl mb-4" />,
+      icon: <FaPencilAlt className="text-customPurple text-4xl mb-4" />,
       title: "Ad Creation & Optimisation",
       description:
         "From Facebook carousel ads to video marketing, we design eye-catching ads that increase clicks and conversions.",
       subItems: [
         {
-          icon: <FaImages className="text-customYellow text-xl inline-block mr-2" />,
+          icon: <FaImages className="text-customPurple text-xl inline-block mr-2" />,
           text: "Carousel & Image Ads – Showcase multiple products or features in a single ad."
         },
         {
-          icon: <FaVideo className="text-customYellow text-xl inline-block mr-2" />,
+          icon: <FaVideo className="text-customPurple text-xl inline-block mr-2" />,
           text: "Video Ads – Engage your audience with compelling video content."
         }
       ]
     },
     {
-      icon: <FaChartLine className="text-customYellow text-4xl mb-4" />,
+      icon: <FaChartLine className="text-customPurple text-4xl mb-4" />,
       title: "Performance Tracking & Reporting",
       description:
         "We continuously monitor, analyse, and optimise your Facebook Ads for the best results.",
       subItems: [
         {
-          icon: <FaChartBar className="text-customYellow text-xl inline-block mr-2" />,
+          icon: <FaChartBar className="text-customPurple text-xl inline-block mr-2" />,
           text: "Detailed analytics and insights to track ROI and campaign effectiveness."
         }
       ]

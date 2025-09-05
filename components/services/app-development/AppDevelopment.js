@@ -4,37 +4,37 @@ import { FaRocket, FaUserCheck, FaChartLine, FaMobileAlt, FaLock, FaSyncAlt } fr
 // Data for the web development benefits
 const benefitsData = [
   {
-    icon: <FaRocket className="mx-auto mb-4 text-6xl text-customYellow" />,
+    icon: <FaRocket className="mx-auto mb-4 text-6xl text-customPurple" />,
     title: "Expand Your Reach",
     description:
       "Custom mobile and web applications give your business presence across all devices, reaching customers wherever they are and however they prefer to connect.",
   },
   {
-    icon: <FaUserCheck className="mx-auto mb-4 text-6xl text-customYellow" />,
+    icon: <FaUserCheck className="mx-auto mb-4 text-6xl text-customPurple" />,
     title: "Enhanced User Experience",
     description:
       "Purpose-built applications deliver smoother, more intuitive experiences than generic solutions, increasing customer satisfaction and retention rates.",
   },
   {
-    icon: <FaChartLine className="mx-auto mb-4 text-6xl text-customYellow" />,
+    icon: <FaChartLine className="mx-auto mb-4 text-6xl text-customPurple" />,
     title: "Scalable Business Growth",
     description:
       "Custom applications can evolve with your business needs, handling increased traffic and adding new features as your company expands and market demands change.",
   },
   {
-    icon: <FaMobileAlt className="mx-auto mb-4 text-6xl text-customYellow" />,
+    icon: <FaMobileAlt className="mx-auto mb-4 text-6xl text-customPurple" />,
     title: "Competitive Advantage",
     description:
       "Stand out from competitors with tailored functionality that addresses your specific customer needs and showcases your unique business offerings.",
   },
   {
-    icon: <FaLock className="mx-auto mb-4 text-6xl text-customYellow" />,
+    icon: <FaLock className="mx-auto mb-4 text-6xl text-customPurple" />,
     title: "Enhanced Security",
     description:
       "Custom development allows for implementation of robust security measures specifically designed to protect your business data and customer information.",
   },
   {
-    icon: <FaSyncAlt className="mx-auto mb-4 text-6xl text-customYellow" />,
+    icon: <FaSyncAlt className="mx-auto mb-4 text-6xl text-customPurple" />,
     title: "Seamless Integration",
     description:
       "Connect your app with existing business systems and third-party services to streamline operations and create unified workflows across your organisation.",
@@ -79,7 +79,7 @@ export default function AppDevelopmentBenefits() {
           ) : (
             <span
               key={index}
-              className={`text-customYellow inline-block transition-all duration-300 ${
+              className={`text-customPurple inline-block transition-all duration-300 ${
                 isVisible 
                   ? 'opacity-100 transform-none' 
                   : 'opacity-0 -translate-y-5'

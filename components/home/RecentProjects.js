@@ -42,7 +42,7 @@ export default function RecentProjects() {
       <div className="container mx-auto px-4 text-center">
         <h1 className="text-5xl font-semibold mb-8">
           Our success stories{" "}
-          <span className="text-customYellow">& recent projects</span>
+          <span className="text-customPurple">& recent projects</span>
         </h1>
         <Slider {...settings} className="gap-4">
           {projects.map((project, index) => (
@@ -67,7 +67,7 @@ function ProjectCard({ project }) {
       />
       
       {/* Overlay Content - Appears on Hover */}
-      <div className="absolute bottom-4 left-4 right-4 p-4 bg-gradient-to-r from-customYellow to-customLightYellow text-white 
+      <div className="absolute bottom-4 left-4 right-4 p-4 bg-gradient-to-r from-customPurple to-customLightPurple text-white 
         rounded-tl-[20px] rounded-br-[20px] shadow-lg w-lg h-[200px] 
         transform translate-y-8 opacity-0 
         transition-all duration-400 ease-out 

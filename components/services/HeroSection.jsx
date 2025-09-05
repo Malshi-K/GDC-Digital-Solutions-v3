@@ -144,7 +144,7 @@ const HeroSection = ({
           {/* Contact Now Button */}
           <Link
             href="/contact-us"
-            className="inline-flex items-center px-10 py-4 bg-customYellow text-black text-xl font-semibold rounded-full hover:bg-customGray transition-all"
+            className="inline-flex items-center px-10 py-4 bg-customPurple text-black text-xl font-semibold rounded-full hover:bg-customGray transition-all"
           >
             <span className="mr-2">←</span> CONTACT NOW
           </Link>
@@ -159,7 +159,7 @@ const HeroSection = ({
         onClick={handleScrollDown}
         aria-label="Scroll to next section"
       >
-        <div className="flex items-center justify-center w-20 h-20 bg-customYellow rounded-full">
+        <div className="flex items-center justify-center w-20 h-20 bg-customPurple rounded-full">
           <ChevronDoubleDownIcon className="h-8 w-8 text-black" />
         </div>
       </motion.div>

@@ -52,7 +52,7 @@ export default function SuccessPage() {
             </p>
             <Link 
               href="/" 
-              className="inline-block bg-customYellow text-white px-6 py-2 rounded-lg font-semibold hover:bg-customGray transition duration-300"
+              className="inline-block bg-customPurple text-white px-6 py-2 rounded-lg font-semibold hover:bg-customGray transition duration-300"
             >
               Return to Homepage
             </Link>

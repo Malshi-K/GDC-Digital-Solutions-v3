@@ -40,31 +40,31 @@ const GoogleAdsClientOverview = () => {
   // Define services with icons and labels
   const services = [
     {
-      icon: <FaBuilding size={24} className="text-customYellow" />,
+      icon: <FaBuilding size={24} className="text-customPurple" />,
       label: "Structural Engineering",
     },
     {
-      icon: <FaWater size={24} className="text-customYellow" />,
+      icon: <FaWater size={24} className="text-customPurple" />,
       label: "3 Waters & Contamination",
     },
     {
-      icon: <FaCogs size={24} className="text-customYellow" />,
+      icon: <FaCogs size={24} className="text-customPurple" />,
       label: "Geotechnical Engineering",
     },
     {
-      icon: <FaBolt size={24} className="text-customYellow" />,
+      icon: <FaBolt size={24} className="text-customPurple" />,
       label: "Seismic Engineering",
     },
     {
-      icon: <FaWrench size={24} className="text-customYellow" />,
+      icon: <FaWrench size={24} className="text-customPurple" />,
       label: "Electrical Engineering",
     },
     {
-      icon: <FaClipboardList size={24} className="text-customYellow" />,
+      icon: <FaClipboardList size={24} className="text-customPurple" />,
       label: "Civil Engineering",
     },
     {
-      icon: <FaGlobe size={24} className="text-customYellow" />,
+      icon: <FaGlobe size={24} className="text-customPurple" />,
       label: "R&D Solutions",
     },
   ];
@@ -79,7 +79,7 @@ const GoogleAdsClientOverview = () => {
         {services.map((service, index) => (
           <div
             key={index}
-            className="flex flex-col items-center justify-center w-32 h-32 border-2 border-customYellow rounded-full shadow-md p-2 mx-auto transition-all duration-500 ease-out"
+            className="flex flex-col items-center justify-center w-32 h-32 border-2 border-customPurple rounded-full shadow-md p-2 mx-auto transition-all duration-500 ease-out"
             style={{
               opacity: isInView ? 1 : 0,
               transform: isInView ? 'translateY(0)' : 'translateY(30px)',
@@ -107,7 +107,7 @@ const GoogleAdsClientOverview = () => {
           transitionDelay: '0.3s'
         }}
       >
-        <h2 className="text-2xl font-bold text-customYellow mb-4">
+        <h2 className="text-2xl font-bold text-customPurple mb-4">
           CLIENT OVERVIEW
         </h2>
         <p>

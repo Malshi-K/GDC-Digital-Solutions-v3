@@ -81,10 +81,10 @@ const TeamPage = () => {
                   className="grayscale transition-all duration-300"
                 />
 
-                {/* Overlay that appears on hover (customYellow with name/position) */}
+                {/* Overlay that appears on hover (customPurple with name/position) */}
                 <div
                   className={`absolute bottom-0 left-0 w-full transition-all duration-300 ease-in-out
-                    ${activeIndex === index ? "bg-customYellow h-auto" : "bg-transparent h-0"}`}
+                    ${activeIndex === index ? "bg-customPurple h-auto" : "bg-transparent h-0"}`}
                 >
                   <div className="p-4 text-center">
                     <h3 className="text-xl font-semibold text-white">

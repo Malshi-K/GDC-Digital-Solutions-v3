@@ -66,7 +66,7 @@ const GallerySection = () => {
     <section className="py-16 bg-gray-100 px-4 md:px-8">
       <div className="container mx-auto" ref={section1Ref}>
         {/* Section Title */}
-        <h2 className="text-customYellow text-3xl md:text-4xl font-bold text-center mb-10 flex flex-wrap justify-center">
+        <h2 className="text-customPurple text-3xl md:text-4xl font-bold text-center mb-10 flex flex-wrap justify-center">
           {/* Animated "SEARCH CAMPAIGN" */}
           {"SEARCH".split("").map((letter, index) => (
             <span
@@ -142,7 +142,7 @@ const GallerySection = () => {
 
       <div className="container mx-auto mt-16" ref={section2Ref}>
         {/* Section Title */}
-        <h2 className="text-customYellow text-3xl md:text-4xl font-bold text-center mb-10 flex flex-wrap justify-center">
+        <h2 className="text-customPurple text-3xl md:text-4xl font-bold text-center mb-10 flex flex-wrap justify-center">
           {"DISPLAY".split("").map((letter, index) => (
             <span
               key={`display-${index}`}

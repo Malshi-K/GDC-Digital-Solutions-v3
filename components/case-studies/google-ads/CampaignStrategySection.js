@@ -45,31 +45,31 @@ const CampaignStrategySection = () => {
   // Carousel points data
   const strategyPoints = [
     {
-      icon: <FaSearch className="text-5xl text-customYellow mb-4" />,
+      icon: <FaSearch className="text-5xl text-customPurple mb-4" />,
       title: "Optimised Search and Display Ads",
       description:
         "Focused on engineering-related keywords, utilizing a mix of broad and exact match keywords. Key negative keywords were added to prevent irrelevant clicks.",
     },
     {
-      icon: <FaUsers className="text-5xl text-customYellow mb-4" />,
+      icon: <FaUsers className="text-5xl text-customPurple mb-4" />,
       title: "Targeted Audiences",
       description:
         "Segmented audiences based on affinities and personalised behavior, such as project managers, architectural service seekers, and consulting services.",
     },
     {
-      icon: <FaAd className="text-5xl text-customYellow mb-4" />,
+      icon: <FaAd className="text-5xl text-customPurple mb-4" />,
       title: "Improved Ad Extensions",
       description:
         "Ad extensions were utilised to enhance the visibility of GDC's contact information, special offers, and service highlights.",
     },
     {
-      icon: <FaDollarSign className="text-5xl text-customYellow mb-4" />,
+      icon: <FaDollarSign className="text-5xl text-customPurple mb-4" />,
       title: "Cost Efficiency",
       description:
         "Regularly monitored the campaigns to reduce CPC and CPA while ensuring high visibility in competitive regions like Auckland, Wellington, and Hamilton.",
     },
     {
-      icon: <FaGlobe className="text-5xl text-customYellow mb-4" />,
+      icon: <FaGlobe className="text-5xl text-customPurple mb-4" />,
       title: "Website Improvements",
       description:
         "The website's performance was improved with better alignment between page content and search queries, faster load times, and enhanced user experience.",
@@ -87,7 +87,7 @@ const CampaignStrategySection = () => {
               : "opacity-0 -translate-x-8"
           }`}
         >
-          <h2 className="text-customYellow text-3xl md:text-4xl font-bold mb-4 flex flex-wrap justify-center">
+          <h2 className="text-customPurple text-3xl md:text-4xl font-bold mb-4 flex flex-wrap justify-center">
             {/* Split letters with animation delay */}
             {"CAMPAIGN".split("").map((letter, index) => (
               <span
@@ -156,7 +156,7 @@ const CampaignStrategySection = () => {
                 <div className="flex m-auto items-center justify-center w-24 h-24">
                   {point.icon}
                 </div>
-                <h3 className="text-xl font-bold text-customYellow mb-2">
+                <h3 className="text-xl font-bold text-customPurple mb-2">
                   {point.title}
                 </h3>
                 <p className="text-gray-600">{point.description}</p>

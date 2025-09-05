@@ -54,42 +54,42 @@ const LocalBusinessTargeting = () => {
       id: "real-estate",
       title: "Real Estate Facebook Ads NZ",
       description: "Maximise property exposure with effective Facebook ad campaigns that generate more enquiries and sales.",
-      icon: <HomeIcon className="w-10 h-10 text-customYellow" />,
+      icon: <HomeIcon className="w-10 h-10 text-customPurple" />,
       image: "/assets/images/facebook/real-estate.jpg"
     },
     {
       id: "e-commerce",
       title: "E-commerce Facebook Ads NZ",
       description: "Increase online sales with targeted ads designed to drive traffic and conversions.",
-      icon: <ShoppingBagIcon className="w-10 h-10 text-customYellow" />,
+      icon: <ShoppingBagIcon className="w-10 h-10 text-customPurple" />,
       image: "/assets/images/facebook/ecommerce.jpg"
     },
     {
       id: "hospitality",
       title: "Hospitality Facebook Ads NZ",
       description: "Boost bookings and brand awareness for restaurants, hotels, and bars with engaging Facebook ad campaigns.",
-      icon: <BuildingStorefrontIcon className="w-10 h-10 text-customYellow" />,
+      icon: <BuildingStorefrontIcon className="w-10 h-10 text-customPurple" />,
       image: "/assets/images/facebook/hospitality.jpg"
     },
     {
       id: "tourism",
       title: "Tourism Marketing NZ",
       description: "Capture the attention of travellers and tourists with dynamic Facebook ads that showcase your destination or service.",
-      icon: <GlobeAltIcon className="w-10 h-10 text-customYellow" />,
+      icon: <GlobeAltIcon className="w-10 h-10 text-customPurple" />,
       image: "/assets/images/facebook/tourism.jpg"
     },
     {
       id: "finance",
       title: "Finance & Insurance Ads NZ",
       description: "We create tailored Facebook Ads that help financial and insurance companies connect with their audience and generate qualified leads.",
-      icon: <CurrencyDollarIcon className="w-10 h-10 text-customYellow" />,
+      icon: <CurrencyDollarIcon className="w-10 h-10 text-customPurple" />,
       image: "/assets/images/facebook/finance.jpg"
     },
     {
       id: "restaurant",
       title: "Restaurant Facebook Ads NZ",
       description: "Increase foot traffic and online orders with Facebook ads designed specifically for the restaurant industry.",
-      icon: <BuildingOffice2Icon className="w-10 h-10 text-customYellow" />,
+      icon: <BuildingOffice2Icon className="w-10 h-10 text-customPurple" />,
       image: "/assets/images/facebook/restaurant.jpg"
     }
   ];
@@ -105,7 +105,7 @@ const LocalBusinessTargeting = () => {
         >
           <h2 className="text-3xl font-bold text-gray-900 mb-6 relative inline-block">
             Local Business Targeting in New Zealand
-            <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 h-1 w-24 bg-customYellow"></span>
+            <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 h-1 w-24 bg-customPurple"></span>
           </h2>
         </div>
 
@@ -125,7 +125,7 @@ const LocalBusinessTargeting = () => {
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <div className="flex-shrink-0">
-                    <div className="h-6 w-6 rounded-full bg-customYellow flex items-center justify-center">
+                    <div className="h-6 w-6 rounded-full bg-customPurple flex items-center justify-center">
                       <span className="text-black font-bold text-xs">•</span>
                     </div>
                   </div>
@@ -135,7 +135,7 @@ const LocalBusinessTargeting = () => {
                 </li>
                 <li className="flex items-start">
                   <div className="flex-shrink-0">
-                    <div className="h-6 w-6 rounded-full bg-customYellow flex items-center justify-center">
+                    <div className="h-6 w-6 rounded-full bg-customPurple flex items-center justify-center">
                       <span className="text-black font-bold text-xs">•</span>
                     </div>
                   </div>
@@ -164,7 +164,7 @@ const LocalBusinessTargeting = () => {
                 
                 <h3 className="text-white text-xl font-bold">Connecting Local Businesses with Local Customers</h3>
                 <div className="mt-3 flex items-center">
-                  <MapPinIcon className="h-5 w-5 text-customYellow mr-2" />
+                  <MapPinIcon className="h-5 w-5 text-customPurple mr-2" />
                   <span className="text-white">Targeted Facebook Ads across New Zealand</span>
                 </div>
               </div>
@@ -204,7 +204,7 @@ const LocalBusinessTargeting = () => {
                 key={industry.id}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                   activeIndustry === industry.id
-                    ? "bg-customYellow text-white shadow-md"
+                    ? "bg-customPurple text-white shadow-md"
                     : "bg-gray-200 text-gray-800 hover:bg-gray-300"
                 }`}
                 onClick={() => setActiveIndustry(industry.id)}
@@ -239,7 +239,7 @@ const LocalBusinessTargeting = () => {
                     <div className="space-y-4">
                       <div className="flex items-center">
                         <div className="h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center mr-3">
-                          <UserGroupIcon className="h-5 w-5 text-customYellow" />
+                          <UserGroupIcon className="h-5 w-5 text-customPurple" />
                         </div>
                         <div>
                           <h5 className="font-medium">Audience Targeting</h5>
@@ -249,7 +249,7 @@ const LocalBusinessTargeting = () => {
                       
                       <div className="flex items-center">
                         <div className="h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center mr-3">
-                          <ChevronDownIcon className="h-5 w-5 text-customYellow" />
+                          <ChevronDownIcon className="h-5 w-5 text-customPurple" />
                         </div>
                         <div>
                           <h5 className="font-medium">Lower Acquisition Costs</h5>
@@ -260,7 +260,7 @@ const LocalBusinessTargeting = () => {
                     
                     <a 
                       href="/contact-us" 
-                      className="inline-flex items-center mt-8 px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-customYellow hover:bg-customLightYellow focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-customYellow transition-all duration-300"
+                      className="inline-flex items-center mt-8 px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-customPurple hover:bg-customLightPurple focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-customPurple transition-all duration-300"
                     >
                       Get Industry-Specific Strategy
                     </a>

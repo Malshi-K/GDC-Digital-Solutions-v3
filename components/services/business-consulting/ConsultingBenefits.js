@@ -12,43 +12,43 @@ import {
 // Data for consulting benefits with unique icons for each
 const benefitsData = [
   {
-    icon: <FaUserTie className="mx-auto mb-4 text-6xl text-customYellow" />,
+    icon: <FaUserTie className="mx-auto mb-4 text-6xl text-customPurple" />,
     title: "Bespoke Business Analysis",
     description:
       "We take the time to fully understand your unique business challenges and objectives, ensuring that the solutions we deliver are tailored to drive measurable results.",
   },
   {
-    icon: <FaUsers className="mx-auto mb-4 text-6xl text-customYellow" />,
+    icon: <FaUsers className="mx-auto mb-4 text-6xl text-customPurple" />,
     title: "Effective Stakeholder Engagement",
     description:
       "We bridge the gap between business and IT teams, facilitating clear communication, alignment, and a shared vision across all stakeholders.",
   },
   {
-    icon: <FaTasks className="mx-auto mb-4 text-6xl text-customYellow" />,
+    icon: <FaTasks className="mx-auto mb-4 text-6xl text-customPurple" />,
     title: "Process Optimisation",
     description:
       "Through careful analysis of your existing processes, we identify opportunities for optimisation that streamline operations, reduce costs, and enhance productivity.",
   },
   {
-    icon: <FaRoad className="mx-auto mb-4 text-6xl text-customYellow" />,
+    icon: <FaRoad className="mx-auto mb-4 text-6xl text-customPurple" />,
     title: "Strategic Roadmapping",
     description:
       "Our analysts work alongside your team to develop a strategic roadmap, ensuring alignment of business goals with digital initiatives to keep you ahead in a competitive landscape.",
   },
   {
-    icon: <FaChartLine className="mx-auto mb-4 text-6xl text-customYellow" />,
+    icon: <FaChartLine className="mx-auto mb-4 text-6xl text-customPurple" />,
     title: "Data-Driven Insights",
     description:
       "Leveraging advanced analytics, we empower you to make informed, data-driven decisions that drive growth and improve performance across your organisation.",
   },
   {
-    icon: <FaNetworkWired className="mx-auto mb-4 text-6xl text-customYellow" />,
+    icon: <FaNetworkWired className="mx-auto mb-4 text-6xl text-customPurple" />,
     title: "Seamless Systems & Technology Integration",
     description:
       "We assist in selecting the right systems and technologies, ensuring they integrate seamlessly with your business processes to guarantee a smooth and effective transformation.",
   },
   {
-    icon: <FaSyncAlt className="mx-auto mb-4 text-6xl text-customYellow" />,
+    icon: <FaSyncAlt className="mx-auto mb-4 text-6xl text-customPurple" />,
     title: "Continuous Improvement",
     description:
       "Our approach focuses on identifying long-term opportunities for growth and innovation, helping you stay agile in an ever-evolving market.",
@@ -99,7 +99,7 @@ export default function ConsultingBenefits() {
             ) : (
               <span
                 key={index}
-                className={`text-customYellow inline-block transform ${
+                className={`text-customPurple inline-block transform ${
                   isVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 -translate-y-5"

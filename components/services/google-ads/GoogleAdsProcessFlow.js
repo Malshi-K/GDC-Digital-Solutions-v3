@@ -76,55 +76,55 @@ export default function GoogleAdsProcessFlow() {
   // Steps array for the Google Ads process
   const steps = [
     {
-      icon: <FaSearch className="text-customYellow text-4xl mb-4" />,
+      icon: <FaSearch className="text-customPurple text-4xl mb-4" />,
       title: "Planning & Research",
       description:
         "Defining clear campaign objectives, market research, understanding the target audience, and analyzing competitors.",
     },
     {
-      icon: <FaPencilAlt className="text-customYellow text-4xl mb-4" />,
+      icon: <FaPencilAlt className="text-customPurple text-4xl mb-4" />,
       title: "Keyword Research",
       description:
         "Identifying relevant keywords using tools like Google Keyword Planner and categorizing them into campaigns and ad groups.",
     },
     {
-      icon: <FaLaptopCode className="text-customYellow text-4xl mb-4" />,
+      icon: <FaLaptopCode className="text-customPurple text-4xl mb-4" />,
       title: "Campaign & Ad Group Structure",
       description:
         "Selecting the appropriate campaign type (Search, Display, etc.) and organizing campaigns by objectives or product categories.",
     },
     {
-      icon: <FaFileAlt className="text-customYellow text-4xl mb-4" />,
+      icon: <FaFileAlt className="text-customPurple text-4xl mb-4" />,
       title: "Ad Creation",
       description:
         "Writing compelling ad copy that includes relevant keywords and clear calls to action, as well as designing visuals for display and video ads.",
     },
     {
-      icon: <FaBullseye className="text-customYellow text-4xl mb-4" />,
+      icon: <FaBullseye className="text-customPurple text-4xl mb-4" />,
       title: "Targeting Setup",
       description:
         "Defining audience demographics, geographic regions, and device preferences for ad targeting.",
     },
     {
-      icon: <FaPlay className="text-customYellow text-4xl mb-4" />,
+      icon: <FaPlay className="text-customPurple text-4xl mb-4" />,
       title: "Campaign Launch",
       description:
         "Activating the ads and ensuring all elements, such as ad copy, extensions, and keywords, are properly set up.",
     },
     {
-      icon: <FaChartLine className="text-customYellow text-4xl mb-4" />,
+      icon: <FaChartLine className="text-customPurple text-4xl mb-4" />,
       title: "Tracking & Monitoring",
       description:
         "Setting up conversion tracking to measure user actions and monitoring key metrics like CTR, CPC, and conversion rates.",
     },
     {
-      icon: <FaTools className="text-customYellow text-4xl mb-4" />,
+      icon: <FaTools className="text-customPurple text-4xl mb-4" />,
       title: "Optimisation",
       description:
         "Refining bids, targeting, and ad elements based on performance data, such as adjusting for high-converting keywords and improving ad relevance.",
     },
     {
-      icon: <FaChartPie className="text-customYellow text-4xl mb-4" />,
+      icon: <FaChartPie className="text-customPurple text-4xl mb-4" />,
       title: "Reporting & Analysis",
       description:
         "Reviewing campaign performance data to assess key metrics such as impressions, clicks, and conversions. This analysis leads to generating regular reports for stakeholders.",

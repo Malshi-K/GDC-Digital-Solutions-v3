@@ -235,7 +235,7 @@ const RequestQuoteForm = () => {
                 <div>
                   <Link
                     href="tel:+64212463988"
-                    className="text-gray-900 font-semibold hover:text-customYellow transition-colors"
+                    className="text-gray-900 font-semibold hover:text-customPurple transition-colors"
                   >
                     +64 21 246 3988
                   </Link>
@@ -250,7 +250,7 @@ const RequestQuoteForm = () => {
                 <div>
                   <Link
                     href="mailto:digital@gdcgroup.co.nz"
-                    className="text-gray-900 font-semibold hover:text-customYellow transition-colors"
+                    className="text-gray-900 font-semibold hover:text-customPurple transition-colors"
                   >
                     digital@gdcgroup.co.nz
                   </Link>
@@ -265,7 +265,7 @@ const RequestQuoteForm = () => {
                 <div>
                   <Link
                     href="https://www.facebook.com/profile.php?id=61567398772169&mibextid=ZbWKwL"
-                    className="text-gray-900 font-semibold hover:text-customYellow transition-colors"
+                    className="text-gray-900 font-semibold hover:text-customPurple transition-colors"
                     onClick={handleFacebookClick}
                   >
                     Follow us on Facebook
@@ -277,7 +277,7 @@ const RequestQuoteForm = () => {
 
           {/* Form Section */}
           <div className="w-full lg:w-2/3">
-            <h1 className="text-2xl md:text-3xl font-bold text-center text-customYellow mb-2">
+            <h1 className="text-2xl md:text-3xl font-bold text-center text-customPurple mb-2">
               Get a Free Quote for Your Business
             </h1>
             <p className="font-bold text-center text-customGray mb-10">
@@ -305,7 +305,7 @@ const RequestQuoteForm = () => {
                         value={service.value}
                         checked={formData.services.includes(service.value)}
                         onChange={handleChange}
-                        className="rounded border-gray-300 text-customYellow focus:ring-customYellow"
+                        className="rounded border-gray-300 text-customPurple focus:ring-customPurple"
                       />
                       <span className="text-sm text-gray-700">
                         {service.label}
@@ -332,7 +332,7 @@ const RequestQuoteForm = () => {
                         value={type.value}
                         checked={formData.business_type === type.value}
                         onChange={handleChange}
-                        className="border-gray-300 text-customYellow focus:ring-customYellow"
+                        className="border-gray-300 text-customPurple focus:ring-customPurple"
                         required
                       />
                       <span className="text-sm text-gray-700">
@@ -358,7 +358,7 @@ const RequestQuoteForm = () => {
                   name="is_new_business"
                   value={formData.is_new_business}
                   onChange={handleChange}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-customYellow"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-customPurple"
                   required
                 >
                   <option value="">Please select an option</option>
@@ -378,7 +378,7 @@ const RequestQuoteForm = () => {
                   value={formData.business_name}
                   onChange={handleChange}
                   placeholder="Enter your registered or planned business name"
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-customYellow"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-customPurple"
                 />
               </div>
 
@@ -393,7 +393,7 @@ const RequestQuoteForm = () => {
                   value={formData.firstname}
                   onChange={handleChange}
                   placeholder="Full name"
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-customYellow"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-customPurple"
                   required
                 />
               </div>
@@ -409,7 +409,7 @@ const RequestQuoteForm = () => {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Enter a valid email"
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-customYellow"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-customPurple"
                   required
                 />
               </div>
@@ -421,7 +421,7 @@ const RequestQuoteForm = () => {
                 </label>
                 <div className="flex">
                   <select
-                    className="px-3 py-3 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-customYellow bg-gray-100"
+                    className="px-3 py-3 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-customPurple bg-gray-100"
                     defaultValue="NZ"
                   >
                     <option value="LK">LK</option>
@@ -435,7 +435,7 @@ const RequestQuoteForm = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="+64"
-                    className="flex-1 p-3 border border-l-0 border-gray-300 rounded-r-lg focus:outline-none focus:ring-2 focus:ring-customYellow"
+                    className="flex-1 p-3 border border-l-0 border-gray-300 rounded-r-lg focus:outline-none focus:ring-2 focus:ring-customPurple"
                   />
                 </div>
               </div>
@@ -449,7 +449,7 @@ const RequestQuoteForm = () => {
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Go ahead, we're listening..."
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-customYellow h-32 resize-none"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-customPurple h-32 resize-none"
                   required
                 />
               </div>
@@ -460,7 +460,7 @@ const RequestQuoteForm = () => {
                 className={`w-full py-3 rounded-lg font-semibold transition duration-300 ${
                   formStatus === "submitting"
                     ? "bg-gray-400 text-gray-600 cursor-not-allowed"
-                    : "bg-customYellow text-white hover:bg-customGray"
+                    : "bg-customPurple text-white hover:bg-customGray"
                 }`}
               >
                 {formStatus === "submitting" ? "Submitting..." : "Submit"}

@@ -24,7 +24,7 @@ export default function FacebookAdsIntroductionSection() {
   return (
     <div className="relative flex items-stretch w-full py-12">
       {/* Left yellow accent bar */}
-      <div className="w-16 bg-customYellow hidden md:block"></div>
+      <div className="w-16 bg-customPurple hidden md:block"></div>
 
       {/* Main content area */}
       <div className="flex flex-col md:flex-row w-full">
@@ -70,7 +70,7 @@ export default function FacebookAdsIntroductionSection() {
       {/* Right accent block */}
       <div className="hidden md:block">
         <div className="bg-gray-400 w-16 h-16 absolute right-0 top-0"></div>
-        <div className="bg-customYellow w-16 h-16 absolute right-0 top-16"></div>
+        <div className="bg-customPurple w-16 h-16 absolute right-0 top-16"></div>
       </div>
     </div>
   );

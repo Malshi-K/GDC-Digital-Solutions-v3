@@ -38,7 +38,7 @@ const NFCIntroductionSection = () => {
         <div className="w-full md:w-1/2">
           {/* Section Title */}
           <h2
-            className={`text-customYellow text-xl md:text-3xl font-bold text-left mb-6 transform transition-all duration-800 ease-out ${
+            className={`text-customPurple text-xl md:text-3xl font-bold text-left mb-6 transform transition-all duration-800 ease-out ${
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
             }`}
           >

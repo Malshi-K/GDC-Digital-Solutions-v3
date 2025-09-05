@@ -81,7 +81,7 @@ const OurApproachSection = ({ data }) => {
   return (
     <section className="py-12 px-4 md:px-20 bg-gray-100" ref={sectionRef}>
       <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-customYellow text-3xl md:text-4xl font-bold text-center mb-10 flex flex-wrap justify-center">
+        <h2 className="text-customPurple text-3xl md:text-4xl font-bold text-center mb-10 flex flex-wrap justify-center">
           <span
             className={`ml-2 text-customGray transition-opacity duration-500 ${
               isVisible ? "opacity-100" : "opacity-0"
@@ -151,16 +151,16 @@ const OurApproachSection = ({ data }) => {
                     <IconComponent
                       size={40}
                       className={
-                        objective.bgColor === "bg-customYellow"
+                        objective.bgColor === "bg-customPurple"
                           ? "text-customGray"
-                          : "text-customYellow"
+                          : "text-customPurple"
                       }
                     />
                   )}
                 </div>
                 <h3
                   className={`text-xl font-semibold mb-2 ${
-                    objective.bgColor === "bg-customYellow"
+                    objective.bgColor === "bg-customPurple"
                       ? "text-white"
                       : "text-customGray"
                   }`}
@@ -169,7 +169,7 @@ const OurApproachSection = ({ data }) => {
                 </h3>
                 <p
                   className={`text-center ${
-                    objective.bgColor === "bg-customYellow"
+                    objective.bgColor === "bg-customPurple"
                       ? "text-white"
                       : "text-customGray"
                   }`}
@@ -223,16 +223,16 @@ const OurApproachSection = ({ data }) => {
                         <IconComponent
                           size={40}
                           className={
-                            keyObj.bgColor === "bg-customYellow"
+                            keyObj.bgColor === "bg-customPurple"
                               ? "text-customGray"
-                              : "text-customYellow"
+                              : "text-customPurple"
                           }
                         />
                       )}
                     </div>
                     <h3
                       className={`text-xl font-semibold mb-2 ${
-                        keyObj.bgColor === "bg-customYellow"
+                        keyObj.bgColor === "bg-customPurple"
                           ? "text-white"
                           : "text-customGray"
                       }`}
@@ -241,7 +241,7 @@ const OurApproachSection = ({ data }) => {
                     </h3>
                     <p
                       className={`text-center ${
-                        keyObj.bgColor === "bg-customYellow"
+                        keyObj.bgColor === "bg-customPurple"
                           ? "text-white"
                           : "text-customGray"
                       }`}

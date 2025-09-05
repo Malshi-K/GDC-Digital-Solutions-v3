@@ -61,7 +61,7 @@ export default function CustomCodedWebsites() {
           }`}
         >
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-            <span className="text-customYellow">Custom-coded websites: </span>
+            <span className="text-customPurple">Custom-coded websites: </span>
             Unlock the power of flexibility and performance
           </h2>
           <p className="text-lg text-gray-300 mb-6">

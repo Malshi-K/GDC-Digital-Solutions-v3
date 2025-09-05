@@ -38,7 +38,7 @@ const ConsultingIntroductionSection = () => {
         <div className="w-full">
           {/* Section Title */}
           <h2
-            className={`text-customYellow text-center text-xl md:text-3xl font-bold text-left mb-6 transform ${
+            className={`text-customPurple text-center text-xl md:text-3xl font-bold text-left mb-6 transform ${
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
             } transition-all duration-800 ease-out`}
           >

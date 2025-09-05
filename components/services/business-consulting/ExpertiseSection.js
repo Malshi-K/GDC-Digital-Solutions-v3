@@ -96,7 +96,7 @@ export default function ExpertiseSection() {
           } transition-all duration-800 ease-out`}
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-            <span className="text-customYellow">Our Expertise</span> Includes
+            <span className="text-customPurple">Our Expertise</span> Includes
           </h2>
           <p className="text-lg text-gray-300 max-w-3xl mx-auto">
             Unlock the power of flexibility and performance. Manage your
@@ -122,7 +122,7 @@ export default function ExpertiseSection() {
             >
               <div className="flex flex-col h-full">
                 <div className="mb-4">
-                  <item.icon className="h-12 w-12 text-customYellow" />
+                  <item.icon className="h-12 w-12 text-customPurple" />
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-white">
                   {item.title}
@@ -141,7 +141,7 @@ export default function ExpertiseSection() {
           style={{ transitionDelay: "600ms" }}
         >
           <Link href="/about">
-            <button className="bg-customYellow text-black font-bold py-3 px-8 rounded-full hover:bg-customLightYellow transition duration-300">
+            <button className="bg-customPurple text-black font-bold py-3 px-8 rounded-full hover:bg-customLightPurple transition duration-300">
               Find More About Our Expertise
             </button>
           </Link>

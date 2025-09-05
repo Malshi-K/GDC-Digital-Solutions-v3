@@ -64,8 +64,8 @@ export default function Packages() {
         "Standard Template Design",
         "Choose: WordPress, Static HTML/CSS, or Simple PHP",
       ],
-      buttonColor: "bg-customYellow hover:bg-customGray",
-      lineColor: "bg-customYellow", // Top line color for Starter
+      buttonColor: "bg-customPurple hover:bg-customGray",
+      lineColor: "bg-customPurple", // Top line color for Starter
       icon: <FaGlobe className="w-12 h-12 text-customLightGray m-4" />, // Globe icon
       buttonText: "From NZD $500.00",
     },
@@ -80,7 +80,7 @@ export default function Packages() {
         "2 Rounds of Revisions",
         "Basic Analytics Setup",
       ],
-      buttonColor: "bg-customGray hover:bg-customLightYellow",
+      buttonColor: "bg-customGray hover:bg-customLightPurple",
       lineColor: "bg-customGray", // Top line color for Business
       icon: <FaChartLine className="w-12 h-12 text-customLightGray m-4" />, // Chart icon
       buttonText: "Contact us for pricing",
@@ -97,8 +97,8 @@ export default function Packages() {
         "Unlimited Revisions During Development",
         "Full Integration with 3rd-Party Services",
       ],
-      buttonColor: "bg-customLightYellow hover:bg-customYellow",
-      lineColor: "bg-customLightYellow", // Top line color for Custom
+      buttonColor: "bg-customLightPurple hover:bg-customPurple",
+      lineColor: "bg-customLightPurple", // Top line color for Custom
       icon: <FaCode className="w-12 h-12 text-customLightGray m-4" />, // Code icon
       buttonText: "Contact us for pricing",
     },
@@ -115,7 +115,7 @@ export default function Packages() {
         >
           <h2 className="text-3xl font-bold text-customGray">
             Find the{" "}
-            <span className="text-customYellow">Website Development Plan</span>{" "}
+            <span className="text-customPurple">Website Development Plan</span>{" "}
             that&apos;s Right for You
           </h2>
           <p className="text-gray-600 mt-4">

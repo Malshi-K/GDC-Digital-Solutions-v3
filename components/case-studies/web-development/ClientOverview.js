@@ -91,7 +91,7 @@ const ClientOverview = ({ data }) => {
           return (
             <div
               key={index}
-              className={`flex flex-col items-center justify-center w-32 h-32 border-2 border-customYellow rounded-full shadow-md p-2 mx-auto transition-all duration-500 transform ${
+              className={`flex flex-col items-center justify-center w-32 h-32 border-2 border-customPurple rounded-full shadow-md p-2 mx-auto transition-all duration-500 transform ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-8"
@@ -100,7 +100,7 @@ const ClientOverview = ({ data }) => {
             >
               <div className="flex items-center justify-center w-15 h-15">
                 {IconComponent && (
-                  <IconComponent size={24} className="text-customYellow" />
+                  <IconComponent size={24} className="text-customPurple" />
                 )}
               </div>
               <div className="pb-6">
@@ -120,7 +120,7 @@ const ClientOverview = ({ data }) => {
         }`}
         style={{ transitionDelay: "300ms" }}
       >
-        <h2 className="text-2xl font-bold text-customYellow mb-4">
+        <h2 className="text-2xl font-bold text-customPurple mb-4">
           CLIENT OVERVIEW
         </h2>
         <p>

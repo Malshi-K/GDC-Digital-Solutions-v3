@@ -23,7 +23,7 @@ const OnePageWebsite = () => {
           isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"
         }`}
       >
-        <h2 className="text-4xl font-bold text-customYellow mb-4">
+        <h2 className="text-4xl font-bold text-customPurple mb-4">
           ONE-PAGE WEBSITES
         </h2>
         <p className="text-md font-medium text-gray-800 mb-6 leading-relaxed">
@@ -37,7 +37,7 @@ const OnePageWebsite = () => {
         </p>
         <a
           href="/schedule-consultation"
-          className="inline-block text-customYellow hover:text-white border border-customYellow hover:bg-customGray
+          className="inline-block text-customPurple hover:text-white border border-customPurple hover:bg-customGray
                      hover:border-none rounded-full px-6 py-3 font-semibold transition-all duration-300 ease-in-out 
                      hover:scale-110 transform"
         >

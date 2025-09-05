@@ -10,25 +10,25 @@ import {
 // Data for NFC card benefits
 const benefitsData = [
   {
-    icon: <FaMobileAlt className="mx-auto mb-4 text-6xl text-customYellow" />,
+    icon: <FaMobileAlt className="mx-auto mb-4 text-6xl text-customPurple" />,
     title: "Convenience",
     description:
       "NFC cards make interactions faster and more efficient. Whether you're processing transactions, checking in at events, or sharing contact information, NFC technology simplifies the process with effortless taps.",
   },
   {
-    icon: <FaLock className="mx-auto mb-4 text-6xl text-customYellow" />,
+    icon: <FaLock className="mx-auto mb-4 text-6xl text-customPurple" />,
     title: "Security",
     description:
       "Our NFC cards are designed with advanced encryption to ensure secure data transfer, protecting both your information and your customers' privacy.",
   },
   {
-    icon: <FaLightbulb className="mx-auto mb-4 text-6xl text-customYellow" />,
+    icon: <FaLightbulb className="mx-auto mb-4 text-6xl text-customPurple" />,
     title: "Innovation",
     description:
       "As NFC technology becomes more prevalent in New Zealand, adopting these smart solutions positions your business as a forward-thinking leader in your industry.",
   },
   {
-    icon: <FaExchangeAlt className="mx-auto mb-4 text-6xl text-customYellow" />,
+    icon: <FaExchangeAlt className="mx-auto mb-4 text-6xl text-customPurple" />,
     title: "Versatility",
     description:
       "From enhancing customer service to offering new digital experiences, NFC cards can be customised to meet a wide range of needs and applications.",
@@ -83,7 +83,7 @@ export default function NFCBenefits() {
           ) : (
             <span
               key={index}
-              className={`text-customYellow inline-block transform transition-all duration-500 ${
+              className={`text-customPurple inline-block transform transition-all duration-500 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-5"
               }`}
               style={{ transitionDelay: `${index * 50}ms` }}

@@ -67,7 +67,7 @@ const KeyAchievements = () => {
   ];
 
   return (
-    <section className="py-10 bg-customYellow" ref={sectionRef}>
+    <section className="py-10 bg-customPurple" ref={sectionRef}>
       <div className="container mx-auto px-4 text-center">
         {/* Section Title */}
         <h2

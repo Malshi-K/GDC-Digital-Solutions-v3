@@ -139,7 +139,7 @@ const ContactUs = () => {
                 <div>
                   <Link
                     href="tel:+64212463988"
-                    className="text-gray-900 font-semibold hover:text-customYellow transition-colors"
+                    className="text-gray-900 font-semibold hover:text-customPurple transition-colors"
                     onClick={handlePhoneClick}
                   >
                     +64 21 246 3988
@@ -155,7 +155,7 @@ const ContactUs = () => {
                 <div>
                   <Link
                     href="mailto:digital@gdcgroup.co.nz"
-                    className="text-gray-900 font-semibold hover:text-customYellow transition-colors"
+                    className="text-gray-900 font-semibold hover:text-customPurple transition-colors"
                   >
                     digital@gdcgroup.co.nz
                   </Link>
@@ -170,7 +170,7 @@ const ContactUs = () => {
                 <div>
                   <Link
                     href="https://www.facebook.com/profile.php?id=61567398772169&mibextid=ZbWKwL"
-                    className="text-gray-900 font-semibold hover:text-customYellow transition-colors"
+                    className="text-gray-900 font-semibold hover:text-customPurple transition-colors"
                     onClick={handleFacebookClick}
                   >
                     Follow us on Facebook
@@ -192,7 +192,7 @@ const ContactUs = () => {
                 value={formData.full_name}
                 onChange={handleChange}
                 placeholder="Enter your full name"
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-customYellow"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-customPurple"
                 required
               />
               <input
@@ -201,7 +201,7 @@ const ContactUs = () => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Enter your email address"
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-customYellow"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-customPurple"
                 required
               />
               <textarea
@@ -209,12 +209,12 @@ const ContactUs = () => {
                 value={formData.message}
                 onChange={handleChange}
                 placeholder="Go ahead, we're listening..."
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-customYellow h-32 resize-none"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-customPurple h-32 resize-none"
                 required
               />
               <button
                 type="submit"
-                className="w-full py-3 bg-customYellow text-white rounded-lg font-semibold hover:bg-customGray transition duration-300"
+                className="w-full py-3 bg-customPurple text-white rounded-lg font-semibold hover:bg-customGray transition duration-300"
               >
                 Submit
               </button>

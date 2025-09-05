@@ -4,31 +4,31 @@ import { useState, useEffect, useRef } from "react";
 // Data for the SEO overview benefits
 const seoOverviewData = [
   {
-    icon: <FaSearch className="mx-auto mb-4 text-6xl text-customYellow" />,
+    icon: <FaSearch className="mx-auto mb-4 text-6xl text-customPurple" />,
     title: "In-Depth Keyword Research",
     description:
       "Uncover high-value search terms that align with your business goals. Our strategic research ensures your site targets the right keywords to boost visibility.",
   },
   {
-    icon: <FaCogs className="mx-auto mb-4 text-6xl text-customYellow" />,
+    icon: <FaCogs className="mx-auto mb-4 text-6xl text-customPurple" />,
     title: "On-Page Optimisation",
     description:
       "Optimise site structure, content, and keywords for better rankings. We enhance your site's performance to capture search engine attention effectively.",
   },
   {
-    icon: <FaChartLine className="mx-auto mb-4 text-6xl text-customYellow" />,
+    icon: <FaChartLine className="mx-auto mb-4 text-6xl text-customPurple" />,
     title: "Technical SEO",
     description:
       "Improve website performance, speed, and mobile optimisation to provide a seamless user experience across devices.",
   },
   {
-    icon: <FaLink className="mx-auto mb-4 text-6xl text-customYellow" />,
+    icon: <FaLink className="mx-auto mb-4 text-6xl text-customPurple" />,
     title: "Off-Page SEO Strategies",
     description:
       "Enhance your domain authority through strategic link building, social signals, and online reputation management.",
   },
   {
-    icon: <FaUsers className="mx-auto mb-4 text-6xl text-customYellow" />,
+    icon: <FaUsers className="mx-auto mb-4 text-6xl text-customPurple" />,
     title: "Customer-Centric Engagement",
     description:
       "Ensure improved user experience and engagement with our optimised SEO tactics, leading to higher conversions and ROI.",
@@ -75,7 +75,7 @@ export default function SeoOverview() {
         {[..."SEO".split("")].map((letter, index) => (
           <span
             key={index}
-            className={`text-customYellow inline-block transition-transform duration-300 ease-out ${
+            className={`text-customPurple inline-block transition-transform duration-300 ease-out ${
               isVisible
                 ? "translate-y-0 opacity-100"
                 : "-translate-y-5 opacity-0"

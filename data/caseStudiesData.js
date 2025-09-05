@@ -89,7 +89,7 @@ export const caseStudiesData = {
           title: "Next.js Framework",
           description:
             "Leveraged Next.js for creating a fast, scalable, and SEO-friendly website with server-side rendering for improved performance and scalability.",
-          bgColor: "bg-customYellow",
+          bgColor: "bg-customPurple",
         },
         {
           icon: "SiHubspot",
@@ -103,7 +103,7 @@ export const caseStudiesData = {
           title: "Netlify Hosting",
           description:
             "Serving as the hosting provider, Netlify offers reliable and secure hosting services, ensuring high uptime, quick loading speeds, and effective technical support.",
-          bgColor: "bg-customYellow",
+          bgColor: "bg-customPurple",
         },
         {
           icon: "SiGithub",
@@ -119,7 +119,7 @@ export const caseStudiesData = {
           title: "User-Centered Design",
           description:
             "Created a visually appealing website layout that highlights GDC's core services, expertise, and portfolio in a way that resonates with the target audience.",
-          bgColor: "bg-customYellow",
+          bgColor: "bg-customPurple",
         },
         {
           icon: "FaDesktop",
@@ -133,7 +133,7 @@ export const caseStudiesData = {
           title: "SEO Optimisation",
           description:
             "Implemented on-page SEO best practices including keyword optimisation, meta tags, and image alt texts to boost search engine visibility.",
-          bgColor: "bg-customYellow",
+          bgColor: "bg-customPurple",
         },
         {
           icon: "FaChartLine",
@@ -147,7 +147,7 @@ export const caseStudiesData = {
           title: "Call-to-Action Integration",
           description:
             "Strategically placed CTAs throughout the website to support lead generation by guiding users to make inquiries or contact the client.",
-          bgColor: "bg-customYellow",
+          bgColor: "bg-customPurple",
         },
       ],
     },
@@ -269,7 +269,7 @@ export const caseStudiesData = {
           title: "Next.js Framework",
           description:
             "This React-based framework is employed to develop a fast, scalable, and SEO-friendly website, providing an efficient development environment",
-          bgColor: "bg-customYellow",
+          bgColor: "bg-customPurple",
         },
         {
           icon: "SiNetlify",
@@ -283,7 +283,7 @@ export const caseStudiesData = {
           title: "GitHub Integration",
           description:
             "Used for version control and collaborative development, GitHub facilitates organized code management, smooth deployment processes, and improved teamwork during website enhancements.",
-          bgColor: "bg-customYellow",
+          bgColor: "bg-customPurple",
         },
         {
           icon: "FaEnvelope",
@@ -299,7 +299,7 @@ export const caseStudiesData = {
           title: "Professional Appearance",
           description:
             "Establish a strong online identity that reflects the professionalism and craftsmanship of Twilson Builders.",
-          bgColor: "bg-customYellow",
+          bgColor: "bg-customPurple",
         },
         {
           icon: "FaMobile",
@@ -313,7 +313,7 @@ export const caseStudiesData = {
           title: "User-Friendly Navigation",
           description:
             "Ensure seamless navigation for visitors to find information about services, projects, and contact details.",
-          bgColor: "bg-customYellow",
+          bgColor: "bg-customPurple",
         },
         {
           icon: "FaImage",
@@ -520,7 +520,7 @@ export const caseStudiesData = {
           title: "WordPress CMS",
           description:
             "Built on the latest WordPress version, providing a stable foundation with regular security updates and feature enhancements ",
-          bgColor: "bg-customYellow",
+          bgColor: "bg-customPurple",
         },
         {
           icon: "FaPuzzlePiece",
@@ -533,7 +533,7 @@ export const caseStudiesData = {
           icon: "FaWpforms",
           title: "WP Forms",
           description: " Implemented for creating user-friendly contact forms",
-          bgColor: "bg-customYellow",
+          bgColor: "bg-customPurple",
         },
         {
           icon: "FaPaperPlane",
@@ -549,7 +549,7 @@ export const caseStudiesData = {
           title: "Professional Identity",
           description:
             "Reflect the reliability and expertise of Mantrac Security.",
-          bgColor: "bg-customYellow",
+          bgColor: "bg-customPurple",
         },
         {
           icon: "FaShieldAlt",
@@ -563,7 +563,7 @@ export const caseStudiesData = {
           title: "User-Friendly Navigation",
           description:
             " Ensure smooth user experience with intuitive site structure. ",
-          bgColor: "bg-customYellow",
+          bgColor: "bg-customPurple",
         },
         {
           icon: "FaUserCheck",
@@ -748,7 +748,7 @@ export const caseStudiesData = {
           title: "WordPress CMS",
           description:
             "This industry leading Content Management System (CMS) is employed to develop a flexible, scalable, and SEO optimized website, providing an extensive plugin ecosystem for enhanced functionality.",
-          bgColor: "bg-customYellow",
+          bgColor: "bg-customPurple",
         },
         {
           icon: "FaPuzzlePiece", // Keep this - good for page builder
@@ -761,7 +761,7 @@ export const caseStudiesData = {
           icon: "FaWpforms", // Keep this - perfect for WP Forms
           title: "WP Forms",
           description: "Implemented for creating user-friendly contact forms",
-          bgColor: "bg-customYellow",
+          bgColor: "bg-customPurple",
         },
         {
           icon: "FaEnvelope", // Better than FaPaperPlane for email/SMTP
@@ -775,7 +775,7 @@ export const caseStudiesData = {
           title: "Hostinger",
           description:
             "Serving as the hosting provider, Hostinger offers reliable and high-performance hosting services with optimized WordPress infrastructure, ensuring fast loading speeds, 99.9% uptime guarantee, and comprehensive technical support with LiteSpeed web servers and built-in caching.",
-          bgColor: "bg-customYellow",
+          bgColor: "bg-customPurple",
         },
         {
           icon: "FaLock", // Classic icon for SSL/security
@@ -789,7 +789,7 @@ export const caseStudiesData = {
           title: "Content Delivery Network (CDN)",
           description:
             "Leveraging Hostinger's global CDN infrastructure to deliver website content faster to users worldwide, reducing load times and improving user experience.",
-          bgColor: "bg-customYellow",
+          bgColor: "bg-customPurple",
         },
       ],
       designObjectives: [],

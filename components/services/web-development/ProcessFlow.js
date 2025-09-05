@@ -33,22 +33,22 @@ export default function ProcessFlow() {
   // Steps array for the website-building process
   const steps = [
     {
-      icon: <FaSearch className="text-customYellow text-4xl mb-4" />,
+      icon: <FaSearch className="text-customPurple text-4xl mb-4" />,
       title: "Discovery & Research",
       description: "We start by understanding your business goals, target audience, and competitors to develop a clear strategy.",
     },
     {
-      icon: <FaPencilAlt className="text-customYellow text-4xl mb-4" />,
+      icon: <FaPencilAlt className="text-customPurple text-4xl mb-4" />,
       title: "Design & Planning",
       description: "Next, we create wireframes and design concepts that align with your brand's identity.",
     },
     {
-      icon: <FaLaptopCode className="text-customYellow text-4xl mb-4" />,
+      icon: <FaLaptopCode className="text-customPurple text-4xl mb-4" />,
       title: "Development & Coding",
       description: "Our development team brings your design to life by coding the website using modern technologies.",
     },
     {
-      icon: <FaCheckCircle className="text-customYellow text-4xl mb-4" />,
+      icon: <FaCheckCircle className="text-customPurple text-4xl mb-4" />,
       title: "Testing & Launch",
       description: "After thorough testing for performance and usability, we launch your website and ensure everything runs smoothly.",
     },

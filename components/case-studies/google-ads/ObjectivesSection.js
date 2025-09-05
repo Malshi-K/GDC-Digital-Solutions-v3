@@ -42,10 +42,10 @@ const ObjectivesSection = () => {
       title: "Increase Website Traffic",
       description:
         "Drive more relevant visitors to the GDC website through Google Ads.",
-      bgColor: "bg-customYellow",
+      bgColor: "bg-customPurple",
     },
     {
-      icon: <FaUserCheck size={40} className="text-customYellow" />,
+      icon: <FaUserCheck size={40} className="text-customPurple" />,
       title: "Lead Generation",
       description:
         "Attract qualified leads for their engineering consultancy services.",
@@ -56,10 +56,10 @@ const ObjectivesSection = () => {
       title: "Optimise Cost Efficiency",
       description:
         "Lower the average cost per click (CPC) and cost per acquisition (CPA).",
-      bgColor: "bg-customYellow",
+      bgColor: "bg-customPurple",
     },
     {
-      icon: <FaGlobe size={40} className="text-customYellow" />,
+      icon: <FaGlobe size={40} className="text-customPurple" />,
       title: "Brand Awareness",
       description:
         "Reach a wider audience with Display Ads to reinforce brand presence in key locations.",
@@ -73,10 +73,10 @@ const ObjectivesSection = () => {
       title: "Increase CTR",
       description:
         "Increase click-through rate (CTR) on search and display campaigns.",
-      bgColor: "bg-customYellow",
+      bgColor: "bg-customPurple",
     },
     {
-      icon: <FaMoneyBillWave size={40} className="text-customYellow" />,
+      icon: <FaMoneyBillWave size={40} className="text-customPurple" />,
       title: "Lower CPC & CPA",
       description:
         "Lower the cost-per-click (CPC) and cost-per-acquisition (CPA).",
@@ -87,7 +87,7 @@ const ObjectivesSection = () => {
       title: "Improve Conversion Rates",
       description:
         "Improve overall conversion rates by targeting relevant audiences in engineering, construction, and architectural services.",
-      bgColor: "bg-customYellow",
+      bgColor: "bg-customPurple",
     },
   ];
 
@@ -95,7 +95,7 @@ const ObjectivesSection = () => {
     <section className="py-12 px-4 md:px-20 bg-gray-100" ref={sectionRef}>
       <div className="max-w-7xl mx-auto text-center">
         {/* Section Title */}
-        <h2 className="text-customYellow text-3xl md:text-4xl font-bold text-center mb-10 flex flex-wrap justify-center">
+        <h2 className="text-customPurple text-3xl md:text-4xl font-bold text-center mb-10 flex flex-wrap justify-center">
           {"OBJECTIVES".split("").map((letter, index) => (
             <span
               key={index}
@@ -143,7 +143,7 @@ const ObjectivesSection = () => {
               </div>
               <h3
                 className={`text-xl font-semibold mb-2 ${
-                  objective.bgColor === "bg-customYellow"
+                  objective.bgColor === "bg-customPurple"
                     ? "text-white"
                     : "text-customGray"
                 }`}
@@ -152,7 +152,7 @@ const ObjectivesSection = () => {
               </h3>
               <p
                 className={`text-center ${
-                  objective.bgColor === "bg-customYellow"
+                  objective.bgColor === "bg-customPurple"
                     ? "text-white"
                     : "text-customGray"
                 }`}
@@ -202,7 +202,7 @@ const ObjectivesSection = () => {
               </div>
               <h3
                 className={`text-xl font-semibold mb-2 ${
-                  keyObj.bgColor === "bg-customYellow"
+                  keyObj.bgColor === "bg-customPurple"
                     ? "text-white"
                     : "text-customGray"
                 }`}
@@ -211,7 +211,7 @@ const ObjectivesSection = () => {
               </h3>
               <p
                 className={`text-center ${
-                  keyObj.bgColor === "bg-customYellow"
+                  keyObj.bgColor === "bg-customPurple"
                     ? "text-white"
                     : "text-customGray"
                 }`}

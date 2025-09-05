@@ -98,7 +98,7 @@ const CaseStudiesHero = ({ isServicesOpen }) => {
           >
             <Link href="/schedule-consultation">
               <button
-                className="bg-white text-customYellow px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-full font-bold text-sm sm:text-base md:text-lg shadow-lg transition-transform duration-300 hover:scale-105 active:scale-95"
+                className="bg-white text-customPurple px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-full font-bold text-sm sm:text-base md:text-lg shadow-lg transition-transform duration-300 hover:scale-105 active:scale-95"
               >
                 Schedule a Consultation
               </button>

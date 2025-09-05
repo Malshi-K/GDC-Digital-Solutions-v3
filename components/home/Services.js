@@ -3,10 +3,14 @@ import React, { useState } from "react";
 import Link from "next/link";
 
 // Check icon component with outlined design
-const CheckIcon = ({ className }) => (
-  <div className="flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 rounded-sm border-2 border-customLightYellow mr-2">
+const CheckIcon = ({ className, isHovered }) => (
+  <div className={`flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 rounded-sm border-2 mr-2 transition-colors duration-300 ${
+    isHovered ? "border-white" : "border-customLightPurple"
+  }`}>
     <svg
-      className={`h-3 w-3 sm:h-4 sm:w-4 text-customLightYellow ${className}`}
+      className={`h-3 w-3 sm:h-4 sm:w-4 transition-colors duration-300 ${
+        isHovered ? "text-white" : "text-customLightPurple"
+      } ${className}`}
       width="20"
       height="20"
       viewBox="0 0 20 20"
@@ -26,9 +30,16 @@ const ServiceCard = ({ title, items, iconSrc }) => {
 
   return (
     <div
-      className={`relative rounded-xl p-4 sm:p-6 transition-all duration-300 h-full shadow-md ${
-        isHovered ? "bg-customYellow text-white" : "bg-white text-gray-800"
+      className={`relative rounded-xl p-4 sm:p-6 transition-all duration-300 h-full shadow-lg border-2 ${
+        isHovered 
+          ? "text-white border-transparent" 
+          : "bg-white text-gray-800 border-gray-100 hover:border-customLightPurple"
       }`}
+      style={{
+        background: isHovered 
+          ? "linear-gradient(135deg, #7407c8 0%, #c2039d 100%)"
+          : "white"
+      }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -40,7 +51,9 @@ const ServiceCard = ({ title, items, iconSrc }) => {
             className="w-full h-full object-contain"
           />
         </div>
-        <h3 className="text-lg sm:text-xl font-bold">{title}</h3>
+        <h3 className={`text-lg sm:text-xl font-bold transition-colors duration-300 ${
+          isHovered ? "text-white" : "text-customGray"
+        }`}>{title}</h3>
       </div>
 
       <ul className="space-y-3 sm:space-y-4">
@@ -50,10 +63,10 @@ const ServiceCard = ({ title, items, iconSrc }) => {
               href={item.link} 
               className="flex items-start hover:opacity-80 transition-opacity group"
             >
-              <CheckIcon
-                className={isHovered ? "text-white" : "text-customYellow"}
-              />
-              <span className={`text-xs sm:text-sm group-hover:underline ${isHovered ? "text-white" : "text-gray-800"}`}>
+              <CheckIcon isHovered={isHovered} />
+              <span className={`text-xs sm:text-sm group-hover:underline transition-colors duration-300 ${
+                isHovered ? "text-white" : "text-customGray"
+              }`}>
                 {item.text}
               </span>
             </Link>
@@ -62,7 +75,14 @@ const ServiceCard = ({ title, items, iconSrc }) => {
       </ul>
 
       {/* Decorative corner element */}
-      <div className="absolute bottom-0 right-0 w-6 h-6 sm:w-8 sm:h-8 bg-customYellow rounded-tl-lg"></div>
+      <div 
+        className="absolute bottom-0 right-0 w-6 h-6 sm:w-8 sm:h-8 rounded-tl-lg transition-opacity duration-300"
+        style={{
+          background: isHovered 
+            ? "rgba(255, 255, 255, 0.2)"
+            : "linear-gradient(135deg, #7407c8 0%, #c2039d 100%)"
+        }}
+      ></div>
     </div>
   );
 };
@@ -95,7 +115,7 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section className="bg-white">
+    <section className="bg-gray-50">
       {/* Main Services Section */}
       <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-40 py-8 sm:py-12 md:py-16">
         {/* First Row: Title + Description and First Card */}
@@ -103,9 +123,14 @@ const ServicesSection = () => {
           {/* Left Column: Text Content */}
           <div className="mb-6 lg:mb-0">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-customGray mb-4 sm:mb-6">
-              Explore unique digital solutions service
+              Explore unique digital solutions 
+              <span 
+                className="bg-gradient-to-r from-customPurple to-customLightPurple bg-clip-text text-transparent"
+              >
+                {" "}service
+              </span>
             </h2>
-            <p className="text-sm sm:text-base text-gray-600">
+            <p className="text-sm sm:text-base text-customLightGray leading-relaxed">
               Crafting compelling digital experiences that captivate audiences
               and drive meaningful connections. Our digital solutions combines
               innovation, strategy, and expertise to fuel your online success.

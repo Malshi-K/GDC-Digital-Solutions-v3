@@ -90,7 +90,7 @@ const DesignProcessSection = ({ data }) => {
             isHeaderVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
           }`}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-customYellow mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-customPurple mb-6">
             Our Design Process
           </h2>
           {data.introduction && (
@@ -119,11 +119,11 @@ const DesignProcessSection = ({ data }) => {
                 style={{ transitionDelay: `${index * 200}ms` }}
               >
                 <div className="flex items-center justify-between w-full mb-4">
-                  <span className="text-4xl font-bold text-customYellow opacity-30">
+                  <span className="text-4xl font-bold text-customPurple opacity-30">
                     {step.number}
                   </span>
-                  <div className="bg-customYellow bg-opacity-10 p-3 rounded-full">
-                    <IconComponent className="text-customYellow text-xl" />
+                  <div className="bg-customPurple bg-opacity-10 p-3 rounded-full">
+                    <IconComponent className="text-customPurple text-xl" />
                   </div>
                 </div>
                 <h3 className="text-xl font-bold text-gray-800 mb-3">

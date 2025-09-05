@@ -4,19 +4,19 @@ import { useState, useEffect, useRef } from "react";
 // Data for the web development benefits
 const benefitsData = [
   {
-    icon: <FaBullhorn className="mx-auto mb-4 text-6xl text-customYellow" />,
+    icon: <FaBullhorn className="mx-auto mb-4 text-6xl text-customPurple" />,
     title: "First Impressions Matter",
     description:
       "A professional website establishes credibility and helps build trust from the moment a visitor lands on your page.",
   },
   {
-    icon: <FaUsers className="mx-auto mb-4 text-6xl text-customYellow" />,
+    icon: <FaUsers className="mx-auto mb-4 text-6xl text-customPurple" />,
     title: "Reach More Customers",
     description:
       "Your website makes you accessible to a larger audience. It's your digital storefront, attracting visitors whether they're across the street or across the world.",
   },
   {
-    icon: <FaQuestionCircle className="mx-auto mb-4 text-6xl text-customYellow" />,
+    icon: <FaQuestionCircle className="mx-auto mb-4 text-6xl text-customPurple" />,
     title: "Convert Visitors to Customers",
     description:
       "Your website can turn interest into action, providing valuable information and guiding visitors to make purchases, book services, or contact you directly.",
@@ -65,7 +65,7 @@ export default function WebDevelopmentBenefits() {
           <span key={index} className="inline-block w-2" /> :
           <span
             key={index}
-            className={`text-customYellow inline-block transition-all duration-300 ${
+            className={`text-customPurple inline-block transition-all duration-300 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-5"
             }`}
             style={{ transitionDelay: `${index * 50}ms` }}

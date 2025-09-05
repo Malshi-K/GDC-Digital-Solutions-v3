@@ -79,7 +79,7 @@ const PageTitle = ({
         onClick={handleScrollDown}
         aria-label="Scroll to next section"
       >
-        <div className="flex items-center justify-center w-20 h-20 bg-customYellow rounded-full">
+        <div className="flex items-center justify-center w-20 h-20 bg-customPurple rounded-full">
           <ChevronDoubleDownIcon className="h-8 w-8 text-black" />
         </div>
       </motion.div>

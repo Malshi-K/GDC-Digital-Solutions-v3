@@ -38,37 +38,37 @@ export default function AppProcessFlow() {
   // Steps array for the website-building process
   const steps = [
     {
-      icon: <FaSearch className="text-customYellow text-4xl mb-4" />,
+      icon: <FaSearch className="text-customPurple text-4xl mb-4" />,
       title: "Discovery & Requirements Analysis",
       description:
         "We begin by understanding your business objectives, target users, and technical requirements to create a comprehensive app strategy.",
     },
     {
-      icon: <FaPencilAlt className="text-customYellow text-4xl mb-4" />,
+      icon: <FaPencilAlt className="text-customPurple text-4xl mb-4" />,
       title: "UI Design & Prototyping",
       description:
         "We create visually appealing interfaces and interactive prototypes that align with your brand and enhance usability.",
     },
     {
-      icon: <FaLaptopCode className="text-customYellow text-4xl mb-4" />,
+      icon: <FaLaptopCode className="text-customPurple text-4xl mb-4" />,
       title: "Development & Integration",
       description:
         "We builds your application using modern frameworks, implementing backend systems and third-party integrations.",
     },
     {
-      icon: <FaBug className="text-customYellow text-4xl mb-4" />,
+      icon: <FaBug className="text-customPurple text-4xl mb-4" />,
       title: "Quality Assurance & Testing",
       description:
         "We conduct thorough testing across multiple devices and platforms to ensure functionality, performance, and security.",
     },
     {
-      icon: <FaRocket className="text-customYellow text-4xl mb-4" />,
+      icon: <FaRocket className="text-customPurple text-4xl mb-4" />,
       title: "Deployment & Launch",
       description:
         "After final approval, we deploy your application to the appropriate platforms and app stores, ensuring a smooth release.",
     },
     {
-      icon: <FaTools className="text-customYellow text-4xl mb-4" />,
+      icon: <FaTools className="text-customPurple text-4xl mb-4" />,
       title: "Maintenance & Evolution",
       description:
         "We provide ongoing support, monitor performance, and implement updates to keep your application secure and competitive.",

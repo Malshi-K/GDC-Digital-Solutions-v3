@@ -11,7 +11,7 @@ const CaseStudiesList = () => {
     <div className="py-16 px-4 md:px-6">
       <div className="container mx-auto">
         {/* Section Title */}
-        <h2 className="text-4xl font-bold text-center text-customYellow mb-12">
+        <h2 className="text-4xl font-bold text-center text-customPurple mb-12">
           Our Success Stories
         </h2>
         
@@ -39,7 +39,7 @@ const CaseStudiesList = () => {
                   {caseStudy.clientOverview.companyName}
                 </div>
                 
-                <h3 className="text-2xl font-bold text-customYellow mb-3">
+                <h3 className="text-2xl font-bold text-customPurple mb-3">
                   {caseStudy.achievements?.items?.[0]?.title || "Increase in Engagement"}
                 </h3>
                 
@@ -49,7 +49,7 @@ const CaseStudiesList = () => {
                 
                 <div className="mt-auto">
                   <Link href={`/case-studies/web-development/${caseStudy.id}`}>
-                    <button className="w-full px-6 py-2 rounded-full border border-customYellow text-customYellow hover:bg-customYellow hover:text-white transition-colors text-sm font-medium">
+                    <button className="w-full px-6 py-2 rounded-full border border-customPurple text-customPurple hover:bg-customPurple hover:text-white transition-colors text-sm font-medium">
                       View Success Story
                     </button>
                   </Link>

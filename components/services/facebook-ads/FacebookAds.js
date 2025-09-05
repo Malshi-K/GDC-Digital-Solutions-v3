@@ -10,25 +10,25 @@ import {
 // Data for the Facebook Ads benefits
 const benefitsData = [
   {
-    icon: <FaUserCog className="mx-auto mb-4 text-6xl text-customYellow" />, // Expert management icon
+    icon: <FaUserCog className="mx-auto mb-4 text-6xl text-customPurple" />, // Expert management icon
     title: "Expert Facebook Ad Management",
     description:
       "We specialise in Meta Ads to ensure your brand reaches the right audience. Our experienced team leverages platform-specific features to create campaigns that drive engagement and conversions.",
   },
   {
-    icon: <FaBullseye className="mx-auto mb-4 text-6xl text-customYellow" />, // Targeting icon
+    icon: <FaBullseye className="mx-auto mb-4 text-6xl text-customPurple" />, // Targeting icon
     title: "Targeted Facebook Advertising",
     description:
       "We use precise targeting strategies to connect with NZ businesses, local customers, and e-commerce shoppers. Our detailed audience segmentation ensures your ads reach the most relevant potential customers.",
   },
   {
-    icon: <FaChartLine className="mx-auto mb-4 text-6xl text-customYellow" />, // ROI optimization icon
+    icon: <FaChartLine className="mx-auto mb-4 text-6xl text-customPurple" />, // ROI optimization icon
     title: "Optimised Facebook Ads for ROI",
     description:
       "Our team focuses on conversion-driven ads to maximise your marketing budget. We continuously monitor performance metrics and make data-driven adjustments to improve your return on investment.",
   },
   {
-    icon: <FaStore className="mx-auto mb-4 text-6xl text-customYellow" />, // Business focus icon
+    icon: <FaStore className="mx-auto mb-4 text-6xl text-customPurple" />, // Business focus icon
     title: "Small Business & E-Commerce Focused",
     description:
       "Whether you run a local business in Auckland or an online store in Wellington, we tailor strategies to suit your needs. Our specialised approach considers your unique business model and target market.",
@@ -83,7 +83,7 @@ export default function FacebookAdsBenefits() {
             <span key={index} className="inline-block w-2" /> : 
             <span
               key={index}
-              className={`text-customYellow inline-block transform transition-all duration-500 ${
+              className={`text-customPurple inline-block transform transition-all duration-500 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-5"
               }`}
               style={{ transitionDelay: `${index * 50}ms` }}

@@ -31,7 +31,7 @@ const GoogleAdsCaseStudyCard = ({
       }`}
     >
       <div
-        className={`container max-w-6xl mx-auto border border-customYellow rounded-xl shadow-xl p-10 flex flex-col md:flex-row items-center md:gap-x-10 relative transition-all duration-500 ease-out ${
+        className={`container max-w-6xl mx-auto border border-customPurple rounded-xl shadow-xl p-10 flex flex-col md:flex-row items-center md:gap-x-10 relative transition-all duration-500 ease-out ${
           isHovered ? "scale-105 shadow-2xl" : ""
         }`}        
         onMouseEnter={() => setIsHovered(true)}
@@ -44,14 +44,14 @@ const GoogleAdsCaseStudyCard = ({
           }`}
         >
           <h2 className="text-3xl font-bold text-gray-800 mb-2">{heading}</h2>
-          <p className="text-7xl font-extrabold text-customYellow mb-4">
+          <p className="text-7xl font-extrabold text-customPurple mb-4">
             {statistic}
           </p>
           <p className="text-lg font-medium text-gray-700 mb-6">
             {description}
           </p>
           <button
-            className="text-customYellow hover:text-white border border-customYellow hover:bg-customGray hover:border-none rounded-full px-8 py-3 font-semibold transition-all duration-300 hover:scale-110"
+            className="text-customPurple hover:text-white border border-customPurple hover:bg-customGray hover:border-none rounded-full px-8 py-3 font-semibold transition-all duration-300 hover:scale-110"
             onClick={handleButtonClick}
           >
             {buttonLabel}

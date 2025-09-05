@@ -53,7 +53,7 @@ export default function TestimonialSection() {
             isVisible ? "opacity-100" : "opacity-0"
           }`}
         >
-          Our clients say <span className="text-customYellow">we rock</span>
+          Our clients say <span className="text-customPurple">we rock</span>
         </h1>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -83,7 +83,7 @@ function ServiceCard({ title, description, isVisible, delay }) {
     >
       {/* Hidden Content - Appears on Hover */}
       <div
-        className="absolute inset-0 bg-gradient-to-t from-customLightYellow to-customYellow text-white 
+        className="absolute inset-0 bg-gradient-to-t from-customLightPurple to-customPurple text-white 
         flex flex-col justify-center items-center p-4 transform transition-transform 
         duration-500 ease-in-out translate-y-full group-hover:translate-y-0"
       >
