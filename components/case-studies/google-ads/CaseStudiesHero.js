@@ -1,31 +1,29 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const CaseStudiesHero = ({ isServicesOpen }) => {
-  const [isInView, setIsInView] = useState(false);
-  const sectionRef = useRef(null);
-
-  // Detect when section is in viewport
+const CaseStudiesHero = ({ data }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
+    // Set visibility after component mounts for animation
+    setIsVisible(true);
+    
+    // Setup intersection observer for viewport detection
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
-          setIsInView(true);
+          setIsVisible(true);
         }
-      },
-      { threshold: 0.5 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+      });
+    }, { threshold: 0.5 });
+    
+    const section = document.querySelector('#hero-section');
+    if (section) observer.observe(section);
+    
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
+      if (section) observer.unobserve(section);
     };
   }, []);
 
@@ -35,29 +33,27 @@ const CaseStudiesHero = ({ isServicesOpen }) => {
 
   return (
     <section 
-      ref={sectionRef}
+      id="hero-section"
       className="relative min-h-screen w-full flex items-center text-white overflow-hidden px-4 sm:px-8 md:px-12 lg:px-20 py-16 sm:py-20 md:py-24"
     >
-      {/* Snow Animation Background */}
+      {/* Clean Purple Background */}
       <div
-        id="snow"
+        id="clean-purple-bg"
         className="absolute inset-0 w-full h-full z-0 pointer-events-none"
       ></div>
 
       {/* Content */}
       <div
         id="move-down"
-        className={`relative z-10 w-full container mx-auto flex flex-col md:flex-row items-center justify-center md:justify-between gap-10 pt-12 md:pt-20 ${
-          isServicesOpen ? "mt-20 md:mt-40" : ""
-        }`}
+        className="relative z-10 w-full container mx-auto flex flex-col md:flex-row items-center justify-center md:justify-between gap-10 pt-12 md:pt-20"
       >
         {/* Left Content */}
         <div
-          className={`flex flex-col items-center md:items-start max-w-full md:max-w-xl space-y-6 text-center md:text-left my-8 sm:my-10 md:my-0 transition-all duration-700 ease-out ${
-            isInView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"
+          className={`flex flex-col items-center md:items-start max-w-full md:max-w-xl space-y-6 text-center md:text-left my-8 sm:my-10 md:my-0 transform transition-all duration-700 ${
+            isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"
           }`}
         >
-          <h5 className="text-xs sm:text-sm md:text-md uppercase tracking-widest font-semibold">
+          <h5 className="text-xs sm:text-sm md:text-md uppercase tracking-widest font-semibold text-white/70">
             Driving Results for Engineering Excellence
           </h5>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight flex flex-wrap justify-center md:justify-start gap-x-2">
@@ -67,38 +63,30 @@ const CaseStudiesHero = ({ isServicesOpen }) => {
                 className={`inline-block transition-all duration-500 ${
                   word === "Consultants" ? "whitespace-nowrap" : ""
                 } ${
-                  isInView 
-                    ? "opacity-100 translate-y-0" 
+                  isVisible
+                    ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-12"
+                } ${word === "Consultants" ? "whitespace-nowrap" : ""} ${
+                  word === "Study" ? "text-white" : "text-white"
                 }`}
-                style={{ 
-                  transitionDelay: `${index * 150}ms`
-                }}
+                style={{ transitionDelay: `${index * 0.05}s` }}
               >
                 {word}
               </span>
             ))}
           </h1>
-          <p 
-            className={`text-sm sm:text-base md:text-lg mt-4 leading-relaxed transition-all duration-500 ${
-              isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`} 
-            style={{ transitionDelay: "600ms" }}
-          >
+          <p className="text-sm sm:text-base md:text-lg mt-4 leading-relaxed text-gray-100">
             Discover how GDC Consultants, a leading engineering consultancy in
             New Zealand, leveraged Google Ads to boost their online presence,
             attract high-quality leads, and optimise advertising costs.
+          
           </p>
 
-          <div 
-            className={`flex gap-4 sm:gap-6 mt-8 justify-center md:justify-start transition-all duration-500 ${
-              isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
-            style={{ transitionDelay: "750ms" }}
-          >
+          {/* Clean Button */}
+          <div className="flex gap-4 sm:gap-6 mt-8 justify-center md:justify-start">
             <Link href="/schedule-consultation">
               <button
-                className="bg-white text-customPurple px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-full font-bold text-sm sm:text-base md:text-lg shadow-lg transition-transform duration-300 hover:scale-105 active:scale-95"
+                className="bg-white hover:bg-customPurple text-customPurple hover:text-white px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-full font-bold text-sm sm:text-base md:text-lg transition-all duration-300 hover:scale-105 active:scale-95"
               >
                 Schedule a Consultation
               </button>
@@ -108,12 +96,12 @@ const CaseStudiesHero = ({ isServicesOpen }) => {
 
         {/* Right Content */}
         <div
-          className={`flex justify-center md:justify-end mt-6 md:mt-0 w-full md:w-auto mb-8 sm:mb-10 md:mb-0 transition-all duration-700 ease-out ${
-            isInView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12"
+          className={`flex justify-center md:justify-end mt-6 md:mt-0 w-full md:w-auto mb-8 sm:mb-10 md:mb-0 transform transition-all duration-700 delay-200 ${
+            isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12"
           }`}
-          style={{ transitionDelay: "400ms" }}
+          style={{ transitionDelay: "0.4s" }}
         >
-          <div className="floating-animation">
+          <div className="animate-float">
             <Image
               src="/assets/images/google-ads/gdc-ads.webp"
               alt="Google Ads Success"
@@ -125,22 +113,47 @@ const CaseStudiesHero = ({ isServicesOpen }) => {
         </div>
       </div>
 
-      {/* Custom animations */}
+      {/* Clean CSS Styles */}
       <style jsx>{`
-        .floating-animation {
-          animation: float 4s ease-in-out infinite;
-        }
-
-        @keyframes float {
+        /* Clean Purple Background Animation */
+        @keyframes cleanPurple {
           0% {
-            transform: translateY(0px);
+            background-position: 0px 0px, 0px 0px, 0px 0px;
+            background-color: #7407c8;
           }
           50% {
-            transform: translateY(-20px);
+            background-color: #c2039d;
           }
           100% {
-            transform: translateY(0px);
+            background-position: 500px 1000px, 400px 400px, 300px 300px;
+            background-color: #7407c8;
           }
+        }
+
+        #clean-purple-bg {
+          background: linear-gradient(135deg, #7407c8 0%, #c2039d 50%, #7407c8 100%);
+          background-image: 
+            url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.03"><circle cx="7" cy="7" r="1"/><circle cx="50" cy="50" r="1"/><circle cx="20" cy="30" r="1"/></g></svg>'),
+            url('data:image/svg+xml,<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.02"><circle cx="40" cy="40" r="2"/></g></svg>');
+          background-size: 60px 60px, 80px 80px;
+          animation: cleanPurple 25s linear infinite;
+          position: absolute;
+          height: 100vh;
+          width: 100%;
+        }
+
+        /* Simple Float Animation */
+        @keyframes float {
+          0%, 100% { 
+            transform: translateY(0); 
+          }
+          50% { 
+            transform: translateY(-15px); 
+          }
+        }
+
+        .animate-float {
+          animation: float 4s ease-in-out infinite;
         }
       `}</style>
     </section>

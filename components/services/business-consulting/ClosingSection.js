@@ -76,7 +76,7 @@ export default function ClosingSection() {
                 <p className="text-gray-300 mb-6">Let&apos;s discuss how we can help your business succeed in today&apos;s competitive landscape.</p>
                 <a 
                   href="/contact-us" 
-                  className="group inline-flex items-center justify-center gap-2 bg-customPurple hover:bg-customLightPurple text-black font-semibold py-3 px-6 rounded-lg w-full transition-all duration-300 transform hover:scale-105"
+                  className="group inline-flex items-center justify-center gap-2 bg-gradient-to-r from-customPurple to-customLightPurple hover:from-customLightPurple hover:to-customPurple text-white font-semibold py-3 px-6 rounded-lg w-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-customPurple/30"
                 >
                   Contact Us Now
                   <ArrowRightIcon className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
