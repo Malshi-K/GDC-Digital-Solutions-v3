@@ -14,8 +14,10 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [expandedItems, setExpandedItems] = useState({});
+  const [openDropdown, setOpenDropdown] = useState(null);
   const pathname = usePathname();
   const sidebarRef = useRef(null);
+  const dropdownRef = useRef(null);
 
   // Handle scroll events
   useEffect(() => {
@@ -38,15 +40,21 @@ const Header = () => {
       ) {
         setIsSidebarOpen(false);
       }
+      // Close dropdown when clicking outside
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target) &&
+        !event.target.closest(".dropdown-trigger")
+      ) {
+        setOpenDropdown(null);
+      }
     };
 
-    if (isSidebarOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [isSidebarOpen]);
+  }, []);
 
   // Lock body scroll when sidebar is open
   useEffect(() => {
@@ -63,6 +71,7 @@ const Header = () => {
   // Close sidebar on route change
   useEffect(() => {
     setIsSidebarOpen(false);
+    setOpenDropdown(null);
   }, [pathname]);
 
   // Toggle sidebar
@@ -76,6 +85,15 @@ const Header = () => {
       ...prev,
       [index]: !prev[index],
     }));
+  };
+
+  // Handle desktop dropdown
+  const handleDropdownHover = (index) => {
+    setOpenDropdown(index);
+  };
+
+  const handleDropdownLeave = () => {
+    setOpenDropdown(null);
   };
 
   // Navigation links with dropdown items
@@ -121,64 +139,141 @@ const Header = () => {
         { name: "Google Ads", href: "/case-studies/google-ads" },
       ],
     },
-    { name: "Contact Us Now", href: "/contact-us", hasDropdown: false },
   ];
 
   return (
     <>
       {/* Header */}
       <header
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 px-2 sm:px-4 md:px-6 lg:px-10 ${
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
           isScrolled 
             ? "backdrop-blur-md shadow-lg" 
             : "bg-transparent"
         }`}
         style={{
           background: isScrolled 
-            ? "linear-gradient(135deg, rgba(116, 7, 200, 0.9) 0%, rgba(194, 3, 157, 0.9) 100%)"
+            ? "linear-gradient(135deg, rgba(116, 7, 200, 0.95) 0%, rgba(194, 3, 157, 0.95) 100%)"
             : "transparent"
         }}
       >
-        <div className="container mx-auto flex items-center justify-between py-3 sm:py-4 px-2 sm:px-4 md:px-6">
-          {/* Logo */}
-          <Link href="/" className="flex items-center transition-transform duration-300 hover:scale-105">
-            <Image
-              src="/assets/images/Digital Solution Logo.png"
-              alt="GDC Digital Solutions Logo"
-              width={240}
-              height={60}
-              className="h-auto w-auto max-w-[160px] sm:max-w-[180px] md:max-w-[200px] lg:max-w-[240px]"
-              priority={true}
-              loading="eager"
-              sizes="(max-width: 640px) 160px, (max-width: 768px) 180px, (max-width: 1024px) 200px, 240px"
-              quality={85}
-            />
-          </Link>
+        <div className="container mx-auto px-4 lg:px-6">
+          <div className="flex items-center justify-between py-3 lg:py-4">
+            {/* Logo */}
+            <Link href="/" className="flex items-center transition-transform duration-300 hover:scale-105 z-10">
+              <Image
+                src="/assets/images/Digital Solution Logo.png"
+                alt="GDC Digital Solutions Logo"
+                width={240}
+                height={60}
+                className="h-auto w-auto max-w-[160px] sm:max-w-[180px] md:max-w-[200px] lg:max-w-[240px]"
+                priority={true}
+                loading="eager"
+                sizes="(max-width: 640px) 160px, (max-width: 768px) 180px, (max-width: 1024px) 200px, 240px"
+                quality={85}
+              />
+            </Link>
 
-          {/* Hamburger Menu Button */}
-          <button
-            className="menu-button text-white hover:scale-110 focus:outline-none transition-all duration-300 p-2 rounded-lg hover:bg-white/10"
-            onClick={toggleSidebar}
-            aria-label="Menu"
-          >
-            <Bars3Icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" />
-          </button>
+            {/* Desktop Navigation */}
+            <nav className="hidden xl:flex items-center justify-center flex-1 mx-8">
+              <div className="flex items-center space-x-1">
+                {navItems.map((item, index) => (
+                  <div
+                    key={item.name}
+                    className="relative"
+                    onMouseEnter={() => item.hasDropdown && handleDropdownHover(index)}
+                    onMouseLeave={() => item.hasDropdown && handleDropdownLeave()}
+                  >
+                    {item.hasDropdown ? (
+                      <div className="dropdown-trigger">
+                        <button
+                          className={`flex items-center space-x-1 px-3 py-2 rounded-lg text-white font-medium transition-all duration-300 text-md whitespace-nowrap ${
+                            pathname === item.href || pathname.startsWith(item.href + "/")
+                              ? "bg-white/20 text-white"
+                              : "hover:bg-white/10 hover:text-white"
+                          }`}
+                        >
+                          <span>{item.name}</span>
+                          <ChevronDownIcon className={`w-4 h-4 transition-transform duration-300 ${openDropdown === index ? 'rotate-180' : ''}`} />
+                        </button>
+                        
+                        {/* Desktop Dropdown */}
+                        <div
+                          ref={openDropdown === index ? dropdownRef : null}
+                          className={`absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-2xl border border-gray-200 overflow-hidden transition-all duration-300 ${
+                            openDropdown === index
+                              ? "opacity-100 visible transform translate-y-0"
+                              : "opacity-0 invisible transform -translate-y-4"
+                          }`}
+                        >
+                          <div className="py-2">
+                            {item.dropdownItems.map((dropdownItem) => (
+                              <Link
+                                key={dropdownItem.name}
+                                href={dropdownItem.href}
+                                className={`block px-4 py-3 text-sm transition-all duration-300 ${
+                                  pathname === dropdownItem.href
+                                    ? "bg-customPurple/10 text-customPurple font-medium border-r-4 border-customPurple"
+                                    : "text-gray-700 hover:bg-gray-50 hover:text-customPurple"
+                                }`}
+                              >
+                                {dropdownItem.name}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        className={`px-3 py-2 rounded-lg text-white font-medium transition-all duration-300 text-sm whitespace-nowrap ${
+                          pathname === item.href
+                            ? "bg-white/20 text-white"
+                            : "hover:bg-white/10 hover:text-white"
+                        }`}
+                      >
+                        {item.name}
+                      </Link>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </nav>
+
+            {/* Contact Button */}
+            <div className="hidden xl:block">
+              <Link
+                href="/contact-us"
+                className="bg-white text-customPurple hover:bg-gray-50 font-semibold py-2 px-6 rounded-full transition-all duration-300 hover:scale-105 text-md whitespace-nowrap"
+              >
+                Contact Us Now
+              </Link>
+            </div>
+
+            {/* Mobile Hamburger Menu Button */}
+            <button
+              className="menu-button xl:hidden text-white hover:scale-110 focus:outline-none transition-all duration-300 p-2 rounded-lg hover:bg-white/10"
+              onClick={toggleSidebar}
+              aria-label="Menu"
+            >
+              <Bars3Icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" />
+            </button>
+          </div>
         </div>
       </header>
 
       {/* Overlay when sidebar is open */}
       <div
-        className={`fixed inset-0 bg-black transition-opacity duration-300 z-40 ${
+        className={`fixed inset-0 bg-black transition-opacity duration-300 z-40 xl:hidden ${
           isSidebarOpen
             ? "opacity-50 pointer-events-auto"
             : "opacity-0 pointer-events-none"
         }`}
       />
 
-      {/* Sidebar */}
+      {/* Mobile Sidebar */}
       <div
         ref={sidebarRef}
-        className={`fixed top-0 right-0 h-full w-[85%] sm:w-80 z-50 overflow-y-auto shadow-2xl transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 right-0 h-full w-[85%] sm:w-80 z-50 overflow-y-auto shadow-2xl transition-transform duration-300 ease-in-out xl:hidden ${
           isSidebarOpen ? "translate-x-0" : "translate-x-full"
         }`}
         style={{
@@ -265,6 +360,17 @@ const Header = () => {
                 )}
               </li>
             ))}
+            
+            {/* Mobile Contact Button */}
+            <li className="pt-4">
+              <Link
+                href="/contact-us"
+                className="block w-full bg-white text-customPurple hover:bg-gray-50 font-semibold py-3 px-4 rounded-lg transition-all duration-300 hover:scale-105 text-center"
+                onClick={() => setIsSidebarOpen(false)}
+              >
+                Contact Us Now
+              </Link>
+            </li>
           </ul>
         </nav>
 
@@ -297,30 +403,6 @@ const Header = () => {
                 </svg>
                 <span className="text-sm">(+64) 21 246 3988</span>
               </a>
-            </div>
-            
-            {/* CTA Button */}
-            <div className="mt-4">
-              <Link
-                href="/contact-us"
-                className="w-full bg-white text-customPurple hover:bg-gray-50 font-semibold py-2 px-4 rounded-lg transition-all duration-300 hover:scale-105 text-sm flex items-center justify-center group"
-                onClick={() => setIsSidebarOpen(false)}
-              >
-                Get Started Today
-                <svg 
-                  className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1"
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M9 5l7 7-7 7" 
-                  />
-                </svg>
-              </Link>
             </div>
           </div>
         </div>
