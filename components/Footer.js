@@ -44,7 +44,7 @@ export default function Footer() {
                 {" "}get in touch!
               </h2>
               <p className="text-white/80 mb-4 text-sm sm:text-base">
-                Ready to transform your digital presence? Let's discuss your goals and create something amazing together.
+                Ready to transform your digital presence? Let&apos;s discuss your goals and create something amazing together.
               </p>
               <div className="mt-4 sm:mt-6">
                 <Link

@@ -132,7 +132,7 @@ const ContactUs = () => {
             <div className="w-8 h-1 bg-gradient-to-r from-customLightPurple to-customPurple rounded-full"></div>
           </div>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Ready to transform your digital presence? Let's discuss your project and explore how we can help you achieve your goals.
+            Ready to transform your digital presence? Let&apos;s discuss your project and explore how we can help you achieve your goals.
           </p>
         </div>
 

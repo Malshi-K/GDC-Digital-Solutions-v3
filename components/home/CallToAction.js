@@ -43,7 +43,7 @@ const ConsultationCTA = () => {
         <div className="max-w-4xl mx-auto">
           {/* Main Heading with gradient text effect */}
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4 sm:mb-6">
-            <span className="text-white">Let's Discuss Your </span>
+            <span className="text-white">Let&apos;s Discuss Your </span>
             <span 
               className="bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent"
             >

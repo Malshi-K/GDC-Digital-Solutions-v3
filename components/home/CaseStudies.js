@@ -37,7 +37,7 @@ const CaseStudies = () => {
         <p className={`text-lg text-customLightGray text-center max-w-3xl mx-auto transform transition-all duration-800 delay-200 ${
           isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
         }`}>
-          Discover how we've helped businesses achieve remarkable growth and digital transformation
+          Discover how we&apos;ve helped businesses achieve remarkable growth and digital transformation
         </p>
       </div>
 
