@@ -22,7 +22,7 @@ const Header = () => {
   // Handle scroll events
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -40,7 +40,6 @@ const Header = () => {
       ) {
         setIsSidebarOpen(false);
       }
-      // Close dropdown when clicking outside
       if (
         dropdownRef.current &&
         !dropdownRef.current.contains(event.target) &&
@@ -74,12 +73,10 @@ const Header = () => {
     setOpenDropdown(null);
   }, [pathname]);
 
-  // Toggle sidebar
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
-  // Toggle dropdown in sidebar
   const toggleDropdown = (index) => {
     setExpandedItems((prev) => ({
       ...prev,
@@ -87,7 +84,6 @@ const Header = () => {
     }));
   };
 
-  // Handle desktop dropdown
   const handleDropdownHover = (index) => {
     setOpenDropdown(index);
   };
@@ -96,7 +92,6 @@ const Header = () => {
     setOpenDropdown(null);
   };
 
-  // Navigation links with dropdown items
   const navItems = [
     { name: "Home", href: "/", hasDropdown: false },
     { name: "About Us", href: "/about", hasDropdown: false },
@@ -147,17 +142,17 @@ const Header = () => {
       <header
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
           isScrolled 
-            ? "backdrop-blur-md shadow-lg" 
-            : "bg-transparent"
+            ? "shadow-xl backdrop-blur-md" 
+            : "backdrop-blur-sm"
         }`}
         style={{
           background: isScrolled 
-            ? "linear-gradient(135deg, rgba(116, 7, 200, 0.95) 0%, rgba(194, 3, 157, 0.95) 100%)"
+            ? "linear-gradient(135deg, rgba(116, 7, 200, 0.98) 0%, rgba(194, 3, 157, 0.98) 100%)"
             : "transparent"
         }}
       >
-        <div className="container mx-auto px-4 lg:px-6">
-          <div className="flex items-center justify-between py-3 lg:py-4">
+        <div className="container mx-auto px-4 lg:px-20">
+          <div className="flex items-center justify-between py-4 lg:py-5">
             {/* Logo */}
             <Link href="/" className="flex items-center transition-transform duration-300 hover:scale-105 z-10">
               <Image
@@ -186,10 +181,14 @@ const Header = () => {
                     {item.hasDropdown ? (
                       <div className="dropdown-trigger">
                         <button
-                          className={`flex items-center space-x-1 px-3 py-2 rounded-lg text-white font-medium transition-all duration-300 text-md whitespace-nowrap ${
-                            pathname === item.href || pathname.startsWith(item.href + "/")
-                              ? "bg-white/20 text-white"
-                              : "hover:bg-white/10 hover:text-white"
+                          className={`flex items-center space-x-1 px-4 py-2.5 rounded-lg font-semibold transition-all duration-300 text-sm whitespace-nowrap ${
+                            isScrolled
+                              ? pathname === item.href || pathname.startsWith(item.href + "/")
+                                ? "bg-white/25 text-white shadow-sm"
+                                : "text-white hover:bg-white/15"
+                              : pathname === item.href || pathname.startsWith(item.href + "/")
+                                ? "bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-md"
+                                : "text-gray-700 hover:text-purple-600 hover:bg-purple-50"
                           }`}
                         >
                           <span>{item.name}</span>
@@ -199,7 +198,7 @@ const Header = () => {
                         {/* Desktop Dropdown */}
                         <div
                           ref={openDropdown === index ? dropdownRef : null}
-                          className={`absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-2xl border border-gray-200 overflow-hidden transition-all duration-300 ${
+                          className={`absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden transition-all duration-300 ${
                             openDropdown === index
                               ? "opacity-100 visible transform translate-y-0"
                               : "opacity-0 invisible transform -translate-y-4"
@@ -210,10 +209,10 @@ const Header = () => {
                               <Link
                                 key={dropdownItem.name}
                                 href={dropdownItem.href}
-                                className={`block px-4 py-3 text-sm transition-all duration-300 ${
+                                className={`block px-5 py-3 text-sm font-medium transition-all duration-300 ${
                                   pathname === dropdownItem.href
-                                    ? "bg-customPurple/10 text-customPurple font-medium border-r-4 border-customPurple"
-                                    : "text-gray-700 hover:bg-gray-50 hover:text-customPurple"
+                                    ? "bg-gradient-to-r from-purple-50 to-pink-50 text-purple-600 border-l-4 border-purple-600"
+                                    : "text-gray-700 hover:bg-gray-50 hover:text-purple-600 hover:pl-6"
                                 }`}
                               >
                                 {dropdownItem.name}
@@ -225,10 +224,14 @@ const Header = () => {
                     ) : (
                       <Link
                         href={item.href}
-                        className={`px-3 py-2 rounded-lg text-white font-medium transition-all duration-300 text-sm whitespace-nowrap ${
-                          pathname === item.href
-                            ? "bg-white/20 text-white"
-                            : "hover:bg-white/10 hover:text-white"
+                        className={`px-4 py-2.5 rounded-lg font-semibold transition-all duration-300 text-sm whitespace-nowrap ${
+                          isScrolled
+                            ? pathname === item.href
+                              ? "bg-white/25 text-white shadow-sm"
+                              : "text-white hover:bg-white/15"
+                            : pathname === item.href
+                              ? "bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-md"
+                              : "text-gray-700 hover:text-purple-600 hover:bg-purple-50"
                         }`}
                       >
                         {item.name}
@@ -243,7 +246,11 @@ const Header = () => {
             <div className="hidden xl:block">
               <Link
                 href="/contact-us"
-                className="bg-white text-customPurple hover:bg-gray-50 font-semibold py-2 px-6 rounded-full transition-all duration-300 hover:scale-105 text-md whitespace-nowrap"
+                className={`font-bold py-3 px-7 rounded-full transition-all duration-300 hover:scale-105 shadow-lg text-sm whitespace-nowrap ${
+                  isScrolled
+                    ? "bg-white text-purple-600 hover:bg-gray-50 hover:shadow-xl"
+                    : "bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:shadow-xl hover:from-purple-700 hover:to-pink-700"
+                }`}
               >
                 Contact Us Now
               </Link>
@@ -251,11 +258,15 @@ const Header = () => {
 
             {/* Mobile Hamburger Menu Button */}
             <button
-              className="menu-button xl:hidden text-white hover:scale-110 focus:outline-none transition-all duration-300 p-2 rounded-lg hover:bg-white/10"
+              className={`menu-button xl:hidden focus:outline-none transition-all duration-300 p-2 rounded-lg ${
+                isScrolled
+                  ? "text-white hover:bg-white/15"
+                  : "text-gray-700 hover:bg-purple-50"
+              }`}
               onClick={toggleSidebar}
               aria-label="Menu"
             >
-              <Bars3Icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" />
+              <Bars3Icon className="w-7 h-7 md:w-8 md:h-8" />
             </button>
           </div>
         </div>
@@ -281,17 +292,18 @@ const Header = () => {
         }}
       >
         {/* Sidebar Header */}
-        <div className="flex justify-between items-center p-4 sm:p-6 border-b border-white/20">
+        <div className="flex justify-between items-center p-5 sm:p-6 border-b border-white/20">
+          <h3 className="text-white font-bold text-lg">Menu</h3>
           <button
             onClick={toggleSidebar}
             className="text-white hover:bg-white/10 focus:outline-none p-2 rounded-lg transition-all duration-300"
             aria-label="Close menu"
           >
-            <XMarkIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+            <XMarkIcon className="w-6 h-6" />
           </button>
         </div>
 
-        <nav className="p-4 sm:p-6">
+        <nav className="p-5 sm:p-6">
           <ul className="space-y-2">
             {navItems.map((item, index) => (
               <li key={item.name} className="py-1">
@@ -306,7 +318,7 @@ const Header = () => {
                     >
                       <button
                         onClick={() => toggleDropdown(index)}
-                        className="text-left text-base sm:text-lg font-medium flex-1"
+                        className="text-left text-base sm:text-lg font-semibold flex-1"
                       >
                         {item.name}
                       </button>
@@ -316,7 +328,7 @@ const Header = () => {
                         aria-expanded={expandedItems[index]}
                       >
                         <div className={`transition-transform duration-300 ${expandedItems[index] ? 'rotate-90' : ''}`}>
-                          <ChevronRightIcon className="w-4 h-4 sm:w-5 sm:h-5" />
+                          <ChevronRightIcon className="w-5 h-5" />
                         </div>
                       </button>
                     </div>
@@ -333,9 +345,9 @@ const Header = () => {
                           <li key={dropdownItem.name}>
                             <Link
                               href={dropdownItem.href}
-                              className={`block text-sm p-2 rounded-lg transition-all duration-300 ${
+                              className={`block text-sm p-3 rounded-lg transition-all duration-300 ${
                                 pathname === dropdownItem.href
-                                  ? "text-white bg-white/20 font-medium"
+                                  ? "text-white bg-white/20 font-semibold"
                                   : "text-white/80 hover:text-white hover:bg-white/10"
                               }`}
                             >
@@ -349,7 +361,7 @@ const Header = () => {
                 ) : (
                   <Link
                     href={item.href}
-                    className={`block p-3 rounded-lg text-base sm:text-lg font-medium transition-all duration-300 ${
+                    className={`block p-3 rounded-lg text-base sm:text-lg font-semibold transition-all duration-300 ${
                       pathname === item.href
                         ? "bg-white/20 text-white"
                         : "text-white/90 hover:bg-white/10 hover:text-white"
@@ -362,10 +374,10 @@ const Header = () => {
             ))}
             
             {/* Mobile Contact Button */}
-            <li className="pt-4">
+            <li className="pt-6">
               <Link
                 href="/contact-us"
-                className="block w-full bg-white text-customPurple hover:bg-gray-50 font-semibold py-3 px-4 rounded-lg transition-all duration-300 hover:scale-105 text-center"
+                className="block w-full bg-white text-purple-600 hover:bg-gray-50 font-bold py-3 px-4 rounded-xl transition-all duration-300 hover:scale-105 text-center shadow-lg"
                 onClick={() => setIsSidebarOpen(false)}
               >
                 Contact Us Now
@@ -375,9 +387,9 @@ const Header = () => {
         </nav>
 
         {/* Contact Information */}
-        <div className="p-4 sm:p-6 border-t border-white/20 mt-4 sm:mt-6">
-          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-            <h4 className="text-white text-lg font-semibold mb-3 flex items-center">
+        <div className="p-5 sm:p-6 border-t border-white/20 mt-4">
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5">
+            <h4 className="text-white text-lg font-bold mb-4 flex items-center">
               <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
               </svg>
@@ -388,7 +400,7 @@ const Header = () => {
                 href="mailto:digital@gdcgroup.co.nz"
                 className="flex items-center text-white/90 hover:text-white transition-colors group"
               >
-                <svg className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                   <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                 </svg>
@@ -398,10 +410,10 @@ const Header = () => {
                 href="tel:+64212463988"
                 className="flex items-center text-white/90 hover:text-white transition-colors group"
               >
-                <svg className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                 </svg>
-                <span className="text-sm">(+64) 21 246 3988</span>
+                <span className="text-sm font-medium">(+64) 21 246 3988</span>
               </a>
             </div>
           </div>

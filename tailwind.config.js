@@ -61,14 +61,14 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ['"Space Grotesk"', "sans-serif"],      
+        sans: ['"Manrope"', "sans-serif"],      
       },
       fontWeight: {
         light: 400,
         normal: 400,
         medium: 400,
         semibold: 400,
-        bold: 400,
+        bold: 600,
       },
     },
   },
