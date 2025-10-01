@@ -224,13 +224,13 @@ const Header = () => {
                     ) : (
                       <Link
                         href={item.href}
-                        className={`px-4 py-2.5 rounded-lg font-semibold transition-all duration-300 text-sm whitespace-nowrap ${
+                        className={`px-4 py-2 rounded-lg font-semibold transition-all duration-300 text-md whitespace-nowrap ${
                           isScrolled
                             ? pathname === item.href
                               ? "bg-white/25 text-white shadow-sm"
                               : "text-white hover:bg-white/15"
                             : pathname === item.href
-                              ? "bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-md"
+                              ? "text-customPurple font-bold"
                               : "text-gray-700 hover:text-purple-600 hover:bg-purple-50"
                         }`}
                       >

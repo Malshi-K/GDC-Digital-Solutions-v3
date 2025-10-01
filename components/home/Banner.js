@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
-import { ChevronDown, Play } from 'lucide-react';
 
 export default function DigitalAgencyPromo() {
   const canvasRef = useRef(null);
@@ -124,7 +123,7 @@ export default function DigitalAgencyPromo() {
             </p>
 
             <button 
-              className="text-white px-8 py-4 rounded-xl text-base sm:text-lg font-medium transition-all shadow-lg hover:shadow-xl"
+              className="text-white px-8 py-4 rounded-full text-base sm:text-lg font-medium transition-all shadow-lg hover:shadow-xl"
               style={{ 
                 background: 'linear-gradient(135deg, #7407c8 0%, #c2039d 100%)',
               }}
