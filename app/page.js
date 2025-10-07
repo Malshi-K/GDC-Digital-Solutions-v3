@@ -67,7 +67,6 @@ export default function Home() {
   return (
     <main>
       <Banner />
-      <ServicesBar />
       <Services />
       <CaseStudies />
       <CallToAction />

@@ -1,151 +1,62 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 
-export default function DigitalAgencyPromo() {
-  const canvasRef = useRef(null);
-  const [currentWordIndex, setCurrentWordIndex] = React.useState(0);
-  const words = ['Websites', 'Google/Facebook Ads', 'SEO', 'Business Analysis'];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentWordIndex((prev) => (prev + 1) % words.length);
-    }, 2500);
-    return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    const dpr = window.devicePixelRatio || 1;
-    
-    const resize = () => {
-      const rect = canvas.getBoundingClientRect();
-      canvas.width = rect.width * dpr;
-      canvas.height = rect.height * dpr;
-      ctx.scale(dpr, dpr);
-      canvas.style.width = rect.width + 'px';
-      canvas.style.height = rect.height + 'px';
-    };
-    
-    resize();
-    window.addEventListener('resize', resize);
-
-    let rotation = 0;
-    const centerX = canvas.width / dpr / 2;
-    const centerY = canvas.height / dpr / 2;
-    const size = Math.min(centerX, centerY) * 1.2;
-    const stripes = 48;
-
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width / dpr, canvas.height / dpr);
-      
-      rotation += 0.005;
-
-      // Create triangular stripe pattern
-      for (let i = 0; i < stripes; i++) {
-        const progress = i / stripes;
-        const angle = rotation + progress * Math.PI * 2;
-        
-        ctx.save();
-        ctx.translate(centerX, centerY);
-        ctx.rotate(angle);
-        
-        // Create dynamic triangle size based on wave function
-        const wave = Math.sin(rotation * 2 + progress * Math.PI * 6) * 0.3 + 0.7;
-        const triangleSize = size * wave;
-        
-        ctx.beginPath();
-        // Draw triangle from center
-        ctx.moveTo(0, -triangleSize * 0.6);
-        ctx.lineTo(-triangleSize * 0.5, triangleSize * 0.4);
-        ctx.lineTo(triangleSize * 0.5, triangleSize * 0.4);
-        ctx.closePath();
-        
-        // Alternate colors for stripes
-        if (i % 2 === 0) {
-          const gradient = ctx.createRadialGradient(0, 0, 0, 0, 0, triangleSize);
-          gradient.addColorStop(0, 'rgba(116, 7, 200, 0.5)'); // #7407c8
-          gradient.addColorStop(1, 'rgba(194, 3, 157, 0.3)'); // #c2039d
-          ctx.fillStyle = gradient;
-        } else {
-          ctx.fillStyle = 'rgba(245, 243, 255, 0.9)';
-        }
-        
-        ctx.fill();
-        ctx.strokeStyle = 'rgba(116, 7, 200, 0.4)';
-        ctx.lineWidth = 2;
-        ctx.stroke();
-        
-        ctx.restore();
-      }
-      
-      requestAnimationFrame(animate);
-    };
-
-    animate();
-
-    return () => {
-      window.removeEventListener('resize', resize);
-    };
-  }, []);
-
+export default function DigitalAgencyHero() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-pink-50 overflow-hidden">
-      <div className="container mx-auto px-24 py-8 relative">
-        {/* Main Content */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
+    <div className="min-h-screen bg-white relative overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 md:opacity-50"
+        style={{
+          backgroundImage: "url('https://coderthemes.com/silicon/assets/img/landing/digital-agency/hero-bg.svg')"
+        }}
+      ></div>
+      
+      {/* Hero Section */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 pt-32 pb-8 sm:py-10 md:py-12 lg:py-14 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
           {/* Left Content */}
-          <div className="space-y-4 z-10 mt-8 lg:mt-0">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-7xl font-bold leading-tight" style={{ color: '#000' }}>
-              We do{' '}
-              <span className="inline-block relative align-top" style={{ minWidth: '650px', height: '1.2em' }}>
-                {words.map((word, index) => (
-                  <span
-                    key={index}
-                    className="absolute left-0 top-0 transition-all duration-500 ease-in-out whitespace-nowrap"
-                    style={{
-                      color: '#7407c8',
-                      opacity: currentWordIndex === index ? 1 : 0,
-                      transform: currentWordIndex === index ? 'translateY(0)' : 'translateY(20px)'
-                    }}
-                  >
-                    {word}
-                  </span>
-                ))}
-              </span>              
+          <div className="space-y-6 sm:space-y-8 order-1">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold leading-tight text-gray-900">
+              We <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Transform</span>
+              <br />
+              Your Ideas into
+              <br />
+              Reality
             </h1>
 
-            <p className="text-base sm:text-lg lg:text-xl max-w-lg leading-relaxed" style={{ color: '#737373' }}>
-              We make exceptional digital marketing, web & app development, consulting, for startups and enterprises.
-            </p>
+            {/* Desktop Layout - Button and Text side by side */}
+            <div className="hidden sm:flex items-start gap-6">
+              <button className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-lg text-lg font-medium transition-all hover:shadow-lg hover:scale-105 flex-shrink-0">
+                Work with us
+              </button>
 
-            <button 
-              className="text-white px-8 py-4 rounded-full text-base sm:text-lg font-medium transition-all shadow-lg hover:shadow-xl"
-              style={{ 
-                background: 'linear-gradient(135deg, #7407c8 0%, #c2039d 100%)',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-2px)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-              }}
-            >
-              Contact us
-            </button>
+              <p className="text-gray-600 text-base md:text-lg leading-relaxed flex-1">
+                We make exceptional digital marketing, web & app development, consulting, for startups and enterprises.</p>
+            </div>
+
+            {/* Mobile Layout - Paragraph first, then button below */}
+            <div className="sm:hidden space-y-4">
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Silicon is a leading full-service digital agency based in New York. We make mobile apps, websites & brands, that people appreciate all around the world.
+              </p>
+              
+              <button className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-lg text-base font-medium transition-all hover:shadow-lg hover:scale-105">
+                Work with us
+              </button>
+            </div>
           </div>
 
-          {/* Right Content - 3D Triangle Animation */}
-          <div className="relative h-[500px] sm:h-[600px] lg:h-[700px] xl:h-[800px]">
-            <canvas
-              ref={canvasRef}
-              className="absolute inset-0 w-full h-full"
+          {/* Right Content - GIF Animation */}
+          <div className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[700px] xl:h-[850px] flex items-end lg:items-center justify-center order-2 lg:-mr-32">
+            <img
+              src="/assets/images/hero.gif"
+              alt="Animation"
+              className="w-full h-full object-contain object-bottom lg:object-center max-w-[280px] sm:max-w-[350px] md:max-w-[450px] lg:max-w-none lg:w-[80%] lg:h-[80%]"
             />
           </div>
-        </div>        
+        </div>
       </div>
     </div>
   );
