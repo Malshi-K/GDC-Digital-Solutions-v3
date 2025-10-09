@@ -116,7 +116,7 @@ const CaseStudySlider = ({ caseStudies }) => {
                 {/* CTA Button */}
                 <a
                   href={currentStudy.caseStudyPath}
-                  className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 hover:bg-customPurple text-white font-semibold px-8 py-3 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
+                  className="inline-block bg-customPurple hover:bg-customPurple text-white font-semibold px-8 py-3 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
                 >
                   {currentStudy.buttonLabel}
                 </a>

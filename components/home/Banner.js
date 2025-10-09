@@ -28,7 +28,7 @@ export default function DigitalAgencyHero() {
 
             {/* Desktop Layout - Button and Text side by side */}
             <div className="hidden sm:flex items-start gap-6">
-              <button className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-lg text-lg font-medium transition-all hover:shadow-lg hover:scale-105 flex-shrink-0">
+              <button className="bg-customPurple text-white px-8 py-4 rounded-lg text-lg font-medium transition-all hover:shadow-lg hover:scale-105 flex-shrink-0">
                 Work with us
               </button>
 

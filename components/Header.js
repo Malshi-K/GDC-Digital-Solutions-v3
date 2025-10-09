@@ -180,7 +180,7 @@ const Header = () => {
                           <button
                             className={`flex items-center space-x-1 px-4 py-2.5 rounded-lg font-semibold transition-all duration-300 text-sm whitespace-nowrap ${
                               pathname === item.href || pathname.startsWith(item.href + "/")
-                                ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md"
+                                ? "bg-customPurple text-white shadow-md"
                                 : "text-gray-700 hover:text-purple-600 hover:bg-purple-50"
                             }`}
                           >
@@ -204,7 +204,7 @@ const Header = () => {
                                   href={dropdownItem.href}
                                   className={`block px-5 py-3 text-sm font-medium transition-all duration-300 ${
                                     pathname === dropdownItem.href
-                                      ? "bg-gradient-to-r from-purple-50 to-pink-50 text-purple-600 border-l-4 border-purple-600"
+                                      ? "bg-customPurple text-purple-600 border-l-4 border-purple-600"
                                       : "text-gray-700 hover:bg-gray-50 hover:text-purple-600 hover:pl-6"
                                   }`}
                                 >
@@ -219,7 +219,7 @@ const Header = () => {
                           href={item.href}
                           className={`px-4 py-2 rounded-lg font-semibold transition-all duration-300 text-sm whitespace-nowrap ${
                             pathname === item.href
-                              ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md"
+                              ? "text-customPurple"
                               : "text-gray-700 hover:text-purple-600 hover:bg-purple-50"
                           }`}
                         >
@@ -237,7 +237,7 @@ const Header = () => {
               <div className="hidden xl:block">
                 <Link
                   href="/contact-us"
-                  className="bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold py-3 px-7 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-xl text-sm whitespace-nowrap"
+                  className="bg-customPurple text-white font-bold py-3 px-7 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-xl text-sm whitespace-nowrap"
                 >
                   Contact Us Now
                 </Link>
@@ -358,7 +358,7 @@ const Header = () => {
             <li className="pt-6">
               <Link
                 href="/contact-us"
-                className="block w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold py-3 px-4 rounded-xl transition-all duration-300 hover:scale-105 text-center shadow-lg"
+                className="block w-full bg-customPurple text-white font-bold py-3 px-4 rounded-xl transition-all duration-300 hover:scale-105 text-center shadow-lg"
                 onClick={() => setIsSidebarOpen(false)}
               >
                 Contact Us Now
