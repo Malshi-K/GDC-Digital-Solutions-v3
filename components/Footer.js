@@ -1,9 +1,9 @@
+
 // components/Footer.js
 import Image from "next/image";
 import Link from "next/link";
 import { FaEnvelope, FaMapMarkedAlt, FaPhoneAlt } from "react-icons/fa";
 import TrackedPhoneLink from "./TrackedPhoneLink";
-
 export default function Footer() {
   return (
     <>
@@ -30,7 +30,6 @@ export default function Footer() {
             style={{ background: "linear-gradient(135deg, #c2039d 0%, #7407c8 100%)" }}
           ></div>
         </div>
-
         <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
           {/* Three Columns Section */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 lg:gap-12">
@@ -68,7 +67,6 @@ export default function Footer() {
                 </Link>
               </div>
             </div>
-
             {/* Column 2: Contact information */}
             <div className="mb-6 sm:mb-0">
               <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">
@@ -110,7 +108,6 @@ export default function Footer() {
                 </li>
               </ul>
             </div>
-
             {/* Column 3: Subscribe newsletter */}
             <div className="sm:col-span-2 md:col-span-1">
               <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">
@@ -155,7 +152,6 @@ export default function Footer() {
           </div>
         </div>
       </footer>
-
       {/* Logo Section - Light Gray Background */}
       <div className="bg-gray-50 py-6 sm:py-8 border-t border-gray-200">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">          
@@ -227,7 +223,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-
       {/* Copyright Section - White Background */}
       <div className="bg-white py-4 border-t border-gray-200">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">

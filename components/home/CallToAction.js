@@ -1,11 +1,10 @@
+
 // ConsultationCTA.jsx
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-
 const ConsultationCTA = () => {
   const [isHovered, setIsHovered] = useState(false);
-
   return (
     <section className="relative px-4 sm:px-6 md:px-8 lg:px-16 xl:px-40 overflow-hidden">
       {/* Purple Gradient Background */}
@@ -20,7 +19,6 @@ const ConsultationCTA = () => {
           `
         }}
       ></div>
-
       {/* Decorative Elements */}
       <div className="absolute inset-0 z-5">
         {/* Floating geometric shapes */}
@@ -37,7 +35,6 @@ const ConsultationCTA = () => {
           style={{ background: "linear-gradient(135deg, #7407c8 0%, #c2039d 100%)" }}
         ></div>
       </div>
-
       {/* Content Container */}
       <div className="container text-center mx-auto px-4 sm:px-6 py-16 md:py-20 lg:py-32 relative z-20">
         <div className="max-w-4xl mx-auto">
@@ -57,12 +54,10 @@ const ConsultationCTA = () => {
             </span>
             <span className="text-white"> Today</span>
           </h2>
-
           {/* Subtitle */}
           <p className="text-lg sm:text-xl text-white/80 mb-8 max-w-2xl mx-auto leading-relaxed">
             Transform your digital presence with our expert guidance. Get personalized strategies tailored to your business needs.
           </p>
-
           {/* Enhanced CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             {/* Primary CTA Button */}
@@ -90,7 +85,6 @@ const ConsultationCTA = () => {
                 </svg>
               </span>
             </Link>
-
             {/* Secondary CTA Button */}
             <Link href="/contact-us">
               <span className="inline-flex items-center px-8 py-4 text-white text-lg font-semibold rounded-lg border-2 border-white/30 hover:border-white transition-all duration-300 hover:bg-white/10 backdrop-blur-sm group">
@@ -111,7 +105,6 @@ const ConsultationCTA = () => {
               </span>
             </Link>
           </div>
-
           {/* Trust Indicators */}
           <div className="mt-12 flex flex-wrap justify-center items-center gap-8 text-white/60">
             <div className="flex items-center">
@@ -138,5 +131,4 @@ const ConsultationCTA = () => {
     </section>
   );
 };
-
 export default ConsultationCTA;
