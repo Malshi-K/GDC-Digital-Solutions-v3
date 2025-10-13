@@ -1,4 +1,3 @@
-
 // components/Footer.js
 import Image from "next/image";
 import Link from "next/link";
@@ -15,14 +14,12 @@ export default function Footer() {
             {/* Left Side: Let's start working together */}
             <div className="lg:w-1/2">
               <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-gray-900">
-              Let&apos;s start working
-              <span>
-                {" "}together
-              </span>
-              {" "}get in touch!
-            </h2>
+                Let&apos;s start working
+                <span> together</span> get in touch!
+              </h2>
               <p className="text-gray-600 mb-4 text-sm sm:text-base">
-                Ready to transform your digital presence? Let&apos;s discuss your goals and create something amazing together.
+                Ready to transform your digital presence? Let&apos;s discuss
+                your goals and create something amazing together.
               </p>
               <div className="mt-4 sm:mt-6">
                 <Link
@@ -50,10 +47,7 @@ export default function Footer() {
             {/* Right Side: Contact information - Positioned right but left-aligned */}
             <div className="lg:w-auto">
               <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-black">
-                Contact{' '}
-                <span className="text-black">
-                  information
-                </span>
+                Contact <span className="text-black">information</span>
               </h2>
               <ul className="space-y-4 sm:space-y-5">
                 <li className="flex items-start group">
@@ -94,20 +88,20 @@ export default function Footer() {
       {/* Logo Section - Light Gray Background */}
       <div className="bg-white py-6 sm:py-8 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-6 md:gap-8">
+          <div className="flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12">
             <div className="flex items-center justify-center w-1/2 sm:w-1/3 md:w-auto mb-4 sm:mb-0 group">
               <a
-                href="https://www.gdcdigital.net/"
+                href="https://gdcdigital.co.nz/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition-all duration-300 hover:scale-105 p-4 rounded-lg hover:shadow-lg"
+                className="transition-all duration-300 p-4"
               >
                 <Image
-                  src="/assets/images/Digital Solution.webp"
+                  src="/assets/images/Digital Solution Logo.png"
                   alt="GDC Digital Solutions Logo"
-                  width={180}
-                  height={60}
-                  className="object-contain h-12 sm:h-16 transition-opacity group-hover:opacity-80"
+                  width={240}
+                  height={80}
+                  className="object-contain h-20 sm:h-24 md:h-28 transition-opacity group-hover:opacity-80"
                 />
               </a>
             </div>
@@ -116,14 +110,14 @@ export default function Footer() {
                 href="https://www.gdcgroup.co.nz/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition-all duration-300 hover:scale-105 p-4 rounded-lg hover:shadow-lg"
+                className="transition-all duration-300 p-4"
               >
                 <Image
                   src="/assets/images/GDC LOGOS 2024 BLUE.webp"
                   alt="GDC Consultants Logo"
-                  width={180}
-                  height={60}
-                  className="object-contain h-12 sm:h-16 transition-opacity group-hover:opacity-80"
+                  width={240}
+                  height={80}
+                  className="object-contain h-20 sm:h-24 md:h-28 transition-opacity group-hover:opacity-80"
                 />
               </a>
             </div>
@@ -132,14 +126,14 @@ export default function Footer() {
                 href="https://www.gdcrecruit.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition-all duration-300 hover:scale-105 p-4 rounded-lg hover:shadow-lg"
+                className="transition-all duration-300 p-4"
               >
                 <Image
                   src="/assets/images/Recruit Logo.png"
                   alt="GDC Recruitment Logo"
                   width={240}
                   height={80}
-                  className="object-contain h-16 sm:h-20 transition-opacity group-hover:opacity-80"
+                  className="object-contain h-20 sm:h-24 md:h-28 transition-opacity group-hover:opacity-80"
                 />
               </a>
             </div>
@@ -148,14 +142,14 @@ export default function Footer() {
                 href="#"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition-all duration-300 hover:scale-105 p-4 rounded-lg hover:shadow-lg"
+                className="transition-all duration-300 p-4"
               >
                 <Image
                   src="/assets/images/properties logo.png"
                   alt="GDC Properties Logo"
                   width={240}
                   height={80}
-                  className="object-contain h-16 sm:h-20 transition-opacity group-hover:opacity-80"
+                  className="object-contain h-20 sm:h-24 md:h-28 transition-opacity group-hover:opacity-80"
                 />
               </a>
             </div>
@@ -170,10 +164,16 @@ export default function Footer() {
               Copyright © 2025 GDC Digital Solutions. All Rights Reserved.
             </p>
             <div className="flex space-x-4 text-xs sm:text-sm">
-              <Link href="/privacy-policy" className="hover:text-customPurple transition-colors">
+              <Link
+                href="/privacy-policy"
+                className="hover:text-customPurple transition-colors"
+              >
                 Privacy Policy
               </Link>
-              <Link href="/terms-of-service" className="hover:text-customPurple transition-colors">
+              <Link
+                href="/terms-of-service"
+                className="hover:text-customPurple transition-colors"
+              >
                 Terms of Service
               </Link>
             </div>
