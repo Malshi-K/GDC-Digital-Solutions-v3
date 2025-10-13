@@ -38,7 +38,7 @@ const ConsultationCTA = () => {
           <div className="relative z-10 text-center px-6 sm:px-8 md:px-12 lg:px-16 py-16 md:py-20 lg:py-24">
             {/* Main Heading */}
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-white">
-              Let's Discuss Your Business Goals & Schedule A Free Consultation Today
+              Let&apos;s Discuss Your Business Goals & Schedule A Free Consultation Today
             </h2>
 
             {/* Subtitle */}
