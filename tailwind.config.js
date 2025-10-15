@@ -49,7 +49,7 @@ module.exports = {
           4: "hsl(var(--chart-4))",
           5: "hsl(var(--chart-5))",
         },
-        customPurple: "#7407c8",
+        customPurple: "#6e377d",
         customLightPurple: "#c2039d",
         customGray: "#545454",
         customLightGray: "#737373",
