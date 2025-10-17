@@ -113,19 +113,19 @@ const CaseStudiesHero = ({ data }) => {
         @keyframes cleanPurple {
           0% {
             background-position: 0px 0px, 0px 0px, 0px 0px;
-            background-color: #7407c8;
+            background-color: #6e377d;
           }
           50% {
             background-color: #c2039d;
           }
           100% {
             background-position: 500px 1000px, 400px 400px, 300px 300px;
-            background-color: #7407c8;
+            background-color: #6e377d;
           }
         }
 
         #clean-purple-bg {
-          background: linear-gradient(135deg, #7407c8 0%, #c2039d 50%, #7407c8 100%);
+          background: linear-gradient(135deg, #6e377d 0%, #c2039d 50%, #6e377d 100%);
           background-image: 
             url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.03"><circle cx="7" cy="7" r="1"/><circle cx="50" cy="50" r="1"/><circle cx="20" cy="30" r="1"/></g></svg>'),
             url('data:image/svg+xml,<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.02"><circle cx="40" cy="40" r="2"/></g></svg>');

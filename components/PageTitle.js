@@ -79,15 +79,7 @@ const PageTitle = ({
     <section className="relative flex items-center justify-center min-h-[600px] text-white overflow-hidden">
       {/* Purple Gradient Background */}
       <div
-        className="absolute inset-0 z-10"
-        style={{
-          background: `
-            radial-gradient(circle at 20% 80%, rgba(120, 7, 200, 0.3), transparent 50%),
-            radial-gradient(circle at 80% 20%, rgba(194, 3, 157, 0.3), transparent 50%),
-            radial-gradient(circle at 40% 40%, rgba(120, 7, 200, 0.4), transparent 50%),
-            linear-gradient(135deg, #1e1b4b 0%, #312e81 25%, #6d28d9 50%, #8b5cf6 75%, #a855f7 100%)
-          `,
-        }}
+        className="absolute inset-0 z-10"        
       ></div>
 
       {/* Decorative Elements */}
@@ -96,32 +88,32 @@ const PageTitle = ({
         <div
           className="absolute top-20 left-10 w-32 h-32 rounded-lg opacity-15 transform rotate-12 animate-pulse"
           style={{
-            background: "linear-gradient(135deg, #7407c8 0%, #c2039d 100%)",
+            background: "linear-gradient(135deg, #6e377d 0%, #c2039d 100%)",
           }}
         ></div>
         <div
           className="absolute bottom-32 right-20 w-24 h-24 rounded-full opacity-20 animate-bounce"
           style={{
-            background: "linear-gradient(135deg, #c2039d 0%, #7407c8 100%)",
+            background: "linear-gradient(135deg, #c2039d 0%, #6e377d 100%)",
           }}
         ></div>
         <div
           className="absolute top-1/3 right-10 w-16 h-16 rounded-lg opacity-25 transform -rotate-12"
           style={{
-            background: "linear-gradient(135deg, #7407c8 0%, #c2039d 100%)",
+            background: "linear-gradient(135deg, #6e377d 0%, #c2039d 100%)",
           }}
         ></div>
       </div>
 
       {/* Content */}
-      <div className="container relative z-20 mx-auto px-6 md:px-20">
+      <div className="container relative z-20 mx-auto px-6 md:px-40">
         <div className="max-w-4xl">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+          <h1 className="text-customPurple text-5xl md:text-7xl font-bold mb-6 leading-tight">
             {animateText(pageTitle)}
           </h1>
 
           {/* Subtitle/Description */}
-          <p className="text-xl md:text-2xl text-white/80 mb-8 leading-relaxed max-w-2xl">
+          <p className="text-customGray text-xl md:text-2xl mb-8 leading-relaxed max-w-2xl">
             Transform your digital presence with our expert solutions tailored
             to your business needs
           </p>
@@ -131,21 +123,8 @@ const PageTitle = ({
             {/* Primary CTA Button */}
             <Link
               href="/contact-us"
-              className="inline-flex items-center justify-center px-8 py-4 bg-white text-customPurple text-lg font-semibold rounded-lg hover:bg-gray-50 transition-all duration-300 hover:scale-105 hover:shadow-xl group"
+              className="inline-flex items-center justify-center px-8 py-4 bg-customPurple text-white text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-xl group"
             >
-              <svg
-                className="w-5 h-5 mr-2 transition-transform duration-300 group-hover:-translate-x-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                />
-              </svg>
               Contact Now
             </Link>
           </div>

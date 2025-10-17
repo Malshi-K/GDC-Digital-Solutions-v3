@@ -53,7 +53,7 @@ module.exports = {
         customLightPurple: "#c2039d",
         customGray: "#545454",
         customLightGray: "#737373",
-        customGradient: "linear-gradient(135deg, #7407c8 0%, #c2039d 100%)",
+        customGradient: "linear-gradient(135deg, #6e377d 0%, #c2039d 100%)",
       },
       borderRadius: {
         lg: "var(--radius)",
