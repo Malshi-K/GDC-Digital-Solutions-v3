@@ -19,7 +19,7 @@ export default function DigitalAgencyHero() {
           {/* Left Content */}
           <div className="space-y-6 sm:space-y-8 order-1">
             <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold leading-tight text-gray-900">
-              We <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Transform</span>
+              We <span className="bg-gradient-to-r from-customPurple to-customLightPurple bg-clip-text text-transparent">Transform</span>
               <br />
               Your Ideas into
               <br />
