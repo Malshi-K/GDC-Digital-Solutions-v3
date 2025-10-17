@@ -1,8 +1,6 @@
 import Banner from "@/components/home/Banner";
 import Services from "@/components/home/Services";
 import CallToAction from "@/components/home/CallToAction";
-import ServicesBar from "@/components/home/ServicesBar";
-import CaseStudies from "@/components/home/CaseStudies";
 import CaseStudySlider from "@/components/home/CaseStudySlider";
 import homeCaseStudiesData from "@/data/homeCaseStudiesData";
 
