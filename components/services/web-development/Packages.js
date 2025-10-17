@@ -48,8 +48,6 @@ export default function Packages() {
       ],
       description:
         "Ideal for small businesses, startups, or personal projects looking for a quick and professional online presence. This package offers a sleek, single-scroll website that captures essential information and is fully optimised for mobile.",
-      buttonColor: "bg-yellow-400 hover:bg-gray-400",
-      lineColor: "bg-yellow-400", // Top line color for Starter
       icon: <FaLaptop className="w-12 h-12 text-customLightGray m-4" />,
       buttonText: "From NZD $300.00",
     },
@@ -64,8 +62,6 @@ export default function Packages() {
         "Standard Template Design",
         "Choose: WordPress, Static HTML/CSS, or Simple PHP",
       ],
-      buttonColor: "bg-customPurple hover:bg-customGray",
-      lineColor: "bg-customPurple", // Top line color for Starter
       icon: <FaGlobe className="w-12 h-12 text-customLightGray m-4" />, // Globe icon
       buttonText: "From NZD $500.00",
     },
@@ -80,8 +76,6 @@ export default function Packages() {
         "2 Rounds of Revisions",
         "Basic Analytics Setup",
       ],
-      buttonColor: "bg-customGray hover:bg-customLightPurple",
-      lineColor: "bg-customGray", // Top line color for Business
       icon: <FaChartLine className="w-12 h-12 text-customLightGray m-4" />, // Chart icon
       buttonText: "Contact us for pricing",
     },
@@ -97,8 +91,6 @@ export default function Packages() {
         "Unlimited Revisions During Development",
         "Full Integration with 3rd-Party Services",
       ],
-      buttonColor: "bg-customLightPurple hover:bg-customPurple",
-      lineColor: "bg-customLightPurple", // Top line color for Custom
       icon: <FaCode className="w-12 h-12 text-customLightGray m-4" />, // Code icon
       buttonText: "Contact us for pricing",
     },
@@ -139,7 +131,7 @@ export default function Packages() {
               style={{ transitionDelay: `${index * 200}ms` }}
             >
               {/* Top Color Line */}
-              <div className={`w-full h-2 ${pkg.lineColor} rounded-t-lg`} />
+              <div className={`w-full h-2 bg-customPurple rounded-t-lg`} />
 
               {/* Icon, Title, and Features Section */}
               <div className="flex flex-col items-center flex-grow">
@@ -165,7 +157,7 @@ export default function Packages() {
               {/* Buy/Contact Button */}
               <div className="w-full p-6">
                 <Button
-                  className={`w-full py-3 text-white font-bold rounded ${pkg.buttonColor}`}
+                  className={`w-full py-3 text-white font-bold rounded bg-customPurple`}
                   onClick={() => window.location.href = '/contact-us'}
                 >
                   {pkg.buttonText}

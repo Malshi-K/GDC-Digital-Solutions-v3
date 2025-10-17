@@ -84,7 +84,7 @@ export default function ExpertiseSection() {
         }}
       >
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black opacity-60"></div>
+        <div className="absolute inset-0 bg-customPurple opacity-50"></div>
       </div>
 
       {/* Content Wrapper */}
@@ -96,9 +96,9 @@ export default function ExpertiseSection() {
           } transition-all duration-800 ease-out`}
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-            <span className="text-customPurple">Our Expertise</span> Includes
+            <span className="text-white">Our Expertise</span> Includes
           </h2>
-          <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg text-white max-w-3xl mx-auto">
             Unlock the power of flexibility and performance. Manage your
             business with a mature strategy, develop your business so that it
             grows rapidly.
@@ -110,7 +110,7 @@ export default function ExpertiseSection() {
           {expertiseItems.map((item, index) => (
             <div
               key={index}
-              className={`bg-gray-900 bg-opacity-60 rounded-xl p-6 hover:bg-opacity-80 transition-all duration-300 transform hover:scale-105 hover:shadow-xl ${
+              className={`bg-white rounded-xl p-6 hover:bg-opacity-80 transition-all duration-300 transform hover:scale-105 hover:shadow-xl ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
               }`}
               style={{ 
@@ -124,10 +124,10 @@ export default function ExpertiseSection() {
                 <div className="mb-4">
                   <item.icon className="h-12 w-12 text-customPurple" />
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-white">
+                <h3 className="text-xl font-bold mb-3 text-customPurple">
                   {item.title}
                 </h3>
-                <p className="text-gray-300 flex-grow">{item.description}</p>
+                <p className="text-customGray flex-grow">{item.description}</p>
               </div>
             </div>
           ))}
@@ -141,7 +141,7 @@ export default function ExpertiseSection() {
           style={{ transitionDelay: "600ms" }}
         >
           <Link href="/about">
-            <button className="bg-customPurple text-black font-bold py-3 px-8 rounded-full hover:bg-customLightPurple transition duration-300">
+            <button className="bg-white text-customPurple font-bold py-3 px-8 rounded-full transition duration-300">
               Find More About Our Expertise
             </button>
           </Link>

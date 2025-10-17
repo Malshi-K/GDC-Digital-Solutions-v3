@@ -81,6 +81,7 @@ export default function ServicePage({ params, isServicesOpen, isAboutOpen }) {
             <CaseStudiesList />
             <Packages />
             <OnePageWebsite />
+            <CallToAction />
           </>
         );
 
@@ -97,6 +98,7 @@ export default function ServicePage({ params, isServicesOpen, isAboutOpen }) {
               imagePath={caseStudy?.imagePath}
               caseStudyPath={caseStudy?.caseStudyPath}
             />
+            <CallToAction />
           </>
         );
 
@@ -112,7 +114,12 @@ export default function ServicePage({ params, isServicesOpen, isAboutOpen }) {
         );
 
       case "SEO/ Copywriting":
-        return <SeoOverview />;
+        return (
+          <>
+            <SeoOverview />
+            <CallToAction />
+          </>
+        );
 
       case "Business Consulting":
         return (
@@ -129,6 +136,7 @@ export default function ServicePage({ params, isServicesOpen, isAboutOpen }) {
           <>
             <AppDevelopmentBenefits />
             <AppProcessFlow />
+            <CallToAction />
           </>
         );
 
@@ -210,9 +218,6 @@ export default function ServicePage({ params, isServicesOpen, isAboutOpen }) {
 
       {/* Service Content Section */}
       <section id="next-section">{renderServiceContent()}</section>
-
-      {/* Common Call to Action Section */}
-      <CallToAction />
     </>
   );
 }
