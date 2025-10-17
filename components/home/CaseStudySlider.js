@@ -26,13 +26,10 @@ const CaseStudySlider = ({ caseStudies }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <h2
           className={
-            "text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 transform transition-all duration-800"
+            "text-black text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 transform transition-all duration-800"
           }
         >
-          <span className="text-customGray">Our </span>
-          <span className="bg-gradient-to-r from-customPurple to-customLightPurple bg-clip-text text-transparent">
-            Success Stories
-          </span>
+          Our Success Stories
         </h2>
         <p
           className={
