@@ -36,7 +36,6 @@ import {
   serviceCaseStudies,
   serviceSEOData,
 } from "../../../data/serviceData";
-import ServicesBar from "@/components/home/ServicesBar";
 import FacebookAdsBenefits from "@/components/services/facebook-ads/FacebookAds";
 import FacebookAdsProcessFlow from "@/components/services/facebook-ads/FacebookAdsProcessFlow";
 import FacebookAdsIntroductionSection from "@/components/services/facebook-ads/FacebookAdsIntroductionSection";
@@ -213,8 +212,6 @@ export default function ServicePage({ params, isServicesOpen, isAboutOpen }) {
         isAboutOpen={isAboutOpen}
         onScrollDown={handleScrollDown}
       />
-
-      <ServicesBar />
 
       {/* Service Content Section */}
       <section id="next-section">{renderServiceContent()}</section>

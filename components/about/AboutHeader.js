@@ -22,7 +22,7 @@ export default function AgencyHeader() {
   }, []);
 
   return (
-    <div className="relative flex items-stretch w-full py-12">
+    <div className="relative flex items-stretch w-full">
       {/* Left yellow accent bar */}
       <div className="w-16 bg-customPurple hidden md:block"></div>
 
