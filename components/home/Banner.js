@@ -42,22 +42,70 @@ export default function DigitalAgencyHero() {
                 Silicon is a leading full-service digital agency based in New York. We make mobile apps, websites & brands, that people appreciate all around the world.
               </p>
               
-              <button className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-lg text-base font-medium transition-all hover:shadow-lg hover:scale-105">
+              <button className="bg-customPurple text-white px-6 py-3 rounded-lg text-base font-medium transition-all hover:shadow-lg hover:scale-105">
                 Work with us
               </button>
             </div>
           </div>
 
-          {/* Right Content - GIF Animation */}
-          <div className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[700px] xl:h-[850px] flex items-end lg:items-center justify-center order-2 lg:-mr-32">
-            <img
-              src="/assets/images/hero.gif"
-              alt="Animation"
-              className="w-full h-full object-contain object-bottom lg:object-center max-w-[280px] sm:max-w-[350px] md:max-w-[450px] lg:max-w-none lg:w-[80%] lg:h-[80%]"
-            />
+          {/* Right Content - Animated Gradient Sphere */}
+          <div className="mt-20 order-1 lg:order-2 flex justify-center lg:justify-end">
+            <div className="relative w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px]">
+              {/* Gradient Sphere */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-400 via-purple-500 to-indigo-600 opacity-80 animate-pulse"></div>
+              
+              {/* Spiral Lines Overlay */}
+              <div className="absolute inset-0 rounded-full overflow-hidden">
+                <div className="w-full h-full animate-spin-slow">
+                  {/* Create spiral effect with multiple gradients */}
+                  <div 
+                    className="w-full h-full rounded-full"
+                    style={{
+                      background: `
+                        repeating-conic-gradient(
+                          from 0deg at 50% 50%,
+                          transparent 0deg,
+                          rgba(255, 255, 255, 0.1) 5deg,
+                          transparent 10deg
+                        ),
+                        radial-gradient(circle at 30% 30%, 
+                          #a754f3,
+                          #b386fb 18%,
+                          #beb7fb 37%,
+                          #988df7 51%,
+                          #7262f3 63%,
+                          #905af1 75%,
+                          #ae52f0 87%,
+                          #8a2fd7 96%,
+                          #670cbf 100%
+                        )
+                      `
+                    }}
+                  ></div>
+                </div>
+              </div>
+
+              {/* Inner glow effect */}
+              <div className="absolute inset-8 rounded-full bg-gradient-to-br from-purple-300/50 to-pink-300/50 blur-xl"></div>
+            </div>
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes spin-slow {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+        
+        .animate-spin-slow {
+          animation: spin-slow 20s linear infinite;
+        }
+      `}</style>
     </div>
   );
 }
