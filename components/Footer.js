@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <>
       {/* Main Footer Section - White Background */}
-      <footer className="bg-white text-gray-900 py-8 sm:py-10 md:py-12 border-t border-gray-200 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20">
+      <footer className="bg-white text-gray-900 py-8 sm:py-10 md:py-12 shadow-[0_-10px_15px_-3px_rgba(0,0,0,0.1),0_-4px_6px_-2px_rgba(0,0,0,0.05)] px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20">
         <div className="max-w-7xl mx-auto">
           {/* Single Section Layout */}
           <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-8 lg:gap-12">
@@ -86,9 +86,9 @@ export default function Footer() {
         </div>
       </footer>
       {/* Logo Section - Light Gray Background */}
-      <div className="bg-white py-6 sm:py-8 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20">
+      <div className="bg-white px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12">
+          <div className="flex flex-wrap justify-center gap-2 md:gap-4 lg:gap-6">
             <div className="flex items-center justify-center w-1/2 sm:w-1/3 md:w-auto mb-4 sm:mb-0 group">
               <a
                 href="https://gdcdigital.co.nz/"
@@ -97,11 +97,12 @@ export default function Footer() {
                 className="transition-all duration-300 p-4"
               >
                 <Image
-                  src="/assets/images/Digital Solution Logo.png"
+                  src="/assets/images/footer-logos/1.png"
                   alt="GDC Digital Solutions Logo"
-                  width={240}
-                  height={80}
-                  className="object-contain h-20 sm:h-24 md:h-28 transition-opacity group-hover:opacity-80"
+                  width={400}
+                  height={150}
+                  className="w-full h-auto transition-opacity group-hover:opacity-80"
+                  priority
                 />
               </a>
             </div>
@@ -113,11 +114,12 @@ export default function Footer() {
                 className="transition-all duration-300 p-4"
               >
                 <Image
-                  src="/assets/images/GDC LOGOS 2024 BLUE.webp"
+                  src="/assets/images/footer-logos/2.png"
                   alt="GDC Consultants Logo"
-                  width={240}
-                  height={80}
-                  className="object-contain h-20 sm:h-24 md:h-28 transition-opacity group-hover:opacity-80"
+                  width={400}
+                  height={150}
+                  className="w-full h-auto transition-opacity group-hover:opacity-80"
+                  priority
                 />
               </a>
             </div>
@@ -129,11 +131,12 @@ export default function Footer() {
                 className="transition-all duration-300 p-4"
               >
                 <Image
-                  src="/assets/images/Recruit Logo.png"
+                  src="/assets/images/footer-logos/3.png"
                   alt="GDC Recruitment Logo"
-                  width={240}
-                  height={80}
-                  className="object-contain h-20 sm:h-24 md:h-28 transition-opacity group-hover:opacity-80"
+                  width={400}
+                  height={150}
+                  className="w-full h-auto transition-opacity group-hover:opacity-80"
+                  priority
                 />
               </a>
             </div>
@@ -145,11 +148,12 @@ export default function Footer() {
                 className="transition-all duration-300 p-4"
               >
                 <Image
-                  src="/assets/images/properties logo.png"
+                  src="/assets/images/footer-logos/4.png"
                   alt="GDC Properties Logo"
-                  width={240}
-                  height={80}
-                  className="object-contain h-20 sm:h-24 md:h-28 transition-opacity group-hover:opacity-80"
+                  width={400}
+                  height={150}
+                  className="w-full h-auto transition-opacity group-hover:opacity-80"
+                  priority
                 />
               </a>
             </div>
@@ -157,7 +161,7 @@ export default function Footer() {
         </div>
       </div>
       {/* Copyright Section - White Background */}
-      <div className="bg-white py-4 border-t border-gray-200 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20">
+      <div className="bg-white py-4 shadow-[0_-10px_15px_-3px_rgba(0,0,0,0.1),0_-4px_6px_-2px_rgba(0,0,0,0.05)] px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col sm:flex-row justify-between items-center text-customLightGray">
             <p className="text-xs sm:text-sm mb-2 sm:mb-0">

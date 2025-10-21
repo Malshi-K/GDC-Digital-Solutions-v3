@@ -2,7 +2,6 @@ import AboutHeader from "@/components/about/AboutHeader";
 import PageTitle from "@/components/PageTitle";
 import TeamPage from "@/components/about/TeamPage";
 import CallToAction from "@/components/home/CallToAction";
-import ServicesBar from "@/components/home/ServicesBar";
 
 // Method 1: Using metadata object (for Next.js 13+)
 export const metadata = {
@@ -47,7 +46,6 @@ export default function AboutUs() {
   return (
     <>
       <PageTitle />
-      <ServicesBar />
       {/* Main content */}
       <div className={`relative z-10 transition-all duration-300`}>
         <AboutHeader/>

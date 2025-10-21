@@ -110,50 +110,49 @@ const HeroSection = ({
   return (
     <section 
       ref={scrollRef}
-      className="relative flex items-center justify-center min-h-[600px] text-white bg-gradient-to-br from-customPurple via-customLightPurple to-customPurple"
+      className="relative flex items-center justify-center min-h-[600px] text-white"
     >
-      {/* Enhanced Gradient Overlay for better text readability */}
-      <div className="absolute inset-0 z-10 bg-gradient-to-r from-black/80 via-customPurple/40 to-black/70"></div>
 
-      {/* Background Image with enhanced blend mode */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src={service.image}
-          alt={service.heading}
-          layout="fill"
-          objectFit="cover"
-          className="w-full h-full object-cover mix-blend-overlay opacity-60"
-          priority
-        />
-      </div>
+    
 
-      {/* Animated background particles/dots for visual interest */}
-      <div className="absolute inset-0 z-5">
-        <div className="absolute top-20 left-10 w-2 h-2 bg-customLightPurple rounded-full animate-pulse"></div>
-        <div className="absolute top-40 right-20 w-3 h-3 bg-white/30 rounded-full animate-bounce"></div>
-        <div className="absolute bottom-40 left-20 w-1 h-1 bg-customLightPurple rounded-full animate-ping"></div>
-        <div className="absolute top-60 left-1/3 w-2 h-2 bg-white/20 rounded-full animate-pulse delay-1000"></div>
-        <div className="absolute bottom-60 right-1/3 w-1 h-1 bg-customLightPurple rounded-full animate-bounce delay-500"></div>
+      {/* Decorative Elements */}
+      <div className="absolute inset-0 z-15">
+        {/* Floating geometric shapes */}
+        <div
+          className="absolute top-20 left-10 w-32 h-32 rounded-lg opacity-15 transform rotate-12 animate-pulse"
+          style={{
+            background: "linear-gradient(135deg, #6e377d 0%, #c2039d 100%)",
+          }}
+        ></div>
+        <div
+          className="absolute bottom-32 right-20 w-24 h-24 rounded-full opacity-20 animate-bounce"
+          style={{
+            background: "linear-gradient(135deg, #c2039d 0%, #6e377d 100%)",
+          }}
+        ></div>
+        <div
+          className="absolute top-1/3 right-10 w-16 h-16 rounded-lg opacity-25 transform -rotate-12"
+          style={{
+            background: "linear-gradient(135deg, #6e377d 0%, #c2039d 100%)",
+          }}
+        ></div>
       </div>
 
       {/* Content */}
-      <div className="container relative z-20 mx-auto px-6 md:px-20">
+      <div className="container relative z-20 mx-auto px-6 md:px-40">
         <div className="max-w-4xl">
-          <h1 className="text-white text-5xl md:text-7xl font-bold mb-6 leading-tight bg-gradient-to-r from-white via-customLightPurple to-white bg-clip-text text-transparent">
-            <div className="whitespace-nowrap">{animateText(firstLine)}</div>
-            <div className="whitespace-nowrap">
-              {animateText(secondLine, firstLine.length)}
-            </div>
+          <h1 className="text-customPurple text-5xl md:text-7xl font-bold mb-6 leading-tight bg-clip-text text-transparent">
+            <div className="text-customPurple whitespace-nowrap">{animateText(firstLine)} {animateText(secondLine, firstLine.length)}</div>
           </h1>
 
-          <p className="text-xl md:text-2xl text-gray-100 mb-10 max-w-2xl leading-relaxed">
+          <p className="text-xl md:text-2xl text-customGray mb-10 max-w-2xl leading-relaxed">
             {service.description}
           </p>
 
           {/* Enhanced Contact Now Button */}
           <Link
             href="/contact-us"
-            className="group inline-flex items-center px-10 py-4 bg-gradient-to-r from-customLightPurple to-customPurple text-white text-xl font-semibold rounded-full hover:from-customPurple hover:to-customLightPurple hover:shadow-2xl hover:shadow-customPurple/50 transition-all duration-300 transform hover:scale-105"
+            className="group inline-flex items-center px-10 py-4 bg-customPurple text-white text-xl font-semibold rounded-full hover:from-customPurple hover:to-customLightPurple hover:shadow-2xl hover:shadow-customPurple/50 transition-all duration-300 transform hover:scale-105"
           >
             <span className="mr-3 transition-transform duration-300 group-hover:-translate-x-1">←</span>
             <span className="tracking-wide">CONTACT NOW</span>
@@ -171,7 +170,7 @@ const HeroSection = ({
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
       >
-        <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-br from-customLightPurple to-customPurple rounded-full shadow-lg hover:shadow-2xl hover:shadow-customPurple/50 transition-all duration-300">
+        <div className="flex items-center justify-center w-20 h-20 bg-customPurple rounded-full shadow-lg hover:shadow-2xl hover:shadow-customPurple/50 transition-all duration-300">
           <ChevronDoubleDownIcon className="h-8 w-8 text-white group-hover:animate-bounce" />
         </div>
       </motion.div>

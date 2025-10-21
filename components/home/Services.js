@@ -25,7 +25,7 @@ const CheckIcon = ({ className, isHovered }) => (
   </div>
 );
 
-const ServiceCard = ({ title, items, iconSrc }) => {
+const ServiceCard = ({ title, description, items, iconSrc }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -44,9 +44,16 @@ const ServiceCard = ({ title, items, iconSrc }) => {
       </div>
 
       {/* Title - Centered */}
-      <h3 className={`text-xl sm:text-2xl font-bold text-center mb-6 transition-colors duration-300 ${
+      <h3 className={`text-xl sm:text-2xl font-bold text-center mb-3 transition-colors duration-300 ${
         isHovered ? "text-white" : "text-gray-900"
       }`}>{title}</h3>
+
+      {/* Description - Now visible */}
+      <p className={`text-sm text-center mb-6 transition-colors duration-300 ${
+        isHovered ? "text-gray-100" : "text-gray-600"
+      }`}>
+        {description}
+      </p>
 
       {/* Items List - Centered */}
       <ul className="space-y-3 sm:space-y-4">
@@ -74,6 +81,7 @@ const ServicesSection = () => {
   const serviceCards = [
     {
       title: "Digital Marketing",
+      description: "Boost your online presence with our expert digital marketing services.",
       items: [
         { text: "Google & Facebook Ads", link: "/services/google-ads" },
         { text: "SEO / Copywriting", link: "/services/seo" }
@@ -82,6 +90,7 @@ const ServicesSection = () => {
     },
     {
       title: "Consulting & Strategy",
+      description: "Unlock your business potential with our strategic consulting services.",
       items: [
         { text: "Business Strategy & Consulting", link: "/services/business-consulting" }
       ],
@@ -89,6 +98,7 @@ const ServicesSection = () => {
     },
     {
       title: "Web & App Development",
+      description: "Transform your ideas into reality with our web and app development services.",
       items: [
         { text: "Website Development", link: "/services/development" },
         { text: "App Development", link: "/services/app-development" }
@@ -119,9 +129,10 @@ const ServicesSection = () => {
             <React.Fragment key={index}>
               <ServiceCard
                 title={card.title}
+                description={card.description}
                 items={card.items}
                 iconSrc={card.iconSrc}
-              />
+              />              
               {/* Separator line - hidden on last card */}
               {index < serviceCards.length - 1 && (
                 <div className="hidden md:block w-px h-64 bg-gray-200"></div>

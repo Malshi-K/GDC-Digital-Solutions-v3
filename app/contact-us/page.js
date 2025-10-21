@@ -1,7 +1,6 @@
 // pages/contact-us.js
 import PageTitle from "@/components/PageTitle";
 import ContactUs from "@/components/ContactUs";
-import ServicesBar from "@/components/home/ServicesBar";
 import GoogleMapsComponent from "@/components/GoogleMapsComponent";
 import ContactPageTracking from "@/components/home/ContactPageTracking";
 
@@ -65,7 +64,6 @@ export default function ContactUsPage() {
     <>
       <ContactPageTracking />
       <PageTitle />
-      <ServicesBar />
       <section className="relative bg-cover bg-center bg-no-repeat min-h-screen">
         <ContactUs />
         <GoogleMapsComponent />

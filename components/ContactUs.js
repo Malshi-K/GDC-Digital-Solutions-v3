@@ -125,12 +125,10 @@ const ContactUs = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-3 mb-4">
-            <div className="w-8 h-1 bg-gradient-to-r from-customPurple to-customLightPurple rounded-full"></div>
-            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-customPurple via-customLightPurple to-customPurple bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-5xl font-bold bg-customPurple via-customLightPurple to-customPurple bg-clip-text text-transparent">
               GET IN TOUCH
             </h1>
-            <div className="w-8 h-1 bg-gradient-to-r from-customLightPurple to-customPurple rounded-full"></div>
-          </div>
+            </div>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
             Ready to transform your digital presence? Let&apos;s discuss your project and explore how we can help you achieve your goals.
           </p>
@@ -138,7 +136,7 @@ const ContactUs = () => {
 
         <div className="bg-white/80 backdrop-blur-lg rounded-2xl shadow-2xl p-0 w-full max-w-6xl mx-auto flex flex-col md:flex-row relative overflow-hidden border border-customPurple/10">
           {/* Contact Info Section */}
-          <div className="w-full md:w-1/2 p-8 md:p-12 bg-gradient-to-br from-customPurple to-customLightPurple text-white rounded-l-2xl relative">
+          <div className="w-full md:w-1/2 p-8 md:p-12 bg-customPurple text-white rounded-l-2xl relative">
             {/* Decorative elements */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-3xl"></div>
             <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-full blur-2xl"></div>
@@ -220,7 +218,7 @@ const ContactUs = () => {
 
           {/* Form Section */}
           <div className="w-full md:w-1/2 p-8 md:p-12 bg-white rounded-r-2xl">
-            <h2 className="text-2xl md:text-3xl font-bold text-center bg-gradient-to-r from-customPurple to-customLightPurple bg-clip-text text-transparent mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-center bg-customPurple bg-clip-text text-transparent mb-8">
               Send us a Message
             </h2>
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -270,7 +268,7 @@ const ContactUs = () => {
               
               <button
                 type="submit"
-                className="group w-full py-4 bg-gradient-to-r from-customPurple to-customLightPurple hover:from-customLightPurple hover:to-customPurple text-white rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl hover:shadow-customPurple/30 transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3"
+                className="group w-full py-4 bg-customPurple hover:bg-customGray text-white rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl hover:shadow-customPurple/30 transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3"
               >
                 <span>Send Message</span>
                 <FaPaperPlane className="group-hover:translate-x-1 transition-transform duration-300" />

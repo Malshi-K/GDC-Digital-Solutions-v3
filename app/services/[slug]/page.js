@@ -36,7 +36,6 @@ import {
   serviceCaseStudies,
   serviceSEOData,
 } from "../../../data/serviceData";
-import ServicesBar from "@/components/home/ServicesBar";
 import FacebookAdsBenefits from "@/components/services/facebook-ads/FacebookAds";
 import FacebookAdsProcessFlow from "@/components/services/facebook-ads/FacebookAdsProcessFlow";
 import FacebookAdsIntroductionSection from "@/components/services/facebook-ads/FacebookAdsIntroductionSection";
@@ -81,6 +80,7 @@ export default function ServicePage({ params, isServicesOpen, isAboutOpen }) {
             <CaseStudiesList />
             <Packages />
             <OnePageWebsite />
+            <CallToAction />
           </>
         );
 
@@ -97,6 +97,7 @@ export default function ServicePage({ params, isServicesOpen, isAboutOpen }) {
               imagePath={caseStudy?.imagePath}
               caseStudyPath={caseStudy?.caseStudyPath}
             />
+            <CallToAction />
           </>
         );
 
@@ -112,7 +113,12 @@ export default function ServicePage({ params, isServicesOpen, isAboutOpen }) {
         );
 
       case "SEO/ Copywriting":
-        return <SeoOverview />;
+        return (
+          <>
+            <SeoOverview />
+            <CallToAction />
+          </>
+        );
 
       case "Business Consulting":
         return (
@@ -129,6 +135,7 @@ export default function ServicePage({ params, isServicesOpen, isAboutOpen }) {
           <>
             <AppDevelopmentBenefits />
             <AppProcessFlow />
+            <CallToAction />
           </>
         );
 
@@ -206,13 +213,8 @@ export default function ServicePage({ params, isServicesOpen, isAboutOpen }) {
         onScrollDown={handleScrollDown}
       />
 
-      <ServicesBar />
-
       {/* Service Content Section */}
       <section id="next-section">{renderServiceContent()}</section>
-
-      {/* Common Call to Action Section */}
-      <CallToAction />
     </>
   );
 }

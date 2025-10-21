@@ -153,7 +153,7 @@ const Header = () => {
               {/* Logo */}
               <Link href="/" className="flex items-center transition-transform duration-300 hover:scale-105 flex-shrink-0">
                 <Image
-                  src="/assets/images/Digital Solution Logo.png"
+                  src="/assets/images/Digital Solution.png"
                   alt="GDC Digital Solutions Logo"
                   width={200}
                   height={60}
@@ -180,7 +180,7 @@ const Header = () => {
                           <button
                             className={`flex items-center space-x-1 px-4 py-2.5 rounded-lg font-semibold transition-all duration-300 text-sm whitespace-nowrap ${
                               pathname === item.href || pathname.startsWith(item.href + "/")
-                                ? "bg-customPurple text-white shadow-md"
+                                ? "text-customPurple"
                                 : "text-gray-700 hover:text-purple-600 hover:bg-purple-50"
                             }`}
                           >
@@ -204,7 +204,7 @@ const Header = () => {
                                   href={dropdownItem.href}
                                   className={`block px-5 py-3 text-sm font-medium transition-all duration-300 ${
                                     pathname === dropdownItem.href
-                                      ? "bg-customPurple text-purple-600 border-l-4 border-purple-600"
+                                      ? "text-customPurple border-l-4 border-purple-600"
                                       : "text-gray-700 hover:bg-gray-50 hover:text-purple-600 hover:pl-6"
                                   }`}
                                 >

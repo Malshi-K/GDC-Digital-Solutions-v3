@@ -22,14 +22,14 @@ export default function AgencyHeader() {
   }, []);
 
   return (
-    <div className="relative flex items-stretch w-full py-12">
+    <div className="relative flex items-stretch w-full">
       {/* Left yellow accent bar */}
       <div className="w-16 bg-customPurple hidden md:block"></div>
 
       {/* Main content area */}
       <div className="flex flex-col md:flex-row w-full">
         {/* Content section - takes 2/3 on desktop */}
-        <div className="w-full md:w-2/3 p-6 md:p-12">
+        <div className="text-center p-6 md:p-12">
           <div 
             className={`fade-in-up ${isLoaded ? 'is-visible' : ''}`}
           >
@@ -61,17 +61,6 @@ export default function AgencyHeader() {
                 step of the journey.
               </p>
             </div>
-          </div>
-        </div>
-
-        {/* Image section - takes 1/3 on desktop */}
-        <div className="w-full md:w-1/3">
-          <div className="h-full relative">
-            <img
-              src="/assets/images/hero.jpeg"
-              alt="Digital agency team working together"
-              className="w-full h-full object-cover"
-            />
           </div>
         </div>
       </div>

@@ -92,11 +92,9 @@ const GoogleAdsClientOverview = () => {
         {/* Enhanced Section Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-3 mb-4">
-            <div className="w-8 h-1 bg-gradient-to-r from-customPurple to-customLightPurple rounded-full"></div>
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-customPurple via-customLightPurple to-customPurple bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold bg-customPurple bg-clip-text text-transparent">
               CLIENT OVERVIEW
             </h2>
-            <div className="w-8 h-1 bg-gradient-to-r from-customLightPurple to-customPurple rounded-full"></div>
           </div>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
             Comprehensive overview of our client partnership and delivered solutions
@@ -108,7 +106,7 @@ const GoogleAdsClientOverview = () => {
           <div className="w-full xl:w-3/5">
             <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-customPurple/10">
               <div className="flex items-center gap-3 mb-8">
-                <div className="w-10 h-10 bg-gradient-to-br from-customPurple to-customLightPurple rounded-lg flex items-center justify-center">
+                <div className="w-10 h-10 bg-customPurple rounded-lg flex items-center justify-center">
                   <FaCogs className="text-white text-lg" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-800">Services Provided</h3>
@@ -146,7 +144,7 @@ const GoogleAdsClientOverview = () => {
                           <h4 className="font-semibold text-gray-800 text-base leading-tight group-hover:text-customPurple transition-colors duration-300">
                             {service.label}
                           </h4>
-                          <div className={`w-0 h-0.5 bg-gradient-to-r from-customPurple to-customLightPurple transition-all duration-300 mt-2 ${
+                          <div className={`w-0 h-0.5 bg-customPurple transition-all duration-300 mt-2 ${
                             hoveredCard === index ? 'w-full' : 'group-hover:w-8'
                           }`}></div>
                         </div>
@@ -167,7 +165,7 @@ const GoogleAdsClientOverview = () => {
           >
             <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-xl border border-customPurple/10 overflow-hidden">
               {/* Header with gradient */}
-              <div className="bg-gradient-to-r from-customPurple to-customLightPurple p-6">
+              <div className="bg-customPurple p-6">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
                     <FaBuilding className="text-white text-lg" />

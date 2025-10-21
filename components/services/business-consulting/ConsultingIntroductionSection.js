@@ -32,7 +32,7 @@ const ConsultingIntroductionSection = () => {
   }, []);
 
   return (
-    <section className="py-12 px-4 md:px-20 bg-gray-100" ref={sectionRef}>
+    <section className="py-12 px-4 md:px-20" ref={sectionRef}>
       <div className="container mx-auto flex flex-col md:flex-row items-center">
         {/* Left Content */}
         <div className="w-full">
