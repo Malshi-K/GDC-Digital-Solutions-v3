@@ -134,90 +134,86 @@ const ContactUs = () => {
           </p>
         </div>
 
-        <div className="bg-white/80 backdrop-blur-lg rounded-2xl shadow-2xl p-0 w-full max-w-6xl mx-auto flex flex-col md:flex-row relative overflow-hidden border border-customPurple/10">
-          {/* Contact Info Section */}
-          <div className="w-full md:w-1/2 p-8 md:p-12 bg-customPurple text-white rounded-l-2xl relative">
-            {/* Decorative elements */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-full blur-2xl"></div>
-            
+        <div className="w-full max-w-6xl mx-auto flex flex-col md:flex-row gap-8 relative">
+          {/* Contact Info Section - Outside Container */}
+          <div className="w-full md:w-1/2 relative">
             <div className="relative z-10">
-              <h2 className="text-2xl md:text-3xl font-bold mb-2">
+              <h2 className="text-2xl md:text-3xl font-bold mb-2 text-gray-900">
                 We are here for you!
               </h2>
-              <p className="text-white/90 mb-8 text-lg">
+              <p className="text-gray-600 mb-8 text-lg">
                 How can we help transform your business?
               </p>
 
               <div className="space-y-6">
                 {/* Address */}
                 <div className="flex items-start group">
-                  <div className="bg-white/20 backdrop-blur-sm p-3 rounded-xl mr-4 flex items-center justify-center w-12 h-12 group-hover:bg-white/30 transition-all duration-300">
-                    <FaMapMarkerAlt className="text-white text-lg" />
+                  <div className="bg-customPurple/10 p-3 rounded-xl mr-4 flex items-center justify-center w-12 h-12 group-hover:bg-customPurple/20 transition-all duration-300">
+                    <FaMapMarkerAlt className="text-customPurple text-lg" />
                   </div>
                   <div>
-                    <p className="text-white font-semibold text-lg">
+                    <p className="text-gray-900 font-semibold text-lg">
                       89 Church Road, Pukete
                     </p>
-                    <p className="text-white/80">Hamilton 3200, New Zealand</p>
+                    <p className="text-gray-600">Hamilton 3200, New Zealand</p>
                   </div>
                 </div>
 
                 {/* Phone */}
                 <div className="flex items-start group">
-                  <div className="bg-white/20 backdrop-blur-sm p-3 rounded-xl mr-4 flex items-center justify-center w-12 h-12 group-hover:bg-white/30 transition-all duration-300">
-                    <FaPhoneAlt className="text-white text-lg" />
+                  <div className="bg-customPurple/10 p-3 rounded-xl mr-4 flex items-center justify-center w-12 h-12 group-hover:bg-customPurple/20 transition-all duration-300">
+                    <FaPhoneAlt className="text-customPurple text-lg" />
                   </div>
                   <div>
                     <Link
                       href="tel:+64212463988"
-                      className="text-white font-semibold text-lg hover:text-white/80 transition-colors duration-300 block"
+                      className="text-gray-900 font-semibold text-lg hover:text-customPurple transition-colors duration-300 block"
                       onClick={handlePhoneClick}
                     >
                       +64 21 246 3988
                     </Link>
-                    <p className="text-white/80 text-sm">Call us directly</p>
+                    <p className="text-gray-600 text-sm">Call us directly</p>
                   </div>
                 </div>
 
                 {/* Email */}
                 <div className="flex items-start group">
-                  <div className="bg-white/20 backdrop-blur-sm p-3 rounded-xl mr-4 flex items-center justify-center w-12 h-12 group-hover:bg-white/30 transition-all duration-300">
-                    <FaEnvelope className="text-white text-lg" />
+                  <div className="bg-customPurple/10 p-3 rounded-xl mr-4 flex items-center justify-center w-12 h-12 group-hover:bg-customPurple/20 transition-all duration-300">
+                    <FaEnvelope className="text-customPurple text-lg" />
                   </div>
                   <div>
                     <Link
                       href="mailto:digital@gdcgroup.co.nz"
-                      className="text-white font-semibold text-lg hover:text-white/80 transition-colors duration-300 block"
+                      className="text-gray-900 font-semibold text-lg hover:text-customPurple transition-colors duration-300 block"
                     >
                       digital@gdcgroup.co.nz
                     </Link>
-                    <p className="text-white/80 text-sm">Send us an email</p>
+                    <p className="text-gray-600 text-sm">Send us an email</p>
                   </div>
                 </div>
 
                 {/* Facebook */}
                 <div className="flex items-start group">
-                  <div className="bg-white/20 backdrop-blur-sm p-3 rounded-xl mr-4 flex items-center justify-center w-12 h-12 group-hover:bg-white/30 transition-all duration-300">
-                    <FaFacebookF className="text-white text-lg" />
+                  <div className="bg-customPurple/10 p-3 rounded-xl mr-4 flex items-center justify-center w-12 h-12 group-hover:bg-customPurple/20 transition-all duration-300">
+                    <FaFacebookF className="text-customPurple text-lg" />
                   </div>
                   <div>
                     <Link
                       href="https://www.facebook.com/profile.php?id=61567398772169&mibextid=ZbWKwL"
-                      className="text-white font-semibold text-lg hover:text-white/80 transition-colors duration-300 block"
+                      className="text-gray-900 font-semibold text-lg hover:text-customPurple transition-colors duration-300 block"
                       onClick={handleFacebookClick}
                     >
                       Follow us on Facebook
                     </Link>
-                    <p className="text-white/80 text-sm">Stay connected with us</p>
+                    <p className="text-gray-600 text-sm">Stay connected with us</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Form Section */}
-          <div className="w-full md:w-1/2 p-8 md:p-12 bg-white rounded-r-2xl">
+          {/* Form Section - Inside Container */}
+          <div className="w-full md:w-1/2 bg-white/80 backdrop-blur-lg rounded-2xl shadow-2xl p-8 md:p-12 relative overflow-hidden border border-customPurple/10">
             <h2 className="text-2xl md:text-3xl font-bold text-center bg-customPurple bg-clip-text text-transparent mb-8">
               Send us a Message
             </h2>
