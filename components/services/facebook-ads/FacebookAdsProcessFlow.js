@@ -108,18 +108,17 @@ export default function FacebookAdsProcessFlow() {
     <section className="py-16 bg-gray-50" ref={sectionRef}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}
-        <div
-          data-index="title"
-          className={`text-center mb-12 transition-opacity duration-1000 ease-out ${
-            visibleItems.has("title") ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          <h2 className="text-3xl font-bold text-customGray">
-            Our Facebook Advertising Services
-          </h2>
-          <p className="text-gray-600 mt-4">
-            Comprehensive solutions to boost your brand&apos;s presence on Facebook
-          </p>
+        <div data-index="title" className="text-center mb-12">
+          {visibleItems.has("title") && (
+            <>
+              <h2 className="text-3xl font-bold text-customGray">
+                Our Facebook Advertising Services
+              </h2>
+              <p className="text-gray-600 mt-4">
+                Comprehensive solutions to boost your brand&apos;s presence on Facebook
+              </p>
+            </>
+          )}
         </div>
 
         {/* Process Flow Vertical Layout */}
@@ -128,47 +127,43 @@ export default function FacebookAdsProcessFlow() {
             <div
               key={index}
               data-index={`service-${index}`}
-              className={`flex flex-col items-center text-center max-w-md mx-auto transform transition-all duration-800 ease-out ${
-                visibleItems.has(`service-${index}`) 
-                  ? "opacity-100 translate-y-0" 
-                  : "opacity-0 translate-y-12"
-              }`}
-              style={{ transitionDelay: `${index * 300}ms` }}
+              className={`flex flex-col items-center text-center max-w-md mx-auto`}
             >
-              {/* Icon */}
-              {service.icon}
+              {visibleItems.has(`service-${index}`) && (
+                <>
+                  {/* Icon */}
+                  {service.icon}
 
-              {/* Service Title */}
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
-                {service.title}
-              </h3>
+                  {/* Service Title */}
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    {service.title}
+                  </h3>
 
-              {/* Service Description */}
-              <p className="text-gray-600 mb-4">{service.description}</p>
-              
-              {/* Sub Items if any */}
-              {service.subItems && (
-                <div className="w-full text-left mt-2 space-y-3">
-                  {service.subItems.map((item, itemIndex) => (
-                    <div key={itemIndex} className="flex items-start">
-                      <span className="mr-2 mt-1">{item.icon}</span>
-                      <p className="text-gray-600">{item.text}</p>
+                  {/* Service Description */}
+                  <p className="text-gray-600 mb-4">{service.description}</p>
+                  
+                  {/* Sub Items if any */}
+                  {service.subItems && (
+                    <div className="w-full text-left mt-2 space-y-3">
+                      {service.subItems.map((item, itemIndex) => (
+                        <div key={itemIndex} className="flex items-start">
+                          <span className="mr-2 mt-1">{item.icon}</span>
+                          <p className="text-gray-600">{item.text}</p>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              )}
-              
-              {/* Arrow Between Services */}
-              {index < services.length - 1 && (
-                <div
-                  data-index={`arrow-${index}`}
-                  className={`mt-8 transition-opacity duration-500 ease-out ${
-                    visibleItems.has(`arrow-${index}`) ? "opacity-100" : "opacity-0"
-                  }`}
-                  style={{ transitionDelay: `${index * 500 + 500}ms` }}
-                >
-                  <FaArrowDown className="text-gray-400 text-3xl" />
-                </div>
+                  )}
+
+                  {/* Arrow Between Services */}
+                  {index < services.length - 1 && (
+                    // show arrow when the current service is visible
+                    visibleItems.has(`service-${index}`) && (
+                      <div className="mt-8">
+                        <FaArrowDown className="text-gray-400 text-3xl" />
+                      </div>
+                    )
+                  )}
+                </>
               )}
             </div>
           ))}

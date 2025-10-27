@@ -2,83 +2,62 @@
 
 import { useEffect, useState } from "react";
 
-export default function AgencyHeader() {
-  const [scrollY, setScrollY] = useState(0);
+export default function AboutHeader() {
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // Parallax effect on background when scrolling
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Set loaded state after component mounts to trigger animations
+  // trigger fade-in animation
   useEffect(() => {
     setIsLoaded(true);
   }, []);
 
   return (
-    <div className="relative flex items-stretch w-full">
-      {/* Left yellow accent bar */}
-      <div className="w-16 bg-customPurple hidden md:block"></div>
+    <div className="relative bg-white">
+      {/* Decorative left full-height accent (visible on md+) */}
+      <div className="hidden md:block absolute left-0 top-0 bottom-0 w-14 bg-customPurple" aria-hidden="true" />
 
-      {/* Main content area */}
-      <div className="flex flex-col md:flex-row w-full">
-        {/* Content section - takes 2/3 on desktop */}
-        <div className="text-center p-6 md:p-12">
-          <div 
-            className={`fade-in-up ${isLoaded ? 'is-visible' : ''}`}
-          >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-gray-900">
-              We are the experts in driving digital growth through innovative
-              solutions
-            </h1>
+      {/* Decorative right stacked blocks (visible on md+) */}
+      <div className="hidden md:block absolute right-0 top-8 flex flex-col items-end space-y-4 pr-2" aria-hidden="true">
+        <div className="bg-gray-400 w-14 h-14" />
+        <div className="bg-customPurple w-14 h-14" />
+      </div>
 
-            <div className="text-gray-600 mb-12">
-              <p className="mb-4">
-                From web development and SEO to targeted ad campaigns and
-                cutting-edge technology, our team excels at crafting strategies
-                that empower businesses to thrive in the digital landscape.
-              </p>
-            </div>
+      {/* Centered constrained content container */}
+      <div className="max-w-8xl mx-auto px-6 md:px-8 py-8 md:py-10">
+        <div className={`fade-in-up ${isLoaded ? "is-visible" : ""} text-center`}> 
+          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-gray-900 max-w-4xl mx-auto">
+            We are the experts in driving digital growth
+            <span className="hidden md:inline"> through innovative solutions</span>
+          </h3>
 
-            <div className="mt-12">
-              <h2 className="text-2xl font-bold border-b-2 border-black inline-block pb-2 mb-6">
-                Who We Are
-              </h2>
+          <p className="mt-6 text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
+            From web development and SEO to targeted ad campaigns and cutting-edge
+            technology, our team crafts strategies that empower businesses to
+            thrive in the digital landscape.
+          </p>
 
-              <p className="text-gray-600">
-                At GDC Digital Solutions, we are dedicated to empowering
-                businesses through innovative digital strategies. Our team of
-                experts specialises in offering cutting-edge solutions that
-                enhance communication, streamline operations, and drive growth.
-                With over a decade of industry experience and a global network
-                of partners, we are committed to delivering excellence at every
-                step of the journey.
-              </p>
-            </div>
+          <div className="mt-12">
+            <h2 className="text-xl md:text-2xl font-bold inline-block border-b-2 border-black pb-2">
+              Who We Are
+            </h2>
+
+            <p className="mt-6 text-gray-600 max-w-3xl mx-auto text-sm md:text-base">
+              At GDC Digital Solutions, we are dedicated to empowering businesses
+              through innovative digital strategies. Our team specialises in
+              solutions that enhance communication, streamline operations, and
+              drive growth. With over a decade of experience and a global network
+              of partners, we are committed to delivering excellence at every step.
+            </p>
           </div>
         </div>
       </div>
 
-      {/* Right accent block */}
-      <div className="hidden md:block">
-        <div className="bg-gray-400 w-16 h-16 absolute right-0 top-0"></div>
-        <div className="bg-customPurple w-16 h-16 absolute right-0 top-16"></div>
-      </div>
-
-      {/* CSS for animations */}
       <style jsx>{`
         .fade-in-up {
           opacity: 0;
-          transform: translateY(20px);
-          transition: opacity 0.8s ease, transform 0.8s ease;
+          transform: translateY(18px);
+          transition: opacity 0.7s ease, transform 0.7s ease;
         }
-        
+
         .fade-in-up.is-visible {
           opacity: 1;
           transform: translateY(0);
