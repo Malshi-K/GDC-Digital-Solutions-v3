@@ -48,8 +48,10 @@ export default function CustomCodedWebsites() {
           backgroundImage: `url('/assets/images/services/6.webp')`,
         }}
       >
-        {/* Overlay */}
+        {/* Overlays */}
         <div className="absolute inset-0 bg-black opacity-60"></div>
+        {/* Subtle purple gradient tint to add a gentle hue without distraction */}
+        <div className="absolute inset-0 bg-gradient-to-r from-customPurple/40 via-customLightPurple/30 to-customPurple/10 mix-blend-multiply"></div>
       </div>
 
       {/* Content Wrapper */}
