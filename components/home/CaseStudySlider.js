@@ -41,30 +41,16 @@ const CaseStudySlider = ({ caseStudies }) => {
         </p>
       </div>
 
-      <div className="relative w-full h-screen overflow-hidden">
-        {/* Background Images with Transition */}
-        {caseStudies.map((study, index) => (
-          <div
-            key={study.id}
-            className="absolute inset-0 transition-opacity duration-700 ease-in-out"
-            style={{
-              opacity: currentIndex === index ? 1 : 0,
-              zIndex: currentIndex === index ? 1 : 0,
-            }}
-          >
-            <div
-              className="w-full h-full bg-contain bg-center bg-no-repeat"
-              style={{
-                backgroundImage: `url(${study.imagePath})`,
-                filter: "brightness(0.8)",
-              }}
-            />
-            <div className="absolute inset-0 bg-black/40" />
-          </div>
-        ))}
+      <div className="relative w-full overflow-hidden">
+        {/* Full-width image without cropping or distortion */}
+        <img
+          src={currentStudy.imagePath}
+          alt={currentStudy.heading}
+          className="w-full h-auto block select-none pointer-events-none brightness-[.8]"
+        />
 
         {/* Content Layer */}
-        <div className="relative z-10 h-full px-4 sm:px-8 lg:px-40">
+        <div className="absolute inset-0 z-10 px-4 sm:px-8 lg:px-40">
           <div className="h-full flex items-center">
             {/* Card Container with Animation - Positioned Left */}
             <div className="w-full max-w-xl lg:max-w-lg">
