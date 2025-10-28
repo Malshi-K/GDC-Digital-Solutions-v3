@@ -99,7 +99,7 @@ export default function ConsultingBenefits() {
             ) : (
               <span
                 key={index}
-                className={`text-customPurple inline-block transform ${
+                className={`text-customGray inline-block transform ${
                   isVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 -translate-y-5"
@@ -114,23 +114,46 @@ export default function ConsultingBenefits() {
       </h2>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Render the benefits with unique icons */}
-          {benefitsData.map((benefit, index) => (
-            <div
-              key={index}
-              className={`text-center bg-white p-6 rounded-lg shadow-lg text-customGray hover:shadow-xl transition-shadow duration-300 transform ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-12"
-              } transition-all duration-700`}
-              style={{ transitionDelay: `${index * 200}ms` }}
-            >
-              {benefit.icon}
-              <h3 className="text-2xl font-bold mb-2">{benefit.title}</h3>
-              <p className="text-gray-600">{benefit.description}</p>
+        <div className="space-y-8">
+          {/* First row - 4 cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {benefitsData.slice(0, 4).map((benefit, index) => (
+              <div
+                key={index}
+                className={`text-center bg-white p-6 rounded-lg shadow-lg text-customGray hover:shadow-xl transition-shadow duration-300 transform ${
+                  isVisible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-12"
+                } transition-all duration-700`}
+                style={{ transitionDelay: `${index * 200}ms` }}
+              >
+                {benefit.icon}
+                <h3 className="text-2xl font-bold mb-2">{benefit.title}</h3>
+                <p className="text-gray-600">{benefit.description}</p>
+              </div>
+            ))}
+          </div>
+          
+          {/* Second row - 3 cards centered */}
+          <div className="flex justify-center">
+            <div className="flex gap-8 max-w-5xl">
+              {benefitsData.slice(4, 7).map((benefit, index) => (
+                <div
+                  key={index + 4}
+                  className={`text-center bg-white p-6 rounded-lg shadow-lg text-customGray hover:shadow-xl transition-shadow duration-300 transform ${
+                    isVisible
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-12"
+                  } transition-all duration-700`}
+                  style={{ transitionDelay: `${(index + 4) * 200}ms`, width: '300px' }}
+                >
+                  {benefit.icon}
+                  <h3 className="text-2xl font-bold mb-2">{benefit.title}</h3>
+                  <p className="text-gray-600">{benefit.description}</p>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>
