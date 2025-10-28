@@ -18,7 +18,6 @@ const GoogleMapsComponent = () => {
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
           title="Google Maps"
-          className="grayscale"
         />
       </div>
 
