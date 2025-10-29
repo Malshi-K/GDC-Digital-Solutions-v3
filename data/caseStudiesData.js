@@ -7,8 +7,8 @@ export const caseStudiesData = {
       title: "GDC Consultants Case Study",
       description:
         "Discover how GDC Consultants, a leading engineering consultancy in New Zealand, transformed their online presence with a modern, responsive website. Leveraging advanced technologies like Next.js and strategic SEO, GDC Consultants boosted their user engagement and achieved significant digital growth.",
-      ctaText: "Schedule a Consultation",
-      ctaLink: "/schedule-consultation",
+      ctaText: "Request a Quote",
+      ctaLink: "/request-quote",
       imageSrc: "/assets/images/website-dev/gdc-consultants.webp",
       imageAlt: "GDC Consultants Website Preview",
     },
@@ -206,8 +206,8 @@ export const caseStudiesData = {
       title: "Twilson Builders Case Study",
       description:
         "Twilson Builders, a trusted building and construction company, required a website redesign to enhance their online presence and showcase their expertise in delivering high-quality building projects. The goal was to create a modern, user-friendly, and visually appealing website that effectively communicates their brand identity and services.",
-      ctaText: "Schedule a Consultation",
-      ctaLink: "/schedule-consultation",
+      ctaText: "Request a Quote",
+      ctaLink: "/request-quote",
       imageSrc:
         "/assets/images/website-dev/twilson-builders/twilson-builders.png",
       imageAlt: "Twilson Builders Website Preview",
@@ -449,8 +449,8 @@ export const caseStudiesData = {
       title: "Mantrac Security Case Study",
       description:
         "Mantrac Security, a leading provider of residential and commercial security solutions in New Zealand, required a modern website to improve their digital presence and generate more service inquiries.  ",
-      ctaText: "Schedule a Consultation",
-      ctaLink: "/schedule-consultation",
+      ctaText: "Request a Quote",
+      ctaLink: "/request-quote",
       imageSrc:
         "/assets/images/website-dev/mantrac-security/mantrac-security.png",
       imageAlt: "Mantrac Security Website Preview",
@@ -691,8 +691,8 @@ export const caseStudiesData = {
       title: "Website Design for Peak Project Management",
       description:
         "Peak Project Management is a specialist project management consultancy providing end to end solutions for councils, developers, and asset owners across the Waikato region of New Zealand.",
-      ctaText: "Schedule a Consultation",
-      ctaLink: "/schedule-consultation",
+      ctaText: "Request a Quote",
+      ctaLink: "/request-quote",
       imageSrc:
         "/assets/images/website-dev/peak-pm/1.png",
       imageAlt: "Peak PM Website Preview",

@@ -38,7 +38,7 @@ const ConsultationCTA = () => {
           <div className="relative z-10 text-center px-6 sm:px-8 md:px-12 lg:px-16 py-16 md:py-20 lg:py-24">
             {/* Main Heading */}
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-white">
-              Let&apos;s Discuss Your Business Goals & Schedule A Free Consultation Today
+              Let&apos;s Discuss Your Business Goals & Request A Quote Today
             </h2>
 
             {/* Subtitle */}
@@ -49,13 +49,13 @@ const ConsultationCTA = () => {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
               {/* Primary CTA Button */}
-              <Link href="/schedule-consultation">
+              <Link href="/request-quote">
                 <span
                   className="inline-flex items-center px-8 py-4 text-purple-700 text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-xl bg-white hover:bg-gray-50 group"
                   onMouseEnter={() => setIsHovered(true)}
                   onMouseLeave={() => setIsHovered(false)}
                 >
-                  Book Free Consultation
+                  Request a Quote
                   <svg
                     className={`w-5 h-5 ml-2 transition-transform duration-300 ${
                       isHovered ? "translate-x-1" : ""

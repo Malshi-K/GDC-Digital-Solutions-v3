@@ -203,73 +203,94 @@ const RequestQuoteForm = () => {
     { label: "Other (please specify)", value: "other" },
   ];
 
+  const handlePhoneClick = () => {
+    // Trigger Google Ads phone call conversion
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", "conversion", {
+        send_to: "AW-16917143672/qxkRCPqN0qsaEPjA3II_",
+      });
+      console.log("[Tracking] Phone call conversion tracked");
+    }
+  };
+
   return (
     <section className="flex justify-center items-center min-h-screen relative">
       <div id="move-down" className="py-20 w-full">
         <div className="bg-opacity-90 backdrop-blur-md rounded-lg shadow-xl p-8 w-full max-w-6xl mx-auto flex flex-col lg:flex-row relative overflow-hidden">
           {/* Contact Info Section */}
-          <div className="w-full lg:w-1/3 p-8 md:p-10 bg-white rounded-l-lg">
-            <p className="text-2xl md:text-3xl font-bold mb-6 text-customGray">
-              We are here for you! How can we help?
-            </p>
+          <div className="w-full md:w-1/2 relative">
+            <div className="relative z-10">
+              <h2 className="text-2xl md:text-3xl font-bold mb-2 text-gray-900">
+                We are here for you!
+              </h2>
+              <p className="text-gray-600 mb-8 text-lg">
+                How can we help transform your business?
+              </p>
 
-            <div className="space-y-6">
-              {/* Address */}
-              <div className="flex items-start">
-                <div className="bg-customGray p-2 rounded-md mr-4 flex items-center justify-center w-10 h-10">
-                  <FaMapMarkerAlt className="text-white text-lg" />
+              <div className="space-y-6">
+                {/* Address */}
+                <div className="flex items-start group">
+                  <div className="bg-customPurple/10 p-3 rounded-xl mr-4 flex items-center justify-center w-12 h-12 group-hover:bg-customPurple/20 transition-all duration-300">
+                    <FaMapMarkerAlt className="text-customPurple text-lg" />
+                  </div>
+                  <div>
+                    <p className="text-gray-900 font-semibold text-lg">
+                      89 Church Road, Pukete
+                    </p>
+                    <p className="text-gray-600">Hamilton 3200, New Zealand</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-gray-900 font-semibold">
-                    89 Church Road, Pukete, Hamilton 3200
-                  </p>
-                  <p className="text-gray-600">NZ</p>
-                </div>
-              </div>
 
-              {/* Phone */}
-              <div className="flex items-start">
-                <div className="bg-customGray p-2 rounded-md mr-4 flex items-center justify-center w-10 h-10">
-                  <FaPhoneAlt className="text-white text-lg" />
+                {/* Phone */}
+                <div className="flex items-start group">
+                  <div className="bg-customPurple/10 p-3 rounded-xl mr-4 flex items-center justify-center w-12 h-12 group-hover:bg-customPurple/20 transition-all duration-300">
+                    <FaPhoneAlt className="text-customPurple text-lg" />
+                  </div>
+                  <div>
+                    <Link
+                      href="tel:+64212463988"
+                      className="text-gray-900 font-semibold text-lg hover:text-customPurple transition-colors duration-300 block"
+                      onClick={handlePhoneClick}
+                    >
+                      +64 21 246 3988
+                    </Link>
+                    <p className="text-gray-600 text-sm">Call us directly</p>
+                  </div>
                 </div>
-                <div>
-                  <Link
-                    href="tel:+64212463988"
-                    className="text-gray-900 font-semibold hover:text-customPurple transition-colors"
-                  >
-                    +64 21 246 3988
-                  </Link>
-                </div>
-              </div>
 
-              {/* Email */}
-              <div className="flex items-start">
-                <div className="bg-customGray p-2 rounded-md mr-4 flex items-center justify-center w-10 h-10">
-                  <FaEnvelope className="text-white text-lg" />
+                {/* Email */}
+                <div className="flex items-start group">
+                  <div className="bg-customPurple/10 p-3 rounded-xl mr-4 flex items-center justify-center w-12 h-12 group-hover:bg-customPurple/20 transition-all duration-300">
+                    <FaEnvelope className="text-customPurple text-lg" />
+                  </div>
+                  <div>
+                    <Link
+                      href="mailto:digital@gdcgroup.co.nz"
+                      className="text-gray-900 font-semibold text-lg hover:text-customPurple transition-colors duration-300 block"
+                    >
+                      digital@gdcgroup.co.nz
+                    </Link>
+                    <p className="text-gray-600 text-sm">Send us an email</p>
+                  </div>
                 </div>
-                <div>
-                  <Link
-                    href="mailto:digital@gdcgroup.co.nz"
-                    className="text-gray-900 font-semibold hover:text-customPurple transition-colors"
-                  >
-                    digital@gdcgroup.co.nz
-                  </Link>
-                </div>
-              </div>
 
-              {/* Facebook */}
-              <div className="flex items-start">
-                <div className="bg-customGray p-2 rounded-md mr-4 flex items-center justify-center w-10 h-10">
-                  <FaFacebookF className="text-white text-lg" />
-                </div>
-                <div>
-                  <Link
-                    href="https://www.facebook.com/profile.php?id=61567398772169&mibextid=ZbWKwL"
-                    className="text-gray-900 font-semibold hover:text-customPurple transition-colors"
-                    onClick={handleFacebookClick}
-                  >
-                    Follow us on Facebook
-                  </Link>
+                {/* Facebook */}
+                <div className="flex items-start group">
+                  <div className="bg-customPurple/10 p-3 rounded-xl mr-4 flex items-center justify-center w-12 h-12 group-hover:bg-customPurple/20 transition-all duration-300">
+                    <FaFacebookF className="text-customPurple text-lg" />
+                  </div>
+                  <div>
+                    <Link
+                      href="https://www.facebook.com/profile.php?id=61567398772169&mibextid=ZbWKwL"
+                      className="text-gray-900 font-semibold text-lg hover:text-customPurple transition-colors duration-300 block"
+                      onClick={handleFacebookClick}
+                    >
+                      Follow us on Facebook
+                    </Link>
+                    <p className="text-gray-600 text-sm">
+                      Stay connected with us
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -460,7 +481,7 @@ const RequestQuoteForm = () => {
                 className={`w-full py-3 rounded-lg font-semibold transition duration-300 ${
                   formStatus === "submitting"
                     ? "bg-gray-400 text-gray-600 cursor-not-allowed"
-                    : "bg-customPurple text-white hover:bg-customGray"
+                    : "bg-customPurple text-white"
                 }`}
               >
                 {formStatus === "submitting" ? "Submitting..." : "Submit"}

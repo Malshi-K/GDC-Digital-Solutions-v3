@@ -23,10 +23,10 @@ export default function Footer() {
               </p>
               <div className="mt-4 sm:mt-6">
                 <Link
-                  href="/schedule-consultation"
+                  href="/request-quote"
                   className="inline-flex items-center bg-customPurple text-white hover:bg-customLightPurple font-semibold py-3 px-6 sm:px-8 rounded-lg transition-all duration-300 text-sm sm:text-base hover:scale-105 hover:shadow-lg group"
                 >
-                  Schedule a Consultation
+                  Request a quote
                   <svg
                     className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1"
                     fill="none"

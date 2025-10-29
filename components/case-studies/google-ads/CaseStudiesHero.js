@@ -83,11 +83,11 @@ const CaseStudiesHero = ({ data }) => {
 
           {/* Clean Button */}
           <div className="flex gap-4 sm:gap-6 mt-8 justify-center md:justify-start">
-            <Link href="/schedule-consultation">
+            <Link href="/request-quote">
               <button
                 className="bg-customPurple text-white px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-full font-bold text-sm sm:text-base md:text-lg transition-all duration-300 hover:scale-105 active:scale-95"
               >
-                Schedule a Consultation
+                Request a Quote
               </button>
             </Link>
           </div>

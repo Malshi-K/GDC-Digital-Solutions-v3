@@ -8,7 +8,6 @@ export default function RequestQuotePage() {
   return (
     <>
       <PageTitle />
-      <ServicesBar />
       <section className="relative bg-cover bg-center bg-no-repeat min-h-screen">
         <RequestQuoteForm />
       </section>
