@@ -155,12 +155,12 @@ const Header = () => {
                 <Image
                   src="/assets/images/Digital Solution.png"
                   alt="GDC Digital Solutions Logo"
-                  width={200}
-                  height={60}
-                  className="h-auto w-auto max-w-[140px] sm:max-w-[160px] md:max-w-[180px] lg:max-w-[200px]"
+                  width={180}
+                  height={54}
+                  className="h-auto w-auto max-w-[110px] sm:max-w-[130px] md:max-w-[150px] lg:max-w-[170px] xl:max-w-[180px]"
                   priority={true}
                   loading="eager"
-                  sizes="(max-width: 640px) 160px, (max-width: 768px) 180px, (max-width: 1024px) 200px, 240px"
+                  sizes="(max-width: 640px) 110px, (max-width: 768px) 130px, (max-width: 1024px) 150px, (max-width: 1280px) 170px, 180px"
                   quality={85}
                 />
               </Link>

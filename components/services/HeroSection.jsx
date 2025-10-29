@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { ChevronDoubleDownIcon } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
@@ -12,25 +11,7 @@ const HeroSection = ({
 }) => {
   const scrollRef = useRef(null);
 
-  // Text animation helper
-  const animateText = (text, startDelay = 0) => {
-    return text.split("").map((char, index) => {
-      const display = char === " " ? "\u00A0" : char;
-      return (
-        <span
-          key={index}
-          className="inline-block"
-          style={{
-            animation: `fadeIn 0.05s ease forwards`,
-            animationDelay: `${(index + startDelay) * 0.1}s`,
-            opacity: 0,
-          }}
-        >
-          {display}
-        </span>
-      );
-    });
-  };
+  // Title now uses the same fade-up + underline animation used in shared PageTitle
 
   // Handle scroll down functionality
   const handleScrollDown = () => {
@@ -61,7 +42,7 @@ const HeroSection = ({
 
   // Dynamically generate title parts based on the heading
   const getTitleParts = () => {
-    const heading = service.heading;
+    const heading = service.heading || "";
 
     // Check for special cases first
     const specialCase = handleSpecialCases(heading);
@@ -69,7 +50,16 @@ const HeroSection = ({
       return specialCase;
     }
 
-    // For headings with "&", split at the "&"
+    // Keep short two-word titles on a single line (e.g., "Google Ads", "Facebook Ads")
+    const wordCount = heading.trim().split(/\s+/).length;
+    if (wordCount <= 2 && heading.length <= 18 && !heading.includes("&")) {
+      return {
+        firstLine: heading,
+        secondLine: "",
+      };
+    }
+
+    // For headings with " & ", split at the "&"
     if (heading.includes(" & ")) {
       const parts = heading.split(" & ");
       return {
@@ -141,9 +131,23 @@ const HeroSection = ({
       {/* Content */}
       <div className="container relative z-20 mx-auto px-6 md:px-40">
         <div className="max-w-4xl">
-          <h1 className="text-customPurple text-5xl md:text-7xl font-bold mb-6 leading-tight bg-clip-text text-transparent">
-            <div className="text-customPurple whitespace-nowrap">{animateText(firstLine)} {animateText(secondLine, firstLine.length)}</div>
-          </h1>
+          <motion.h1
+            className="text-customPurple text-5xl md:text-7xl font-bold mb-3 md:mb-4 leading-tight"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <span className="block">{firstLine}</span>
+            {secondLine && <span className="block">{secondLine}</span>}
+          </motion.h1>
+
+          <motion.div
+            className="h-1 w-24 md:w-28 bg-customPurple rounded mb-6"
+            initial={{ opacity: 0, scaleX: 0, y: 8 }}
+            animate={{ opacity: 1, scaleX: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+            style={{ transformOrigin: "left center" }}
+          />
 
           <p className="text-xl md:text-2xl text-customGray mb-10 max-w-2xl leading-relaxed">
             {service.description}
@@ -177,17 +181,6 @@ const HeroSection = ({
       
       {/* Enhanced Animation Styles */}
       <style jsx>{`
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(30px) scale(0.95);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-          }
-        }
-
         @keyframes shimmer {
           0% {
             background-position: -200% 0;

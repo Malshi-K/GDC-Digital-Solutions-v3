@@ -55,25 +55,8 @@ const PageTitle = ({
     }
   };
 
-  // Text animation helper
-  const animateText = (text, startDelay = 0) => {
-    return text.split("").map((char, index) => {
-      const display = char === " " ? "\u00A0" : char;
-      return (
-        <span
-          key={index}
-          className="inline-block"
-          style={{
-            animation: `fadeIn 0.05s ease forwards`,
-            animationDelay: `${(index + startDelay) * 0.1}s`,
-            opacity: 0,
-          }}
-        >
-          {display}
-        </span>
-      );
-    });
-  };
+  // Optional: choose animation style via prop in future if needed
+  // Currently using a simple fade-up on mount for the title
 
   return (
     <section className="relative flex items-center justify-center min-h-[600px] text-white overflow-hidden">
@@ -108,9 +91,23 @@ const PageTitle = ({
       {/* Content */}
       <div className="container relative z-20 mx-auto px-6 md:px-40">
         <div className="max-w-4xl">
-          <h1 className="text-customPurple text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            {animateText(pageTitle)}
-          </h1>
+          <motion.h1
+            className="text-customPurple text-5xl md:text-7xl font-bold mb-3 md:mb-4 leading-tight"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            {pageTitle}
+          </motion.h1>
+
+          {/* Underline accent that rises/expands from left */}
+          <motion.div
+            className="h-1 w-24 md:w-28 bg-customPurple rounded mb-6"
+            initial={{ opacity: 0, scaleX: 0, y: 8 }}
+            animate={{ opacity: 1, scaleX: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+            style={{ transformOrigin: "left center" }}
+          />
 
           {/* Subtitle/Description */}
           <p className="text-customGray text-xl md:text-2xl mb-8 leading-relaxed max-w-2xl">
