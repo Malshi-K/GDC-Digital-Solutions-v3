@@ -48,10 +48,8 @@ export default function CustomCodedWebsites() {
           backgroundImage: `url('/assets/images/services/6.webp')`,
         }}
       >
-        {/* Overlays */}
-        <div className="absolute inset-0 bg-black opacity-60"></div>
-        {/* Subtle purple gradient tint to add a gentle hue without distraction */}
-        <div className="absolute inset-0 bg-gradient-to-r from-customPurple/40 via-customLightPurple/30 to-customPurple/10 mix-blend-multiply"></div>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-customPurple opacity-40"></div>
       </div>
 
       {/* Content Wrapper */}
@@ -66,7 +64,7 @@ export default function CustomCodedWebsites() {
             <span className="text-white">Custom-coded websites: </span>
             Unlock the power of flexibility and performance
           </h2>
-          <p className="text-lg text-gray-300 mb-6">
+          <p className="text-lg text-white mb-6">
             Manage your business with a mature marketing strategy, develop your
             business so that it grows rapidly.
           </p>
