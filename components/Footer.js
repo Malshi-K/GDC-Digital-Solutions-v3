@@ -13,18 +13,18 @@ export default function Footer() {
           <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-6 sm:gap-8 lg:gap-12">
             {/* Left Side: Let's start working together */}
             <div className="w-full lg:w-1/2">
-              <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 sm:mb-4 md:mb-6 text-gray-900 leading-tight">
+              <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 sm:mb-4 md:mb-6 text-gray-900 leading-tight text-center lg:text-left">
                 Let&apos;s start working
-                <span className="block sm:inline"> together</span> get in touch!
+                <span className="inline"> together</span> get in touch!
               </h2>
-              <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base leading-relaxed">
+              <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base leading-relaxed text-center lg:text-left">
                 Ready to transform your digital presence? Let&apos;s discuss
                 your goals and create something amazing together.
               </p>
-              <div className="mt-4 sm:mt-6">
+              <div className="mt-4 sm:mt-6 flex justify-center lg:justify-start">
                 <Link
                   href="/request-quote"
-                  className="inline-flex items-center justify-center bg-customPurple text-white hover:bg-customPurple font-semibold py-3 px-4 sm:px-6 md:px-8 rounded-lg transition-all duration-300 text-sm sm:text-base hover:scale-105 hover:shadow-lg group active:bg-customPurple focus:outline-none focus:ring-0 w-full sm:w-auto"
+                  className="inline-flex items-center justify-center bg-customPurple text-white hover:bg-customPurple font-semibold py-3 px-4 sm:px-6 md:px-8 rounded-lg transition-all duration-300 text-sm sm:text-base hover:scale-105 hover:shadow-lg group active:bg-customPurple focus:outline-none focus:ring-0 w-auto"
                   style={{
                     WebkitTapHighlightColor: 'transparent',
                   }}
@@ -91,7 +91,7 @@ export default function Footer() {
       {/* Logo Section - Light Gray Background */}
       <div className="bg-white py-4 sm:py-6 md:py-8 px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-20">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
+          <div className="grid grid-cols-4 gap-1 sm:gap-2 md:gap-3 lg:gap-4">
             <div className="flex items-center justify-center group">
               <a
                 href="https://gdcdigital.co.nz/"
