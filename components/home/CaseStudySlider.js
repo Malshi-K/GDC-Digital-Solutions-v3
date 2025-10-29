@@ -41,7 +41,7 @@ const CaseStudySlider = ({ caseStudies }) => {
         </p>
       </div>
 
-      <div className="relative w-full overflow-hidden">
+  <div className="relative w-full overflow-hidden">
         {/* Full-width image without cropping or distortion */}
         <img
           src={currentStudy.imagePath}
@@ -50,56 +50,56 @@ const CaseStudySlider = ({ caseStudies }) => {
         />
 
         {/* Content Layer */}
-        <div className="absolute inset-0 z-10 px-4 sm:px-8 lg:px-40">
-          <div className="h-full flex items-center">
+        <div className="relative md:absolute md:inset-0 z-10 px-4 sm:px-6 md:px-8 lg:px-40">
+          <div className="md:h-full flex items-center">
             {/* Card Container with Animation - Positioned Left */}
-            <div className="w-full max-w-xl lg:max-w-lg">
+            <div className="w-full max-w-xl lg:max-w-lg mx-auto md:mx-0 mt-4 md:mt-0">
               {/* Navigation Arrows - Above Card */}
-              <div className="flex gap-3 mb-6">
+              <div className="flex gap-3 mb-4 sm:mb-6 justify-center md:justify-start">
                 <button
                   onClick={previousSlide}
-                  className="w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-gray-100 transition-colors"
+                  className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-gray-100 transition-colors"
                   aria-label="Previous slide"
                 >
-                  <ChevronLeft className="w-6 h-6 text-gray-700" />
+                  <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-gray-700" />
                 </button>
 
                 <button
                   onClick={nextSlide}
-                  className="w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-gray-100 transition-colors"
+                  className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-gray-100 transition-colors"
                   aria-label="Next slide"
                 >
-                  <ChevronRight className="w-6 h-6 text-gray-700" />
+                  <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-gray-700" />
                 </button>
               </div>
 
               {/* White Card */}
               <div
                 key={currentStudy.id}
-                className="bg-white rounded-3xl shadow-2xl p-8 sm:p-12 transition-all duration-500 ease-in-out transform"
+                className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl p-6 sm:p-8 md:p-10 transition-all duration-500 ease-in-out transform"
                 style={{
                   animation: "slideIn 0.5s ease-out",
                 }}
               >
                 {/* Title */}
-                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3">
                   {currentStudy.heading}
                 </h2>
 
                 {/* Statistic */}
-                <p className="text-purple-600 font-semibold text-lg sm:text-xl mb-6">
+                <p className="text-purple-600 font-semibold text-base sm:text-lg md:text-xl mb-4 sm:mb-6">
                   {currentStudy.statistic}
                 </p>
 
                 {/* Description */}
-                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-8">
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6 sm:mb-8">
                   {currentStudy.description}
                 </p>
 
                 {/* CTA Button */}
                 <a
                   href={currentStudy.caseStudyPath}
-                  className="inline-block bg-customPurple hover:bg-customPurple text-white font-semibold px-8 py-3 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
+                  className="inline-block bg-customPurple hover:bg-customPurple text-white font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
                 >
                   {currentStudy.buttonLabel}
                 </a>
@@ -109,14 +109,14 @@ const CaseStudySlider = ({ caseStudies }) => {
         </div>
 
         {/* Pagination Dots */}
-        <div className="absolute bottom-8 left-8 sm:left-16 lg:left-40 flex gap-3 z-20">
+        <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 md:left-8 md:translate-x-0 sm:left-16 lg:left-40 flex gap-2 sm:gap-3 z-20">
           {caseStudies.map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
               className={`h-2 rounded-full transition-all duration-300 ${
                 currentIndex === index
-                  ? "w-8 bg-white"
+                  ? "w-6 sm:w-8 bg-white"
                   : "w-2 bg-white/50 hover:bg-white/70"
               }`}
               aria-label={`Go to slide ${index + 1}`}
@@ -126,7 +126,7 @@ const CaseStudySlider = ({ caseStudies }) => {
 
         {/* Scroll to Top Button */}
         <button
-          className="absolute bottom-8 right-8 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center hover:bg-white/30 transition-colors z-20"
+          className="hidden md:flex absolute bottom-8 right-8 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm items-center justify-center hover:bg-white/30 transition-colors z-20"
           aria-label="Scroll to top"
         >
           <ChevronRight className="w-5 h-5 text-white rotate-[-90deg]" />
