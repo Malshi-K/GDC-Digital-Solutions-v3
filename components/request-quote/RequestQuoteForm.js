@@ -214,8 +214,8 @@ const RequestQuoteForm = () => {
   };
 
   return (
-    <section className="flex justify-center items-center min-h-screen relative">
-      <div id="move-down" className="py-20 w-full">
+    <section className="flex justify-center items-center relative">
+      <div id="move-down" className="py-10 w-full">
         <div className="bg-opacity-90 backdrop-blur-md rounded-lg shadow-xl p-8 w-full max-w-6xl mx-auto flex flex-col lg:flex-row relative overflow-hidden">
           {/* Contact Info Section */}
           <div className="w-full md:w-1/2 relative">
