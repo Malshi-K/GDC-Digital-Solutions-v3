@@ -24,7 +24,7 @@ export default function Footer() {
               <div className="mt-4 sm:mt-6">
                 <Link
                   href="/request-quote"
-                  className="inline-flex items-center bg-customPurple text-white hover:bg-customLightPurple font-semibold py-3 px-6 sm:px-8 rounded-lg transition-all duration-300 text-sm sm:text-base hover:scale-105 hover:shadow-lg group"
+                  className="inline-flex items-center bg-customPurple text-white font-semibold py-3 px-6 sm:px-8 rounded-lg transition-all duration-300 text-sm sm:text-base hover:scale-105 hover:shadow-lg group"
                 >
                   Request a quote
                   <svg

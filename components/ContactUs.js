@@ -141,21 +141,21 @@ const ContactUs = () => {
               <h2 className="text-2xl md:text-3xl font-bold mb-2 text-gray-900">
                 We are here for you!
               </h2>
-              <p className="text-gray-600 mb-8 text-lg">
+              <p className="text-gray-600 mb-8 text-lg leading-loose">
                 How can we help transform your business?
               </p>
 
-              <div className="space-y-6">
+              <div className="space-y-10 md:space-y-12">
                 {/* Address */}
                 <div className="flex items-start group">
                   <div className="bg-customPurple/10 p-3 rounded-xl mr-4 flex items-center justify-center w-12 h-12 group-hover:bg-customPurple/20 transition-all duration-300">
                     <FaMapMarkerAlt className="text-customPurple text-lg" />
                   </div>
                   <div>
-                    <p className="text-gray-900 font-semibold text-lg">
+                    <p className="text-gray-900 font-semibold text-lg leading-relaxed">
                       89 Church Road, Pukete
                     </p>
-                    <p className="text-gray-600">Hamilton 3200, New Zealand</p>
+                    <p className="text-gray-600 leading-relaxed">Hamilton 3200, New Zealand</p>
                   </div>
                 </div>
 
@@ -172,7 +172,7 @@ const ContactUs = () => {
                     >
                       +64 21 246 3988
                     </Link>
-                    <p className="text-gray-600 text-sm">Call us directly</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">Call us directly</p>
                   </div>
                 </div>
 
@@ -188,7 +188,7 @@ const ContactUs = () => {
                     >
                       digital@gdcgroup.co.nz
                     </Link>
-                    <p className="text-gray-600 text-sm">Send us an email</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">Send us an email</p>
                   </div>
                 </div>
 
@@ -205,7 +205,7 @@ const ContactUs = () => {
                     >
                       Follow us on Facebook
                     </Link>
-                    <p className="text-gray-600 text-sm">Stay connected with us</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">Stay connected with us</p>
                   </div>
                 </div>
               </div>

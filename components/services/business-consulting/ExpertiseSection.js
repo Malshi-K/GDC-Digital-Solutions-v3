@@ -110,14 +110,14 @@ export default function ExpertiseSection() {
           {expertiseItems.map((item, index) => (
             <div
               key={index}
-              className={`bg-white rounded-xl p-6 hover:bg-opacity-80 transition-all duration-300 transform hover:scale-105 hover:shadow-xl ${
+              className={`bg-white rounded-xl p-6 transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:opacity-100 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
               }`}
-              style={{ 
-                transitionDuration: "600ms", 
+              style={{
+                transitionDuration: "600ms",
                 transitionTimingFunction: "ease-out",
                 transitionDelay: `${index * 100}ms`,
-                transitionProperty: "all"
+                transitionProperty: "opacity, transform"
               }}
             >
               <div className="flex flex-col h-full">
