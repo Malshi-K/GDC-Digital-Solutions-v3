@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 
 export default function DigitalAgencyHero() {
   return (
@@ -48,64 +49,24 @@ export default function DigitalAgencyHero() {
             </div>
           </div>
 
-          {/* Right Content - Animated Gradient Sphere */}
+          {/* Right Content - Static GIF replacement */}
           <div className="mt-20 order-1 lg:order-2 flex justify-center lg:justify-end">
-            <div className="relative w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px]">
-              {/* Gradient Sphere */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-400 via-purple-500 to-indigo-600 opacity-80 animate-pulse"></div>
-              
-              {/* Spiral Lines Overlay */}
-              <div className="absolute inset-0 rounded-full overflow-hidden">
-                <div className="w-full h-full animate-spin-slow">
-                  {/* Create spiral effect with multiple gradients */}
-                  <div 
-                    className="w-full h-full rounded-full"
-                    style={{
-                      background: `
-                        repeating-conic-gradient(
-                          from 0deg at 50% 50%,
-                          transparent 0deg,
-                          rgba(255, 255, 255, 0.1) 5deg,
-                          transparent 10deg
-                        ),
-                        radial-gradient(circle at 30% 30%, 
-                          #a754f3,
-                          #b386fb 18%,
-                          #beb7fb 37%,
-                          #988df7 51%,
-                          #7262f3 63%,
-                          #905af1 75%,
-                          #ae52f0 87%,
-                          #8a2fd7 96%,
-                          #670cbf 100%
-                        )
-                      `
-                    }}
-                  ></div>
-                </div>
-              </div>
-
-              {/* Inner glow effect */}
-              <div className="absolute inset-8 rounded-full bg-gradient-to-br from-purple-300/50 to-pink-300/50 blur-xl"></div>
+            <div className="relative w-[260px] h-[260px] sm:w-[360px] sm:h-[360px] md:w-[460px] md:h-[460px]">
+              <Image
+                src="/assets/images/hero-animation.gif"
+                alt="Digital solutions animation"
+                fill
+                sizes="(max-width: 640px) 260px, (max-width: 768px) 360px, (max-width: 1024px) 460px, 500px"
+                className="object-contain"
+                priority
+                unoptimized
+              />
             </div>
           </div>
         </div>
       </div>
 
-      <style jsx>{`
-        @keyframes spin-slow {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
-        }
-        
-        .animate-spin-slow {
-          animation: spin-slow 20s linear infinite;
-        }
-      `}</style>
+      {/* No custom styles needed for GIF */}
     </div>
   );
 }
