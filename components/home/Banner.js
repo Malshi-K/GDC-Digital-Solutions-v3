@@ -1,7 +1,8 @@
-'use client';
+"use client";
 
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function DigitalAgencyHero() {
   return (
@@ -29,9 +30,9 @@ export default function DigitalAgencyHero() {
 
             {/* Desktop Layout - Button and Text side by side */}
             <div className="hidden sm:flex items-start gap-6">
-              <button className="bg-customPurple text-white px-8 py-4 rounded-lg text-lg font-medium transition-all hover:shadow-lg hover:scale-105 flex-shrink-0">
+              <Link href="/contact-us" className="bg-customPurple text-white px-8 py-4 rounded-lg text-lg font-medium transition-all hover:shadow-lg hover:scale-105 flex-shrink-0 inline-block text-center">
                 Work with us
-              </button>
+              </Link>
 
               <p className="text-gray-600 text-base md:text-lg leading-relaxed flex-1">
                 We make exceptional digital marketing, web & app development, consulting, for startups and enterprises.</p>
@@ -43,9 +44,9 @@ export default function DigitalAgencyHero() {
                 Silicon is a leading full-service digital agency based in New York. We make mobile apps, websites & brands, that people appreciate all around the world.
               </p>
               
-              <button className="bg-customPurple text-white px-6 py-3 rounded-lg text-base font-medium transition-all hover:shadow-lg hover:scale-105 mx-auto">
+              <Link href="/contact-us" className="bg-customPurple text-white px-6 py-3 rounded-lg text-base font-medium transition-all hover:shadow-lg hover:scale-105 mx-auto inline-block text-center">
                 Work with us
-              </button>
+              </Link>
             </div>
           </div>
 
