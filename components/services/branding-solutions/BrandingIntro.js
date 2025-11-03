@@ -78,7 +78,7 @@ export default function BrandingSolutions() {
               </h2>
               <p className="text-gray-700 leading-relaxed mb-6">
                 Your brand is the story you tell, the impression you leave, and the promise you keep. 
-                We craft powerful, cohesive brands that resonate with people — whether you're a small, 
+                We craft powerful, cohesive brands that resonate with people — whether you&apos;re a small, 
                 medium, or large business connecting with customers right here in Hamilton or reaching 
                 audiences across New Zealand.
               </p>
