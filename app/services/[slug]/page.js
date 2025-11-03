@@ -29,6 +29,11 @@ import ClosingSection from "@/components/services/business-consulting/ClosingSec
 // App Development components
 import AppDevelopmentBenefits from "@/components/services/app-development/AppDevelopment";
 import AppProcessFlow from "@/components/services/app-development/ProcessFlow";
+// Branding Solutions components
+import BrandingIntro from "@/components/services/branding-solutions/BrandingIntro";
+import BrandingClosing from "@/components/services/branding-solutions/ClosingSection";
+import ListOfServices from "@/components/services/branding-solutions/ListOfServices";
+import WhyChooseOurBranding from "@/components/services/branding-solutions/WhyChooseOurBranding";
 
 // Data imports
 import {
@@ -136,6 +141,16 @@ export default function ServicePage({ params, isServicesOpen, isAboutOpen }) {
             <AppDevelopmentBenefits />
             <AppProcessFlow />
             <CallToAction />
+          </>
+        );
+
+      case "Branding Solutions":
+        return (
+          <>
+            <BrandingIntro />
+            <ListOfServices />
+            <WhyChooseOurBranding />  
+            <BrandingClosing />
           </>
         );
 

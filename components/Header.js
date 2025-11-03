@@ -115,6 +115,12 @@ const Header = () => {
       ],
     },
     {
+      name: "Branding Solutions",
+      href: "/services/branding-solutions",
+      hasDropdown: false,
+      dropdownItems: [],
+    },
+    {
       name: "Consulting & Strategy",
       href: "/consulting",
       hasDropdown: true,
@@ -146,12 +152,13 @@ const Header = () => {
             : "bg-transparent"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between py-4 lg:py-5">
-            {/* Left Side - Logo and Navigation */}
-            <div className="flex items-center flex-1">
-              {/* Logo */}
-              <Link href="/" className="flex items-center transition-transform duration-300 hover:scale-105 flex-shrink-0">
+        {/* CHANGED: Reduced horizontal padding and removed max-width constraint */}
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between py-3 lg:py-4">
+            
+            {/* Left - Logo */}
+            <div className="flex items-center">
+              <Link href="/" className="flex items-center transition-transform duration-300 hover:scale-105">
                 <Image
                   src="/assets/images/Digital Solution.png"
                   alt="GDC Digital Solutions Logo"
@@ -164,80 +171,81 @@ const Header = () => {
                   quality={85}
                 />
               </Link>
+            </div>
 
-              {/* Desktop Navigation */}
-              <nav className="hidden xl:flex items-center flex-1 ml-8">
-                <div className="flex items-center space-x-1">
-                  {navItems.map((item, index) => (
-                    <div
-                      key={item.name}
-                      className="relative"
-                      onMouseEnter={() => item.hasDropdown && handleDropdownHover(index)}
-                      onMouseLeave={() => item.hasDropdown && handleDropdownLeave()}
-                    >
-                      {item.hasDropdown ? (
-                        <div className="dropdown-trigger">
-                          <button
-                            className={`flex items-center space-x-1 px-4 py-2.5 rounded-lg font-semibold transition-all duration-300 text-sm whitespace-nowrap ${
-                              pathname === item.href || pathname.startsWith(item.href + "/")
-                                ? "text-customPurple"
-                                : "text-gray-700 hover:text-purple-600 hover:bg-purple-50"
-                            }`}
-                          >
-                            <span>{item.name}</span>
-                            <ChevronDownIcon className={`w-4 h-4 transition-transform duration-300 ${openDropdown === index ? 'rotate-180' : ''}`} />
-                          </button>
-                          
-                          {/* Desktop Dropdown */}
-                          <div
-                            ref={openDropdown === index ? dropdownRef : null}
-                            className={`absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden transition-all duration-300 ${
-                              openDropdown === index
-                                ? "opacity-100 visible transform translate-y-0"
-                                : "opacity-0 invisible transform -translate-y-4"
-                            }`}
-                          >
-                            <div className="py-2">
-                              {item.dropdownItems.map((dropdownItem) => (
-                                <Link
-                                  key={dropdownItem.name}
-                                  href={dropdownItem.href}
-                                  className={`block px-5 py-3 text-sm font-medium transition-all duration-300 ${
-                                    pathname === dropdownItem.href
-                                      ? "text-customPurple border-l-4 border-purple-600"
-                                      : "text-gray-700 hover:bg-gray-50 hover:text-purple-600 hover:pl-6"
-                                  }`}
-                                >
-                                  {dropdownItem.name}
-                                </Link>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-                      ) : (
-                        <Link
-                          href={item.href}
-                          className={`px-4 py-2 rounded-lg font-semibold transition-all duration-300 text-sm whitespace-nowrap ${
-                            pathname === item.href
+            {/* Center - Desktop Navigation (removed absolute positioning) */}
+            <nav className="hidden xl:flex items-center flex-1 justify-center">
+              {/* CHANGED: Reduced spacing between nav items from space-x-2 to space-x-1 */}
+              <div className="flex items-center space-x-1">
+                {navItems.map((item, index) => (
+                  <div
+                    key={item.name}
+                    className="relative"
+                    onMouseEnter={() => item.hasDropdown && handleDropdownHover(index)}
+                    onMouseLeave={() => item.hasDropdown && handleDropdownLeave()}
+                  >
+                    {item.hasDropdown ? (
+                      <div className="dropdown-trigger">
+                        <button
+                          className={`flex items-center space-x-1 px-2 py-2 rounded-lg font-semibold transition-all duration-300 text-sm whitespace-nowrap ${
+                            pathname === item.href || pathname.startsWith(item.href + "/")
                               ? "text-customPurple"
                               : "text-gray-700 hover:text-purple-600 hover:bg-purple-50"
                           }`}
                         >
-                          {item.name}
-                        </Link>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </nav>
-            </div>
+                          <span>{item.name}</span>
+                          <ChevronDownIcon className={`w-4 h-4 transition-transform duration-300 ${openDropdown === index ? 'rotate-180' : ''}`} />
+                        </button>
 
-            {/* Right Side - Contact Button */}
-            <div className="flex items-center gap-4 flex-shrink-0">
+                        {/* Desktop Dropdown */}
+                        <div
+                          ref={openDropdown === index ? dropdownRef : null}
+                          className={`absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden transition-all duration-300 ${
+                            openDropdown === index
+                              ? "opacity-100 visible transform translate-y-0"
+                              : "opacity-0 invisible transform -translate-y-4"
+                          }`}
+                        >
+                          <div className="py-2">
+                            {item.dropdownItems.map((dropdownItem) => (
+                              <Link
+                                key={dropdownItem.name}
+                                href={dropdownItem.href}
+                                className={`block px-5 py-3 text-sm font-medium transition-all duration-300 ${
+                                  pathname === dropdownItem.href
+                                    ? "text-customPurple border-l-4 border-purple-600"
+                                    : "text-gray-700 hover:bg-gray-50 hover:text-purple-600 hover:pl-6"
+                                }`}
+                              >
+                                {dropdownItem.name}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        className={`px-2 py-2 rounded-lg font-semibold transition-all duration-300 text-sm whitespace-nowrap ${
+                          pathname === item.href
+                            ? "text-customPurple"
+                            : "text-gray-700 hover:text-purple-600 hover:bg-purple-50"
+                        }`}
+                      >
+                        {item.name}
+                      </Link>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </nav>
+
+            {/* Right - Actions */}
+            <div className="flex items-center gap-2">
               <div className="hidden xl:block">
                 <Link
                   href="/contact-us"
-                  className="bg-customPurple text-white font-bold py-3 px-7 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-xl text-sm whitespace-nowrap"
+                  className="bg-customPurple text-white font-bold py-2.5 px-4 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-xl text-sm whitespace-nowrap"
                 >
                   Contact Us Now
                 </Link>
@@ -266,7 +274,7 @@ const Header = () => {
         onClick={toggleSidebar}
       />
 
-      {/* Mobile Sidebar */}
+      {/* Mobile Sidebar - No changes needed here */}
       <div
         ref={sidebarRef}
         className={`fixed top-0 right-0 h-full w-[85%] sm:w-80 bg-white z-50 overflow-y-auto shadow-2xl transition-transform duration-300 ease-in-out xl:hidden ${
@@ -274,7 +282,7 @@ const Header = () => {
         }`}
       >
         {/* Sidebar Header */}
-        <div className="flex justify-between items-center p-5 sm:p-6 border-b border-gray-200 bg-gradient-to-r from-purple-600 to-pink-600">
+        <div className="flex justify-between items-center p-5 sm:p-6 border-b border-gray-200 bg-customPurple">
           <button
             onClick={toggleSidebar}
             className="text-white hover:bg-white/20 focus:outline-none p-2 rounded-lg transition-all duration-300"

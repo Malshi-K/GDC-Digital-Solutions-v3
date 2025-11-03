@@ -45,6 +45,11 @@ export const serviceDetails = {
     description: "",
     image: "/assets/images/services/Web development.png",
   },
+  "branding-solutions": {
+    heading: "Branding Solutions",
+    description: "Strategic Branding Solutions",
+    image: "/assets/images/services/Business Analyst.png",
+  },
 };
 
 // Case study information for each service

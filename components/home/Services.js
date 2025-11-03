@@ -25,8 +25,9 @@ const CheckIcon = ({ className, isHovered }) => (
   </div>
 );
 
-const ServiceCard = ({ title, description, items, iconSrc }) => {
+const ServiceCard = ({ title, description, items, iconSrc, maxItems = Infinity }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [showAll, setShowAll] = useState(false);
 
   return (
     <div
@@ -56,8 +57,8 @@ const ServiceCard = ({ title, description, items, iconSrc }) => {
       </p>
 
       {/* Items List - Centered */}
-      <ul className="space-y-3 sm:space-y-4">
-        {items.map((item, index) => (
+      <ul className="space-y-2 sm:space-y-3">
+        {(showAll ? items : items.slice(0, maxItems)).map((item, index) => (
           <li key={index} className="flex justify-center">
             <Link 
               href={item.link} 
@@ -73,6 +74,18 @@ const ServiceCard = ({ title, description, items, iconSrc }) => {
           </li>
         ))}
       </ul>
+
+      {items.length > maxItems && (
+        <div className="mt-3 text-center">
+          <button
+            onClick={() => setShowAll((s) => !s)}
+            className="text-customPurple font-medium text-sm hover:underline"
+            aria-expanded={showAll}
+          >
+            {showAll ? "View less" : `View more (${items.length - maxItems})`}
+          </button>
+        </div>
+      )}
     </div>
   );
 };
@@ -105,6 +118,21 @@ const ServicesSection = () => {
       ],
       iconSrc: "/assets/images/icons/4.png",
     },
+    {
+      title: "Branding Solutions",
+      description: "Elevate your brand with our comprehensive branding solutions.",
+      items: [
+        { text: "Logo Design", link: "/services/branding-solutions" },
+        { text: "Social Media Promotional Designs", link: "/services/branding-solutions"},
+        { text: "Flyers & Leaflets", link: "/services/branding-solutions"},
+        { text: "Signboard & Signage Design", link: "/services/branding-solutions"},
+        { text: "Business Cards", link: "/services/branding-solutions"},
+        { text: "Letterheads", link: "/services/branding-solutions"},
+        { text: "Complete Digital & Print Branding Kits", link: "/services/branding-solutions"}
+      ],
+      iconSrc: "/assets/images/icons/4.png",
+      maxItems: 2,
+    },
   ];
 
   return (
@@ -123,21 +151,18 @@ const ServicesSection = () => {
           </p>
         </div>
         
-        {/* Three Cards in a Row */}
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto_1fr] gap-6 md:gap-8 items-center">
+        {/* Responsive grid: 1 column (mobile), 2 columns (tablet), 4 columns (desktop) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 items-stretch">
           {serviceCards.map((card, index) => (
-            <React.Fragment key={index}>
+            <div key={index} className="h-full">
               <ServiceCard
                 title={card.title}
                 description={card.description}
                 items={card.items}
                 iconSrc={card.iconSrc}
-              />              
-              {/* Separator line - hidden on last card */}
-              {index < serviceCards.length - 1 && (
-                <div className="hidden md:block w-px h-64 bg-gray-200"></div>
-              )}
-            </React.Fragment>
+                maxItems={card.maxItems}
+              />
+            </div>
           ))}
         </div>
       </div>
