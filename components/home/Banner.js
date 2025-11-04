@@ -16,10 +16,10 @@ export default function DigitalAgencyHero() {
       ></div>
       
       {/* Hero Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 pt-32 pb-8 sm:py-10 md:py-12 lg:py-14 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 pt-40 pb-8 sm:pb-10 md:pb-12 xl:pt-32 xl:pb-14 relative z-10">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 md:gap-12 xl:gap-16 items-center">
           {/* Left Content */}
-          <div className="space-y-6 sm:space-y-8 order-1 text-center lg:text-left">
+          <div className="space-y-6 sm:space-y-8 order-1 text-center xl:text-left">
             <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold leading-tight text-gray-900">
               We <span className="bg-customPurple bg-clip-text text-transparent">Transform</span>
               <br />
@@ -28,8 +28,8 @@ export default function DigitalAgencyHero() {
               Reality
             </h1>
 
-            {/* Desktop Layout - Button and Text side by side */}
-            <div className="hidden sm:flex items-start gap-6">
+            {/* Desktop Layout - Button and Text side by side (show only on xl and up) */}
+            <div className="hidden xl:flex items-start gap-6">
               <Link href="/contact-us" className="bg-customPurple text-white px-8 py-4 rounded-lg text-lg font-medium transition-all hover:shadow-lg hover:scale-105 flex-shrink-0 inline-block text-center">
                 Work with us
               </Link>
@@ -38,8 +38,8 @@ export default function DigitalAgencyHero() {
                 We make exceptional digital marketing, web & app development, consulting, for startups and enterprises.</p>
             </div>
 
-            {/* Mobile Layout - Paragraph first, then button below */}
-            <div className="sm:hidden space-y-4 flex flex-col items-center">
+            {/* Mobile Layout - Paragraph first, then button below (show for widths below xl) */}
+            <div className="xl:hidden space-y-4 flex flex-col items-center">
               <p className="text-gray-600 text-sm leading-relaxed text-center max-w-[28rem]">
                 Silicon is a leading full-service digital agency based in New York. We make mobile apps, websites & brands, that people appreciate all around the world.
               </p>
@@ -51,7 +51,7 @@ export default function DigitalAgencyHero() {
           </div>
 
           {/* Right Content - Static GIF replacement */}
-          <div className="mt-20 order-1 lg:order-2 flex justify-center lg:justify-end">
+          <div className="mt-20 order-1 xl:order-2 flex justify-center xl:justify-end">
             <div className="relative w-[260px] h-[260px] sm:w-[360px] sm:h-[360px] md:w-[460px] md:h-[460px]">
               <Image
                 src="/assets/images/hero-animation.gif"

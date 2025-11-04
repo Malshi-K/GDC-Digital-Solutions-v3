@@ -85,7 +85,7 @@ export default function BrandingSolutions() {
             </div>
 
             {/* Services List */}
-            <div className="bg-gradient-to-r from-customPurple to-customLightPurple rounded-2xl p-8 text-white">
+            <div className="bg-customPurple rounded-2xl p-8 text-white">
               <h3 className="text-xl font-bold mb-4">What We Create</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {brandingServices.map((service, index) => (

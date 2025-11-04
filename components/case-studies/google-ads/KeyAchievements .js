@@ -88,34 +88,36 @@ const KeyAchievements = () => {
           strategic campaigns.
         </p>
 
-        {/* Achievements */}
-        <div className="flex flex-col md:flex-row justify-center gap-8 mt-10">
+        {/* Achievements - responsive grid: 1 / 2 / 3 / 5 columns */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mt-10">
           {achievements.map((achievement, index) => (
             <div
               key={index}
-              className="flex-1 p-6 text-center transition-all duration-700 ease-out"
+              className="p-6 text-center transition-all duration-700 ease-out bg-transparent"
               style={{
                 opacity: isInView ? 1 : 0,
-                transform: isInView ? "translateY(0)" : "translateY(50px)",
-                transitionDelay: `${0.3 + index * 0.2}s`,
+                transform: isInView ? "translateY(0)" : "translateY(30px)",
+                transitionDelay: `${0.15 + index * 0.12}s`,
               }}
             >
-              <h3 className="text-4xl md:text-5xl font-extrabold text-white mb-2">
+              <h3 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-extrabold text-white mb-2">
                 {/* CountUp Animation */}
                 <CountUp
                   start={0}
                   end={achievement.value}
-                  duration={2.5}
+                  duration={2.2}
+                  decimals={Number.isInteger(achievement.value) ? 0 : 1}
                   enableScrollSpy={true}
                   scrollSpyOnce={false}
                   scrollSpyDelay={0}
+                  separator=","
                 />
                 {achievement.unit}
               </h3>
-              <h4 className="text-lg md:text-xl text-white font-semibold mb-4">
+              <h4 className="text-base sm:text-lg md:text-lg lg:text-xl text-white font-semibold mb-3">
                 {achievement.title}
               </h4>
-              <p className="text-white text-sm md:text-base">
+              <p className="text-white text-xs sm:text-sm md:text-sm lg:text-sm leading-relaxed">
                 {achievement.description}
               </p>
             </div>

@@ -167,10 +167,10 @@ export default function Footer() {
       <div className="bg-white py-3 sm:py-4 md:py-5 shadow-[0_-10px_15px_-3px_rgba(0,0,0,0.1),0_-4px_6px_-2px_rgba(0,0,0,0.05)] px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-20">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col sm:flex-row justify-between items-center text-customLightGray gap-2 sm:gap-0">
-            <p className="text-xs sm:text-sm text-center sm:text-left leading-relaxed">
+            <p className="text-xs sm:text-sm text-center leading-relaxed w-full">
               Copyright © 2025 GDC Digital Solutions. All Rights Reserved.
             </p>
-            <div className="flex flex-col sm:flex-row items-center space-y-1 sm:space-y-0 sm:space-x-4 text-xs sm:text-sm">
+            {/* <div className="flex flex-col sm:flex-row items-center space-y-1 sm:space-y-0 sm:space-x-4 text-xs sm:text-sm">
               <Link
                 href="/privacy-policy"
                 className="hover:text-customPurple transition-colors px-2 py-1 rounded hover:bg-gray-50"
@@ -183,7 +183,7 @@ export default function Footer() {
               >
                 Terms of Service
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

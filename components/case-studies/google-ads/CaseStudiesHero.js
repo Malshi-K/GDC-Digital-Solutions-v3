@@ -32,24 +32,20 @@ const CaseStudiesHero = ({ data }) => {
   const titleWords = title.split(" ");
 
   return (
-    <section 
+    <section
       id="hero-section"
-      className="relative min-h-screen w-full flex items-center text-white overflow-hidden px-4 sm:px-8 md:px-12 lg:px-40 py-16 sm:py-20 md:py-24"
+      className="relative w-full flex items-center text-white overflow-hidden px-4 sm:px-6 md:px-8 lg:px-12 py-12 sm:py-16 md:py-20 lg:py-24"
     >
-      {/* Clean Purple Background */}
-      <div
-        className="absolute inset-0 w-full h-full z-0 pointer-events-none"
-      ></div>
 
       {/* Content */}
       <div
         id="move-down"
-        className="relative z-10 w-full container mx-auto flex flex-col md:flex-row items-center justify-center md:justify-between gap-10 pt-12 md:pt-20"
+        className="relative z-10 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-center md:justify-between gap-8 pt-6 md:pt-12"
       >
         {/* Left Content */}
         <div
-          className={`flex flex-col items-center md:items-start max-w-full md:max-w-xl space-y-6 text-center md:text-left my-8 sm:my-10 md:my-0 transform transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"
+          className={`flex flex-col items-center md:items-start w-full md:w-1/2 max-w-full md:max-w-2xl space-y-6 text-center md:text-left transform transition-all duration-700 ${
+            isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
           }`}
         >
           <h5 className="text-xs sm:text-sm md:text-md uppercase tracking-widest font-semibold text-black">
@@ -74,7 +70,7 @@ const CaseStudiesHero = ({ data }) => {
               </span>
             ))}
           </h1>
-          <p className="text-sm sm:text-base md:text-lg mt-4 leading-relaxed text-customGray">
+          <p className="text-sm sm:text-base md:text-lg mt-4 leading-relaxed text-customGray max-w-xl mx-auto md:mx-0">
             Discover how GDC Consultants, a leading engineering consultancy in
             New Zealand, leveraged Google Ads to boost their online presence,
             attract high-quality leads, and optimise advertising costs.
@@ -95,65 +91,32 @@ const CaseStudiesHero = ({ data }) => {
 
         {/* Right Content */}
         <div
-          className={`flex justify-center md:justify-end mt-6 md:mt-0 w-full md:w-auto mb-8 sm:mb-10 md:mb-0 transform transition-all duration-700 delay-200 ${
-            isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12"
+          className={`flex justify-center md:justify-end mt-6 md:mt-0 w-full md:w-1/2 mb-6 md:mb-0 transform transition-all duration-700 delay-150 ${
+            isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
           }`}
-          style={{ transitionDelay: "0.4s" }}
+          style={{ transitionDelay: "0.35s" }}
         >
-          <div className="animate-float">
-            <Image
-              src="/assets/images/google-ads/gdc-ads.webp"
-              alt="Google Ads Success"
-              className="h-64 sm:h-80 md:h-96 w-auto object-contain"
-              width={550}
-              height={550}
-            />
+          <div className="animate-float w-full flex justify-center md:justify-end">
+            <div className="w-full max-w-[260px] sm:max-w-[360px] md:max-w-[460px] lg:max-w-[520px]">
+              <Image
+                src="/assets/images/google-ads/gdc-ads.webp"
+                alt="Google Ads Success"
+                className="w-full h-auto object-contain"
+                width={550}
+                height={550}
+              />
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Clean CSS Styles */}
+      {/* Float animation only (no background/color changes) */}
       <style jsx>{`
-        /* Clean Purple Background Animation */
-        @keyframes cleanPurple {
-          0% {
-            background-position: 0px 0px, 0px 0px, 0px 0px;
-            background-color: #6e377d;
-          }
-          50% {
-            background-color: #c2039d;
-          }
-          100% {
-            background-position: 500px 1000px, 400px 400px, 300px 300px;
-            background-color: #6e377d;
-          }
-        }
-
-        #clean-purple-bg {
-          background: linear-gradient(135deg, #6e377d 0%, #c2039d 50%, #6e377d 100%);
-          background-image: 
-            url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.03"><circle cx="7" cy="7" r="1"/><circle cx="50" cy="50" r="1"/><circle cx="20" cy="30" r="1"/></g></svg>'),
-            url('data:image/svg+xml,<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.02"><circle cx="40" cy="40" r="2"/></g></svg>');
-          background-size: 60px 60px, 80px 80px;
-          animation: cleanPurple 25s linear infinite;
-          position: absolute;
-          height: 100vh;
-          width: 100%;
-        }
-
-        /* Simple Float Animation */
         @keyframes float {
-          0%, 100% { 
-            transform: translateY(0); 
-          }
-          50% { 
-            transform: translateY(-15px); 
-          }
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); }
         }
-
-        .animate-float {
-          animation: float 4s ease-in-out infinite;
-        }
+        .animate-float { animation: float 4s ease-in-out infinite; }
       `}</style>
     </section>
   );

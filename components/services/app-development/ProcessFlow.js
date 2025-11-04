@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import React from "react";
 import {
   FaSearch,
   FaPencilAlt,
@@ -12,28 +12,8 @@ import {
 } from "react-icons/fa";
 
 export default function AppProcessFlow() {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
-
-  // Set up intersection observer to detect when the section is in view
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting);
-      },
-      { threshold: 0.2 } // 20% of the element must be visible
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
+  // Removed intersection observer and reveal logic to prevent flicker.
+  // Content renders immediately.
 
   // Steps array for the website-building process
   const steps = [
@@ -76,48 +56,40 @@ export default function AppProcessFlow() {
   ];
 
   return (
-    <section className="py-16 bg-gray-50" ref={sectionRef}>
+    <section className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}
         <div className="text-center mb-12">
-          {isVisible && (
-            <>
-              <h2 className="text-3xl font-bold text-customGray">
-                A Snapshot of the Process We Use for Building Apps
-              </h2>
-              <p className="text-gray-600 mt-4">
-                We follow a structured approach to deliver high-quality applications.
-              </p>
-            </>
-          )}
+          <h2 className="text-3xl font-bold text-customGray">
+            A Snapshot of the Process We Use for Building Apps
+          </h2>
+          <p className="text-gray-600 mt-4">
+            We follow a structured approach to deliver high-quality applications.
+          </p>
         </div>
 
         {/* Process Flow (vertical) */}
         <div className="flex flex-col space-y-12 relative">
           {steps.map((step, index) => (
             <div key={index} className="max-w-3xl mx-auto w-full">
-              {isVisible && (
-                <>
-                  <div className="flex flex-col items-center text-center">
-                    {/* Icon */}
-                    {step.icon}
+              <div className="flex flex-col items-center text-center">
+                {/* Icon */}
+                {step.icon}
 
-                    {/* Step Title */}
-                    <h3 className="text-xl font-bold text-gray-900 mb-2 mt-2">
-                      {step.title}
-                    </h3>
+                {/* Step Title */}
+                <h3 className="text-xl font-bold text-gray-900 mb-2 mt-2">
+                  {step.title}
+                </h3>
 
-                    {/* Step Description */}
-                    <p className="text-gray-600">{step.description}</p>
-                  </div>
+                {/* Step Description */}
+                <p className="text-gray-600">{step.description}</p>
+              </div>
 
-                  {/* Arrow Between Steps (vertical) */}
-                  {index < steps.length - 1 && (
-                    <div className="flex justify-center mt-6">
-                      <FaArrowDown className="text-gray-400 text-3xl" />
-                    </div>
-                  )}
-                </>
+              {/* Arrow Between Steps (vertical) */}
+              {index < steps.length - 1 && (
+                <div className="flex justify-center mt-6">
+                  <FaArrowDown className="text-gray-400 text-3xl" />
+                </div>
               )}
             </div>
           ))}

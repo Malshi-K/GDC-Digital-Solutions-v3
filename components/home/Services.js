@@ -2,31 +2,9 @@
 import React, { useState } from "react";
 import Link from "next/link";
 
-// Check icon component with outlined design
-const CheckIcon = ({ className, isHovered }) => (
-  <div className={`flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 border-2 mr-2 transition-colors duration-300 ${
-    isHovered ? "border-white" : "border-purple-600"
-  }`}>
-    <svg
-      className={`h-3 w-3 sm:h-4 sm:w-4 transition-colors duration-300 ${
-        isHovered ? "text-white" : "text-customPurple"
-      } ${className}`}
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M7.5 13.5L4 10L3 11L7.5 15.5L17.5 5.5L16.5 4.5L7.5 13.5Z"
-        fill="currentColor"
-      />
-    </svg>
-  </div>
-);
+// (Removed boxed check icon - lists will use native bullet points)
 
 const ServiceCard = ({ title, description, items, iconSrc, maxItems = Infinity }) => {
-  const [isHovered, setIsHovered] = useState(false);
   const [showAll, setShowAll] = useState(false);
 
   return (
@@ -45,31 +23,22 @@ const ServiceCard = ({ title, description, items, iconSrc, maxItems = Infinity }
       </div>
 
       {/* Title - Centered */}
-      <h3 className={`text-xl sm:text-2xl font-bold text-center mb-3 transition-colors duration-300 ${
-        isHovered ? "text-white" : "text-gray-900"
-      }`}>{title}</h3>
+      <h3 className={`text-xl sm:text-2xl font-bold text-center mb-3 text-gray-900`}>{title}</h3>
 
       {/* Description - Now visible */}
-      <p className={`text-sm text-center mb-6 transition-colors duration-300 ${
-        isHovered ? "text-gray-100" : "text-gray-600"
-      }`}>
+      <p className={`text-sm text-center mb-6 text-gray-600`}>
         {description}
       </p>
 
-      {/* Items List - Centered */}
-      <ul className="space-y-2 sm:space-y-3">
+  {/* Items List - Left aligned with slightly larger custom-colored bullets */}
+  <ul className="list-disc pl-8 sm:pl-10 md:pl-12 lg:pl-14 space-y-2 sm:space-y-3 text-left marker:text-customPurple marker:text-lg mx-auto">
         {(showAll ? items : items.slice(0, maxItems)).map((item, index) => (
-          <li key={index} className="flex justify-center">
+          <li key={index}>
             <Link 
               href={item.link} 
-              className="flex items-start hover:opacity-80 transition-opacity group"
+              className="text-sm sm:text-base text-gray-600 hover:text-customPurple transition-colors duration-200"
             >
-              <CheckIcon isHovered={isHovered} />
-              <span className={`text-sm sm:text-base transition-colors duration-300 ${
-                isHovered ? "text-white" : "text-gray-600"
-              }`}>
-                {item.text}
-              </span>
+              {item.text}
             </Link>
           </li>
         ))}
@@ -130,7 +99,7 @@ const ServicesSection = () => {
         { text: "Letterheads", link: "/services/branding-solutions"},
         { text: "Complete Digital & Print Branding Kits", link: "/services/branding-solutions"}
       ],
-      iconSrc: "/assets/images/icons/4.png",
+      iconSrc: "/assets/images/icons/2.png",
       maxItems: 2,
     },
   ];
