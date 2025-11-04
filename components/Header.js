@@ -152,8 +152,8 @@ const Header = () => {
             : "bg-transparent"
         }`}
       >
-        {/* CHANGED: Reduced horizontal padding and removed max-width constraint */}
-        <div className="mx-auto px-4 sm:px-6 lg:px-8">
+  {/* Match hero container so header aligns with hero padding */}
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
           <div className="flex items-center justify-between py-3 lg:py-4">
             
             {/* Left - Logo */}
@@ -241,7 +241,7 @@ const Header = () => {
             </nav>
 
             {/* Right - Actions */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center">
               <div className="hidden xl:block">
                 <Link
                   href="/contact-us"

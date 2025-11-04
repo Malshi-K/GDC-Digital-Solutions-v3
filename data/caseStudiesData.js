@@ -7,8 +7,8 @@ export const caseStudiesData = {
       title: "GDC Consultants Case Study",
       description:
         "Discover how GDC Consultants, a leading engineering consultancy in New Zealand, transformed their online presence with a modern, responsive website. Leveraging advanced technologies like Next.js and strategic SEO, GDC Consultants boosted their user engagement and achieved significant digital growth.",
-      ctaText: "Request a Quote",
-      ctaLink: "/request-quote",
+      ctaText: "Schedule a Consultation",
+      ctaLink: "/schedule-consultation",
       imageSrc: "/assets/images/website-dev/gdc-consultants.webp",
       imageAlt: "GDC Consultants Website Preview",
     },
@@ -89,7 +89,7 @@ export const caseStudiesData = {
           title: "Next.js Framework",
           description:
             "Leveraged Next.js for creating a fast, scalable, and SEO-friendly website with server-side rendering for improved performance and scalability.",
-          bgColor: "bg-customPurple",
+          bgColor: "bg-customYellow",
         },
         {
           icon: "SiHubspot",
@@ -103,7 +103,7 @@ export const caseStudiesData = {
           title: "Netlify Hosting",
           description:
             "Serving as the hosting provider, Netlify offers reliable and secure hosting services, ensuring high uptime, quick loading speeds, and effective technical support.",
-          bgColor: "bg-customPurple",
+          bgColor: "bg-customYellow",
         },
         {
           icon: "SiGithub",
@@ -119,7 +119,7 @@ export const caseStudiesData = {
           title: "User-Centered Design",
           description:
             "Created a visually appealing website layout that highlights GDC's core services, expertise, and portfolio in a way that resonates with the target audience.",
-          bgColor: "bg-customPurple",
+          bgColor: "bg-customYellow",
         },
         {
           icon: "FaDesktop",
@@ -133,7 +133,7 @@ export const caseStudiesData = {
           title: "SEO Optimisation",
           description:
             "Implemented on-page SEO best practices including keyword optimisation, meta tags, and image alt texts to boost search engine visibility.",
-          bgColor: "bg-customPurple",
+          bgColor: "bg-customYellow",
         },
         {
           icon: "FaChartLine",
@@ -147,7 +147,7 @@ export const caseStudiesData = {
           title: "Call-to-Action Integration",
           description:
             "Strategically placed CTAs throughout the website to support lead generation by guiding users to make inquiries or contact the client.",
-          bgColor: "bg-customPurple",
+          bgColor: "bg-customYellow",
         },
       ],
     },
@@ -206,8 +206,8 @@ export const caseStudiesData = {
       title: "Twilson Builders Case Study",
       description:
         "Twilson Builders, a trusted building and construction company, required a website redesign to enhance their online presence and showcase their expertise in delivering high-quality building projects. The goal was to create a modern, user-friendly, and visually appealing website that effectively communicates their brand identity and services.",
-      ctaText: "Request a Quote",
-      ctaLink: "/request-quote",
+      ctaText: "Schedule a Consultation",
+      ctaLink: "/schedule-consultation",
       imageSrc:
         "/assets/images/website-dev/twilson-builders/twilson-builders.png",
       imageAlt: "Twilson Builders Website Preview",
@@ -269,7 +269,7 @@ export const caseStudiesData = {
           title: "Next.js Framework",
           description:
             "This React-based framework is employed to develop a fast, scalable, and SEO-friendly website, providing an efficient development environment",
-          bgColor: "bg-customPurple",
+          bgColor: "bg-customYellow",
         },
         {
           icon: "SiNetlify",
@@ -283,7 +283,7 @@ export const caseStudiesData = {
           title: "GitHub Integration",
           description:
             "Used for version control and collaborative development, GitHub facilitates organized code management, smooth deployment processes, and improved teamwork during website enhancements.",
-          bgColor: "bg-customPurple",
+          bgColor: "bg-customYellow",
         },
         {
           icon: "FaEnvelope",
@@ -299,7 +299,7 @@ export const caseStudiesData = {
           title: "Professional Appearance",
           description:
             "Establish a strong online identity that reflects the professionalism and craftsmanship of Twilson Builders.",
-          bgColor: "bg-customPurple",
+          bgColor: "bg-customYellow",
         },
         {
           icon: "FaMobile",
@@ -313,7 +313,7 @@ export const caseStudiesData = {
           title: "User-Friendly Navigation",
           description:
             "Ensure seamless navigation for visitors to find information about services, projects, and contact details.",
-          bgColor: "bg-customPurple",
+          bgColor: "bg-customYellow",
         },
         {
           icon: "FaImage",
@@ -449,8 +449,8 @@ export const caseStudiesData = {
       title: "Mantrac Security Case Study",
       description:
         "Mantrac Security, a leading provider of residential and commercial security solutions in New Zealand, required a modern website to improve their digital presence and generate more service inquiries.  ",
-      ctaText: "Request a Quote",
-      ctaLink: "/request-quote",
+      ctaText: "Schedule a Consultation",
+      ctaLink: "/schedule-consultation",
       imageSrc:
         "/assets/images/website-dev/mantrac-security/mantrac-security.png",
       imageAlt: "Mantrac Security Website Preview",
@@ -520,7 +520,7 @@ export const caseStudiesData = {
           title: "WordPress CMS",
           description:
             "Built on the latest WordPress version, providing a stable foundation with regular security updates and feature enhancements ",
-          bgColor: "bg-customPurple",
+          bgColor: "bg-customYellow",
         },
         {
           icon: "FaPuzzlePiece",
@@ -533,7 +533,7 @@ export const caseStudiesData = {
           icon: "FaWpforms",
           title: "WP Forms",
           description: " Implemented for creating user-friendly contact forms",
-          bgColor: "bg-customPurple",
+          bgColor: "bg-customYellow",
         },
         {
           icon: "FaPaperPlane",
@@ -549,7 +549,7 @@ export const caseStudiesData = {
           title: "Professional Identity",
           description:
             "Reflect the reliability and expertise of Mantrac Security.",
-          bgColor: "bg-customPurple",
+          bgColor: "bg-customYellow",
         },
         {
           icon: "FaShieldAlt",
@@ -563,7 +563,7 @@ export const caseStudiesData = {
           title: "User-Friendly Navigation",
           description:
             " Ensure smooth user experience with intuitive site structure. ",
-          bgColor: "bg-customPurple",
+          bgColor: "bg-customYellow",
         },
         {
           icon: "FaUserCheck",
@@ -691,10 +691,9 @@ export const caseStudiesData = {
       title: "Website Design for Peak Project Management",
       description:
         "Peak Project Management is a specialist project management consultancy providing end to end solutions for councils, developers, and asset owners across the Waikato region of New Zealand.",
-      ctaText: "Request a Quote",
-      ctaLink: "/request-quote",
-      imageSrc:
-        "/assets/images/website-dev/peak-pm/1.png",
+      ctaText: "Schedule a Consultation",
+      ctaLink: "/schedule-consultation",
+      imageSrc: "/assets/images/website-dev/peak-pm/1.png",
       imageAlt: "Peak PM Website Preview",
     },
     clientOverview: {
@@ -748,7 +747,7 @@ export const caseStudiesData = {
           title: "WordPress CMS",
           description:
             "This industry leading Content Management System (CMS) is employed to develop a flexible, scalable, and SEO optimized website, providing an extensive plugin ecosystem for enhanced functionality.",
-          bgColor: "bg-customPurple",
+          bgColor: "bg-customYellow",
         },
         {
           icon: "FaPuzzlePiece", // Keep this - good for page builder
@@ -761,7 +760,7 @@ export const caseStudiesData = {
           icon: "FaWpforms", // Keep this - perfect for WP Forms
           title: "WP Forms",
           description: "Implemented for creating user-friendly contact forms",
-          bgColor: "bg-customPurple",
+          bgColor: "bg-customYellow",
         },
         {
           icon: "FaEnvelope", // Better than FaPaperPlane for email/SMTP
@@ -775,7 +774,7 @@ export const caseStudiesData = {
           title: "Hostinger",
           description:
             "Serving as the hosting provider, Hostinger offers reliable and high-performance hosting services with optimized WordPress infrastructure, ensuring fast loading speeds, 99.9% uptime guarantee, and comprehensive technical support with LiteSpeed web servers and built-in caching.",
-          bgColor: "bg-customPurple",
+          bgColor: "bg-customYellow",
         },
         {
           icon: "FaLock", // Classic icon for SSL/security
@@ -789,7 +788,7 @@ export const caseStudiesData = {
           title: "Content Delivery Network (CDN)",
           description:
             "Leveraging Hostinger's global CDN infrastructure to deliver website content faster to users worldwide, reducing load times and improving user experience.",
-          bgColor: "bg-customPurple",
+          bgColor: "bg-customYellow",
         },
       ],
       designObjectives: [],
@@ -917,6 +916,424 @@ export const caseStudiesData = {
         },
       ],
     },
+  },
+  "kandy-mechanical": {
+    id: "kandy-mechanical",
+    hero: {
+      subtitle: "Automotive repair and maintenance provider",
+      title: "Total Branding Solution",
+      description:
+        "Kandy Mechanical & Transport, a trusted automotive repair and maintenance provider in Hamilton, New Zealand, sought a comprehensive digital and brand presence to reflect their expertise and reliability.",
+      ctaText: "Schedule a Consultation",
+      ctaLink: "/schedule-consultation",
+      imageSrc: "/assets/images/website-dev/kandy-auto/2.png",
+      imageAlt: "Kandy Auto Website Preview",
+    },
+    clientOverview: {
+      services: [
+        {
+          icon: "FaGasPump", // or "FaTint" or "FaExclamationTriangle"
+          label: "Wrong Fuel Flush",
+        },
+        {
+          icon: "FaCar", // or "FaHandshake" or "FaTag"
+          label: "Vehicle Sale",
+        },
+        {
+          icon: "FaWrench", // or "FaTools" or "FaCogs"
+          label: "General Repairs & Vehicle Servicing",
+        },
+        {
+          icon: "FaTruck", // or "FaPhoneAlt" or "FaExclamationCircle"
+          label: "Emergency Breakdowns & Towing",
+        },
+        {
+          icon: "FaHammer", // or "FaPaintBrush" or "FaSprayCan"
+          label: "Panel Beating & Spray Painting",
+        },
+        {
+          icon: "FaCube", // or "FaBoxes" or "FaShoppingCart"
+          label: "Genuine Parts Supply & Sales",
+        },
+        {
+          icon: "FaCircle", // or "FaRegCircle" or "FaBalanceScale"
+          label: "Tyre Replacement & Wheel Balancing",
+        },
+        {
+          icon: "FaSearch", // or "FaPlug" or "FaMicrochip"
+          label: "Mechanical Diagnostics & Electrical Repair",
+        },
+        {
+          icon: "FaCogs", // or "FaWrench" or "FaTools"
+          label: "Differential & Suspension repair",
+        },
+        {
+          icon: "FaTools", // or "FaWrench" or "FaTools"
+          label: "Part engine repair",
+        },
+      ],
+      companyName: "Kandy Mechanical & Transport",
+      industry: "Automotive repair and maintenance provider",
+      website: "https://kandymechanical.co.nz/",
+      description:
+        "Kandy Mechanical & Transport, a trusted automotive repair and maintenance provider in Hamilton, New Zealand, sought a comprehensive digital and brand presence to reflect their expertise and reliability. Beyond a modern, professional website, the goal was to deliver a complete branding solution that communicates their credibility, engages customers, and strengthens brand recognition across multiple platforms.",
+    },
+    challenges: {
+      introduction: "",
+      items: [
+        {
+          title: "Content Structuring",
+          description:
+            "Presenting detailed service offerings clearly without overwhelming users, ensuring easy navigation and readability",
+        },
+        {
+          title: "Brand Positioning",
+          description:
+            "Translating decades of international and local experience into a concise, customer-friendly narrative that conveys trust and expertise.",
+        },
+        {
+          title: "Online Visibility",
+          description:
+            "Establishing a digital presence for a business that previously had limited online exposure.",
+        },
+        {
+          title: "Consistent Branding Across Platforms",
+          description:
+            "Ensuring that website, social media, and offline marketing materials all reflect a unified brand identity.",
+        },
+        {
+          title: "Technical Optimization",
+          description:
+            "Improving website performance, speed, and SEO to meet modern web standards and enhance user experience.",
+        },
+      ],
+    },
+    approach: {
+      technicalObjectives: [
+        {
+          icon: "FaWordpress", // Keep this - perfect for WordPress
+          title: "WordPress CMS",
+          description:
+            "This industry leading Content Management System (CMS) is employed to develop a flexible, scalable, and SEO optimized website, providing an extensive plugin ecosystem for enhanced functionality.",
+          bgColor: "bg-customYellow",
+        },
+        {
+          icon: "FaServer", // Perfect for hosting services
+          title: "Hostinger",
+          description:
+            "Serving as the hosting provider, Hostinger offers reliable and high-performance hosting services with optimized WordPress infrastructure, ensuring fast loading speeds, 99.9% uptime guarantee, and comprehensive technical support with LiteSpeed web servers and built-in caching.",
+          bgColor: "bg-white",
+        },
+        {
+          icon: "FaLock", // Classic icon for SSL/security
+          title: "SSL Certificate",
+          description:
+            "Integrated free SSL encryption ensures secure data transmission between users and the website, providing enhanced security and improved SEO rankings.",
+          bgColor: "bg-customYellow",
+        },
+        {
+          icon: "FaGlobe", // Perfect for global CDN network
+          title: "Content Delivery Network (CDN)",
+          description:
+            "Leveraging Hostinger's global CDN infrastructure to deliver website content faster to users worldwide, reducing load times and improving user experience.",
+          bgColor: "bg-white",
+        },
+        {
+          icon: "FaPuzzlePiece", // Keep this - good for page builder
+          title: "Elementor Page Builder",
+          description:
+            "Utilized for drag-and-drop visual design, enabling efficient creation of custom layouts without requiring extensive coding knowledge",
+          bgColor: "bg-customYellow",
+        },
+        {
+          icon: "FaWpforms", // Keep this - perfect for WP Forms
+          title: "WP Forms",
+          description: "Implemented for creating user-friendly contact forms",
+          bgColor: "bg-white",
+        },
+        {
+          icon: "FaEnvelope", // Better than FaPaperPlane for email/SMTP
+          title: "WP Mail SMTP",
+          description:
+            "Configured to ensure reliable email delivery from the WordPress site to users and administrators",
+          bgColor: "bg-customYellow",
+        },
+      ],
+      designObjectives: [
+        {
+          icon: "FaAward", // or "FaStar" or "FaCertificate"
+          title: "Professional Brand Image",
+          description:
+            "Establish a cohesive visual identity reflecting Kandy Mechanical's expertise, trustworthiness, and quality service",
+          bgColor: "bg-customYellow",
+        },
+        {
+          icon: "FaListUl", // or "FaClipboardList" or "FaTasks"
+          title: "Service Clarity",
+          description:
+            "Present all automotive repair and maintenance services in a clear and structured manner.",
+          bgColor: "bg-white",
+        },
+        {
+          icon: "FaImages", // or "FaCamera" or "FaEye"
+          title: "Portfolio Presentation",
+          description:
+            "Showcase completed projects and customer work with high quality visuals and detailed descriptions.",
+          bgColor: "bg-customYellow",
+        },
+        {
+          icon: "FaBullseye", // or "FaPhoneAlt" or "FaHandPointUp"
+          title: "Lead Generation",
+          description:
+            "Integrate strong call to action elements to encourage inquiries",
+          bgColor: "bg-white",
+        },
+        {
+          icon: "FaMobile", // or "FaTabletAlt" or "FaDesktop"
+          title: "Mobile Responsiveness",
+          description: "Ensure optimal performance across all devices.",
+          bgColor: "bg-customYellow",
+        },
+        {
+          icon: "FaSearch", // or "FaRocket" or "FaChartLine"
+          title: "Basic SEO Optimization",
+          description:
+            "To make sure the website is visible, user-friendly, and discoverable by both search engines and potential customers",
+          bgColor: "bg-white",
+        },
+        {
+          icon: "FaPalette", // or "FaBrush" or "FaShareAlt"
+          title: "Comprehensive Branding",
+          description:
+            "Extend the brand presence beyond the website through marketing materials and social media integration.",
+          bgColor: "bg-customYellow",
+        },
+      ],
+    },
+    gallery: {
+      images: [
+        {
+          src: "/assets/images/website-dev/kandy-auto/1.png",
+          alt: "Twilson Builders Responsive Design2",
+        },
+        {
+          src: "/assets/images/website-dev/kandy-auto/3.png",
+          alt: "Twilson Builders Responsive Design3",
+        },
+        {
+          src: "/assets/images/website-dev/kandy-auto/4.png",
+          alt: "Twilson Builders Responsive Design4",
+        },
+        {
+          src: "/assets/images/website-dev/kandy-auto/5.png",
+          alt: "Twilson Builders Responsive Design5",
+        },
+        {
+          src: "/assets/images/website-dev/kandy-auto/6.png",
+          alt: "Twilson Builders Responsive Design6",
+        },
+        {
+          src: "/assets/images/website-dev/kandy-auto/7.png",
+          alt: "Twilson Builders Responsive Design7",
+        },
+        {
+          src: "/assets/images/website-dev/kandy-auto/8.png",
+          alt: "Twilson Builders Responsive Design8",
+        },
+        {
+          src: "/assets/images/website-dev/kandy-auto/9.png",
+          alt: "Twilson Builders Responsive Design9",
+        },
+        {
+          src: "/assets/images/website-dev/kandy-auto/10.png",
+          alt: "Twilson Builders Responsive Design10",
+        },
+        {
+          src: "/assets/images/website-dev/kandy-auto/11.png",
+          alt: "Twilson Builders Responsive Design11",
+        },
+        {
+          src: "/assets/images/website-dev/kandy-auto/12.png",
+          alt: "Twilson Builders Responsive Design6",
+        },
+        {
+          src: "/assets/images/website-dev/kandy-auto/13.png",
+          alt: "Twilson Builders Responsive Design7",
+        },
+        {
+          src: "/assets/images/website-dev/kandy-auto/14.png",
+          alt: "Twilson Builders Responsive Design8",
+        },
+        {
+          src: "/assets/images/website-dev/kandy-auto/15.png",
+          alt: "Twilson Builders Responsive Design9",
+        },
+        {
+          src: "/assets/images/website-dev/kandy-auto/16.png",
+          alt: "Twilson Builders Responsive Design10",
+        },
+        {
+          src: "/assets/images/website-dev/kandy-auto/17.png",
+          alt: "Twilson Builders Responsive Design11",
+        },
+      ],
+    },
+    achievements: {
+      introduction:
+        "The website design for Kandy Mechanical & Transport successfully achieved all the initial objectives, delivering a professional online presence that effectively showcases their security services and expertise.",
+      items: [
+        {
+          title: "Enhanced Online Presence",
+          description:
+            "A professional website that builds trust and credibility",
+        },
+        {
+          title: "Improved User Experience",
+          description:
+            "Easy navigation for users to find services, book repairs, or request transport solutions.",
+        },
+        {
+          title: "Higher Engagement",
+          description:
+            "Increased inquiries through call-to-action elements and contact forms.",
+        },
+        {
+          title: "Brand Strengthening",
+          description:
+            "Reinforces Kandy Mechanical’s reputation as a trusted name in Hamilton’s automotive industry",
+        },
+      ],
+    },
+    designProcess: {
+      introduction:
+        "Our design process for Kandy Mechanical & Transport followed a structured approach that focused on their specific needs as a security services company. We aimed to create a website that would effectively showcase their security solutions while providing an intuitive user experience for homeowners, small businesses, and commercial clients.",
+      steps: [
+        {
+          number: "01",
+          title: "Custom Logo Design",
+          description:
+            "Developed multiple logo concepts with iterative revisions based on client feedback. The final logo was delivered in high resolution formats suitable for print and digital use, including JPEG, PNG, and SVG files.",
+          icon: "FaSearch",
+        },
+        {
+          number: "02",
+          title: "Research and Discovery",
+          description:
+            "For the research and discovery phase, We identified the target audience as vehicle owners, fleet operators, and businesses seeking reliable mechanical and transport services. The brand identity was developed to ensure the website design aligns with Kandy Mechanical's core values of reliability, experience, and technical expertise, all backed by over 30 years in the industry.",
+          icon: "FaPalette",
+        },
+        {
+          number: "03",
+          title: "Design Features",
+          description:
+            "The design features focused on visual aesthetics with a clean and professional design reflecting the automotive industry, incorporating mechanical imagery, vehicles, and workshop visuals to reinforce brand identity. The responsive design was optimized across desktops, tablets, and smartphones to ensure accessibility for all customers.",
+          icon: "FaMobile",
+        },
+        {
+          number: "04",
+          title: "Navigation Structure",
+          description:
+            "Simple, structured menus for Services, About, Contact, and Booking options.",
+          icon: "FaCompass",
+        },
+        {
+          number: "05",
+          title: "Interactive Elements",
+          description:
+            '"Book an Appointment" and "Call Now" CTAs placed prominently.',
+          icon: "FaMousePointer",
+        },
+        {
+          number: "06",
+          title: "Features and Functionality",
+          description: "",
+          icon: "FaCogs",
+        },
+      ],
+    },
+    additionalServices: {
+      title: "Additional Services & Solutions",
+      introduction: "Beyond website development, we provided comprehensive digital marketing and branding solutions to establish Kandy Mechanical's complete online presence.",
+      sections: [
+        {
+          id: "seo-optimization",
+          title: "Basic SEO Optimization",
+          icon: "FaSearch",
+          description: "Comprehensive SEO implementation to improve search visibility and organic traffic.",
+          items: [
+            {
+              title: "Keyword Research",
+              description: "Conducted keyword research for all website pages to target relevant search terms."
+            },
+            {
+              title: "Content Optimization",
+              description: "Optimized descriptive text and content with targeted keywords for better search visibility."
+            },
+            {
+              title: "Technical SEO",
+              description: "Fixed technical issues highlighted by Google Lighthouse and PageSpeed Insights to improve performance and user experience."
+            },
+            {
+              title: "Analytics Setup",
+              description: "Created and linked Google Analytics to track website traffic and user behavior."
+            },
+            {
+              title: "Search Engine Indexing",
+              description: "Developed sitemap and robots.txt files for proper indexing by search engines."
+            },
+            {
+              title: "Local SEO",
+              description: "Created and optimized Google My Business page to enhance local search presence."
+            }
+          ]
+        },
+        {
+          id: "facebook-setup",
+          title: "Facebook Page Setup",
+          icon: "FaFacebook",
+          description: "Complete Facebook business page creation and optimization for social media presence.",
+          items: [
+            {
+              title: "Business Page Creation",
+              description: "Created an official business page for Kandy Mechanical."
+            },
+            {
+              title: "Profile Optimization",
+              description: "Uploaded logo, cover image, and initial business information."
+            },
+            {
+              title: "Integration",
+              description: "Configured contact options and integrated the page with the website."
+            }
+          ]
+        },
+        {
+          id: "branding-materials",
+          title: "Marketing & Branding Material Design, Printing & Handover",
+          icon: "FaPrint",
+          description: "Professionally designed materials to create a consistent brand identity across all touchpoints.",
+          subtitle: "Professionally designed materials to create a consistent brand identity:",
+          items: [
+            {
+              title: "Business Stationery",
+              description: "Letterhead and business/visiting cards"
+            },
+            {
+              title: "Marketing Collateral",
+              description: "Flyers and shop signboards"
+            },
+            {
+              title: "Vehicle Branding",
+              description: "Outdoor banners and vehicle branding graphics"
+            },
+            {
+              title: "Service Materials",
+              description: "Service tags and stickers"
+            }
+          ]
+        }
+      ]
+    }
   },
 };
 

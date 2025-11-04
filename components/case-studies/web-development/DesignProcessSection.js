@@ -1,16 +1,16 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import { 
-  FaSearch, 
-  FaSitemap, 
-  FaPalette, 
-  FaCode, 
+import {
+  FaSearch,
+  FaSitemap,
+  FaPalette,
+  FaCode,
   FaRocket,
   FaLightbulb,
   FaUserFriends,
   FaClipboardCheck,
   FaCogs,
-  FaChartLine
+  FaChartLine,
 } from "react-icons/fa";
 
 // Icon mapping
@@ -24,7 +24,7 @@ const iconComponents = {
   FaUserFriends: FaUserFriends,
   FaClipboardCheck: FaClipboardCheck,
   FaCogs: FaCogs,
-  FaChartLine: FaChartLine
+  FaChartLine: FaChartLine,
 };
 
 const DesignProcessSection = ({ data }) => {

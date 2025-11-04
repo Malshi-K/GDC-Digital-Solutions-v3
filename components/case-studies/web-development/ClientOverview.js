@@ -24,8 +24,14 @@ import {
   FaFileContract,
   FaSearchPlus,
   FaHardHat,
+  FaGasPump,
+  FaCar,
+  FaTruck,
+  FaCube,
+  FaCircle,
+  FaSearch,
+  FaIndustry,
   FaExternalLinkAlt,
-  FaIndustry
 } from "react-icons/fa";
 import Link from "next/link";
 
@@ -53,7 +59,13 @@ const iconMap = {
   FaPencilRuler: FaPencilRuler,
   FaFileContract: FaFileContract,
   FaSearchPlus: FaSearchPlus,
-  FaHardHat: FaHardHat
+  FaHardHat: FaHardHat,
+  FaGasPump:FaGasPump,
+  FaCar:FaCar,
+  FaTruck:FaTruck,
+  FaCube:FaCube,
+  FaCircle:FaCircle,
+  FaSearch:FaSearch,
 };
 
 const ClientOverview = ({ data }) => {
