@@ -22,16 +22,16 @@ const ServiceCard = ({ title, description, items, iconSrc, maxItems = Infinity }
         </div>
       </div>
 
-      {/* Title - Centered */}
-      <h3 className={`text-xl sm:text-2xl font-bold text-center mb-3 text-gray-900`}>{title}</h3>
+      {/* Title - Centered on small, left on md+ so bullets align */}
+      <h3 className={`text-xl sm:text-2xl font-bold text-center md:text-left mb-3 text-gray-900`}>{title}</h3>
 
-      {/* Description - Now visible */}
-      <p className={`text-sm text-center mb-6 text-gray-600`}>
+      {/* Description - Centered on small, left on md+ */}
+      <p className={`text-sm text-center md:text-left mb-6 text-gray-600`}>
         {description}
       </p>
 
   {/* Items List - Left aligned with slightly larger custom-colored bullets */}
-  <ul className="list-disc pl-8 sm:pl-10 md:pl-12 lg:pl-14 space-y-2 sm:space-y-3 text-left marker:text-customPurple marker:text-lg mx-auto">
+  <ul className="list-disc pl-8 sm:pl-10 md:pl-12 lg:pl-14 space-y-2 sm:space-y-3 text-center md:text-left marker:text-customPurple marker:text-lg">
         {(showAll ? items : items.slice(0, maxItems)).map((item, index) => (
           <li key={index}>
             <Link 

@@ -98,12 +98,10 @@ const HeroSection = ({
   const { firstLine, secondLine } = getTitleParts();
 
   return (
-    <section
-      ref={scrollRef}
-      className="relative flex items-center justify-center min-h-[420px] sm:min-h-[520px] lg:min-h-[600px] text-white overflow-hidden px-4"
-    >
+   <section className="relative flex items-center justify-center min-h-[420px] sm:min-h-[520px] lg:min-h-[600px] text-white overflow-hidden">
+      {/* Purple Gradient Background */}
+      <div className="absolute inset-0 z-10" />
 
-    
 
       {/* Decorative Elements */}
       <div className="absolute inset-0 z-15 pointer-events-none">
@@ -120,8 +118,8 @@ const HeroSection = ({
 
       {/* Content */}
       <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-        <div className="max-w-3xl sm:max-w-4xl mx-auto text-center md:text-left">
-          <motion.h1
+  <div className="w-full text-center md:text-left">
+    <motion.h1
             className="text-customPurple text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 leading-tight"
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
