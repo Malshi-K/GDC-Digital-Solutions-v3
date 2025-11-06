@@ -43,19 +43,26 @@ const CaseStudySlider = ({ caseStudies }) => {
 
   <div className="relative w-full overflow-hidden">
         {/* Full-width image without cropping or distortion */}
-        <img
-          src={currentStudy.imagePath}
-          alt={currentStudy.heading}
-          className="w-full h-auto block select-none pointer-events-none brightness-[.8]"
-        />
+          {/* Use a single responsive image: mobile uses mobileImagePath, desktop uses imagePath. */}
+          <picture>
+            {/* Match header hamburger breakpoint: use desktop image only at xl and above */}
+            <source media="(min-width: 1280px)" srcSet={currentStudy.imagePath} />
+            {/* Use object-contain so the full image is visible without cropping */}
+            <img
+              src={currentStudy.mobileImagePath || currentStudy.imagePath}
+              alt={currentStudy.heading}
+              className="w-full block object-contain brightness-[.8]"
+              style={{ height: 'auto' }}
+            />
+          </picture>
 
         {/* Content Layer */}
-        <div className="relative md:absolute md:inset-0 z-10 px-4 sm:px-6 md:px-8 lg:px-40">
-          <div className="md:h-full flex items-center">
+        <div className="relative xl:absolute xl:inset-0 z-10 px-4 sm:px-6 md:px-8 lg:px-20">
+          <div className="xl:h-full flex items-center">
             {/* Card Container with Animation - Positioned Left */}
-            <div className="w-full max-w-xl lg:max-w-lg mx-auto md:mx-0 mt-4 md:mt-0">
+            <div className="w-full max-w-xl lg:max-w-lg mx-auto xl:mx-0 mt-4 xl:mt-0">
               {/* Navigation Arrows - Above Card */}
-              <div className="flex gap-3 mb-4 sm:mb-6 justify-center md:justify-start">
+              <div className="flex gap-3 mb-4 sm:mb-6 justify-center xl:justify-start">
                 <button
                   onClick={previousSlide}
                   className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-gray-100 transition-colors"
@@ -109,7 +116,7 @@ const CaseStudySlider = ({ caseStudies }) => {
         </div>
 
         {/* Pagination Dots */}
-        <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 md:left-8 md:translate-x-0 sm:left-16 lg:left-40 flex gap-2 sm:gap-3 z-20">
+        <div className="absolute bottom-4 xl:bottom-8 left-1/2 -translate-x-1/2 xl:left-8 xl:translate-x-0 sm:left-16 lg:left-20 flex gap-2 sm:gap-3 z-20">
           {caseStudies.map((_, index) => (
             <button
               key={index}
@@ -126,7 +133,7 @@ const CaseStudySlider = ({ caseStudies }) => {
 
         {/* Scroll to Top Button */}
         <button
-          className="hidden md:flex absolute bottom-8 right-8 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm items-center justify-center hover:bg-white/30 transition-colors z-20"
+          className="hidden xl:flex absolute bottom-8 right-8 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm items-center justify-center hover:bg-white/30 transition-colors z-20"
           aria-label="Scroll to top"
         >
           <ChevronRight className="w-5 h-5 text-white rotate-[-90deg]" />

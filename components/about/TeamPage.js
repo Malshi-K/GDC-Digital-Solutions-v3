@@ -9,13 +9,13 @@ import TeamTitleBar from "./TeamTitleBar";
 // Define the teamMembers array with LinkedIn profiles
 const teamMembers = [
   {
-    image: "/assets/images/team/Danyon-Fernando.webp",
+    image: "/assets/images/team/Danyon-Fernando.png",
     name: "Danyon Fernando",
     position: "Director of Operations",
     linkedinUrl: "https://www.linkedin.com/in/danyon-fernando-2b7563149", 
   },
   {
-    image: "/assets/images/team/Ruwani.webp",
+    image: "/assets/images/team/Ruwani.png",
     name: "Ruwani Kokawala",
     position: "Google Ads Specialist/ SEO",
     linkedinUrl: "https://www.linkedin.com/in/ruwani-kokawala-233846261",
@@ -84,7 +84,7 @@ const TeamPage = () => {
                   fill
                   quality={100}
                   style={{ objectFit: "cover" }}
-                  className="grayscale transition-all duration-300"
+                  className="transition-all duration-300"
                 />
 
                 {/* Overlay that appears on hover (customPurple with name/position) */}
