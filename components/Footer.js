@@ -88,8 +88,8 @@ export default function Footer() {
           </div>
         </div>
       </footer>
-      {/* Logo Section - Light Gray Background */}
-      <div className="bg-white py-4 sm:py-6 md:py-8 px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-20">
+      {/* Logo Section - Light Gray Background - DISABLED */}
+      {/* <div className="bg-white py-4 sm:py-6 md:py-8 px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-20">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
             <div className="flex items-center justify-center group">
@@ -162,7 +162,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       {/* Copyright Section - White Background */}
       <div className="bg-white py-3 sm:py-4 md:py-5 shadow-[0_-10px_15px_-3px_rgba(0,0,0,0.1),0_-4px_6px_-2px_rgba(0,0,0,0.05)] px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-20">
         <div className="max-w-7xl mx-auto">
