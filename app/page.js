@@ -2,6 +2,7 @@ import Banner from "@/components/home/Banner";
 import Services from "@/components/home/Services";
 import CallToAction from "@/components/home/CallToAction";
 import CaseStudySlider from "@/components/home/CaseStudySlider";
+import ClientLogoSlider from "@/components/home/ClientLogoSlider";
 import homeCaseStudiesData from "@/data/homeCaseStudiesData";
 
 export async function generateMetadata() {
@@ -69,6 +70,7 @@ export default function Home() {
       <Banner />
       <Services />
       <CaseStudySlider caseStudies={homeCaseStudiesData} />
+      <ClientLogoSlider />
       <CallToAction />
     </main>
   );
