@@ -14,6 +14,7 @@ const PageTitle = ({
 }) => {
   const pathname = usePathname();
   const [pageTitle, setPageTitle] = useState(title || "");
+  const [isLoaded, setIsLoaded] = useState(false);
 
   // Determine page title and image based on current route
   useEffect(() => {
@@ -41,6 +42,11 @@ const PageTitle = ({
     }
   }, [pathname, title, customImage]);
 
+  // Set loaded state after component mounts to trigger animations
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
   // Handle scroll down functionality
   const handleScrollDown = () => {
     const nextSection = document.getElementById(nextSectionId);
@@ -55,25 +61,6 @@ const PageTitle = ({
     }
   };
 
-  // Text animation helper
-  const animateText = (text, startDelay = 0) => {
-    return text.split("").map((char, index) => {
-      const display = char === " " ? "\u00A0" : char;
-      return (
-        <span
-          key={index}
-          className="inline-block"
-          style={{
-            animation: `fadeIn 0.05s ease forwards`,
-            animationDelay: `${(index + startDelay) * 0.1}s`,
-            opacity: 0,
-          }}
-        >
-          {display}
-        </span>
-      );
-    });
-  };
 
   return (
     <section className="relative flex items-center justify-center min-h-[600px] text-white overflow-hidden">
@@ -108,9 +95,13 @@ const PageTitle = ({
       {/* Content */}
       <div className="container relative z-20 mx-auto px-6 md:px-40">
         <div className="max-w-4xl">
-          <h1 className="text-customPurple text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            {animateText(pageTitle)}
-          </h1>
+          <div 
+            className={`fade-in-up ${isLoaded ? 'is-visible' : ''}`}
+          >
+            <h1 className="text-customPurple text-5xl md:text-7xl font-bold mb-6 leading-tight">
+              {pageTitle}
+            </h1>
+          </div>
 
           {/* Subtitle/Description */}
           <p className="text-customGray text-xl md:text-2xl mb-8 leading-relaxed max-w-2xl">
@@ -183,17 +174,17 @@ const PageTitle = ({
         </div>
       </div>
 
-      {/* Animation Styles */}
+      {/* CSS for animations */}
       <style jsx>{`
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+        .fade-in-up {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in-up.is-visible {
+          opacity: 1;
+          transform: translateY(0);
         }
       `}</style>
     </section>

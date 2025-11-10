@@ -4,33 +4,19 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronDoubleDownIcon } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 
 const HeroSection = ({
   service,
   nextSectionId = "next-section", // ID of the next section to scroll to
 }) => {
   const scrollRef = useRef(null);
+  const [isLoaded, setIsLoaded] = useState(false);
 
-  // Text animation helper
-  const animateText = (text, startDelay = 0) => {
-    return text.split("").map((char, index) => {
-      const display = char === " " ? "\u00A0" : char;
-      return (
-        <span
-          key={index}
-          className="inline-block"
-          style={{
-            animation: `fadeIn 0.05s ease forwards`,
-            animationDelay: `${(index + startDelay) * 0.1}s`,
-            opacity: 0,
-          }}
-        >
-          {display}
-        </span>
-      );
-    });
-  };
+  // Set loaded state after component mounts to trigger animations
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
 
   // Handle scroll down functionality
   const handleScrollDown = () => {
@@ -141,9 +127,13 @@ const HeroSection = ({
       {/* Content */}
       <div className="container relative z-20 mx-auto px-6 md:px-40">
         <div className="max-w-4xl">
-          <h1 className="text-customPurple text-5xl md:text-7xl font-bold mb-6 leading-tight bg-clip-text text-transparent">
-            <div className="text-customPurple whitespace-nowrap">{animateText(firstLine)} {animateText(secondLine, firstLine.length)}</div>
-          </h1>
+          <div 
+            className={`fade-in-up ${isLoaded ? 'is-visible' : ''}`}
+          >
+            <h1 className="text-customPurple text-5xl md:text-7xl font-bold mb-6 leading-tight bg-clip-text text-transparent">
+              <div className="text-customPurple whitespace-nowrap">{firstLine} {secondLine}</div>
+            </h1>
+          </div>
 
           <p className="text-xl md:text-2xl text-customGray mb-10 max-w-2xl leading-relaxed">
             {service.description}
@@ -175,17 +165,17 @@ const HeroSection = ({
         </div>
       </motion.div>
       
-      {/* Enhanced Animation Styles */}
+      {/* CSS for animations */}
       <style jsx>{`
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(30px) scale(0.95);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-          }
+        .fade-in-up {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in-up.is-visible {
+          opacity: 1;
+          transform: translateY(0);
         }
 
         @keyframes shimmer {

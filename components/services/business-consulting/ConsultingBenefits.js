@@ -84,33 +84,10 @@ export default function ConsultingBenefits() {
     };
   }, []);
 
-  // Split the text for the letter animation
-  const consultingText = "Consulting & Strategy";
-  const consultingTextArray = consultingText.split("");
-
   return (
     <section className="py-12 bg-gray-50" ref={sectionRef}>
       <h2 className="text-3xl font-bold text-center text-customGray mb-10">
-        {"Why Choose GDC Digital Solutions for "}
-        <span className="inline-block">
-          {consultingTextArray.map((letter, index) =>
-            letter === " " ? (
-              <span key={index} className="inline-block w-2" />
-            ) : (
-              <span
-                key={index}
-                className={`text-customGray inline-block transform ${
-                  isVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 -translate-y-5"
-                } transition-all duration-500`}
-                style={{ transitionDelay: `${index * 50}ms` }}
-              >
-                {letter}
-              </span>
-            )
-          )}
-        </span>
+        Why Choose GDC Digital Solutions for Consulting & Strategy
       </h2>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
