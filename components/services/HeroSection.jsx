@@ -156,7 +156,7 @@ const HeroSection = ({
 
       {/* Enhanced Scroll Down Indicator */}
       <motion.div
-        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 md:right-10 md:left-auto md:transform-none z-20 cursor-pointer group"
+        className="hidden lg:flex absolute bottom-10 right-10 z-20 cursor-pointer group"
         animate={{ y: [0, 10, 0] }}
         transition={{ repeat: Infinity, duration: 1.5 }}
         onClick={handleScrollDown}
