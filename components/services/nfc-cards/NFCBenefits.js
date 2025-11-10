@@ -65,33 +65,10 @@ export default function NFCBenefits() {
     };
   }, []);
 
-  // Split "NFC Cards" for letter animation
-  const titleText = "NFC Cards";
-  const titleLetters = titleText.split("");
-
   return (
     <section className="py-12" ref={sectionRef}>
-      <h2
-        className={`text-3xl font-bold text-center text-customGray mb-10 transition-opacity duration-1000 ease-out ${
-          isVisible ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        {"Why Choose "}
-        {titleLetters.map((letter, index) =>
-          letter === " " ? (
-            <span key={index} className="inline-block w-2" />
-          ) : (
-            <span
-              key={index}
-              className={`text-customPurple inline-block transform transition-all duration-500 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-5"
-              }`}
-              style={{ transitionDelay: `${index * 50}ms` }}
-            >
-              {letter}
-            </span>
-          )
-        )}
+      <h2 className="text-3xl font-bold text-center text-customGray mb-10">
+        Why Choose NFC Cards
       </h2>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

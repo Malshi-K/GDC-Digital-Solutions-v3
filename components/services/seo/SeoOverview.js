@@ -66,29 +66,9 @@ export default function SeoOverview() {
 
   return (
     <section className="py-12" ref={sectionRef}>
-      <div
-        className={`text-3xl font-bold text-center text-customGray mb-10 transition-opacity duration-1000 ${
-          isVisible ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        {"Why Choose GDC Digital Solutions for "}
-        {[..."SEO".split("")].map((letter, index) => (
-          <span
-            key={index}
-            className={`text-customPurple inline-block transition-transform duration-300 ease-out ${
-              isVisible
-                ? "translate-y-0 opacity-100"
-                : "-translate-y-5 opacity-0"
-            }`}
-            style={{
-              transitionDelay: `${index * 50}ms`,
-            }}
-          >
-            {letter}
-          </span>
-        ))}
-        {" Services?"}
-      </div>
+      <h2 className="text-3xl font-bold text-center text-customGray mb-10">
+        Why Choose GDC Digital Solutions for SEO Services?
+      </h2>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Dynamically render the SEO overview benefits */}

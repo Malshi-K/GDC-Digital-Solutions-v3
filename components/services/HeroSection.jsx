@@ -3,13 +3,14 @@
 import Link from "next/link";
 import { ChevronDoubleDownIcon } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 
 const HeroSection = ({
   service,
   nextSectionId = "next-section", // ID of the next section to scroll to
 }) => {
   const scrollRef = useRef(null);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   // Title now uses the same fade-up + underline animation used in shared PageTitle
 
@@ -168,7 +169,7 @@ const HeroSection = ({
         </div>
       </motion.div>
       
-      {/* Enhanced Animation Styles */}
+      {/* CSS for animations */}
       <style jsx>{`
         @keyframes shimmer {
           0% {

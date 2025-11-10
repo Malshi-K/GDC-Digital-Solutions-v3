@@ -14,6 +14,7 @@ const PageTitle = ({
 }) => {
   const pathname = usePathname();
   const [pageTitle, setPageTitle] = useState(title || "");
+  const [isLoaded, setIsLoaded] = useState(false);
 
   // Determine page title and image based on current route
   useEffect(() => {
@@ -40,6 +41,11 @@ const PageTitle = ({
       }
     }
   }, [pathname, title, customImage]);
+
+  // Set loaded state after component mounts to trigger animations
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
 
   // Handle scroll down functionality
   const handleScrollDown = () => {
@@ -168,17 +174,17 @@ const PageTitle = ({
         </div>
       </div>
 
-      {/* Animation Styles */}
+      {/* CSS for animations */}
       <style jsx>{`
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+        .fade-in-up {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in-up.is-visible {
+          opacity: 1;
+          transform: translateY(0);
         }
       `}</style>
     </section>

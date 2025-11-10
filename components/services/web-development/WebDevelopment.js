@@ -54,26 +54,8 @@ export default function WebDevelopmentBenefits() {
 
   return (
     <section className="py-12" ref={sectionRef}>
-      <h2
-        className={`text-3xl font-bold text-center text-customGray mb-10 transition-opacity duration-1000 ${
-          isVisible ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        {"Why Choose Our "}
-        {[..."Website Development".split('')].map((letter, index) => ( 
-          letter === ' ' ? 
-          <span key={index} className="inline-block w-2" /> :
-          <span
-            key={index}
-            className={`text-customPurple inline-block transition-all duration-300 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-5"
-            }`}
-            style={{ transitionDelay: `${index * 50}ms` }}
-          >
-            {letter}
-          </span>
-        ))}
-        {" Service"}
+      <h2 className="text-3xl font-bold text-center text-customGray mb-10">
+        Why Choose Our Website Development Service
       </h2>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
