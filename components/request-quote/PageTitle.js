@@ -73,7 +73,7 @@ const PageTitle = ({
 
       {/* Scroll Down Indicator */}
       <motion.div
-        className="absolute bottom-10 right-10 z-20 cursor-pointer"
+        className="hidden lg:flex absolute bottom-10 right-10 z-20 cursor-pointer"
         animate={{ y: [0, 10, 0] }}
         transition={{ repeat: Infinity, duration: 1.5 }}
         onClick={handleScrollDown}
