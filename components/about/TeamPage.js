@@ -21,7 +21,7 @@ const teamMembers = [
     linkedinUrl: "https://www.linkedin.com/in/ruwani-kokawala-233846261",
   },
   {
-    image: "/assets/images/team/Malshi.webp",
+    image: "/assets/images/team/Malshi.png",
     name: "Malshi Kulasinghe",
     position: "Web Developer/ App Development",
     linkedinUrl: "https://www.linkedin.com/in/malshii",
