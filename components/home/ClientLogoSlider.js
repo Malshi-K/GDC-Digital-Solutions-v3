@@ -123,6 +123,16 @@ const ClientLogoSlider = () => {
             transform: translate3d(-50%, 0, 0);
           }
         }
+        
+        .slider-track {
+          --animation-duration: ${mobileAnimationDuration};
+        }
+        
+        @media (min-width: 768px) {
+          .slider-track {
+            --animation-duration: ${animationDuration};
+          }
+        }
       `}</style>
     </section>
   );
