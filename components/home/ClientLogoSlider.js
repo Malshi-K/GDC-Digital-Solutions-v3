@@ -3,8 +3,9 @@ import React from "react";
 import Image from "next/image";
 
 const ClientLogoSlider = () => {
-  // Animation speed variable 
-  const animationDuration = "25s";
+  // Animation speed variables - faster on mobile to match web view feel
+  const animationDuration = "12s"; // Desktop/Tablet
+  const mobileAnimationDuration = "8s"; // Mobile
 
   // Client logo paths 
   const logos = [
@@ -59,9 +60,9 @@ const ClientLogoSlider = () => {
           <div className="overflow-hidden">
             {/* Slider Track */}
             <div
-              className="flex gap-8 md:gap-12 lg:gap-16"
+              className="flex gap-8 md:gap-12 lg:gap-16 slider-track"
               style={{
-                animation: `slide ${animationDuration} linear infinite`,
+                animation: `slide var(--animation-duration, ${animationDuration}) linear infinite`,
                 willChange: "transform",
               }}
               onMouseEnter={(e) => {
