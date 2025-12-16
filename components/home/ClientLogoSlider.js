@@ -29,10 +29,6 @@ const ClientLogoSlider = () => {
       alt: "Logo"
     },
     {
-      src: "/assets/images/Digital Solution.png",
-      alt: "Digital Solution Logo"
-    },
-    {
       src: "/assets/images/GDC LOGOS 2024 BLUE.webp",
       alt: "GDC Logos 2024 Blue"
     },
