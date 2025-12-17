@@ -31,7 +31,7 @@ const ServiceCard = ({ title, description, items, iconSrc, maxItems = Infinity }
       </p>
 
   {/* Items List - Left aligned with slightly larger custom-colored bullets */}
-  <ul className="list-disc pl-8 sm:pl-10 md:pl-12 lg:pl-14 space-y-2 sm:space-y-3 text-center md:text-left marker:text-customPurple marker:text-lg">
+  <ul className="list-none md:list-disc pl-0 md:pl-10 lg:pl-12 xl:pl-14 space-y-2 sm:space-y-3 text-center md:text-left md:marker:text-customPurple md:marker:text-lg">
         {(showAll ? items : items.slice(0, maxItems)).map((item, index) => (
           <li key={index}>
             <Link 
