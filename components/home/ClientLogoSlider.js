@@ -3,9 +3,8 @@ import React from "react";
 import Image from "next/image";
 
 const ClientLogoSlider = () => {
-  // Animation speed variables - faster on mobile to match web view feel
-  const animationDuration = "12s"; // Desktop/Tablet
-  const mobileAnimationDuration = "8s"; // Mobile
+  // Animation speed variable 
+  const animationDuration = "25s";
 
   // Client logo paths 
   const logos = [
@@ -28,6 +27,10 @@ const ClientLogoSlider = () => {
     {
       src: "/assets/images/logo.webp",
       alt: "Logo"
+    },
+    {
+      src: "/assets/images/Digital Solution.png",
+      alt: "Digital Solution Logo"
     },
     {
       src: "/assets/images/GDC LOGOS 2024 BLUE.webp",
@@ -60,9 +63,9 @@ const ClientLogoSlider = () => {
           <div className="overflow-hidden">
             {/* Slider Track */}
             <div
-              className="flex gap-8 md:gap-12 lg:gap-16 slider-track"
+              className="flex gap-8 md:gap-12 lg:gap-16"
               style={{
-                animation: `slide var(--animation-duration, ${animationDuration}) linear infinite`,
+                animation: `slide ${animationDuration} linear infinite`,
                 willChange: "transform",
               }}
               onMouseEnter={(e) => {
@@ -121,16 +124,6 @@ const ClientLogoSlider = () => {
           }
           to {
             transform: translate3d(-50%, 0, 0);
-          }
-        }
-        
-        .slider-track {
-          --animation-duration: ${mobileAnimationDuration};
-        }
-        
-        @media (min-width: 768px) {
-          .slider-track {
-            --animation-duration: ${animationDuration};
           }
         }
       `}</style>
