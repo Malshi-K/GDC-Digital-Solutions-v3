@@ -74,24 +74,29 @@ const ClientOverview = ({ data }) => {
   const sectionRef = useRef(null);
 
   useEffect(() => {
+    // Mobile-safe: if IntersectionObserver is missing/flaky (some mobile webviews),
+    // don't leave the UI stuck at opacity-0.
+    if (typeof IntersectionObserver === "undefined") {
+      setIsVisible(true);
+      return;
+    }
+
+    const el = sectionRef.current;
+    if (!el) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
+          observer.disconnect();
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.15, rootMargin: "0px 0px -10% 0px" }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+    observer.observe(el);
 
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
+    return () => observer.disconnect();
   }, []);
 
   return (
