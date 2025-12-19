@@ -65,7 +65,7 @@ const PageTitle = ({
   // Currently using a simple fade-up on mount for the title
 
   return (
-  <section className="relative flex items-center justify-center min-h-[420px] sm:min-h-[520px] lg:min-h-[600px] text-white overflow-hidden">
+  <section className="relative flex items-center justify-center min-h-[320px] sm:min-h-[380px] lg:min-h-[420px] pt-20 sm:pt-24 text-white overflow-hidden">
       {/* Purple Gradient Background */}
       <div className="absolute inset-0 z-10" />
 
@@ -86,7 +86,7 @@ const PageTitle = ({
       <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
   <div className="w-full text-center md:text-left">
           <motion.h1
-            className="text-customPurple text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-3 md:mb-4 leading-tight"
+            className="text-customPurple text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 leading-tight"
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
@@ -104,7 +104,7 @@ const PageTitle = ({
           />
 
           {/* Subtitle/Description */}
-          <p className="text-customGray text-base sm:text-lg md:text-xl mb-8 leading-relaxed max-w-xl mx-auto md:mx-0">
+          <p className="text-customGray text-sm sm:text-base md:text-lg mb-6 leading-relaxed max-w-xl mx-auto md:mx-0">
             Transform your digital presence with our expert solutions tailored
             to your business needs
           </p>
@@ -114,7 +114,7 @@ const PageTitle = ({
             {/* Primary CTA Button */}
             <Link
               href="/contact-us"
-              className="inline-flex items-center justify-center px-8 py-4 bg-customPurple text-white text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-xl group"
+              className="inline-flex items-center justify-center px-6 py-3 bg-customPurple text-white text-base font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-xl group"
             >
               Contact Now
             </Link>
@@ -124,7 +124,7 @@ const PageTitle = ({
 
       {/* Enhanced Scroll Down Indicator */}
       <motion.div
-        className="hidden lg:flex absolute bottom-10 right-10 z-20 cursor-pointer group"
+        className="hidden lg:flex absolute bottom-6 right-6 z-20 cursor-pointer group"
         animate={{ y: [0, 10, 0] }}
         transition={{ repeat: Infinity, duration: 1.5 }}
         onClick={handleScrollDown}
@@ -141,7 +141,7 @@ const PageTitle = ({
       </motion.div>
 
       {/* Trust Indicators */}
-      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 md:left-6 md:transform-none md:translate-x-0 z-20">
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 md:left-6 md:transform-none md:translate-x-0 z-20">
         <div className="flex items-center space-x-4 text-white/60 text-center md:text-left">
           <div className="flex items-center">
             <svg
