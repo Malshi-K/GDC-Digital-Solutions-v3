@@ -68,13 +68,24 @@ const OurApproachSection = ({ data }) => {
   const hasDesignObjectives = data.designObjectives && data.designObjectives.length > 0;
 
   useEffect(() => {
+    // Fallback: Show content immediately if IntersectionObserver is not available
+    if (typeof IntersectionObserver === 'undefined') {
+      setIsVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
+          // Disconnect observer once triggered to prevent re-triggering
+          observer.disconnect();
         }
       },
-      { threshold: 0.2 }
+      { 
+        threshold: 0.1, // Lower threshold for better mobile detection
+        rootMargin: '50px' // Trigger earlier
+      }
     );
 
     if (sectionRef.current) {
@@ -85,6 +96,7 @@ const OurApproachSection = ({ data }) => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
       }
+      observer.disconnect();
     };
   }, []);
 
