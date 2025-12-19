@@ -1,32 +1,10 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 const CaseStudiesHero = ({ data }) => {
-  const [isVisible, setIsVisible] = useState(false);
   const titleWords = data.title.split(" ");
-  
-  useEffect(() => {
-    // Set visibility after component mounts for animation
-    setIsVisible(true);
-    
-    // Setup intersection observer for viewport detection
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      });
-    }, { threshold: 0.5 });
-    
-    const section = document.querySelector('#hero-section');
-    if (section) observer.observe(section);
-    
-    return () => {
-      if (section) observer.unobserve(section);
-    };
-  }, []);
 
   return (
     <section
@@ -40,11 +18,7 @@ const CaseStudiesHero = ({ data }) => {
         className="relative z-10 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-center md:justify-between gap-8 pt-6 md:pt-12"
       >
         {/* Left Content */}
-        <div
-          className={`flex flex-col items-center md:items-start w-full md:w-1/2 max-w-full md:max-w-2xl space-y-6 text-center md:text-left transform transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
-          }`}
-        >
+        <div className="flex flex-col items-center md:items-start w-full md:w-1/2 max-w-full md:max-w-2xl space-y-6 text-center md:text-left">
           <h5 className="text-xs sm:text-sm md:text-md uppercase tracking-widest font-semibold text-black">
             {data.subtitle}
           </h5>
@@ -52,16 +26,11 @@ const CaseStudiesHero = ({ data }) => {
             {titleWords.map((word, index) => (
               <span
                 key={index}
-                className={`transform transition-all duration-700 delay-${
-                  index * 100
+                className={`transform ${
+                  word === "Consultants" ? "whitespace-nowrap" : ""
                 } ${
-                  isVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-12"
-                } ${word === "Consultants" ? "whitespace-nowrap" : ""} ${
                   word === "Study" ? "text-customPurple" : "text-customPurple"
                 }`}
-                style={{ transitionDelay: `${index * 0.05}s` }}
               >
                 {word}
               </span>
@@ -84,13 +53,8 @@ const CaseStudiesHero = ({ data }) => {
         </div>
 
         {/* Right Content */}
-        <div
-          className={`flex justify-center md:justify-end mt-6 md:mt-0 w-full md:w-1/2 mb-6 md:mb-0 transform transition-all duration-700 delay-150 ${
-            isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
-          }`}
-          style={{ transitionDelay: "0.35s" }}
-        >
-          <div className="animate-float w-full flex justify-center md:justify-end">
+        <div className="flex justify-center md:justify-end mt-6 md:mt-0 w-full md:w-1/2 mb-6 md:mb-0">
+          <div className="md:animate-float w-full flex justify-center md:justify-end">
             <div className="w-full max-w-[260px] sm:max-w-[360px] md:max-w-[460px] lg:max-w-[520px]">
               <Image
                 src={data.imageSrc}
@@ -98,16 +62,21 @@ const CaseStudiesHero = ({ data }) => {
                 className="w-full h-auto object-contain"
                 width={550}
                 height={550}
+                priority
+                loading="eager"
+                unoptimized
               />
             </div>
           </div>
         </div>
       </div>
 
-      {/* Float animation only (no background/color changes) */}
+      {/* Float animation only on desktop (no background/color changes) */}
       <style jsx>{`
         @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-        .animate-float { animation: float 4s ease-in-out infinite; }
+        @media (min-width: 768px) {
+          .md\:animate-float { animation: float 4s ease-in-out infinite; }
+        }
       `}</style>
     </section>
   );
