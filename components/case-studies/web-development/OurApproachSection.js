@@ -61,96 +61,27 @@ const iconMap = {
 };
 
 const OurApproachSection = ({ data }) => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true); // Always visible - no animation delay
   const sectionRef = useRef(null);
 
   // Check if design objectives exist and have data
   const hasDesignObjectives = data.designObjectives && data.designObjectives.length > 0;
 
-  useEffect(() => {
-    // Fallback: Show content immediately if IntersectionObserver is not available
-    if (typeof IntersectionObserver === 'undefined') {
-      setIsVisible(true);
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          // Disconnect observer once triggered to prevent re-triggering
-          observer.disconnect();
-        }
-      },
-      { 
-        threshold: 0.1, // Lower threshold for better mobile detection
-        rootMargin: '50px' // Trigger earlier
-      }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-      observer.disconnect();
-    };
-  }, []);
-
   return (
     <section className="py-12 px-4 md:px-20 bg-gray-100" ref={sectionRef}>
       <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-customPurple text-3xl md:text-4xl font-bold text-center mb-10 flex flex-wrap justify-center">
-          <span
-            className={`ml-2 text-customGray transition-opacity duration-500 ${
-              isVisible ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            OUR&nbsp;
-          </span>
-          {"APPROACH".split("").map((letter, index) => (
-            <span
-              key={`approach-${index}`}
-              className={`transform transition-all duration-300 ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-5"
-              }`}
-              style={{ transitionDelay: `${index * 100}ms` }}
-            >
-              {letter}
-            </span>
-          ))}
-          <span
-            className={`mx-1 transition-opacity duration-300 ${
-              isVisible ? "opacity-100" : "opacity-0"
-            }`}
-            style={{ transitionDelay: `${8 * 100}ms` }}
-          >
-            &nbsp;
-          </span>
+        <h2 className="text-customPurple text-3xl md:text-4xl font-bold text-center mb-10">
+          <span className="ml-2 text-customGray">OUR&nbsp;</span>
+          <span>APPROACH</span>
         </h2>
 
         {/* Introduction Paragraph */}
-        <p
-          className={`text-gray-700 mb-10 leading-relaxed max-w-4xl mx-auto transition-all duration-500 ${
-            isVisible ? "opacity-100" : "opacity-0"
-          }`}
-          style={{ transitionDelay: "200ms" }}
-        >
+        <p className="text-gray-700 mb-10 leading-relaxed max-w-4xl mx-auto">
           {data.introduction}
         </p>
 
         {/* Technical Overview Grid */}
-        <h2
-          className={`text-3xl font-bold text-customGray mb-6 transition-all duration-500 ${
-            isVisible ? "opacity-100" : "opacity-0"
-          }`}
-          style={{ transitionDelay: "300ms" }}
-        >
+        <h2 className="text-3xl font-bold text-customGray mb-6">
           Technical Overview
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
@@ -159,14 +90,7 @@ const OurApproachSection = ({ data }) => {
             return (
               <div
                 key={index}
-                className={`flex flex-col items-center p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500 transform ${
-                  objective.bgColor
-                } ${
-                  isVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-12"
-                }`}
-                style={{ transitionDelay: `${400 + index * 200}ms` }}
+                className={`flex flex-col items-center p-6 rounded-lg shadow-lg hover:shadow-xl ${objective.bgColor}`}
               >
                 <div className="bg-white p-4 rounded-full mb-4">
                   {IconComponent && (
@@ -206,16 +130,7 @@ const OurApproachSection = ({ data }) => {
         {/* Design Overview Grid - Only render if data exists */}
         {hasDesignObjectives && (
           <>
-            <h2
-              className={`text-3xl font-bold text-customGray mb-6 transition-all duration-500 ${
-                isVisible ? "opacity-100" : "opacity-0"
-              }`}
-              style={{
-                transitionDelay: `${
-                  400 + data.technicalObjectives.length * 200 + 100
-                }ms`,
-              }}
-            >
+            <h2 className="text-3xl font-bold text-customGray mb-6">
               Design Overview
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
@@ -224,21 +139,7 @@ const OurApproachSection = ({ data }) => {
                 return (
                   <div
                     key={index}
-                    className={`flex flex-col items-center p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500 transform ${
-                      keyObj.bgColor
-                    } ${
-                      isVisible
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 translate-y-12"
-                    }`}
-                    style={{
-                      transitionDelay: `${
-                        400 +
-                        data.technicalObjectives.length * 200 +
-                        200 +
-                        index * 200
-                      }ms`,
-                    }}
+                    className={`flex flex-col items-center p-6 rounded-lg shadow-lg hover:shadow-xl ${keyObj.bgColor}`}
                   >
                     <div className="bg-white p-4 rounded-full mb-4">
                       {IconComponent && (

@@ -22,26 +22,18 @@ const CaseStudySlider = ({ caseStudies }) => {
   const currentStudy = caseStudies[currentIndex];
 
   return (
-    <div className="bg-gray-50 py-16">
+    <div className="bg-gray-50 py-8 sm:py-12 md:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-        <h2
-          className={
-            "text-black text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 transform transition-all duration-800"
-          }
-        >
+        <h2 className="text-black text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4">
           Our Success Stories
         </h2>
-        <p
-          className={
-            "text-lg text-customLightGray text-center max-w-3xl mx-auto transform transition-all duration-800 delay-200"
-          }
-        >
+        <p className="text-lg text-customLightGray text-center max-w-3xl mx-auto">
           Discover how we&apos;ve helped businesses achieve remarkable growth
           and digital transformation
         </p>
       </div>
 
-  <div className="relative w-full overflow-hidden">
+  <div className="relative w-full overflow-hidden min-h-[600px] sm:min-h-[700px] md:min-h-[800px]">
         {/* Full-width image without cropping or distortion */}
           {/* Use a single responsive image: mobile uses mobileImagePath, desktop uses imagePath. */}
           <picture>
@@ -51,8 +43,7 @@ const CaseStudySlider = ({ caseStudies }) => {
             <img
               src={currentStudy.mobileImagePath || currentStudy.imagePath}
               alt={currentStudy.heading}
-              className="w-full block object-contain brightness-[.8]"
-              style={{ height: 'auto' }}
+              className="w-full h-full block object-cover brightness-[.8]"
             />
           </picture>
 
@@ -83,10 +74,7 @@ const CaseStudySlider = ({ caseStudies }) => {
               {/* White Card */}
               <div
                 key={currentStudy.id}
-                className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl p-6 sm:p-8 md:p-10 transition-all duration-500 ease-in-out transform"
-                style={{
-                  animation: "slideIn 0.5s ease-out",
-                }}
+                className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl p-6 sm:p-8 md:p-10"
               >
                 {/* Title */}
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3">
@@ -138,19 +126,6 @@ const CaseStudySlider = ({ caseStudies }) => {
         >
           <ChevronRight className="w-5 h-5 text-white rotate-[-90deg]" />
         </button>
-
-        <style jsx>{`
-          @keyframes slideIn {
-            from {
-              opacity: 0;
-              transform: translateY(20px);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0);
-            }
-          }
-        `}</style>
       </div>
     </div>
   );
