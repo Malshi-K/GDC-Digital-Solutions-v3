@@ -41,9 +41,9 @@ export default function DigitalAgencyHero() {
             {/* Mobile Layout - Paragraph first, then button below (show for widths below xl) */}
             <div className="xl:hidden space-y-4 flex flex-col items-center">
               <p className="text-gray-600 text-sm leading-relaxed text-center max-w-[28rem]">
-                Silicon is a leading full-service digital agency based in New York. We make mobile apps, websites & brands, that people appreciate all around the world.
+                We make exceptional digital marketing, web & app development, consulting, for startups and enterprises.
               </p>
-              
+
               <Link href="/contact-us" className="bg-customPurple text-white px-6 py-3 rounded-lg text-base font-medium transition-all hover:shadow-lg hover:scale-105 mx-auto inline-block text-center">
                 Work with us
               </Link>
