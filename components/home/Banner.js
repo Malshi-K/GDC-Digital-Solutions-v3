@@ -8,15 +8,15 @@ export default function DigitalAgencyHero() {
   return (
     <div className="min-h-screen bg-white relative overflow-hidden">
       {/* Background Image */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 md:opacity-50"
         style={{
           backgroundImage: "url('https://coderthemes.com/silicon/assets/img/landing/digital-agency/hero-bg.svg')"
         }}
       ></div>
-      
+
       {/* Hero Section */}
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 pt-40 pb-8 sm:pb-10 md:pb-12 xl:pt-32 xl:pb-14 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 pt-40 pb-8 sm:pb-10 md:pb-12 xl:pt-32 xl:pb-14 relative z-10">
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 md:gap-12 xl:gap-16 items-center">
           {/* Left Content */}
           <div className="space-y-6 sm:space-y-8 order-1 text-center xl:text-left">
@@ -35,13 +35,13 @@ export default function DigitalAgencyHero() {
               </Link>
 
               <p className="text-gray-600 text-base md:text-lg leading-relaxed flex-1">
-                We make exceptional digital marketing, web & app development, consulting, for startups and enterprises.</p>
+                We provide exceptional digital marketing, web & app development, and consulting services for startups and enterprises.</p>
             </div>
 
             {/* Mobile Layout - Paragraph first, then button below (show for widths below xl) */}
             <div className="xl:hidden space-y-4 flex flex-col items-center">
               <p className="text-gray-600 text-sm leading-relaxed text-center max-w-[28rem]">
-                We make exceptional digital marketing, web & app development, consulting, for startups and enterprises.
+                We provide exceptional digital marketing, web & app development, and consulting services for startups and enterprises.
               </p>
 
               <Link href="/contact-us" className="bg-customPurple text-white px-6 py-3 rounded-lg text-base font-medium transition-all hover:shadow-lg hover:scale-105 mx-auto inline-block text-center">
