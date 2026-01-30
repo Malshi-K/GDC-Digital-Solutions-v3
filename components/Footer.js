@@ -66,10 +66,10 @@ export default function Footer() {
                     <FaPhoneAlt className="text-base sm:text-lg md:text-xl" />
                   </div>
                   <TrackedPhoneLink
-                    phoneNumber="0212463988"
+                    phoneNumber="0278412236"
                     className="hover:text-customPurple transition-colors text-sm sm:text-base text-gray-600"
                   >
-                    021 246 3988
+                    027 841 2236
                   </TrackedPhoneLink>
                 </li>
                 <li className="flex items-center group">

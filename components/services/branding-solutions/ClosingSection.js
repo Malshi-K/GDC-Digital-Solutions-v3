@@ -89,10 +89,10 @@ export default function ClosingSection() {
                 <div className="flex justify-center mt-6">
                   <span className="text-sm text-gray-400">Or call us: </span>
                   <TrackedPhoneLink
-                    phoneNumber="0212463988"
+                    phoneNumber="0278412236"
                     className="text-sm text-white ml-2 hover:underline"
                   >
-                    021 246 3988
+                    027 841 2236
                   </TrackedPhoneLink>
                 </div>
               </div>
