@@ -248,11 +248,11 @@ const RequestQuoteForm = () => {
                   </div>
                   <div>
                     <Link
-                      href="tel:+64212463988"
+                      href="tel:0278412236"
                       className="text-gray-900 font-semibold text-lg hover:text-customPurple transition-colors duration-300 block"
                       onClick={handlePhoneClick}
                     >
-                      +64 21 246 3988
+                      027 841 2236
                     </Link>
                     <p className="text-gray-600 text-sm">Call us directly</p>
                   </div>

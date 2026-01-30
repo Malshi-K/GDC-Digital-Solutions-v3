@@ -396,7 +396,7 @@ const Header = () => {
                 <span className="text-sm break-all">digital@gdcgroup.co.nz</span>
               </a>
               <a
-                href="tel:+64212463988"
+                href="tel:0278412236"
                 className="flex items-center text-gray-700 hover:text-purple-600 transition-colors group"
               >
                 <svg className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform flex-shrink-0 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
