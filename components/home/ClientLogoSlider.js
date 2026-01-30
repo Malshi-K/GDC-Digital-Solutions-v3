@@ -3,8 +3,8 @@ import React from "react";
 import Image from "next/image";
 
 const ClientLogoSlider = () => {
-  // Animation speed variable 
-  const animationDuration = "25s";
+  // Animation speed variable - fast animation for better mobile experience
+  const animationDuration = "8s";
 
   // Client logo paths 
   const logos = [
