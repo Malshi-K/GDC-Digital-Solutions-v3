@@ -25,6 +25,9 @@ import {
   FaImages,
   FaBullseye,
   FaSearch,
+  FaProjectDiagram,
+  FaTasks,
+  FaCloud
 } from "react-icons/fa";
 import { SiNextdotjs, SiHubspot, SiGithub, SiNetlify } from "react-icons/si";
 
@@ -58,6 +61,9 @@ const iconMap = {
   FaImages:FaImages,
   FaBullseye:FaBullseye,
   FaSearch:FaSearch,
+  FaProjectDiagram: FaProjectDiagram,
+  FaTasks: FaTasks,
+  FaCloud: FaCloud,
 };
 
 const OurApproachSection = ({ data }) => {
