@@ -57,6 +57,17 @@ const homeCaseStudiesData = [
   },
   {
     id: 6,
+    heading: "ProjeX",
+    statistic: "",
+    description:
+      "ProjeX, a leading provider of project management solutions in New Zealand, required a modern website to improve their digital presence and generate more service inquiries.",
+    buttonLabel: "View Success Story",
+    imagePath: "/assets/images/case-studies-covers/13.png",
+    mobileImagePath: "/assets/images/case-studies-covers/14.png",
+    caseStudyPath: "/case-studies/web-development/projex",
+  },
+  {
+    id: 7,
     heading: "GDC Consultants",
     statistic: "91.6%",
     description:

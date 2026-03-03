@@ -11,6 +11,8 @@ import {
   FaClipboardCheck,
   FaCogs,
   FaChartLine,
+  FaMobile,
+  FaCompass
 } from "react-icons/fa";
 
 // Icon mapping
@@ -25,6 +27,8 @@ const iconComponents = {
   FaClipboardCheck: FaClipboardCheck,
   FaCogs: FaCogs,
   FaChartLine: FaChartLine,
+  FaMobile: FaMobile,
+  FaCompass: FaCompass
 };
 
 const DesignProcessSection = ({ data }) => {

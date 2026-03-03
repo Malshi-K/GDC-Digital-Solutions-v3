@@ -5,14 +5,18 @@ import {
   FaPrint,
   FaChevronDown,
   FaChevronUp,
-  FaCheckCircle
+  FaCheckCircle,
+  FaRobot,
+  FaCogs
 } from "react-icons/fa";
 
 // Icon mapping
 const iconComponents = {
   FaSearch: FaSearch,
   FaFacebook: FaFacebook,
-  FaPrint: FaPrint
+  FaPrint: FaPrint,
+  FaRobot: FaRobot,
+  FaCogs: FaCogs,
 };
 
 const AdditionalServicesSection = ({ data }) => {
@@ -93,7 +97,13 @@ const AdditionalServicesSection = ({ data }) => {
           </div>
 
           {/* Services Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div
+            className={`grid grid-cols-1 gap-8 items-start ${
+              data.sections.length === 2
+                ? "lg:grid-cols-2 lg:max-w-5xl lg:mx-auto"
+                : "lg:grid-cols-3"
+            }`}
+          >
             {data.sections.map((service, index) => {
               const IconComponent = iconComponents[service.icon] || FaSearch;
               const isExpanded = expandedSections[service.id];
@@ -101,7 +111,7 @@ const AdditionalServicesSection = ({ data }) => {
               return (
                 <div
                   key={service.id}
-                  className={`bg-white rounded-xl shadow-lg hover:shadow-xl overflow-hidden ${
+                  className={`bg-white rounded-xl shadow-lg hover:shadow-xl overflow-hidden self-start ${
                     isMobile
                       ? ''
                       : `transition-all duration-500 transform ${
@@ -150,7 +160,7 @@ const AdditionalServicesSection = ({ data }) => {
                   <div 
                     className={`transition-all duration-500 ease-in-out ${
                       isExpanded 
-                        ? "max-h-96 opacity-100" 
+                        ? "max-h-[3000px] opacity-100" 
                         : "max-h-0 opacity-0"
                     } overflow-hidden`}
                   >
