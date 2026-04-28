@@ -99,9 +99,11 @@ const AdditionalServicesSection = ({ data }) => {
           {/* Services Grid */}
           <div
             className={`grid grid-cols-1 gap-8 items-start ${
-              data.sections.length === 2
-                ? "lg:grid-cols-2 lg:max-w-5xl lg:mx-auto"
-                : "lg:grid-cols-3"
+              data.sections.length === 1
+                ? "max-w-xl mx-auto"
+                : data.sections.length === 2
+                  ? "lg:grid-cols-2 lg:max-w-5xl lg:mx-auto"
+                  : "lg:grid-cols-3"
             }`}
           >
             {data.sections.map((service, index) => {

@@ -1743,6 +1743,326 @@ export const caseStudiesData = {
       ],
     },
   },
+  "auto-tech-mechanical-services": {
+    id: "auto-tech-mechanical-services",
+    hero: {
+      subtitle: "Website Design for AutoTechMechanical Services",
+      title: "Auto Tech Mechanical Services Case Study",
+      description:
+        "AutoTech Mechanical Services, a professional automotive repair and maintenance provider, required a modern website to strengthen their digital presence and attract new customers. The objective was to design a clean, user-friendly, and service-oriented platform that effectively communicates their expertise, builds trust, and generates leads.",
+      ctaText: "Schedule a Consultation",
+      ctaLink: "/schedule-consultation",
+      imageSrc: "/assets/images/website-dev/auto-tech/1.png",
+      imageAlt: "Projex Preview",
+    },
+    clientOverview: {
+      services: [
+        {
+          icon: "FaTools",
+          label: "Full Service",
+        },
+        {
+          icon: "FaWrench",
+          label: "Interim Service",
+        },
+        {
+          icon: "FaSearch",
+          label: "Vehicle Scanning & Diagnosis",
+        },
+        {
+          icon: "FaCar",
+          label: "Batteries & Tyres",
+        },
+        {
+          icon: "FaGasPump",
+          label: "Oil Replacement",
+        },
+        {
+          icon: "FaCogs",
+          label: "Cam Belts",
+        },
+        {
+          icon: "FaWrench",
+          label: "Brake Servicing & Repairs",
+        },
+        {
+          icon: "FaTools",
+          label: "Shock Replacement",
+        },
+        {
+          icon: "FaCogs",
+          label: "Suspension",
+        },
+        {
+          icon: "FaCube",
+          label: "CV Joints",
+        },
+        {
+          icon: "FaClipboardList",
+          label: "W.O.F Repairs",
+        },
+        {
+          icon: "FaFileContract",
+          label: "WINZ Quote",
+        },
+        {
+          icon: "FaTruck",
+          label: "Mobile Call Out and After-Hours Services",
+        },
+      ],
+      companyName: "Auto Tech Mechanical Services",
+      industry: "Automotive Repair and Maintenance",
+      website: "https://autotechmechanicalservices.co.nz",
+      description:
+        "AutoTech Mechanical Services, a professional automotive repair and maintenance provider, required a modern website to strengthen their digital presence and attract new customers. The objective was to design a clean, user-friendly, and service-oriented platform that effectively communicates their expertise, builds trust, and generates leads.",
+    },
+    challenges: {
+      introduction:
+        "The development of the AutoTech Mechanical Services website presented several key challenges that needed to be addressed to create an effective online presence for the automotive repair and maintenance provider:",
+      items: [
+        {
+          title: "Content Structuring",
+          description:
+            "Presenting multiple automotive services in a clear and concise manner without overwhelming users.",
+        },
+        {
+          title: "User Engagement",
+          description:
+            "Designing a layout that quickly captures attention and directs users toward booking or contacting.",
+        },
+        {
+          title: "Mobile Experience",
+          description:
+            "Ensuring all features work seamlessly on smaller screens while maintaining usability.",
+        },
+      ],
+    },
+    approach: {
+      introduction:
+        "Our approach to designing the AutoTech Mechanical Services website focused on creating a user-friendly, visually appealing, and service-oriented platform that effectively communicates the company's expertise and builds trust with potential customers. We aimed to design a website that not only showcases their range of automotive services but also provides an intuitive user experience that encourages engagement and lead generation.",
+      technicalObjectives: [
+        {
+          icon: "FaDesktop",
+          title: "Modern Frontend Stack",
+          description:
+            "Built using HTML5, CSS3, and JavaScript to deliver a clean, modern, and reliable website foundation.",
+          bgColor: "bg-customYellow",
+        },
+        {
+          icon: "FaMobile",
+          title: "Responsive Design Across Devices",
+          description:
+            "Designed to work seamlessly across mobile phones, tablets, and desktops, ensuring consistent usability and appearance on all screen sizes.",
+          bgColor: "bg-white",
+        },
+        {
+          icon: "FaPuzzlePiece",
+          title: "Interactive UI & Motion Effects",
+          description:
+            "Implemented smooth scrolling, elegant scroll-triggered animations, and an animated business-stats counter to improve engagement and visual flow.",
+          bgColor: "bg-customYellow",
+        },
+        {
+          icon: "SiHubspot",
+          title: "Secure Contact Form Handling",
+          description:
+            "Customer inquiries are managed through a secure contact form, providing a safe and dependable communication channel.",
+          bgColor: "bg-white",
+        },
+        {
+          icon: "FaPalette",
+          title: "Typography & Icon System",
+          description:
+            "Integrated Google Fonts for clear typography and FontAwesome for high-quality icons to maintain a professional and consistent visual language.",
+          bgColor: "bg-customYellow",
+        },
+        {
+          icon: "FaServer",
+          title: "SEO & Performance Optimization",
+          description:
+            "Optimized with custom meta tags, sitemap, and robots.txt for search visibility, while performance tuning ensures fast loading speeds and reliable operation.",
+          bgColor: "bg-white",
+        },
+      ],
+      designObjectives: [
+        {
+          icon: "FaProjectDiagram",
+          title: "Professional Branding",
+          description:
+            "Develop a strong online identity that reflects reliability, technical expertise, and high-quality automotive services.",
+          bgColor: "bg-customYellow",
+        },
+        {
+          icon: "FaUsers",
+          title: "Service Visibility",
+          description:
+            "Clearly showcase all mechanical services offered, making it easy for customers to understand available solutions.",
+          bgColor: "bg-white",
+        },
+        {
+          icon: "FaTasks",
+          title: "User-Friendly Experience",
+          description:
+            "Ensure intuitive navigation so users can quickly find services, contact details, and booking options.",
+          bgColor: "bg-customYellow",
+        },
+        {
+          icon: "FaChartLine",
+          title: "Lead Generation",
+          description:
+            "Integrate clear calls-to-action to encourage inquiries, bookings, and customer engagement.",
+          bgColor: "bg-white",
+        },
+      ],
+    },
+    gallery: {
+      images: [
+        {
+          src: "/assets/images/website-dev/auto-tech/2.png",
+          alt: "Web Overview 2",
+        },
+        {
+          src: "/assets/images/website-dev/auto-tech/3.png",
+          alt: "Web Overview 3",
+        },
+        {
+          src: "/assets/images/website-dev/auto-tech/4.png",
+          alt: "Web Overview 4",
+        },
+        {
+          src: "/assets/images/website-dev/auto-tech/5.png",
+          alt: "Web Overview 5",
+        },
+        {
+          src: "/assets/images/website-dev/auto-tech/6.png",
+          alt: "Web Overview 6",
+        },
+        {
+          src: "/assets/images/website-dev/auto-tech/7.png",
+          alt: "Web Overview 7",
+        },
+        {
+          src: "/assets/images/website-dev/auto-tech/8.png",
+          alt: "Web Overview 8",
+        },
+        {
+          src: "/assets/images/website-dev/auto-tech/9.png",
+          alt: "Web Overview 9",
+        },
+        {
+          src: "/assets/images/website-dev/auto-tech/10.png",
+          alt: "Web Overview 10",
+        },
+      ],
+    },
+    achievements: {
+      introduction:
+        "The AutoTech Mechanical Services website successfully established a strong online presence for the company, resulting in increased customer engagement, improved brand perception, and a significant boost in lead generation.",
+      items: [
+        {
+          title: "Improved User Experience",
+          description:
+            "Visitors can easily navigate and access services without confusion.",
+        },
+        {
+          title: "Stronger Online Presence",
+          description:
+            "A professional website that builds trust and reflects industry expertise.",
+        },
+        {
+          title: "Higher Engagement",
+          description:
+            "Increased interaction with service pages and contact features.",
+        },
+        {
+          title: "Lead Generation",
+          description:
+            "More inquiries and bookings through optimized CTAs and contact integration.",
+        },
+      ],
+    },
+    designProcess: {
+      introduction:
+        "Our design process for the AutoTech Mechanical Services website followed a structured approach that focused on creating a user-friendly, visually appealing, and service-oriented platform that effectively communicates the company's expertise and builds trust with potential customers. We aimed to design a website that not only showcases their range of automotive services but also provides an intuitive user experience that encourages engagement and lead generation.",
+      steps: [
+        {
+          number: "01",
+          title: "Research and Discovery",
+          description:
+            "We conducted detailed research to understand the target audience, including vehicle owners, fleet operators, and individuals seeking reliable mechanical repair and servicing solutions. From this discovery phase, we shaped the brand direction around trust, efficiency, and professionalism, ensuring the website aligns with industry expectations and customer needs.",
+          icon: "FaSearch",
+        },
+        {
+          number: "02",
+          title: "Design Features",
+          description:
+            "The visual aesthetics were built around a clean and modern layout with automotive-themed visuals to reflect the brand and industry context. We also used bold typography and contrasting colors to highlight key services and guide users toward important actions across the website.",
+          icon: "FaPalette",
+        },
+        {
+          number: "03",
+          title: "Responsiveness",
+          description:
+            "The website is fully optimized for desktops, tablets, and mobile devices to ensure accessibility and a consistent user experience across all platforms.",
+          icon: "FaMobile",
+        },
+        {
+          number: "04",
+          title: "Navigation",
+          description:
+            "We created a simple and structured menu that gives users quick access to services, the about section, and contact details, making the website easy to navigate.",
+          icon: "FaCompass",
+        },
+        {
+          number: "05",
+          title: "Interactive Elements",
+          description:
+            "We incorporated clear CTAs such as 'Call' and 'Get a Quote', along with service highlights and quick-access contact features to improve user engagement and encourage inquiries.",
+          icon: "FaMousePointer",
+        },
+      ],
+    },
+    additionalServices: {
+      title: "Additional Features",
+      introduction:
+        "Explore the additional services provided to AutoTech Mechanical Services that enhanced their online presence and brand identity, contributing to the overall success of the website project.",
+      sections: [
+        {
+          id: "features-functionality",
+          title: "Features and Functionality",
+          icon: "FaCogs",
+          description:
+            "A practical set of customer-focused website features designed to clearly present services, simplify inquiries, build trust, and ensure smooth performance across all devices.",
+          items: [
+            {
+              title: "Services Section",
+              description:
+                "Clearly outlines mechanical services such as repairs, diagnostics, maintenance, and specialized automotive solutions.",
+              icon: "FaTools",
+            },
+            {
+              title: "Contact & Booking Integration",
+              description:
+                "Includes easy-to-use contact forms and direct call options to support quick customer inquiries and bookings.",
+              icon: "FaPhoneAlt",
+            },
+            {
+              title: "Trust Building Elements",
+              description:
+                "Uses a professional layout, a trust-building about us section, detailed service descriptions, and structured content to enhance credibility.",
+              icon: "FaShieldAlt",
+            },
+            {
+              title: "Mobile Optimization",
+              description:
+                "Ensures seamless browsing and interaction across desktops, tablets, and mobile devices.",
+              icon: "FaMobile",
+            },
+          ],
+        },
+      ],
+    },
+  },
 };
 
 // Function to get a specific case study by ID
