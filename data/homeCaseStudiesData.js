@@ -68,6 +68,17 @@ const homeCaseStudiesData = [
   },
   {
     id: 7,
+    heading: "AutoTech Mechanical Services",
+    statistic: "",
+    description:
+      "AutoTech Mechanical Services, a professional automotive repair and maintenance provider, required a modern website to strengthen their digital presence and attract new customers.",
+    buttonLabel: "View Success Story",
+    imagePath: "/assets/images/case-studies-covers/15.png",
+    mobileImagePath: "/assets/images/case-studies-covers/16.png",
+    caseStudyPath: "/case-studies/web-development/auto-tech-mechanical-services",
+  },
+  {
+    id: 8,
     heading: "GDC Consultants",
     statistic: "91.6%",
     description:

@@ -90,13 +90,13 @@ const OurApproachSection = ({ data }) => {
         <h2 className="text-3xl font-bold text-customGray mb-6">
           Technical Overview
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+        <div className="flex flex-wrap justify-center gap-8 mb-10">
           {data.technicalObjectives.map((objective, index) => {
             const IconComponent = iconMap[objective.icon];
             return (
               <div
                 key={index}
-                className={`flex flex-col items-center p-6 rounded-lg shadow-lg hover:shadow-xl ${objective.bgColor}`}
+                className={`w-full md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)] flex flex-col items-center p-6 rounded-lg shadow-lg hover:shadow-xl ${objective.bgColor}`}
               >
                 <div className="bg-white p-4 rounded-full mb-4">
                   {IconComponent && (
@@ -139,13 +139,13 @@ const OurApproachSection = ({ data }) => {
             <h2 className="text-3xl font-bold text-customGray mb-6">
               Design Overview
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+            <div className="flex flex-wrap justify-center gap-8 mt-10">
               {data.designObjectives.map((keyObj, index) => {
                 const IconComponent = iconMap[keyObj.icon];
                 return (
                   <div
                     key={index}
-                    className={`flex flex-col items-center p-6 rounded-lg shadow-lg hover:shadow-xl ${keyObj.bgColor}`}
+                    className={`w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] flex flex-col items-center p-6 rounded-lg shadow-lg hover:shadow-xl ${keyObj.bgColor}`}
                   >
                     <div className="bg-white p-4 rounded-full mb-4">
                       {IconComponent && (
