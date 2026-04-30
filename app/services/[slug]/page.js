@@ -200,7 +200,7 @@ export default function ServicePage({ params, isServicesOpen, isAboutOpen }) {
         <meta property="og:url" content={seoData.canonical} />
         <meta
           property="og:image"
-          content={`https://gdcgroup.co.nz${service.image}`}
+          content={`https://gdcdigital.co.nz${service.image}`}
         />
 
         {/* Twitter Card tags */}
@@ -209,7 +209,7 @@ export default function ServicePage({ params, isServicesOpen, isAboutOpen }) {
         <meta name="twitter:description" content={seoData.description} />
         <meta
           name="twitter:image"
-          content={`https://gdcgroup.co.nz${service.image}`}
+          content={`https://gdcdigital.co.nz${service.image}`}
         />
 
         <link rel="canonical" href={seoData.canonical} />
