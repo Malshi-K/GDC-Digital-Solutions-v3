@@ -1,7 +1,7 @@
 'use client';
 
 export default function TrackedPhoneLink({ 
-  phoneNumber = "0212463988", 
+  phoneNumber = "0278412236", 
   children, 
   className = "",
   ...props 
