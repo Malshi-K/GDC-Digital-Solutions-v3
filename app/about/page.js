@@ -14,11 +14,11 @@ export const metadata = {
     title: "About GDC Digital Solutions | Digital Marketing Experts",
     description:
       "GDC Digital Solutions: New Zealand's leading digital marketing agency. Experts in SEO, Google Ads & web development services.",
-    url: "https://gdcgroup.co.nz/about",
+    url: "https://gdcdigital.co.nz/about",
     siteName: "GDC Digital Solutions",
     images: [
       {
-        url: "https://gdcgroup.co.nz/assets/images/og-image.jpg", // Replace with actual image URL
+        url: "https://gdcdigital.co.nz/assets/images/og-image.jpg", // Replace with actual image URL
         width: 1200,
         height: 630,
       },
@@ -31,14 +31,14 @@ export const metadata = {
     title: "About GDC Digital Solutions | Digital Marketing Experts",
     description:
       "GDC Digital Solutions: New Zealand's leading digital marketing agency. Experts in SEO, Google Ads & web development services.",
-    images: ["https://gdcgroup.co.nz/assets/images/og-image.jpg"], // Replace with actual image URL
+    images: ["https://gdcdigital.co.nz/assets/images/og-image.jpg"], // Replace with actual image URL
   },
   robots: {
     index: true,
     follow: true,
   },
   alternates: {
-    canonical: "https://gdcgroup.co.nz/about",
+    canonical: "https://gdcdigital.co.nz/about",
   },
 };
 

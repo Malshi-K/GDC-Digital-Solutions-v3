@@ -15,6 +15,12 @@ const teamMembers = [
     linkedinUrl: "https://www.linkedin.com/in/danyon-fernando-2b7563149", 
   },
   {
+    image: "/assets/images/team/Rasika.png",
+    name: "Rasika Jayasundara",
+    position: "Software Development Team Lead",
+    linkedinUrl: "https://www.linkedin.com/in/rasikajayasundara", 
+  },
+  {
     image: "/assets/images/team/Ruwani.png",
     name: "Ruwani Kokawala",
     position: "Google Ads Specialist/ SEO",
@@ -63,7 +69,7 @@ const TeamPage = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="max-w-screen-full mx-auto grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-4"
+          className="max-w-screen-full mx-auto grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4 gap-4"
         >
           {teamMembers.map((member, index) => (
             <div

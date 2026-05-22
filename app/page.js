@@ -18,10 +18,10 @@ export async function generateMetadata() {
       siteName: "GDC Digital Solutions",
       title: "GDC Digital Solutions | Expert Web Design, Google Ads & SEO",
       description: "Boost your business with GDC Digital Solutions. Expert services in Google Ads, SEO, social media marketing & web development.",
-      url: "https://gdcgroup.co.nz/",
+      url: "https://gdcdigital.co.nz/",
       images: [
         {
-          url: "https://gdcgroup.co.nz/assets/images/og-image.jpg",
+          url: "https://gdcdigital.co.nz/assets/images/og-image.jpg",
           width: 1200,
           height: 630,
           alt: "GDC Digital Solutions",
@@ -32,10 +32,10 @@ export async function generateMetadata() {
       card: "summary_large_image",
       title: "GDC Digital Solutions | Expert Web Design, Google Ads & SEO",
       description: "Boost your business with GDC Digital Solutions. Expert services in Google Ads, SEO, social media marketing & web development.",
-      images: ["https://gdcgroup.co.nz/assets/images/og-image.jpg"],
+      images: ["https://gdcdigital.co.nz/assets/images/og-image.jpg"],
     },
     alternates: {
-      canonical: "https://gdcgroup.co.nz/",
+      canonical: "https://gdcdigital.co.nz/",
     },
   };
 
@@ -43,12 +43,12 @@ export async function generateMetadata() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "GDC Digital Solutions",
-    "url": "https://gdcgroup.co.nz",
+    "url": "https://gdcdigital.co.nz",
     "potentialAction": {
       "@type": "SearchAction",
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": "https://gdcgroup.co.nz/search?q={search_term_string}"
+        "urlTemplate": "https://gdcdigital.co.nz/search?q={search_term_string}"
       },
       "query-input": "required name=search_term_string"
     }

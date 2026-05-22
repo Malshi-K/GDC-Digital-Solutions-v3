@@ -77,10 +77,10 @@ export default function Footer() {
                     <FaEnvelope className="text-base sm:text-lg md:text-xl" />
                   </div>
                   <Link
-                    href="mailto:digital@gdcgroup.co.nz"
+                    href="mailto:digital@gdcdigital.co.nz"
                     className="hover:text-customPurple transition-colors text-sm sm:text-base text-gray-600 break-all"
                   >
-                    digital@gdcgroup.co.nz
+                    digital@gdcdigital.co.nz
                   </Link>
                 </li>
               </ul>
@@ -111,7 +111,7 @@ export default function Footer() {
             </div>
             <div className="flex items-center justify-center group">
               <a
-                href="https://www.gdcgroup.co.nz/"
+                href="https://www.gdcdigital.co.nz/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-all duration-300 p-2 sm:p-3 md:p-4 hover:scale-105"
