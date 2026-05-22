@@ -5,6 +5,6 @@ export default function robots() {
       allow: "/",
       disallow: "/private/",
     },
-    sitemap: "https://gdcgroup.co.nz/sitemap.xml",
+    sitemap: "https://gdcdigital.co.nz/sitemap.xml",
   };
 }
