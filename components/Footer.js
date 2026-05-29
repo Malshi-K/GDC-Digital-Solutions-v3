@@ -168,7 +168,7 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col sm:flex-row justify-between items-center text-customLightGray gap-2 sm:gap-0">
             <p className="text-xs sm:text-sm text-center leading-relaxed w-full">
-              Copyright © 2025 GDC Digital Solutions. All Rights Reserved.
+              Copyright © {new Date().getFullYear()} GDC Digital Solutions. All Rights Reserved.
             </p>
             {/* <div className="flex flex-col sm:flex-row items-center space-y-1 sm:space-y-0 sm:space-x-4 text-xs sm:text-sm">
               <Link
