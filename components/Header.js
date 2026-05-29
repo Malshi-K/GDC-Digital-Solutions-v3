@@ -115,28 +115,42 @@ const Header = () => {
       ],
     },
     {
+      name: "Software & Platforms",
+      href: "#",
+      hasDropdown: true,
+      dropdownItems: [
+        {
+          name: "Projex",
+          description: "Workflow & project delivery platform by GDC Digital",
+          href: "/software-platforms/projex",
+          external: false,
+        },
+      ],
+    },
+    {
       name: "Branding Solutions",
       href: "/services/branding-solutions",
       hasDropdown: false,
       dropdownItems: [],
     },
-    {
-      name: "Consulting & Strategy",
-      href: "/consulting",
-      hasDropdown: true,
-      dropdownItems: [
-        {
-          name: "Business Analysis & Consulting",
-          href: "/services/business-consulting",
-        },
-      ],
-    },
+    // {
+    //   name: "Consulting & Strategy",
+    //   href: "/consulting",
+    //   hasDropdown: true,
+    //   dropdownItems: [
+    //     {
+    //       name: "Business Analysis & Consulting",
+    //       href: "/services/business-consulting",
+    //     },
+    //   ],
+    // },
     {
       name: "Case Studies",
       href: "/case-studies",
       hasDropdown: true,
       dropdownItems: [
-        { name: "Website development", href: "/case-studies/web-development" },
+        { name: "Website Development", href: "/case-studies/web-development" },
+        { name: "Software Development", href: "/case-studies/software-development" },
         { name: "Google Ads", href: "/case-studies/google-ads" },
       ],
     },
@@ -147,18 +161,18 @@ const Header = () => {
       {/* Header */}
       <header
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-          isScrolled 
-            ? "bg-white shadow-md" 
-            : "bg-transparent"
+          isScrolled ? "bg-white shadow-md" : "bg-transparent"
         }`}
       >
-  {/* Match hero container so header aligns with hero padding */}
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-          <div className="flex items-center justify-between py-3 lg:py-4">
-            
+        {/* Match hero container so header aligns with hero padding */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+          <div className="flex items-center justify-center py-3 lg:py-4">
             {/* Left - Logo */}
             <div className="flex items-center">
-              <Link href="/" className="flex items-center transition-transform duration-300 hover:scale-105">
+              <Link
+                href="/"
+                className="flex items-center transition-transform duration-300 hover:scale-105"
+              >
                 <Image
                   src="/assets/images/Digital Solution.png"
                   alt="GDC Digital Solutions Logo"
@@ -173,31 +187,35 @@ const Header = () => {
               </Link>
             </div>
 
-            {/* Center - Desktop Navigation (removed absolute positioning) */}
+            {/* Center - Desktop Navigation */}
             <nav className="hidden xl:flex items-center flex-1 justify-center">
-              {/* CHANGED: Reduced spacing between nav items from space-x-2 to space-x-1 */}
               <div className="flex items-center space-x-1">
                 {navItems.map((item, index) => (
                   <div
                     key={item.name}
                     className="relative"
-                    onMouseEnter={() => item.hasDropdown && handleDropdownHover(index)}
-                    onMouseLeave={() => item.hasDropdown && handleDropdownLeave()}
+                    onMouseEnter={() =>
+                      item.hasDropdown && handleDropdownHover(index)
+                    }
+                    onMouseLeave={() =>
+                      item.hasDropdown && handleDropdownLeave()
+                    }
                   >
                     {item.hasDropdown ? (
                       <div className="dropdown-trigger">
                         <button
                           className={`flex items-center space-x-1 px-2 py-2 rounded-lg font-semibold transition-all duration-300 text-sm whitespace-nowrap ${
-                            pathname === item.href || pathname.startsWith(item.href + "/")
+                            pathname === item.href ||
+                            pathname.startsWith(item.href + "/")
                               ? "text-customPurple"
                               : "text-gray-700 hover:text-purple-600 hover:bg-purple-50"
                           }`}
                         >
                           <span>{item.name}</span>
-                          <ChevronDownIcon className={`w-4 h-4 transition-transform duration-300 ${openDropdown === index ? 'rotate-180' : ''}`} />
+                          <ChevronDownIcon
+                            className={`w-4 h-4 transition-transform duration-300 ${openDropdown === index ? "rotate-180" : ""}`}
+                          />
                         </button>
-
-                        {/* Desktop Dropdown */}
                         <div
                           ref={openDropdown === index ? dropdownRef : null}
                           className={`absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden transition-all duration-300 ${
@@ -211,13 +229,46 @@ const Header = () => {
                               <Link
                                 key={dropdownItem.name}
                                 href={dropdownItem.href}
-                                className={`block px-5 py-3 text-sm font-medium transition-all duration-300 ${
-                                  pathname === dropdownItem.href
-                                    ? "text-customPurple border-l-4 border-purple-600"
-                                    : "text-gray-700 hover:bg-gray-50 hover:text-purple-600 hover:pl-6"
-                                }`}
+                                target={
+                                  dropdownItem.external ? "_blank" : "_self"
+                                }
+                                rel={
+                                  dropdownItem.external
+                                    ? "noopener noreferrer"
+                                    : ""
+                                }
+                                className="block p-4 rounded-xl hover:bg-gray-50 transition-all duration-300"
                               >
-                                {dropdownItem.name}
+                                <div className="flex items-start justify-between gap-4">
+                                  <div>
+                                    <h3 className="font-semibold text-gray-900">
+                                      {dropdownItem.name}
+                                    </h3>
+
+                                    {dropdownItem.description && (
+                                      <p className="text-sm text-gray-500 mt-1 leading-relaxed">
+                                        {dropdownItem.description}
+                                      </p>
+                                    )}
+                                  </div>
+
+                                  {dropdownItem.external && (
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      className="w-4 h-4 mt-1 text-gray-400"
+                                      fill="none"
+                                      viewBox="0 0 24 24"
+                                      stroke="currentColor"
+                                    >
+                                      <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={2}
+                                        d="M14 3h7m0 0v7m0-7L10 14"
+                                      />
+                                    </svg>
+                                  )}
+                                </div>
                               </Link>
                             ))}
                           </div>
@@ -250,8 +301,6 @@ const Header = () => {
                   Contact Us Now
                 </Link>
               </div>
-
-              {/* Mobile Hamburger Menu Button */}
               <button
                 className="menu-button xl:hidden focus:outline-none transition-all duration-300 p-2 rounded-lg text-gray-700 hover:bg-purple-50"
                 onClick={toggleSidebar}
@@ -298,9 +347,10 @@ const Header = () => {
               <li key={item.name} className="py-1">
                 {item.hasDropdown ? (
                   <div className="space-y-2">
-                    <div 
+                    <div
                       className={`flex items-center justify-between p-3 rounded-lg transition-all duration-300 ${
-                        pathname === item.href || pathname.startsWith(item.href + "/")
+                        pathname === item.href ||
+                        pathname.startsWith(item.href + "/")
                           ? "bg-purple-100 text-purple-700"
                           : "hover:bg-gray-100 text-gray-700"
                       }`}
@@ -316,7 +366,9 @@ const Header = () => {
                         className="text-gray-500 hover:text-purple-600 focus:outline-none transition-all duration-300 p-1"
                         aria-expanded={expandedItems[index]}
                       >
-                        <div className={`transition-transform duration-300 ${expandedItems[index] ? 'rotate-90' : ''}`}>
+                        <div
+                          className={`transition-transform duration-300 ${expandedItems[index] ? "rotate-90" : ""}`}
+                        >
                           <ChevronRightIcon className="w-5 h-5" />
                         </div>
                       </button>
@@ -334,13 +386,44 @@ const Header = () => {
                           <li key={dropdownItem.name}>
                             <Link
                               href={dropdownItem.href}
-                              className={`block text-sm p-3 rounded-lg transition-all duration-300 ${
-                                pathname === dropdownItem.href
-                                  ? "text-purple-600 bg-purple-50 font-semibold"
-                                  : "text-gray-600 hover:text-purple-600 hover:bg-gray-50"
-                              }`}
+                              target={
+                                dropdownItem.external ? "_blank" : "_self"
+                              }
+                              rel={
+                                dropdownItem.external
+                                  ? "noopener noreferrer"
+                                  : ""
+                              }
+                              className="flex items-start justify-between gap-3 p-3 rounded-lg hover:bg-gray-50 transition-all duration-300"
                             >
-                              {dropdownItem.name}
+                              <div>
+                                <h4 className="text-sm font-semibold text-gray-900">
+                                  {dropdownItem.name}
+                                </h4>
+
+                                {dropdownItem.description && (
+                                  <p className="text-xs text-gray-500 mt-1 leading-relaxed">
+                                    {dropdownItem.description}
+                                  </p>
+                                )}
+                              </div>
+
+                              {dropdownItem.external && (
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  className="w-4 h-4 mt-1 text-gray-400 flex-shrink-0"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  stroke="currentColor"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M14 3h7m0 0v7m0-7L10 14"
+                                  />
+                                </svg>
+                              )}
                             </Link>
                           </li>
                         ))}
@@ -361,7 +444,7 @@ const Header = () => {
                 )}
               </li>
             ))}
-            
+
             {/* Mobile Contact Button */}
             <li className="pt-6">
               <Link
@@ -379,27 +462,45 @@ const Header = () => {
         <div className="p-5 sm:p-6 border-t border-gray-200 mt-4">
           <div className="bg-gray-50 rounded-xl p-5 border border-gray-100">
             <h4 className="text-gray-900 text-lg font-bold mb-4 flex items-center">
-              <svg className="w-5 h-5 mr-2 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+              <svg
+                className="w-5 h-5 mr-2 text-purple-600"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                  clipRule="evenodd"
+                />
               </svg>
               Contact Us
             </h4>
             <div className="space-y-3">
               <a
-                href="mailto:digital@gdcdigital.co.nz"
+                href="mailto:Digital@gdcgroup.co.nz"
                 className="flex items-center text-gray-700 hover:text-purple-600 transition-colors group"
               >
-                <svg className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform flex-shrink-0 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                <svg
+                  className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform flex-shrink-0 text-purple-600"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
                   <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                   <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                 </svg>
-                <span className="text-sm break-all">digital@gdcdigital.co.nz</span>
+                <span className="text-sm break-all">
+                  Digital@gdcgroup.co.nz
+                </span>
               </a>
               <a
                 href="tel:0278412236"
                 className="flex items-center text-gray-700 hover:text-purple-600 transition-colors group"
               >
-                <svg className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform flex-shrink-0 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                <svg
+                  className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform flex-shrink-0 text-purple-600"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
                   <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                 </svg>
                 <span className="text-sm font-medium">027 841 2236</span>

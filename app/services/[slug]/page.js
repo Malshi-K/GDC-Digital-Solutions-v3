@@ -47,7 +47,7 @@ import FacebookAdsIntroductionSection from "@/components/services/facebook-ads/F
 import FBClosingSection from "@/components/services/facebook-ads/ClosingSection";
 import LocalBusinessTargeting from "@/components/services/facebook-ads/LocalBusinessTargeting";
 import GoogleAdsCaseStudyCard from "@/components/case-studies/google-ads/GoogleAdsCaseStudyCard";
-import CaseStudiesList from "@/components/case-studies/web-development/CaseStudiesList";
+import CaseStudiesList from "@/components/case-studies/shared/CaseStudiesList";
 
 export default function ServicePage({ params, isServicesOpen, isAboutOpen }) {
   const { slug } = params;

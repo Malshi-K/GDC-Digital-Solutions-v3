@@ -6,11 +6,11 @@ import ClientOverview from '../shared/ClientOverview';
 import OurApproachSection from '../shared/OurApproachSection';
 import KeyAchievements from '../shared/KeyAchievements';
 import GallerySection from '../shared/GallerySection';
-import { getCaseStudyById } from "@/data/caseStudiesData";
+import { getCaseStudyById } from "@/data/softwareDevelopmentCaseStudyData";
 import DesignProcessSection from "../shared/DesignProcessSection";
 import AdditionalServicesSection from "../shared/AdditionalServicesSection";
 
-const WebsiteDevelopmentCaseStudy = ({ caseStudyId }) => {
+const SoftwareDevelopmentCaseStudy = ({ caseStudyId }) => {
   // Get the case study data based on the ID
   const caseStudyData = getCaseStudyById(caseStudyId);
   
@@ -38,4 +38,4 @@ const WebsiteDevelopmentCaseStudy = ({ caseStudyId }) => {
   );
 };
 
-export default WebsiteDevelopmentCaseStudy;
+export default SoftwareDevelopmentCaseStudy;
