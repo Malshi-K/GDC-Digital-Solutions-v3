@@ -65,26 +65,30 @@ const PageTitle = ({
   // Currently using a simple fade-up on mount for the title
 
   return (
-  <section className="relative flex items-center justify-center min-h-[320px] sm:min-h-[380px] lg:min-h-[420px] pt-20 sm:pt-24 text-white overflow-hidden">
+    <section className="relative flex items-center justify-center min-h-[320px] sm:min-h-[380px] lg:min-h-[420px] pt-20 sm:pt-24 text-white overflow-hidden">
       {/* Purple Gradient Background */}
       <div className="absolute inset-0 z-10" />
 
       {/* Decorative Elements */}
-  <div className="absolute inset-0 z-15 pointer-events-none">
+      <div className="absolute inset-0 z-15 pointer-events-none">
         {/* Floating geometric shapes */}
         <div
           className="absolute bottom-28 right-6 sm:right-20 w-20 h-20 rounded-full opacity-20 animate-bounce"
-          style={{ background: "linear-gradient(135deg, #c2039d 0%, #6e377d 100%)" }}
+          style={{
+            background: "linear-gradient(135deg, #c2039d 0%, #6e377d 100%)",
+          }}
         />
         <div
           className="absolute top-1/3 right-6 sm:right-10 w-14 h-14 rounded-lg opacity-25 transform -rotate-12"
-          style={{ background: "linear-gradient(135deg, #6e377d 0%, #c2039d 100%)" }}
+          style={{
+            background: "linear-gradient(135deg, #6e377d 0%, #c2039d 100%)",
+          }}
         />
       </div>
 
       {/* Content */}
       <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-  <div className="w-full text-center md:text-left">
+        <div className="w-full text-center md:text-left">
           <motion.h1
             className="text-customPurple text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 leading-tight"
             initial={{ opacity: 0, y: 24 }}
@@ -179,9 +183,11 @@ const PageTitle = ({
         .fade-in-up {
           opacity: 0;
           transform: translateY(20px);
-          transition: opacity 0.8s ease, transform 0.8s ease;
+          transition:
+            opacity 0.8s ease,
+            transform 0.8s ease;
         }
-        
+
         .fade-in-up.is-visible {
           opacity: 1;
           transform: translateY(0);

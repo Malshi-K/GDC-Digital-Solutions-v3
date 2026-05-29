@@ -1,5 +1,6 @@
 // app/case-studies/web-development/page.js
-import CaseStudiesList from "@/components/case-studies/web-development/CaseStudiesList";
+import CaseStudiesList from "@/components/case-studies/shared/CaseStudiesList";
+import { getAllCaseStudies } from "@/data/caseStudiesData";
 import PageTitle from "@/components/PageTitle";
 
 // Metadata for the index page
@@ -37,7 +38,7 @@ export default function WebDevelopmentCaseStudiesPage() {
             showcasing our expertise in creating responsive, user-friendly, and
             high-performing websites.
           </p>
-          <CaseStudiesList />
+          <CaseStudiesList caseStudies={getAllCaseStudies()} baseUrl="web-development" />
         </div>
       </main>
     </>

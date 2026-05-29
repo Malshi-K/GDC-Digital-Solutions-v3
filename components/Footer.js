@@ -77,10 +77,10 @@ export default function Footer() {
                     <FaEnvelope className="text-base sm:text-lg md:text-xl" />
                   </div>
                   <Link
-                    href="mailto:digital@gdcdigital.co.nz"
+                    href="mailto:Digital@gdcgroup.co.nz"
                     className="hover:text-customPurple transition-colors text-sm sm:text-base text-gray-600 break-all"
                   >
-                    digital@gdcdigital.co.nz
+                    Digital@gdcgroup.co.nz
                   </Link>
                 </li>
               </ul>

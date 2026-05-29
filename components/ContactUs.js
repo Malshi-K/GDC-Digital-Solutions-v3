@@ -183,10 +183,10 @@ const ContactUs = () => {
                   </div>
                   <div>
                     <Link
-                      href="mailto:digital@gdcdigital.co.nz"
+                      href="mailto:Digital@gdcgroup.co.nz"
                       className="text-gray-900 font-semibold text-lg hover:text-customPurple transition-colors duration-300 block"
                     >
-                      digital@gdcdigital.co.nz
+                      Digital@gdcgroup.co.nz
                     </Link>
                     <p className="text-gray-600 text-sm leading-relaxed">Send us an email</p>
                   </div>

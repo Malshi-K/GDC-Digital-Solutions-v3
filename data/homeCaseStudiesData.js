@@ -64,7 +64,7 @@ const homeCaseStudiesData = [
     buttonLabel: "View Success Story",
     imagePath: "/assets/images/case-studies-covers/13.png",
     mobileImagePath: "/assets/images/case-studies-covers/14.png",
-    caseStudyPath: "/case-studies/web-development/projex",
+    caseStudyPath: "/case-studies/software-development/projex",
   },
   {
     id: 7,
