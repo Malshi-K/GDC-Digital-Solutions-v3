@@ -70,20 +70,28 @@ const ServicesSection = () => {
       ],
       iconSrc: "/assets/images/icons/2.png",
     },
-    {
-      title: "Consulting & Strategy",
-      description: "Unlock your business potential with our strategic consulting services.",
-      items: [
-        { text: "Business Strategy & Consulting", link: "/services/business-consulting" }
-      ],
-      iconSrc: "/assets/images/icons/3.png",
-    },
+    // {
+    //   title: "Consulting & Strategy",
+    //   description: "Unlock your business potential with our strategic consulting services.",
+    //   items: [
+    //     { text: "Business Strategy & Consulting", link: "/services/business-consulting" }
+    //   ],
+    //   iconSrc: "/assets/images/icons/3.png",
+    // },
     {
       title: "Web & App Development",
       description: "Transform your ideas into reality with our web and app development services.",
       items: [
         { text: "Website Development", link: "/services/development" },
         { text: "App Development", link: "/services/app-development" }
+      ],
+      iconSrc: "/assets/images/icons/4.png",
+    },
+    {
+      title: "Software Development",
+      description: "Custom software solutions tailored to your business needs.",
+      items: [
+        { text: "Software & Platforms", link: "/software-platforms/projex" },
       ],
       iconSrc: "/assets/images/icons/4.png",
     },
