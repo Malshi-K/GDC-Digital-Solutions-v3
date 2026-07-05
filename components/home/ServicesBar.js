@@ -52,7 +52,7 @@ const ServicesBar = () => {
   
   return (
     <div 
-      className="w-full py-4 overflow-hidden bg-customPurple" 
+      className="w-full py-4 overflow-hidden bg-ds-gradient" 
       ref={scrollContainerRef}
     >
       {/* CSS for scrolling animation */}

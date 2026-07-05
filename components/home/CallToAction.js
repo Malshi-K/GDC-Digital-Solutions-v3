@@ -15,22 +15,22 @@ const ConsultationCTA = () => {
         <div
           className="relative rounded-3xl overflow-hidden"
           style={{
-            background: "#6e377d"
+            background: "linear-gradient(135deg, #3B0B4D 0%, #59107D 100%)",
           }}
         >
           {/* Decorative Elements */}
           <div className="absolute inset-0 z-0">
             <div
               className="absolute top-10 right-20 w-24 h-24 rounded-lg opacity-10 transform rotate-12"
-              style={{ background: "linear-gradient(135deg, #7d4f89ff 0%, #EC4899 100%)" }}
+              style={{ background: "linear-gradient(135deg, #59107D 0%, #3B0B4D 100%)" }}
             ></div>
             <div
               className="absolute bottom-20 left-10 w-20 h-20 rounded-full opacity-15"
-              style={{ background: "linear-gradient(135deg, #EC4899 0%, #7d3776ff 100%)" }}
+              style={{ background: "linear-gradient(135deg, #3B0B4D 0%, #59107D 100%)" }}
             ></div>
             <div
               className="absolute top-1/3 left-20 w-16 h-16 rounded-lg opacity-12 transform -rotate-12"
-              style={{ background: "linear-gradient(135deg, #7d377bff 0%, #F472B6 100%)" }}
+              style={{ background: "linear-gradient(135deg, #59107D 0%, #3B0B4D 100%)" }}
             ></div>
           </div>
 

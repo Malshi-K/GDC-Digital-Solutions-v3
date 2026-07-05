@@ -19,7 +19,7 @@ const ServiceCard = ({
     <article
       className={`group flex h-full flex-col overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
         featured
-          ? "bg-[#5a2d68] text-white"
+          ? "bg-ds-gradient text-white"
           : "border border-[#e8d9ef] bg-[#f7f1fa] text-gray-900"
       }`}
     >
@@ -36,7 +36,7 @@ const ServiceCard = ({
       <div className="flex flex-1 flex-col p-5 sm:p-6">
         <h3
           className={`mb-3 font-serif text-xl leading-tight sm:text-2xl ${
-            featured ? "text-white" : "text-[#5a2d68]"
+            featured ? "text-white" : "text-customPurple"
           }`}
         >
           {title}
@@ -90,7 +90,7 @@ const ServiceCard = ({
               className={`mt-3 text-sm font-medium transition-colors ${
                 featured
                   ? "text-white/80 hover:text-white"
-                  : "text-customPurple hover:text-[#5a2d68]"
+                  : "text-customPurple hover:text-customPurpleDark"
               }`}
               aria-expanded={showAll}
             >
@@ -169,7 +169,7 @@ const ServicesSection = () => {
     <section className="bg-[#faf8fc]">
       <div className="container mx-auto px-4 pb-4 pt-8 sm:px-6 sm:py-12 md:px-8 md:py-16 lg:px-16 xl:px-20">
         <div className="mb-12 text-center">
-          <h2 className="mb-4 font-serif text-2xl text-[#5a2d68] sm:mb-6 sm:text-3xl md:text-4xl">
+          <h2 className="mb-4 font-serif text-2xl text-customPurple sm:mb-6 sm:text-3xl md:text-4xl">
             Explore unique digital solutions service
           </h2>
           <p className="mx-auto max-w-3xl text-sm leading-relaxed text-customGray sm:text-base">

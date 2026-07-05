@@ -160,7 +160,7 @@ const Header = () => {
     <>
       {/* Header */}
       <header
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-[#5a2d68] border-b border-white/10 ${
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-ds-gradient border-b border-white/10 ${
           isScrolled ? "shadow-lg shadow-black/25" : "shadow-md shadow-black/15"
         }`}
       >
@@ -296,7 +296,7 @@ const Header = () => {
               <div className="hidden xl:block">
                 <Link
                   href="/contact-us"
-                  className="bg-white text-[#5a2d68] font-bold py-2.5 px-4 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-white/90 text-sm whitespace-nowrap"
+                  className="bg-white text-customPurpleDark font-bold py-2.5 px-4 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-white/90 text-sm whitespace-nowrap"
                 >
                   Contact Us Now
                 </Link>

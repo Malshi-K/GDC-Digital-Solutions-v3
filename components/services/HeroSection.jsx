@@ -109,11 +109,11 @@ const HeroSection = ({
         {/* Floating geometric shapes */}
         <div
           className="absolute bottom-28 right-6 sm:right-20 w-20 h-20 rounded-full opacity-20 animate-bounce"
-          style={{ background: "linear-gradient(135deg, #c2039d 0%, #6e377d 100%)" }}
+          style={{ background: "linear-gradient(135deg, #59107D 0%, #3B0B4D 100%)" }}
         />
         <div
           className="absolute top-1/3 right-6 sm:right-10 w-14 h-14 rounded-lg opacity-25 transform -rotate-12"
-          style={{ background: "linear-gradient(135deg, #6e377d 0%, #c2039d 100%)" }}
+          style={{ background: "linear-gradient(135deg, #3B0B4D 0%, #59107D 100%)" }}
         />
       </div>
 

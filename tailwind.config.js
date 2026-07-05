@@ -49,11 +49,17 @@ module.exports = {
           4: "hsl(var(--chart-4))",
           5: "hsl(var(--chart-5))",
         },
-        customPurple: "#6e377d",
-        customLightPurple: "#c2039d",
+        customPurple: "#59107D",
+        customPurpleDark: "#3B0B4D",
+        customLightPurple: "#59107D",
         customGray: "#545454",
         customLightGray: "#737373",
-        customGradient: "linear-gradient(135deg, #6e377d 0%, #c2039d 100%)",
+        customGradient: "linear-gradient(135deg, #3B0B4D 0%, #59107D 100%)",
+      },
+      backgroundImage: {
+        "ds-gradient": "linear-gradient(135deg, #3B0B4D 0%, #59107D 100%)",
+        "ds-gradient-reverse":
+          "linear-gradient(135deg, #59107D 0%, #3B0B4D 100%)",
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -75,13 +75,13 @@ const PageTitle = ({
         <div
           className="absolute bottom-28 right-6 sm:right-20 w-20 h-20 rounded-full opacity-20 animate-bounce"
           style={{
-            background: "linear-gradient(135deg, #c2039d 0%, #6e377d 100%)",
+            background: "linear-gradient(135deg, #59107D 0%, #3B0B4D 100%)",
           }}
         />
         <div
           className="absolute top-1/3 right-6 sm:right-10 w-14 h-14 rounded-lg opacity-25 transform -rotate-12"
           style={{
-            background: "linear-gradient(135deg, #6e377d 0%, #c2039d 100%)",
+            background: "linear-gradient(135deg, #3B0B4D 0%, #59107D 100%)",
           }}
         />
       </div>
@@ -137,7 +137,7 @@ const PageTitle = ({
         <div
           className="flex items-center justify-center w-16 h-16 rounded-full transition-all duration-300 group-hover:scale-110 shadow-lg"
           style={{
-            background: "linear-gradient(135deg, #2a1638 0%, #3d2454 100%)",
+            background: "linear-gradient(135deg, #3B0B4D 0%, #59107D 100%)",
           }}
         >
           <ChevronDoubleDownIcon className="h-6 w-6 text-customPurple group-hover:text-customLightPurple transition-colors" />
