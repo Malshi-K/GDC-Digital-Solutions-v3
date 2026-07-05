@@ -137,7 +137,7 @@ const PageTitle = ({
         <div
           className="flex items-center justify-center w-16 h-16 rounded-full transition-all duration-300 group-hover:scale-110 shadow-lg"
           style={{
-            background: "linear-gradient(135deg, #ffffff 0%, #f3f4f6 100%)",
+            background: "linear-gradient(135deg, #2a1638 0%, #3d2454 100%)",
           }}
         >
           <ChevronDoubleDownIcon className="h-6 w-6 text-customPurple group-hover:text-customLightPurple transition-colors" />

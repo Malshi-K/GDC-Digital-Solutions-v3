@@ -160,8 +160,8 @@ const Header = () => {
     <>
       {/* Header */}
       <header
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-          isScrolled ? "bg-white shadow-md" : "bg-transparent"
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-[#5a2d68] border-b border-white/10 ${
+          isScrolled ? "shadow-lg shadow-black/25" : "shadow-md shadow-black/15"
         }`}
       >
         {/* Match hero container so header aligns with hero padding */}
@@ -178,7 +178,7 @@ const Header = () => {
                   alt="GDC Digital Solutions Logo"
                   width={180}
                   height={54}
-                  className="h-auto w-auto max-w-[110px] sm:max-w-[130px] md:max-w-[150px] lg:max-w-[170px] xl:max-w-[180px]"
+                  className="header-logo h-auto w-auto max-w-[110px] sm:max-w-[130px] md:max-w-[150px] lg:max-w-[170px] xl:max-w-[180px]"
                   priority={true}
                   loading="eager"
                   sizes="(max-width: 640px) 110px, (max-width: 768px) 130px, (max-width: 1024px) 150px, (max-width: 1280px) 170px, 180px"
@@ -207,8 +207,8 @@ const Header = () => {
                           className={`flex items-center space-x-1 px-2 py-2 rounded-lg font-semibold transition-all duration-300 text-sm whitespace-nowrap ${
                             pathname === item.href ||
                             pathname.startsWith(item.href + "/")
-                              ? "text-customPurple"
-                              : "text-gray-700 hover:text-purple-600 hover:bg-purple-50"
+                              ? "text-white"
+                              : "text-white/80 hover:text-white hover:bg-white/10"
                           }`}
                         >
                           <span>{item.name}</span>
@@ -279,8 +279,8 @@ const Header = () => {
                         href={item.href}
                         className={`px-2 py-2 rounded-lg font-semibold transition-all duration-300 text-sm whitespace-nowrap ${
                           pathname === item.href
-                            ? "text-customPurple"
-                            : "text-gray-700 hover:text-purple-600 hover:bg-purple-50"
+                            ? "text-white"
+                            : "text-white/80 hover:text-white hover:bg-white/10"
                         }`}
                       >
                         {item.name}
@@ -296,13 +296,13 @@ const Header = () => {
               <div className="hidden xl:block">
                 <Link
                   href="/contact-us"
-                  className="bg-customPurple text-white font-bold py-2.5 px-4 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-xl text-sm whitespace-nowrap"
+                  className="bg-white text-[#5a2d68] font-bold py-2.5 px-4 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-white/90 text-sm whitespace-nowrap"
                 >
                   Contact Us Now
                 </Link>
               </div>
               <button
-                className="menu-button xl:hidden focus:outline-none transition-all duration-300 p-2 rounded-lg text-gray-700 hover:bg-purple-50"
+                className="menu-button xl:hidden focus:outline-none transition-all duration-300 p-2 rounded-lg text-white hover:bg-white/10"
                 onClick={toggleSidebar}
                 aria-label="Menu"
               >

@@ -61,7 +61,8 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ['"Manrope"', "sans-serif"],      
+        sans: ['"Manrope"', "sans-serif"],
+        serif: ['"Playfair Display"', "Georgia", "serif"],
       },
       fontWeight: {
         light: 400,

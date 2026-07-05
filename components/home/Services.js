@@ -1,61 +1,105 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
-// (Removed boxed check icon - lists will use native bullet points)
-
-const ServiceCard = ({ title, description, items, iconSrc, maxItems = Infinity }) => {
+const ServiceCard = ({
+  title,
+  description,
+  items,
+  imageSrc,
+  ctaLink,
+  featured = false,
+  maxItems = Infinity,
+}) => {
   const [showAll, setShowAll] = useState(false);
+  const visibleItems = showAll ? items : items.slice(0, maxItems);
 
   return (
-    <div
-      className={"relative rounded-2xl p-2 transition-all duration-300 h-full"}
+    <article
+      className={`group flex h-full flex-col overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
+        featured
+          ? "bg-[#5a2d68] text-white"
+          : "border border-[#e8d9ef] bg-[#f7f1fa] text-gray-900"
+      }`}
     >
-      {/* Icon - Centered at top */}
-      <div className="flex justify-center mb-6">
-        <div className="w-16 h-16 sm:w-20 sm:h-20">
-          <img
-            src={iconSrc}
-            alt={`${title} icon`}
-            className="w-full h-full object-contain"
-          />
-        </div>
+      <div className="relative m-3 mb-0 aspect-[4/3] overflow-hidden rounded-xl">
+        <Image
+          src={imageSrc}
+          alt={title}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
+        />
       </div>
 
-      {/* Title - Centered on small, left on md+ so bullets align */}
-      <h3 className={`text-xl sm:text-2xl font-bold text-center md:text-left mb-3 text-gray-900`}>{title}</h3>
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
+        <h3
+          className={`mb-3 font-serif text-xl leading-tight sm:text-2xl ${
+            featured ? "text-white" : "text-[#5a2d68]"
+          }`}
+        >
+          {title}
+        </h3>
 
-      {/* Description - Centered on small, left on md+ */}
-      <p className={`text-sm text-center md:text-left mb-6 text-gray-600`}>
-        {description}
-      </p>
+        <p
+          className={`mb-5 text-sm leading-relaxed ${
+            featured ? "text-white/80" : "text-customGray"
+          }`}
+        >
+          {description}
+        </p>
 
-  {/* Items List - Left aligned with slightly larger custom-colored bullets */}
-  <ul className="list-disc pl-8 sm:pl-10 md:pl-12 lg:pl-14 space-y-2 sm:space-y-3 text-center md:text-left marker:text-customPurple marker:text-lg">
-        {(showAll ? items : items.slice(0, maxItems)).map((item, index) => (
-          <li key={index}>
-            <Link 
-              href={item.link} 
-              className="text-sm sm:text-base text-gray-600 hover:text-customPurple transition-colors duration-200"
-            >
-              {item.text}
-            </Link>
-          </li>
-        ))}
-      </ul>
-
-      {items.length > maxItems && (
-        <div className="mt-3 text-center">
-          <button
-            onClick={() => setShowAll((s) => !s)}
-            className="text-customPurple font-medium text-sm hover:underline"
-            aria-expanded={showAll}
+        <div className="mb-6 flex-grow">
+          <p
+            className={`mb-3 text-xs font-semibold uppercase tracking-[0.2em] ${
+              featured ? "text-white/55" : "text-customPurple"
+            }`}
           >
-            {showAll ? "View less" : `View more (${items.length - maxItems})`}
-          </button>
+            Includes:
+          </p>
+          <ul
+            className={`space-y-2 text-sm leading-relaxed ${
+              featured ? "text-white/85" : "text-customGray"
+            }`}
+          >
+            {visibleItems.map((item, index) => (
+              <li key={index} className="flex gap-2">
+                <span
+                  className={`mt-[0.45rem] h-1.5 w-1.5 flex-shrink-0 rounded-full ${
+                    featured ? "bg-white/70" : "bg-customPurple"
+                  }`}
+                />
+                <Link
+                  href={item.link}
+                  className={`transition-colors duration-200 ${
+                    featured
+                      ? "hover:text-white"
+                      : "hover:text-customPurple"
+                  }`}
+                >
+                  {item.text}
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          {items.length > maxItems && (
+            <button
+              onClick={() => setShowAll((current) => !current)}
+              className={`mt-3 text-sm font-medium transition-colors ${
+                featured
+                  ? "text-white/80 hover:text-white"
+                  : "text-customPurple hover:text-[#5a2d68]"
+              }`}
+              aria-expanded={showAll}
+            >
+              {showAll ? "View less" : `View more (${items.length - maxItems})`}
+            </button>
+          )}
         </div>
-      )}
-    </div>
+      </div>
+    </article>
   );
 };
 
@@ -63,29 +107,26 @@ const ServicesSection = () => {
   const serviceCards = [
     {
       title: "Digital Marketing",
-      description: "Boost your online presence with our expert digital marketing services.",
+      description:
+        "Boost your online presence with our expert digital marketing services.",
       items: [
         { text: "Google & Facebook Ads", link: "/services/google-ads" },
-        { text: "SEO / Copywriting", link: "/services/seo" }
+        { text: "SEO / Copywriting", link: "/services/seo" },
       ],
-      iconSrc: "/assets/images/icons/2.png",
+      imageSrc: "/assets/images/services/Google Ads.jpg",
+      ctaLink: "/services/google-ads",
     },
-    // {
-    //   title: "Consulting & Strategy",
-    //   description: "Unlock your business potential with our strategic consulting services.",
-    //   items: [
-    //     { text: "Business Strategy & Consulting", link: "/services/business-consulting" }
-    //   ],
-    //   iconSrc: "/assets/images/icons/3.png",
-    // },
     {
       title: "Web & App Development",
-      description: "Transform your ideas into reality with our web and app development services.",
+      description:
+        "Transform your ideas into reality with our web and app development services.",
       items: [
         { text: "Website Development", link: "/services/development" },
-        { text: "App Development", link: "/services/app-development" }
+        { text: "App Development", link: "/services/app-development" },
       ],
-      iconSrc: "/assets/images/icons/4.png",
+      imageSrc: "/assets/images/services/Web development.png",
+      ctaLink: "/services/development",
+      featured: true,
     },
     {
       title: "Software Development",
@@ -93,53 +134,63 @@ const ServicesSection = () => {
       items: [
         { text: "Software & Platforms", link: "/software-platforms/projex" },
       ],
-      iconSrc: "/assets/images/icons/4.png",
+      imageSrc: "/assets/images/services/Mobile development.jpg",
+      ctaLink: "/software-platforms/projex",
     },
     {
       title: "Branding Solutions",
-      description: "Elevate your brand with our comprehensive branding solutions.",
+      description:
+        "Elevate your brand with our comprehensive branding solutions.",
       items: [
         { text: "Logo Design", link: "/services/branding-solutions" },
-        { text: "Social Media Promotional Designs", link: "/services/branding-solutions"},
-        { text: "Flyers & Leaflets", link: "/services/branding-solutions"},
-        { text: "Signboard & Signage Design", link: "/services/branding-solutions"},
-        { text: "Business Cards", link: "/services/branding-solutions"},
-        { text: "Letterheads", link: "/services/branding-solutions"},
-        { text: "Complete Digital & Print Branding Kits", link: "/services/branding-solutions"}
+        {
+          text: "Social Media Promotional Designs",
+          link: "/services/branding-solutions",
+        },
+        { text: "Flyers & Leaflets", link: "/services/branding-solutions" },
+        {
+          text: "Signboard & Signage Design",
+          link: "/services/branding-solutions",
+        },
+        { text: "Business Cards", link: "/services/branding-solutions" },
+        { text: "Letterheads", link: "/services/branding-solutions" },
+        {
+          text: "Complete Digital & Print Branding Kits",
+          link: "/services/branding-solutions",
+        },
       ],
-      iconSrc: "/assets/images/icons/2.png",
+      imageSrc: "/assets/images/services/AboutUs.jpg",
+      ctaLink: "/services/branding-solutions",
       maxItems: 2,
     },
   ];
 
   return (
-    <section className="bg-gray-50">
-      {/* Main Services Section */}
-      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-20 pt-8 pb-4 sm:py-12 md:py-16">
-        {/* Title and Description - Centered */}
+    <section className="bg-[#faf8fc]">
+      <div className="container mx-auto px-4 pb-4 pt-8 sm:px-6 sm:py-12 md:px-8 md:py-16 lg:px-16 xl:px-20">
         <div className="mb-12 text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
+          <h2 className="mb-4 font-serif text-2xl text-[#5a2d68] sm:mb-6 sm:text-3xl md:text-4xl">
             Explore unique digital solutions service
           </h2>
-          <p className="text-sm sm:text-base text-gray-600 leading-relaxed max-w-3xl mx-auto">
+          <p className="mx-auto max-w-3xl text-sm leading-relaxed text-customGray sm:text-base">
             Crafting compelling digital experiences that captivate audiences
             and drive meaningful connections. Our digital solutions combines
             innovation, strategy, and expertise to fuel your online success.
           </p>
         </div>
-        
-        {/* Responsive grid: 1 column (mobile), 2 columns (tablet), 4 columns (desktop) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 items-stretch">
+
+        <div className="grid grid-cols-1 items-stretch gap-6 md:grid-cols-2 md:gap-8 xl:grid-cols-4">
           {serviceCards.map((card, index) => (
-            <div key={index} className="h-full">
-              <ServiceCard
-                title={card.title}
-                description={card.description}
-                items={card.items}
-                iconSrc={card.iconSrc}
-                maxItems={card.maxItems}
-              />
-            </div>
+            <ServiceCard
+              key={index}
+              title={card.title}
+              description={card.description}
+              items={card.items}
+              imageSrc={card.imageSrc}
+              ctaLink={card.ctaLink}
+              featured={card.featured}
+              maxItems={card.maxItems}
+            />
           ))}
         </div>
       </div>
