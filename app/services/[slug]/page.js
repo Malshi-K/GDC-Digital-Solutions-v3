@@ -1,165 +1,65 @@
-"use client";
-
+import Script from "next/script";
 import { notFound } from "next/navigation";
-
-// Common components
-import CallToAction from "@/components/home/CallToAction";
-import HeroSection from "@/components/services/HeroSection";
-
-// Web Development components
-import WebDevelopmentBenefits from "@/components/services/web-development/WebDevelopment";
-import CustomCodedWebsites from "@/components/services/web-development/CustomCodedWebsites";
-import ProcessFlow from "@/components/services/web-development/ProcessFlow";
-import Packages from "@/components/services/web-development/Packages";
-import OnePageWebsite from "@/components/services/web-development/OnePageWebsite";
-
-// Google Ads components
-import GoogleAdsBenefits from "@/components/services/google-ads/GoogleAds";
-import GoogleAdsProcessFlow from "@/components/services/google-ads/GoogleAdsProcessFlow";
-
-// SEO components
-import SeoOverview from "@/components/services/seo/SeoOverview";
-
-// Business Consulting components
-import ConsultingBenefits from "@/components/services/business-consulting/ConsultingBenefits";
-import ConsultingIntroductionSection from "@/components/services/business-consulting/ConsultingIntroductionSection";
-import ExpertiseSection from "@/components/services/business-consulting/ExpertiseSection";
-import ClosingSection from "@/components/services/business-consulting/ClosingSection";
-
-// App Development components
-import AppDevelopmentBenefits from "@/components/services/app-development/AppDevelopment";
-import AppProcessFlow from "@/components/services/app-development/ProcessFlow";
-// Branding Solutions components
-import BrandingIntro from "@/components/services/branding-solutions/BrandingIntro";
-import BrandingClosing from "@/components/services/branding-solutions/ClosingSection";
-import ListOfServices from "@/components/services/branding-solutions/ListOfServices";
-import WhyChooseOurBranding from "@/components/services/branding-solutions/WhyChooseOurBranding";
-
-// Data imports
+import ServicePageClient from "./ServicePageClient";
 import {
   serviceDetails,
-  serviceCaseStudies,
   serviceSEOData,
-} from "../../../data/serviceData";
-import FacebookAdsBenefits from "@/components/services/facebook-ads/FacebookAds";
-import FacebookAdsProcessFlow from "@/components/services/facebook-ads/FacebookAdsProcessFlow";
-import FacebookAdsIntroductionSection from "@/components/services/facebook-ads/FacebookAdsIntroductionSection";
-import FBClosingSection from "@/components/services/facebook-ads/ClosingSection";
-import LocalBusinessTargeting from "@/components/services/facebook-ads/LocalBusinessTargeting";
-import GoogleAdsCaseStudyCard from "@/components/case-studies/google-ads/GoogleAdsCaseStudyCard";
-import CaseStudiesList from "@/components/case-studies/shared/CaseStudiesList";
+} from "@/data/serviceData";
 
-export default function ServicePage({ params, isServicesOpen, isAboutOpen }) {
+export async function generateMetadata({ params }) {
   const { slug } = params;
+  const service = serviceDetails[slug];
 
-  // Get service details based on slug
-  const service = {
-    ...serviceDetails[slug],
-    slug, // Add slug to service object for HeroSection component
+  if (!service) {
+    return {};
+  }
+
+  const seoData = serviceSEOData[slug] || {};
+  const title =
+    seoData.title || `${service.heading} | GDC Digital Solutions`;
+  const description = seoData.description || service.description;
+  const canonical =
+    seoData.canonical || `https://gdcdigital.co.nz/services/${slug}`;
+  const image = service.image
+    ? `https://gdcdigital.co.nz${service.image}`
+    : undefined;
+
+  return {
+    title,
+    description,
+    keywords: seoData.keywords,
+    robots: {
+      index: true,
+      follow: true,
+    },
+    alternates: {
+      canonical,
+    },
+    openGraph: {
+      title,
+      description,
+      type: "website",
+      url: canonical,
+      images: image ? [image] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: image ? [image] : undefined,
+    },
   };
-  const caseStudy = serviceCaseStudies[slug];
+}
+
+export default function ServicePage({ params }) {
+  const { slug } = params;
+  const service = serviceDetails[slug];
   const seoData = serviceSEOData[slug] || {};
 
-  // Return 404 if service not found
   if (!service) {
     notFound();
   }
 
-  // Handle scroll to next section
-  const handleScrollDown = () => {
-    const nextSection = document.getElementById("next-section");
-    if (nextSection) {
-      nextSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  // Render service-specific content sections
-  const renderServiceContent = () => {
-    switch (service.heading) {
-      case "Website Development":
-        return (
-          <>
-            <WebDevelopmentBenefits />
-            <CustomCodedWebsites />
-            <ProcessFlow />
-            <CaseStudiesList />
-            <Packages />
-            <OnePageWebsite />
-            <CallToAction />
-          </>
-        );
-
-      case "Google Ads":
-        return (
-          <>
-            <GoogleAdsBenefits />
-            <GoogleAdsProcessFlow />
-            <GoogleAdsCaseStudyCard
-              heading={caseStudy?.heading}
-              statistic={caseStudy?.statistic}
-              description={caseStudy?.description}
-              buttonLabel={caseStudy?.buttonLabel}
-              imagePath={caseStudy?.imagePath}
-              caseStudyPath={caseStudy?.caseStudyPath}
-            />
-            <CallToAction />
-          </>
-        );
-
-      case "Facebook Ads":
-        return (
-          <>
-            <FacebookAdsIntroductionSection />
-            <FacebookAdsBenefits />
-            <FacebookAdsProcessFlow />
-            <LocalBusinessTargeting />
-            <FBClosingSection />
-          </>
-        );
-
-      case "SEO/ Copywriting":
-        return (
-          <>
-            <SeoOverview />
-            <CallToAction />
-          </>
-        );
-
-      case "Business Consulting":
-        return (
-          <>
-            <ConsultingIntroductionSection />
-            <ConsultingBenefits />
-            <ExpertiseSection />
-            <ClosingSection />
-          </>
-        );
-
-      case "App Development":
-        return (
-          <>
-            <AppDevelopmentBenefits />
-            <AppProcessFlow />
-            <CallToAction />
-          </>
-        );
-
-      case "Branding Solutions":
-        return (
-          <>
-            <BrandingIntro />
-            <ListOfServices />
-            <WhyChooseOurBranding />  
-            <BrandingClosing />
-          </>
-        );
-
-      default:
-        return null;
-    }
-  };
-
-  // Generate JSON-LD structured data
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -169,67 +69,34 @@ export default function ServicePage({ params, isServicesOpen, isAboutOpen }) {
       name: "GDC Digital Solutions",
       url: "https://gdcdigital.net",
     },
-    description: seoData.description,
+    description: seoData.description || service.description,
     areaServed: "New Zealand",
     serviceType: service.heading,
-    image: `https://gdcdigital.net${service.image}`,
+    image: service.image
+      ? `https://gdcdigital.net${service.image}`
+      : undefined,
     offers: {
       "@type": "Offer",
       areaServed: "New Zealand",
     },
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": seoData.canonical,
-    },
+    mainEntityOfPage: seoData.canonical
+      ? {
+          "@type": "WebPage",
+          "@id": seoData.canonical,
+        }
+      : undefined,
   };
 
   return (
     <>
-      {/* SEO Head */}
-      <head>
-        <title>{seoData.title}</title>
-        <meta name="description" content={seoData.description} />
-        <meta name="keywords" content={seoData.keywords} />
-        <meta name="robots" content="index, follow" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-        {/* Open Graph tags */}
-        <meta property="og:title" content={seoData.title} />
-        <meta property="og:description" content={seoData.description} />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={seoData.canonical} />
-        <meta
-          property="og:image"
-          content={`https://gdcdigital.co.nz${service.image}`}
-        />
-
-        {/* Twitter Card tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={seoData.title} />
-        <meta name="twitter:description" content={seoData.description} />
-        <meta
-          name="twitter:image"
-          content={`https://gdcdigital.co.nz${service.image}`}
-        />
-
-        <link rel="canonical" href={seoData.canonical} />
-
-        {/* Structured data */}
-        <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
-        </script>
-      </head>
-
-      {/* Hero Section Component */}
-      <HeroSection
-        service={service}
-        isServicesOpen={isServicesOpen}
-        isAboutOpen={isAboutOpen}
-        onScrollDown={handleScrollDown}
+      <Script
+        id={`service-jsonld-${slug}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
       />
-
-      {/* Service Content Section */}
-      <section id="next-section">{renderServiceContent()}</section>
+      <ServicePageClient slug={slug} />
     </>
   );
 }

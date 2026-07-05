@@ -1,171 +1,190 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import {
   FaLightbulb,
   FaUserFriends,
   FaPencilAlt,
   FaChartLine,
-  FaArrowDown,
   FaBuilding,
   FaUsers,
   FaImages,
   FaVideo,
-  FaChartBar
-} from "react-icons/fa"; // Icons for each Facebook advertising service
+  FaChartBar,
+} from "react-icons/fa";
+import { useReducedMotion } from "framer-motion";
+
+const services = [
+  {
+    Icon: FaLightbulb,
+    title: "Facebook Ad Strategy & Campaign Setup",
+    description:
+      "We create a customised Facebook Ads strategy based on your business goals, ensuring high engagement and lead generation.",
+  },
+  {
+    Icon: FaUserFriends,
+    title: "Audience Targeting & Retargeting",
+    description: "We help you reach the right people, including:",
+    subItems: [
+      {
+        Icon: FaBuilding,
+        text: "Local Business Ads NZ – Target customers based on location, demographics, and behaviour.",
+      },
+      {
+        Icon: FaUsers,
+        text: "Lookalike Audiences – Expand your reach by targeting users similar to your best customers.",
+      },
+    ],
+  },
+  {
+    Icon: FaPencilAlt,
+    title: "Ad Creation & Optimisation",
+    description:
+      "From Facebook carousel ads to video marketing, we design eye-catching ads that increase clicks and conversions.",
+    subItems: [
+      {
+        Icon: FaImages,
+        text: "Carousel & Image Ads – Showcase multiple products or features in a single ad.",
+      },
+      {
+        Icon: FaVideo,
+        text: "Video Ads – Engage your audience with compelling video content.",
+      },
+    ],
+  },
+  {
+    Icon: FaChartLine,
+    title: "Performance Tracking & Reporting",
+    description:
+      "We continuously monitor, analyse, and optimise your Facebook Ads for the best results.",
+    subItems: [
+      {
+        Icon: FaChartBar,
+        text: "Detailed analytics and insights to track ROI and campaign effectiveness.",
+      },
+    ],
+  },
+];
+
+const ProcessStepCard = ({
+  Icon,
+  title,
+  description,
+  subItems,
+  stepNumber,
+  isVisible,
+  index,
+  shouldReduceMotion,
+  isLast,
+}) => (
+  <div className="relative flex w-full flex-col items-center">
+    <article
+      className={`group relative flex w-full max-w-lg flex-col overflow-hidden rounded-2xl border border-[#e8d9ef] bg-[#f7f1fa] shadow-lg transition-[border-color,box-shadow,opacity,transform] duration-700 ease-in-out hover:border-transparent hover:shadow-xl ${
+        isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+      }`}
+      style={{ transitionDelay: `${index * 120}ms` }}
+    >
+      <div
+        className={`pointer-events-none absolute inset-0 rounded-2xl bg-ds-gradient opacity-0 transition-opacity group-hover:opacity-100 ${
+          shouldReduceMotion ? "duration-0" : "duration-700 ease-in-out"
+        }`}
+        aria-hidden="true"
+      />
+      <div className="relative z-10 flex h-full flex-col p-6 text-center sm:p-8">
+        <span className="mx-auto mb-4 inline-flex h-9 w-9 items-center justify-center rounded-full bg-customPurple/10 text-sm font-bold text-customPurple transition-colors duration-700 ease-in-out group-hover:bg-white/20 group-hover:text-white">
+          {String(stepNumber).padStart(2, "0")}
+        </span>
+        <Icon className="mx-auto mb-4 flex-shrink-0 text-4xl text-customPurple transition-colors duration-700 ease-in-out group-hover:text-white" />
+        <h3 className="mb-3 text-xl font-bold text-gray-900 transition-colors duration-700 ease-in-out group-hover:text-white">
+          {title}
+        </h3>
+        <p className="text-gray-600 transition-colors duration-700 ease-in-out group-hover:text-white/85">
+          {description}
+        </p>
+
+        {subItems && (
+          <div className="mt-4 w-full space-y-3 text-left">
+            {subItems.map((item, itemIndex) => {
+              const SubIcon = item.Icon;
+              return (
+                <div key={itemIndex} className="flex items-start gap-2">
+                  <SubIcon className="mt-1 flex-shrink-0 text-xl text-customPurple transition-colors duration-700 ease-in-out group-hover:text-white" />
+                  <p className="text-gray-600 transition-colors duration-700 ease-in-out group-hover:text-white/85">
+                    {item.text}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        )}
+      </div>
+    </article>
+
+    {!isLast && (
+      <div className="my-8 flex flex-col items-center" aria-hidden="true">
+        <div className="h-12 w-px bg-gradient-to-b from-customPurple/70 via-customPurple/40 to-customPurple/15" />
+        <div className="mt-2 h-3.5 w-3.5 rounded-full border-2 border-customPurple bg-white shadow-sm" />
+      </div>
+    )}
+  </div>
+);
 
 export default function FacebookAdsProcessFlow() {
-  // State to track which elements are in view
-  const [visibleItems, setVisibleItems] = useState(new Set());
+  const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
+  const shouldReduceMotion = useReducedMotion();
 
-  // Function to check if elements are in viewport
-  const useElementOnScreen = (ref, threshold = 0.2) => {
-    useEffect(() => {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              setVisibleItems(prev => new Set([...prev, entry.target.dataset.index]));
-            }
-          });
-        },
-        { threshold }
-      );
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.12 }
+    );
 
-      // Find all the elements with data-index attribute
-      const elements = sectionRef.current?.querySelectorAll('[data-index]');
-      if (elements) {
-        elements.forEach(el => observer.observe(el));
-      }
-
-      return () => {
-        if (elements) {
-          elements.forEach(el => observer.unobserve(el));
-        }
-      };
-    }, [threshold]);
-  };
-
-  // Apply the hook
-  useElementOnScreen(sectionRef);
-
-  // Steps array for the Facebook advertising services
-  const services = [
-    {
-      icon: <FaLightbulb className="text-customPurple text-4xl mb-4" />,
-      title: "Facebook Ad Strategy & Campaign Setup",
-      description:
-        "We create a customised Facebook Ads strategy based on your business goals, ensuring high engagement and lead generation.",
-    },
-    {
-      icon: <FaUserFriends className="text-customPurple text-4xl mb-4" />,
-      title: "Audience Targeting & Retargeting",
-      description:
-        "We help you reach the right people, including:",
-      subItems: [
-        {
-          icon: <FaBuilding className="text-customPurple text-xl inline-block mr-2" />,
-          text: "Local Business Ads NZ – Target customers based on location, demographics, and behaviour."
-        },
-        {
-          icon: <FaUsers className="text-customPurple text-xl inline-block mr-2" />,
-          text: "Lookalike Audiences – Expand your reach by targeting users similar to your best customers."
-        }
-      ]
-    },
-    {
-      icon: <FaPencilAlt className="text-customPurple text-4xl mb-4" />,
-      title: "Ad Creation & Optimisation",
-      description:
-        "From Facebook carousel ads to video marketing, we design eye-catching ads that increase clicks and conversions.",
-      subItems: [
-        {
-          icon: <FaImages className="text-customPurple text-xl inline-block mr-2" />,
-          text: "Carousel & Image Ads – Showcase multiple products or features in a single ad."
-        },
-        {
-          icon: <FaVideo className="text-customPurple text-xl inline-block mr-2" />,
-          text: "Video Ads – Engage your audience with compelling video content."
-        }
-      ]
-    },
-    {
-      icon: <FaChartLine className="text-customPurple text-4xl mb-4" />,
-      title: "Performance Tracking & Reporting",
-      description:
-        "We continuously monitor, analyse, and optimise your Facebook Ads for the best results.",
-      subItems: [
-        {
-          icon: <FaChartBar className="text-customPurple text-xl inline-block mr-2" />,
-          text: "Detailed analytics and insights to track ROI and campaign effectiveness."
-        }
-      ]
+    const currentSection = sectionRef.current;
+    if (currentSection) {
+      observer.observe(currentSection);
     }
-  ];
+
+    return () => {
+      if (currentSection) {
+        observer.unobserve(currentSection);
+      }
+    };
+  }, []);
 
   return (
-    <section className="py-16 bg-gray-50" ref={sectionRef}>
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Title */}
-        <div data-index="title" className="text-center mb-12">
-          {visibleItems.has("title") && (
-            <>
-              <h2 className="text-3xl font-bold text-customGray">
-                Our Facebook Advertising Services
-              </h2>
-              <p className="text-gray-600 mt-4">
-                Comprehensive solutions to boost your brand&apos;s presence on Facebook
-              </p>
-            </>
-          )}
+    <section className="bg-transparent py-16" ref={sectionRef}>
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-12 text-center">
+          <h2 className="text-3xl font-bold text-customGray">
+            Our Facebook Advertising Services
+          </h2>
+          <p className="mt-4 text-gray-600">
+            Comprehensive solutions to boost your brand&apos;s presence on Facebook
+          </p>
         </div>
 
-        {/* Process Flow Vertical Layout */}
-        <div className="flex flex-col space-y-16 relative">
+        <div className="relative mx-auto flex max-w-lg flex-col items-center">
+          <div
+            className="pointer-events-none absolute bottom-8 left-1/2 top-8 hidden w-px -translate-x-1/2 bg-gradient-to-b from-customPurple/20 via-customPurple/35 to-customPurple/20 md:block"
+            aria-hidden="true"
+          />
+
           {services.map((service, index) => (
-            <div
+            <ProcessStepCard
               key={index}
-              data-index={`service-${index}`}
-              className={`flex flex-col items-center text-center max-w-md mx-auto`}
-            >
-              {visibleItems.has(`service-${index}`) && (
-                <>
-                  {/* Icon */}
-                  {service.icon}
-
-                  {/* Service Title */}
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">
-                    {service.title}
-                  </h3>
-
-                  {/* Service Description */}
-                  <p className="text-gray-600 mb-4">{service.description}</p>
-                  
-                  {/* Sub Items if any */}
-                  {service.subItems && (
-                    <div className="w-full text-left mt-2 space-y-3">
-                      {service.subItems.map((item, itemIndex) => (
-                        <div key={itemIndex} className="flex items-start">
-                          <span className="mr-2 mt-1">{item.icon}</span>
-                          <p className="text-gray-600">{item.text}</p>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-
-                  {/* Arrow Between Services */}
-                  {index < services.length - 1 && (
-                    // show arrow when the current service is visible
-                    visibleItems.has(`service-${index}`) && (
-                      <div className="mt-8">
-                        <FaArrowDown className="text-gray-400 text-3xl" />
-                      </div>
-                    )
-                  )}
-                </>
-              )}
-            </div>
+              Icon={service.Icon}
+              title={service.title}
+              description={service.description}
+              subItems={service.subItems}
+              stepNumber={index + 1}
+              isVisible={isVisible}
+              index={index}
+              shouldReduceMotion={shouldReduceMotion}
+              isLast={index === services.length - 1}
+            />
           ))}
         </div>
       </div>

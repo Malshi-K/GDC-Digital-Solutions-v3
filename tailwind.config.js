@@ -51,6 +51,7 @@ module.exports = {
         },
         customPurple: "#59107D",
         customPurpleDark: "#3B0B4D",
+        customPurpleLight: "#dcd2e6",
         customLightPurple: "#59107D",
         customGray: "#545454",
         customLightGray: "#737373",

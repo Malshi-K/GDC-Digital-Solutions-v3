@@ -1,105 +1,165 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import { FaSearch, FaPencilAlt, FaLaptopCode, FaCheckCircle, FaArrowRight } from "react-icons/fa"; // Icons for each step
+import React, { useState, useEffect, useRef } from "react";
+import {
+  FaSearch,
+  FaPencilAlt,
+  FaLaptopCode,
+  FaCheckCircle,
+  FaArrowRight,
+  FaArrowDown,
+} from "react-icons/fa";
+import { useReducedMotion } from "framer-motion";
+
+const steps = [
+  {
+    Icon: FaSearch,
+    title: "Discovery & Research",
+    description:
+      "We start by understanding your business goals, target audience, and competitors to develop a clear strategy.",
+  },
+  {
+    Icon: FaPencilAlt,
+    title: "Design & Planning",
+    description:
+      "Next, we create wireframes and design concepts that align with your brand's identity.",
+  },
+  {
+    Icon: FaLaptopCode,
+    title: "Development & Coding",
+    description:
+      "Our development team brings your design to life by coding the website using modern technologies.",
+  },
+  {
+    Icon: FaCheckCircle,
+    title: "Testing & Launch",
+    description:
+      "After thorough testing for performance and usability, we launch your website and ensure everything runs smoothly.",
+  },
+];
+
+const ProcessStepCard = ({
+  Icon,
+  title,
+  description,
+  stepNumber,
+  isVisible,
+  index,
+  shouldReduceMotion,
+}) => (
+  <article
+    className={`group relative flex h-full min-h-[280px] flex-col overflow-hidden rounded-2xl border border-[#e8d9ef] bg-[#f7f1fa] shadow-lg transition-[border-color,box-shadow,opacity,transform] duration-700 ease-in-out hover:border-transparent hover:shadow-xl md:min-h-[300px] ${
+      isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+    }`}
+    style={{ transitionDelay: `${index * 120}ms` }}
+  >
+    <div
+      className={`pointer-events-none absolute inset-0 rounded-2xl bg-ds-gradient opacity-0 transition-opacity group-hover:opacity-100 ${
+        shouldReduceMotion ? "duration-0" : "duration-700 ease-in-out"
+      }`}
+      aria-hidden="true"
+    />
+    <div className="relative z-10 flex h-full flex-col p-6 text-center sm:p-8">
+      <span className="mx-auto mb-4 inline-flex h-9 w-9 items-center justify-center rounded-full bg-customPurple/10 text-sm font-bold text-customPurple transition-colors duration-700 ease-in-out group-hover:bg-white/20 group-hover:text-white">
+        {String(stepNumber).padStart(2, "0")}
+      </span>
+      <Icon className="mx-auto mb-4 flex-shrink-0 text-4xl text-customPurple transition-colors duration-700 ease-in-out group-hover:text-white" />
+      <h3 className="mb-2 text-xl font-bold text-gray-900 transition-colors duration-700 ease-in-out group-hover:text-white">
+        {title}
+      </h3>
+      <p className="flex-grow text-gray-600 transition-colors duration-700 ease-in-out group-hover:text-white/85">
+        {description}
+      </p>
+    </div>
+  </article>
+);
 
 export default function ProcessFlow() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
+        setIsVisible(entry.isIntersecting);
       },
-      {
-        threshold: 0.2, // Trigger when 20% of the element is visible
-      }
+      { threshold: 0.15 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    const currentSection = sectionRef.current;
+    if (currentSection) {
+      observer.observe(currentSection);
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (currentSection) {
+        observer.unobserve(currentSection);
       }
     };
   }, []);
 
-  // Steps array for the website-building process
-  const steps = [
-    {
-      icon: <FaSearch className="text-customPurple text-4xl mb-4" />,
-      title: "Discovery & Research",
-      description: "We start by understanding your business goals, target audience, and competitors to develop a clear strategy.",
-    },
-    {
-      icon: <FaPencilAlt className="text-customPurple text-4xl mb-4" />,
-      title: "Design & Planning",
-      description: "Next, we create wireframes and design concepts that align with your brand's identity.",
-    },
-    {
-      icon: <FaLaptopCode className="text-customPurple text-4xl mb-4" />,
-      title: "Development & Coding",
-      description: "Our development team brings your design to life by coding the website using modern technologies.",
-    },
-    {
-      icon: <FaCheckCircle className="text-customPurple text-4xl mb-4" />,
-      title: "Testing & Launch",
-      description: "After thorough testing for performance and usability, we launch your website and ensure everything runs smoothly.",
-    },
-  ];
-
   return (
-    <section className="py-16 bg-gray-50" ref={sectionRef}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Title */}
-        <div className="text-center mb-12">
-          {isVisible && (
-            <>
-              <h2 className="text-3xl font-bold text-customGray">
-                A Snapshot of the Process We Use for Building Websites
-              </h2>
-              <p className="text-gray-600 mt-4">
-                We follow a structured approach to deliver high-quality websites.
-              </p>
-            </>
-          )}
+    <section className="bg-transparent py-16" ref={sectionRef}>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-12 text-center">
+          <h2 className="text-3xl font-bold text-customGray">
+            A Snapshot of the Process We Use for Building Websites
+          </h2>
+          <p className="mt-4 text-gray-600">
+            We follow a structured approach to deliver high-quality websites.
+          </p>
         </div>
 
-        {/* Process Flow */}
-        <div className="flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0 md:space-x-8 relative">
+        {/* Desktop: row with arrows */}
+        <div className="hidden items-stretch lg:flex lg:justify-between lg:gap-3">
           {steps.map((step, index) => (
-            <div key={index} className="flex items-center space-x-4">
-              {/* Step content renders immediately when section is visible (no transition) */}
-              {isVisible && (
-                <>
-                  <div className="flex flex-col items-center text-center max-w-xs">
-                    {/* Icon */}
-                    {step.icon}
-
-                    {/* Step Title */}
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">
-                      {step.title}
-                    </h3>
-
-                    {/* Step Description */}
-                    <p className="text-gray-600">{step.description}</p>
-                  </div>
-
-                  {/* Arrow Between Steps (shows immediately when section visible) */}
-                  {index < steps.length - 1 && (
-                    <div className="hidden md:flex items-center justify-center mt-0">
-                      <FaArrowRight className="text-gray-400 text-3xl" />
-                    </div>
-                  )}
-                </>
+            <React.Fragment key={index}>
+              <div className="min-w-0 flex-1">
+                <ProcessStepCard
+                  Icon={step.Icon}
+                  title={step.title}
+                  description={step.description}
+                  stepNumber={index + 1}
+                  isVisible={isVisible}
+                  index={index}
+                  shouldReduceMotion={shouldReduceMotion}
+                />
+              </div>
+              {index < steps.length - 1 && (
+                <div
+                  className="flex flex-shrink-0 items-center px-1"
+                  aria-hidden="true"
+                >
+                  <FaArrowRight className="text-3xl text-customPurple/35" />
+                </div>
               )}
-            </div>
+            </React.Fragment>
+          ))}
+        </div>
+
+        {/* Mobile / tablet: grid with down arrows */}
+        <div className="flex flex-col items-center gap-4 lg:hidden">
+          {steps.map((step, index) => (
+            <React.Fragment key={index}>
+              <div className="w-full max-w-md">
+                <ProcessStepCard
+                  Icon={step.Icon}
+                  title={step.title}
+                  description={step.description}
+                  stepNumber={index + 1}
+                  isVisible={isVisible}
+                  index={index}
+                  shouldReduceMotion={shouldReduceMotion}
+                />
+              </div>
+              {index < steps.length - 1 && (
+                <FaArrowDown
+                  className="text-2xl text-customPurple/35"
+                  aria-hidden="true"
+                />
+              )}
+            </React.Fragment>
           ))}
         </div>
       </div>

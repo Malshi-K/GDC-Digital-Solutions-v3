@@ -6,8 +6,8 @@ import TrackedPhoneLink from "./TrackedPhoneLink";
 export default function Footer() {
   return (
     <>
-      {/* Main Footer Section - White Background */}
-      <footer className="bg-white text-gray-900 py-6 sm:py-8 md:py-10 lg:py-12 shadow-[0_-10px_15px_-3px_rgba(0,0,0,0.1),0_-4px_6px_-2px_rgba(0,0,0,0.05)] px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-20">
+      {/* Main Footer Section */}
+      <footer className="bg-customPurpleLight text-gray-900 py-6 sm:py-8 md:py-10 lg:py-12 px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-20">
         <div className="max-w-7xl mx-auto">
           {/* Single Section Layout */}
           <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-6 sm:gap-8 lg:gap-12">
@@ -54,7 +54,7 @@ export default function Footer() {
               </h2>
               <ul className="space-y-3 sm:space-y-4 md:space-y-5">
                 <li className="flex items-start group">
-                  <div className="text-customPurple mr-3 flex-shrink-0 p-2 rounded-lg transition-all duration-300 group-hover:bg-gray-100">
+                  <div className="text-customPurple mr-3 flex-shrink-0 p-2 rounded-lg transition-all duration-300 group-hover:bg-white/60">
                     <FaMapMarkedAlt className="text-base sm:text-lg md:text-xl" />
                   </div>
                   <span className="text-sm sm:text-base text-gray-600 group-hover:text-gray-900 transition-colors leading-relaxed">
@@ -62,23 +62,23 @@ export default function Footer() {
                   </span>
                 </li>
                 <li className="flex items-center group">
-                  <div className="text-customPurple mr-3 flex-shrink-0 p-2 rounded-lg transition-all duration-300 group-hover:bg-gray-100">
+                  <div className="text-customPurple mr-3 flex-shrink-0 p-2 rounded-lg transition-all duration-300 group-hover:bg-white/60">
                     <FaPhoneAlt className="text-base sm:text-lg md:text-xl" />
                   </div>
                   <TrackedPhoneLink
                     phoneNumber="0278412236"
-                    className="hover:text-customPurple transition-colors text-sm sm:text-base text-gray-600"
+                    className="text-sm sm:text-base text-customPurple transition-colors hover:text-customPurpleDark"
                   >
                     027 841 2236
                   </TrackedPhoneLink>
                 </li>
                 <li className="flex items-center group">
-                  <div className="text-customPurple mr-3 flex-shrink-0 p-2 rounded-lg transition-all duration-300 group-hover:bg-gray-100">
+                  <div className="text-customPurple mr-3 flex-shrink-0 p-2 rounded-lg transition-all duration-300 group-hover:bg-white/60">
                     <FaEnvelope className="text-base sm:text-lg md:text-xl" />
                   </div>
                   <Link
                     href="mailto:Digital@gdcgroup.co.nz"
-                    className="hover:text-customPurple transition-colors text-sm sm:text-base text-gray-600 break-all"
+                    className="break-all text-sm sm:text-base text-customPurple transition-colors hover:text-customPurpleDark"
                   >
                     Digital@gdcgroup.co.nz
                   </Link>
@@ -163,8 +163,8 @@ export default function Footer() {
           </div>
         </div>
       </div> */}
-      {/* Copyright Section - White Background */}
-      <div className="bg-white py-3 sm:py-4 md:py-5 shadow-[0_-10px_15px_-3px_rgba(0,0,0,0.1),0_-4px_6px_-2px_rgba(0,0,0,0.05)] px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-20">
+      {/* Copyright Section */}
+      <div className="border-t border-customPurple/25 bg-customPurpleLight py-3 sm:py-4 md:py-5 px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-20">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col sm:flex-row justify-between items-center text-customLightGray gap-2 sm:gap-0">
             <p className="text-xs sm:text-sm text-center leading-relaxed w-full">

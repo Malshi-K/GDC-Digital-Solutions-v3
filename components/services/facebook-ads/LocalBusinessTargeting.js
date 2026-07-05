@@ -95,8 +95,9 @@ const LocalBusinessTargeting = () => {
   ];
 
   return (
-    <section className="py-16 bg-gray-50" ref={sectionRef}>
+    <section className="bg-transparent py-16" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-16 rounded-3xl border border-customPurple/10 bg-customPurpleLight px-6 py-10 shadow-md sm:px-10 sm:py-12 md:px-12 md:py-14">
         {/* Main Header */}
         <div 
           className={`text-center mb-16 transform transition-all duration-600 ease-out ${
@@ -110,7 +111,7 @@ const LocalBusinessTargeting = () => {
         </div>
 
         {/* Main Content - Introduction */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           <div 
             className={`lg:col-span-7 transform transition-all duration-700 ease-out ${
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
@@ -171,6 +172,7 @@ const LocalBusinessTargeting = () => {
             </div>
           </div>
         </div>
+        </div>
 
         {/* Industry-Specific Section */}
         <div className="mb-16">
@@ -205,7 +207,7 @@ const LocalBusinessTargeting = () => {
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                   activeIndustry === industry.id
                     ? "bg-customPurple text-white shadow-md"
-                    : "bg-gray-200 text-gray-800 hover:bg-gray-300"
+                    : "bg-customPurpleLight text-gray-800 hover:bg-[#d0c4de]"
                 }`}
                 onClick={() => setActiveIndustry(industry.id)}
               >

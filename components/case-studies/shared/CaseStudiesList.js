@@ -4,7 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 
 // Shared CaseStudiesList component
-const CaseStudiesList = ({ caseStudies, baseUrl }) => {
+const CaseStudiesList = ({ caseStudies = [], baseUrl }) => {
+  if (!caseStudies.length) {
+    return null;
+  }
+
   return (
     <div className="py-16 px-4 md:px-6">
       <div className="container mx-auto">
@@ -17,10 +21,10 @@ const CaseStudiesList = ({ caseStudies, baseUrl }) => {
           {caseStudies.map((caseStudy, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-300 flex flex-col h-full"
+              className="flex h-full flex-col overflow-hidden rounded-xl border border-customPurple/10 bg-customPurpleLight shadow-lg transition-shadow duration-300 hover:shadow-xl"
             >
               {/* Image Section */}
-              <div className="relative p-6 h-52 flex items-center justify-center">
+              <div className="relative flex h-52 items-center justify-center bg-white/40 p-6">
                 <Image
                   src={caseStudy.hero.imageSrc}
                   alt={caseStudy.hero.title}
@@ -41,10 +45,11 @@ const CaseStudiesList = ({ caseStudies, baseUrl }) => {
                   {caseStudy.hero.description}
                 </p>
                 <div className="mt-auto">
-                  <Link href={`/case-studies/${baseUrl}/${caseStudy.id}`}>
-                    <button className="w-full px-6 py-2 rounded-full border border-customPurple text-customPurple hover:bg-customPurple hover:text-white transition-colors text-sm font-medium">
-                      View Success Story
-                    </button>
+                  <Link
+                    href={`/case-studies/${baseUrl}/${caseStudy.id}`}
+                    className="group inline-flex w-full items-center justify-center rounded-full bg-customPurple px-6 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:scale-105 hover:bg-customPurpleDark hover:shadow-lg"
+                  >
+                    View Success Story
                   </Link>
                 </div>
               </div>

@@ -53,25 +53,25 @@ const ServiceCard = ({
       </div>
 
       <div className="flex flex-1 flex-col p-5 sm:p-6">
-        <h3 className="mb-3 font-serif text-xl leading-tight text-customPurple transition-colors duration-300 group-hover:text-white sm:text-2xl">
+        <h3 className="mb-3 font-serif text-xl leading-tight text-customPurple transition-colors duration-700 ease-in-out group-hover:text-white sm:text-2xl">
           {title}
         </h3>
 
-        <p className="mb-5 text-sm leading-relaxed text-customGray transition-colors duration-300 group-hover:text-white/80">
+        <p className="mb-5 text-sm leading-relaxed text-customGray transition-colors duration-700 ease-in-out group-hover:text-white/80">
           {description}
         </p>
 
         <div className="flex-grow">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-customPurple transition-colors duration-300 group-hover:text-white/55">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-customPurple transition-colors duration-700 ease-in-out group-hover:text-white/55">
             Includes:
           </p>
-          <ul className="space-y-2 text-sm leading-relaxed text-customGray transition-colors duration-300 group-hover:text-white/85">
+          <ul className="space-y-2 text-sm leading-relaxed text-customGray transition-colors duration-700 ease-in-out group-hover:text-white/85">
             {visibleItems.map((item, index) => (
               <li key={index} className="flex gap-2">
-                <span className="mt-[0.45rem] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-customPurple transition-colors duration-300 group-hover:bg-white/70" />
+                <span className="mt-[0.45rem] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-customPurple transition-colors duration-700 ease-in-out group-hover:bg-white/70" />
                 <Link
                   href={item.link}
-                  className="transition-colors duration-200 hover:text-customPurple group-hover:text-white group-hover:hover:text-white"
+                  className="transition-colors duration-700 ease-in-out hover:text-customPurple group-hover:text-white group-hover:hover:text-white"
                 >
                   {item.text}
                 </Link>
@@ -82,7 +82,7 @@ const ServiceCard = ({
           {items.length > maxItems && (
             <button
               onClick={() => setShowAll((current) => !current)}
-              className="mt-3 text-sm font-medium text-customPurple transition-colors duration-300 hover:text-customPurpleDark group-hover:text-white/80 group-hover:hover:text-white"
+              className="mt-3 text-sm font-medium text-customPurple transition-colors duration-700 ease-in-out hover:text-customPurpleDark group-hover:text-white/80 group-hover:hover:text-white"
               aria-expanded={showAll}
             >
               {showAll ? "View less" : `View more (${items.length - maxItems})`}
@@ -94,13 +94,19 @@ const ServiceCard = ({
   );
 
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-[#e8d9ef] bg-[#f7f1fa] text-gray-900 shadow-lg transition-all duration-300 hover:border-transparent hover:bg-ds-gradient hover:text-white hover:shadow-xl">
+    <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-[#e8d9ef] bg-[#f7f1fa] text-gray-900 shadow-lg transition-[border-color,box-shadow] duration-700 ease-in-out hover:border-transparent hover:shadow-xl">
+      <div
+        className={`pointer-events-none absolute inset-0 rounded-2xl bg-ds-gradient opacity-0 transition-opacity group-hover:opacity-100 ${
+          shouldReduceMotion ? "duration-0" : "duration-700 ease-in-out"
+        }`}
+        aria-hidden="true"
+      />
       {shouldReduceMotion ? (
-        <div className="flex h-full flex-col">{cardInner}</div>
+        <div className="relative z-10 flex h-full flex-col">{cardInner}</div>
       ) : (
         <motion.div
           variants={cardContentVariants}
-          className="flex h-full flex-col"
+          className="relative z-10 flex h-full flex-col"
         >
           {cardInner}
         </motion.div>

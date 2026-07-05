@@ -35,7 +35,7 @@ export default function FBClosingSection() {
   return (
     <section ref={sectionRef} className="relative py-16 md:py-24 overflow-hidden">
       {/* Background with gradient */}
-      <div className="absolute inset-0 bg-gray-200"></div>
+      <div className="absolute inset-0 bg-transparent"></div>
       
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
@@ -44,7 +44,7 @@ export default function FBClosingSection() {
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-customLightGray backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-2xl">
+        <div className="rounded-2xl border border-customPurple/10 bg-customPurpleLight p-8 shadow-md md:p-12">
           <div className="flex flex-col md:flex-row md:items-center">
             {/* Left content */}
             <div 
@@ -52,13 +52,13 @@ export default function FBClosingSection() {
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               } transition-all duration-700 ease-out`}
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              <h2 className="mb-6 text-3xl font-bold text-gray-900 md:text-4xl">
                 Get Started with GDC Digital Solutions Today!
               </h2>
-              <p className="text-gray-300 mb-4 text-lg leading-relaxed">
+              <p className="mb-4 text-lg leading-relaxed text-gray-700">
                 Ready to scale your business with Facebook Ads? Let&apos;s create a high-performance ad campaign that drives sales, leads, and brand awareness in New Zealand.
               </p>
-              <p className="text-gray-300 text-lg leading-relaxed md:mb-0 mb-8">
+              <p className="mb-8 text-lg leading-relaxed text-gray-700 md:mb-0">
                 Contact Us today to grow your business with expert Facebook advertising in NZ!
               </p>
             </div>
@@ -70,7 +70,7 @@ export default function FBClosingSection() {
               } transition-all duration-700 ease-out`}
               style={{ transitionDelay: '300ms' }}
             >
-              <div className="bg-customPurple rounded-xl p-6 backdrop-blur-sm border border-gray-700 shadow-lg">
+              <div className="rounded-xl border border-customPurple/20 bg-customPurple p-6 shadow-lg">
                 <h3 className="text-xl font-semibold text-white mb-4">Ready for more leads?</h3>
                 <p className="text-gray-300 mb-6">Our Facebook Ads experts are ready to help your business reach its full potential.</p>
                 <a 
