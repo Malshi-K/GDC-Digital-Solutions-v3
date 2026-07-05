@@ -237,11 +237,11 @@ const Header = () => {
                                     ? "noopener noreferrer"
                                     : ""
                                 }
-                                className="block p-4 rounded-xl hover:bg-gray-50 transition-all duration-300"
+                                className="group block p-4 rounded-xl transition-all duration-300 hover:bg-gray-50"
                               >
                                 <div className="flex items-start justify-between gap-4">
                                   <div>
-                                    <h3 className="font-semibold text-gray-900">
+                                    <h3 className="inline-block font-semibold text-gray-900 transition-all duration-300 group-hover:text-customPurple group-hover:underline group-hover:decoration-customPurple group-hover:decoration-2 group-hover:underline-offset-4">
                                       {dropdownItem.name}
                                     </h3>
 
@@ -394,10 +394,10 @@ const Header = () => {
                                   ? "noopener noreferrer"
                                   : ""
                               }
-                              className="flex items-start justify-between gap-3 p-3 rounded-lg hover:bg-gray-50 transition-all duration-300"
+                              className="group flex items-start justify-between gap-3 rounded-lg p-3 transition-all duration-300 hover:bg-gray-50"
                             >
                               <div>
-                                <h4 className="text-sm font-semibold text-gray-900">
+                                <h4 className="inline-block text-sm font-semibold text-gray-900 transition-all duration-300 group-hover:text-customPurple group-hover:underline group-hover:decoration-customPurple group-hover:decoration-2 group-hover:underline-offset-4">
                                   {dropdownItem.name}
                                 </h4>
 

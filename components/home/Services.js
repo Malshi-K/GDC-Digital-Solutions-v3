@@ -2,27 +2,46 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { motion, useReducedMotion } from "framer-motion";
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const cardContentVariants = {
+  hidden: {
+    y: "-100%",
+    opacity: 0,
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.75,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
 
 const ServiceCard = ({
   title,
   description,
   items,
   imageSrc,
-  ctaLink,
-  featured = false,
   maxItems = Infinity,
+  shouldReduceMotion,
 }) => {
   const [showAll, setShowAll] = useState(false);
   const visibleItems = showAll ? items : items.slice(0, maxItems);
 
-  return (
-    <article
-      className={`group flex h-full flex-col overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
-        featured
-          ? "bg-ds-gradient text-white"
-          : "border border-[#e8d9ef] bg-[#f7f1fa] text-gray-900"
-      }`}
-    >
+  const cardInner = (
+    <>
       <div className="relative m-3 mb-0 aspect-[4/3] overflow-hidden rounded-xl">
         <Image
           src={imageSrc}
@@ -34,49 +53,25 @@ const ServiceCard = ({
       </div>
 
       <div className="flex flex-1 flex-col p-5 sm:p-6">
-        <h3
-          className={`mb-3 font-serif text-xl leading-tight sm:text-2xl ${
-            featured ? "text-white" : "text-customPurple"
-          }`}
-        >
+        <h3 className="mb-3 font-serif text-xl leading-tight text-customPurple transition-colors duration-300 group-hover:text-white sm:text-2xl">
           {title}
         </h3>
 
-        <p
-          className={`mb-5 text-sm leading-relaxed ${
-            featured ? "text-white/80" : "text-customGray"
-          }`}
-        >
+        <p className="mb-5 text-sm leading-relaxed text-customGray transition-colors duration-300 group-hover:text-white/80">
           {description}
         </p>
 
-        <div className="mb-6 flex-grow">
-          <p
-            className={`mb-3 text-xs font-semibold uppercase tracking-[0.2em] ${
-              featured ? "text-white/55" : "text-customPurple"
-            }`}
-          >
+        <div className="flex-grow">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-customPurple transition-colors duration-300 group-hover:text-white/55">
             Includes:
           </p>
-          <ul
-            className={`space-y-2 text-sm leading-relaxed ${
-              featured ? "text-white/85" : "text-customGray"
-            }`}
-          >
+          <ul className="space-y-2 text-sm leading-relaxed text-customGray transition-colors duration-300 group-hover:text-white/85">
             {visibleItems.map((item, index) => (
               <li key={index} className="flex gap-2">
-                <span
-                  className={`mt-[0.45rem] h-1.5 w-1.5 flex-shrink-0 rounded-full ${
-                    featured ? "bg-white/70" : "bg-customPurple"
-                  }`}
-                />
+                <span className="mt-[0.45rem] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-customPurple transition-colors duration-300 group-hover:bg-white/70" />
                 <Link
                   href={item.link}
-                  className={`transition-colors duration-200 ${
-                    featured
-                      ? "hover:text-white"
-                      : "hover:text-customPurple"
-                  }`}
+                  className="transition-colors duration-200 hover:text-customPurple group-hover:text-white group-hover:hover:text-white"
                 >
                   {item.text}
                 </Link>
@@ -87,11 +82,7 @@ const ServiceCard = ({
           {items.length > maxItems && (
             <button
               onClick={() => setShowAll((current) => !current)}
-              className={`mt-3 text-sm font-medium transition-colors ${
-                featured
-                  ? "text-white/80 hover:text-white"
-                  : "text-customPurple hover:text-customPurpleDark"
-              }`}
+              className="mt-3 text-sm font-medium text-customPurple transition-colors duration-300 hover:text-customPurpleDark group-hover:text-white/80 group-hover:hover:text-white"
               aria-expanded={showAll}
             >
               {showAll ? "View less" : `View more (${items.length - maxItems})`}
@@ -99,11 +90,28 @@ const ServiceCard = ({
           )}
         </div>
       </div>
+    </>
+  );
+
+  return (
+    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-[#e8d9ef] bg-[#f7f1fa] text-gray-900 shadow-lg transition-all duration-300 hover:border-transparent hover:bg-ds-gradient hover:text-white hover:shadow-xl">
+      {shouldReduceMotion ? (
+        <div className="flex h-full flex-col">{cardInner}</div>
+      ) : (
+        <motion.div
+          variants={cardContentVariants}
+          className="flex h-full flex-col"
+        >
+          {cardInner}
+        </motion.div>
+      )}
     </article>
   );
 };
 
 const ServicesSection = () => {
+  const shouldReduceMotion = useReducedMotion();
+
   const serviceCards = [
     {
       title: "Digital Marketing",
@@ -114,7 +122,6 @@ const ServicesSection = () => {
         { text: "SEO / Copywriting", link: "/services/seo" },
       ],
       imageSrc: "/assets/images/services/Google Ads.jpg",
-      ctaLink: "/services/google-ads",
     },
     {
       title: "Web & App Development",
@@ -125,8 +132,6 @@ const ServicesSection = () => {
         { text: "App Development", link: "/services/app-development" },
       ],
       imageSrc: "/assets/images/services/Web development.png",
-      ctaLink: "/services/development",
-      featured: true,
     },
     {
       title: "Software Development",
@@ -135,7 +140,6 @@ const ServicesSection = () => {
         { text: "Software & Platforms", link: "/software-platforms/projex" },
       ],
       imageSrc: "/assets/images/services/Mobile development.jpg",
-      ctaLink: "/software-platforms/projex",
     },
     {
       title: "Branding Solutions",
@@ -160,15 +164,20 @@ const ServicesSection = () => {
         },
       ],
       imageSrc: "/assets/images/services/AboutUs.jpg",
-      ctaLink: "/services/branding-solutions",
       maxItems: 2,
     },
   ];
 
   return (
-    <section className="bg-[#faf8fc]">
-      <div className="container mx-auto px-4 pb-4 pt-8 sm:px-6 sm:py-12 md:px-8 md:py-16 lg:px-16 xl:px-20">
-        <div className="mb-12 text-center">
+    <section className="bg-transparent pb-4 pt-8 sm:py-12 md:py-16">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-20">
+        <motion.div
+          className="mb-12 text-center"
+          initial={shouldReduceMotion ? false : { opacity: 0, y: -24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
           <h2 className="mb-4 font-serif text-2xl text-customPurple sm:mb-6 sm:text-3xl md:text-4xl">
             Explore unique digital solutions service
           </h2>
@@ -177,9 +186,15 @@ const ServicesSection = () => {
             and drive meaningful connections. Our digital solutions combines
             innovation, strategy, and expertise to fuel your online success.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 items-stretch gap-6 md:grid-cols-2 md:gap-8 xl:grid-cols-4">
+        <motion.div
+          className="grid grid-cols-1 items-stretch gap-6 md:grid-cols-2 md:gap-8 xl:grid-cols-4"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+          variants={shouldReduceMotion ? undefined : containerVariants}
+        >
           {serviceCards.map((card, index) => (
             <ServiceCard
               key={index}
@@ -187,12 +202,11 @@ const ServicesSection = () => {
               description={card.description}
               items={card.items}
               imageSrc={card.imageSrc}
-              ctaLink={card.ctaLink}
-              featured={card.featured}
               maxItems={card.maxItems}
+              shouldReduceMotion={shouldReduceMotion}
             />
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
