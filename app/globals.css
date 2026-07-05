@@ -30,6 +30,17 @@
     background-image: linear-gradient(135deg, #3b0b4d 0%, #59107d 100%);
     background-color: transparent;
   }
+
+  .client-logo-track {
+    display: flex;
+    width: max-content;
+    animation: client-logo-marquee 24s linear infinite;
+    will-change: transform;
+  }
+
+  .client-logo-track:hover {
+    animation-play-state: paused;
+  }
 }
 
 @layer base {
@@ -170,6 +181,15 @@
   transition: transform 0.5s ease, opacity 0.5s ease;
   opacity: 0.5;
   transform: scale(0.8); /* Make non-active slides smaller */
+}
+
+@keyframes client-logo-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
 }
 
 .embla__slide--center {

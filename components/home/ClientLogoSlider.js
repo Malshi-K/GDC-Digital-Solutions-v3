@@ -3,10 +3,6 @@ import React from "react";
 import Image from "next/image";
 
 const ClientLogoSlider = () => {
-  // Animation speed variable - fast animation for better mobile experience
-  const animationDuration = "8s";
-
-  // Client logo paths 
   const logos = [
     {
       src: "/assets/images/Copy of peak. (Website) - Black 1.png",
@@ -62,19 +58,7 @@ const ClientLogoSlider = () => {
           {/* Slider Track Wrapper */}
           <div className="overflow-hidden">
             {/* Slider Track */}
-            <div
-              className="flex gap-8 md:gap-12 lg:gap-16"
-              style={{
-                animation: `slide ${animationDuration} linear infinite`,
-                willChange: "transform",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.animationPlayState = "paused";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.animationPlayState = "running";
-              }}
-            >
+            <div className="client-logo-track flex gap-8 md:gap-12 lg:gap-16">
               {/* First Set - All 7 Logos */}
               {logos.map((logo, index) => (
                 <div
@@ -116,17 +100,6 @@ const ClientLogoSlider = () => {
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes slide {
-          from {
-            transform: translate3d(0, 0, 0);
-          }
-          to {
-            transform: translate3d(-50%, 0, 0);
-          }
-        }
-      `}</style>
     </section>
   );
 };
