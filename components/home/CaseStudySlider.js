@@ -1,9 +1,11 @@
 "use client";
 import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
 
 const CaseStudySlider = ({ caseStudies }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const shouldReduceMotion = useReducedMotion();
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % caseStudies.length);
@@ -21,111 +23,127 @@ const CaseStudySlider = ({ caseStudies }) => {
 
   const currentStudy = caseStudies[currentIndex];
 
+  const flipTransition = shouldReduceMotion
+    ? { duration: 0 }
+    : { duration: 0.9, ease: [0.22, 1, 0.36, 1] };
+
+  const flipInitial = shouldReduceMotion
+    ? false
+    : { rotateX: 180, opacity: 0, scale: 0.96 };
+
+  const flipAnimate = shouldReduceMotion
+    ? {}
+    : { rotateX: 0, opacity: 1, scale: 1 };
+
   return (
-    <div className="bg-gray-50 py-8 sm:py-12 md:py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-        <h2 className="text-black text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4">
+    <div className="bg-transparent py-8 sm:py-12 md:py-16">
+      <motion.div
+        className="mx-auto mb-12 max-w-7xl px-4 sm:px-6 lg:px-8"
+        initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
+        <h2 className="mb-4 text-center text-3xl font-bold text-black sm:text-4xl md:text-5xl">
           Our Success Stories
         </h2>
-        <p className="text-lg text-customLightGray text-center max-w-3xl mx-auto">
+        <p className="mx-auto max-w-3xl text-center text-lg text-customLightGray">
           Discover how we&apos;ve helped businesses achieve remarkable growth
           and digital transformation
         </p>
-      </div>
+      </motion.div>
 
-  <div className="relative w-full overflow-hidden min-h-[600px] sm:min-h-[700px] md:min-h-[800px]">
-        {/* Full-width image without cropping or distortion */}
-          {/* Use a single responsive image: mobile uses mobileImagePath, desktop uses imagePath. */}
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 [perspective:1400px]">
+        <motion.button
+          onClick={previousSlide}
+          className="absolute left-0 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-lg transition-colors hover:bg-gray-100 sm:h-12 sm:w-12 md:left-2 lg:left-4"
+          aria-label="Previous slide"
+          initial={shouldReduceMotion ? false : { opacity: 0, x: -12 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.75 }}
+        >
+          <ChevronLeft className="h-5 w-5 text-gray-700 sm:h-6 sm:w-6" />
+        </motion.button>
+
+        <motion.button
+          onClick={nextSlide}
+          className="absolute right-0 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-lg transition-colors hover:bg-gray-100 sm:h-12 sm:w-12 md:right-2 lg:right-4"
+          aria-label="Next slide"
+          initial={shouldReduceMotion ? false : { opacity: 0, x: 12 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.75 }}
+        >
+          <ChevronRight className="h-5 w-5 text-gray-700 sm:h-6 sm:w-6" />
+        </motion.button>
+
+        <motion.div
+          className="relative min-h-[600px] w-full overflow-hidden rounded-2xl sm:min-h-[700px] md:min-h-[800px]"
+          style={{ transformStyle: "preserve-3d", transformOrigin: "center center" }}
+          initial={flipInitial}
+          whileInView={flipAnimate}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={flipTransition}
+        >
           <picture>
-            {/* Match header hamburger breakpoint: use desktop image only at xl and above */}
-            <source media="(min-width: 1280px)" srcSet={currentStudy.imagePath} />
-            {/* Use object-contain so the full image is visible without cropping */}
+            <source
+              media="(min-width: 1280px)"
+              srcSet={currentStudy.imagePath}
+            />
             <img
               src={currentStudy.mobileImagePath || currentStudy.imagePath}
               alt={currentStudy.heading}
-              className="w-full h-full block object-cover brightness-[.8]"
+              className="block h-full w-full object-cover brightness-[.8]"
             />
           </picture>
 
-        {/* Content Layer */}
-        <div className="relative xl:absolute xl:inset-0 z-10 px-4 sm:px-6 md:px-8 lg:px-20">
-          <div className="xl:h-full flex items-center">
-            {/* Card Container with Animation - Positioned Left */}
-            <div className="w-full max-w-xl lg:max-w-lg mx-auto xl:mx-0 mt-4 xl:mt-0">
-              {/* Navigation Arrows - Above Card */}
-              <div className="flex gap-3 mb-4 sm:mb-6 justify-center xl:justify-start">
-                <button
-                  onClick={previousSlide}
-                  className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-gray-100 transition-colors"
-                  aria-label="Previous slide"
-                >
-                  <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-gray-700" />
-                </button>
-
-                <button
-                  onClick={nextSlide}
-                  className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-gray-100 transition-colors"
-                  aria-label="Next slide"
-                >
-                  <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-gray-700" />
-                </button>
-              </div>
-
-              {/* White Card */}
-              <div
+          <div className="relative z-10 px-8 sm:px-12 md:px-16 lg:px-20 xl:absolute xl:inset-0">
+            <div className="flex items-center xl:h-full">
+              <motion.div
                 key={currentStudy.id}
-                className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl p-6 sm:p-8 md:p-10"
+                initial={shouldReduceMotion ? false : { opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.45, ease: "easeOut" }}
+                className="mx-auto mt-4 w-full max-w-xl rounded-2xl bg-white p-6 shadow-2xl sm:rounded-3xl sm:p-8 md:p-10 xl:mx-0 xl:mt-0 lg:max-w-lg"
               >
-                {/* Title */}
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+                <h2 className="mb-3 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
                   {currentStudy.heading}
                 </h2>
 
-                {/* Statistic */}
-                <p className="text-purple-600 font-semibold text-base sm:text-lg md:text-xl mb-4 sm:mb-6">
+                <p className="mb-4 text-base font-semibold text-purple-600 sm:mb-6 sm:text-lg md:text-xl">
                   {currentStudy.statistic}
                 </p>
 
-                {/* Description */}
-                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6 sm:mb-8">
+                <p className="mb-6 text-sm leading-relaxed text-gray-600 sm:mb-8 sm:text-base">
                   {currentStudy.description}
                 </p>
 
-                {/* CTA Button */}
                 <a
                   href={currentStudy.caseStudyPath}
-                  className="inline-block bg-customPurple hover:bg-customPurple text-white font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
+                  className="inline-block rounded-lg bg-customPurple px-6 py-2.5 font-semibold text-white shadow-md transition-colors duration-200 hover:bg-customPurple hover:shadow-lg sm:px-8 sm:py-3"
                 >
                   {currentStudy.buttonLabel}
                 </a>
-              </div>
+              </motion.div>
             </div>
           </div>
-        </div>
 
-        {/* Pagination Dots */}
-        <div className="absolute bottom-4 xl:bottom-8 left-1/2 -translate-x-1/2 xl:left-8 xl:translate-x-0 sm:left-16 lg:left-20 flex gap-2 sm:gap-3 z-20">
-          {caseStudies.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => goToSlide(index)}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                currentIndex === index
-                  ? "w-6 sm:w-8 bg-white"
-                  : "w-2 bg-white/50 hover:bg-white/70"
-              }`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
-        </div>
-
-        {/* Scroll to Top Button */}
-        <button
-          className="hidden xl:flex absolute bottom-8 right-8 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm items-center justify-center hover:bg-white/30 transition-colors z-20"
-          aria-label="Scroll to top"
-        >
-          <ChevronRight className="w-5 h-5 text-white rotate-[-90deg]" />
-        </button>
+          <div className="absolute bottom-4 left-1/2 z-20 flex -translate-x-1/2 gap-2 sm:bottom-8 sm:gap-3 xl:bottom-8 xl:left-20 xl:translate-x-0">
+            {caseStudies.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  currentIndex === index
+                    ? "w-6 bg-white sm:w-8"
+                    : "w-2 bg-white/50 hover:bg-white/70"
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        </motion.div>
       </div>
     </div>
   );
