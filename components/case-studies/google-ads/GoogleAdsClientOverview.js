@@ -204,12 +204,12 @@ const GoogleAdsClientOverview = () => {
                       <span className="font-semibold text-customPurple">Website</span>
                     </div>
                     <Link
-                      href="https://www.gdcdigital.co.nz"
+                      href="https://www.gdcgroup.co.nz"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 text-customPurple hover:text-customLightPurple font-medium transition-colors duration-200 group"
                     >
-                      www.gdcdigital.co.nz
+                      www.gdcgroup.co.nz
                       <FaExternalLinkAlt className="text-xs group-hover:translate-x-1 transition-transform duration-200" />
                     </Link>
                   </div>

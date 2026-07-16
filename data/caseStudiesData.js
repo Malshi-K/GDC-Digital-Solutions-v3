@@ -45,7 +45,7 @@ export const caseStudiesData = {
       ],
       companyName: "GDC Consultants Ltd",
       industry: "Engineering Consultancy",
-      website: "https://www.gdcdigital.co.nz",
+      website: "https://www.gdcgroup.co.nz",
       description:
         "GDC Consultants is a full-service engineering consultancy offering various specialised services across New Zealand. With a need to boost their online presence and generate high-quality leads, GDC Consultants partnered with its in-house digital marketing team, GDC Digital Solutions, to manage Google Ads campaigns and drive inquiries.",
     },
